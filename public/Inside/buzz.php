@@ -224,7 +224,50 @@ if (isset($_POST['submit'])) {
     <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,900' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="assets/css/font-icons/entypo/css/entypo.css">
+
+
+    <style>
     
+     .startingdate{
+        padding: 5px; 
+        font-size: 12px; 
+        background-color: #00a651; 
+        color: white; 
+        border-radius: 5px; 
+        float: left;
+
+    }
+
+     .endingdate{
+        padding: 5px; 
+        font-size: 12px; 
+        background-color: #e85657; 
+        color: white; 
+        border-radius: 5px; 
+        float: right;
+
+     }
+    @media screen and (max-width: 789px) {
+     .startingdate{
+       float: none;
+       display: block;
+       margin-left: auto;
+       margin-right: auto;
+       text-align: center;
+       }
+    }
+    @media screen and (max-width: 789px) {
+     .endingdate{
+       float: none;
+       display: block;
+       margin-left: auto;
+       margin-right: auto;
+       text-align: center;
+       }
+    }
+
+    
+    </style>
   
     <script>
     $.noConflict();
@@ -696,10 +739,10 @@ if (isset($_POST['submit'])) {
                                                     <?php
                                                     $timestamp_start = strtotime($notification["start_date_time"]);
                                                     $timestamp_end = strtotime($notification["end_date_time"]); ?>
-                                                    <span style="padding: 5px; font-size: 12px; background-color: #00a651; color: white; border-radius: 5px; float: left;">
+                                                    <span class="startingdate">
                                                     Starting on: <?php echo date("l, d M, y | h:i a", $timestamp_start); ?>
                                                     </span>
-                                                    <span style="padding: 5px; font-size: 12px; background-color: #e85657; color: white; border-radius: 5px; float: right;">
+                                                    <span class="endingdate">
                                                     Ending on: <?php echo date("l, d M, y | h:i a", $timestamp_end); ?>
                                                     </span>
                                                       </b>                                
@@ -740,10 +783,10 @@ if (isset($_POST['submit'])) {
                                                     <?php
                                                     $timestamp_start = strtotime($notification["start_date_time"]);
                                                     $timestamp_end = strtotime($notification["end_date_time"]); ?>
-                                                    <span style="padding: 5px; font-size: 12px; background-color: #00a651; color: white; border-radius: 5px; float: left;">
+                                                    <span class="startingdate">
                                                     Starting on: <?php echo date("l, d M, y | h:i a", $timestamp_start); ?>
                                                     </span>
-                                                    <span style="padding: 5px; font-size: 12px; background-color: #e85657; color: white; border-radius: 5px; float: right;">
+                                                    <span class="endingdate">
                                                     Ending on: <?php echo date("l, d M, y | h:i a", $timestamp_end); ?>
                                                     </span>
                                                       </b>                                
@@ -793,10 +836,10 @@ if (isset($_POST['submit'])) {
                                                     <?php 
                                                     $timestamp_start = strtotime($notification["start_date_time"]);
                                                     $timestamp_end = strtotime($notification["end_date_time"]); ?>
-                                                    <span style="padding: 5px; font-size: 12px; background-color: #00a651; color: white; border-radius: 5px; float: left;">
+                                                    <span class="startingdate">
                                                     Starting on: <?php echo date("l, d M, y  |  h:i a", $timestamp_start); ?>
                                                     </span>
-                                                    <span style="padding: 5px; font-size: 12px; background-color: #e85657; color: white; border-radius: 5px; float: right;">
+                                                    <span class="endingdate">
                                                     Ending on: <?php echo date("l, d M, y  |  h:i a", $timestamp_end); ?>
                                                     </span>                                                
                                                     </b>
@@ -839,10 +882,10 @@ if (isset($_POST['submit'])) {
                                                     <?php 
                                                     $timestamp_start = strtotime($notification["start_date_time"]);
                                                     $timestamp_end = strtotime($notification["end_date_time"]); ?>
-                                                    <span style="padding: 5px; font-size: 12px; background-color: #00a651; color: white; border-radius: 5px; float: left;">
+                                                    <span class="startingdate">
                                                     Starting on: <?php echo date("l, d M, y  |  h:i a", $timestamp_start); ?>
                                                     </span>
-                                                    <span style="padding: 5px; font-size: 12px; background-color: #e85657; color: white; border-radius: 5px; float: right;">
+                                                    <span class="endingdate">
                                                     Ending on: <?php echo date("l, d M, y  |  h:i a", $timestamp_end); ?>
                                                     </span>                                                
                                                     </b>
