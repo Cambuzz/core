@@ -14,8 +14,8 @@ if ($code==$db_code) {
 	$query = "UPDATE users SET confirmed = '1', confirm_code = '0'";
     $result = mysqli_query($conn, $query);
     if ($result && mysqli_affected_rows($conn) == 1) {
-        echo "Complete";
-    } else {
+       redirect_to("public/Inside/buzz.php");
+     else {
         $_SESSION["message"] = "Updation failed.";
     }
 } else {

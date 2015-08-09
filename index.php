@@ -71,7 +71,7 @@ if (isset($_POST['submit_up'])) {
 
                 if ($found_user) {
 
-                    $message = "Confirm your email by clicking the link http://52.74.246.227/emailconfirm.php?username=$username&code=$confirmcode";
+                    $message = "Confirm your email by clicking the link http://cambuzz.co.in/emailconfirm.php?username=$username&code=$confirmcode";
                     mail($email, "Confirm your email", $message, "From: prashant_bhardwaj@Cambuzz.co.in");
                     echo "Registration complete, confirm your email";
                 } else {
