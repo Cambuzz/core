@@ -173,24 +173,26 @@ if (isset($_POST['submit_up'])) {
                                     <div class="col-md-12">
                                         <div class="panel panel-default" data-collapsed="0">
                                             <div class="panel-body">
-                                                <form role="form" class="form-horizontal form-groups-bordered" method="post" action="index.php" enctype="multipart/form-data">
+                                                <form role="form" class="form-horizontal form-groups-bordered" class="signupform" enctype="multipart/form-data">
                                                     <div class="form-group">
                                                         <label for="field-1" class="col-sm-3 control-label">Name</label>
                                                         <div class="col-sm-5">
-                                                            <input type="text" class="form-control" id="field-1" name="sname" value="" required />
+                                                            <input type="text" class="form-control" id="field1" name="sname" value="" required />
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="field-1" class="col-sm-3 control-label">Registration Number</label>
                                                         <div class="col-sm-5">
-                                                            <input type="text" class="form-control" id="field-1" name="username" value="" required />
+                                                            <input type="text" class="form-control" id="field2" name="username" value="" required />
                                                         </div>
+                                                        <div class="registrationFormAlert" id="usernamematching" style="margin-left: 160px;"></div>
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="field-1" class="col-sm-3 control-label">VIT Email</label>
                                                         <div class="col-sm-5">
-                                                            <input type="email" class="form-control" id="field-1" name="email" value="  @vit.ac.in" required />
+                                                            <input type="email" class="form-control" id="field3" name="email" value="  @vit.ac.in" required />
                                                         </div>
+                                                        <div class="registrationFormAlert" id="emailchecking" style="margin-left: 160px;"></div>
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="field-3" class="col-sm-3 control-label">Password</label>
@@ -205,6 +207,7 @@ if (isset($_POST['submit_up'])) {
                                                         </div>
                                                         <div class="registrationFormAlert" id="divCheckPasswordMatch" style="margin-left: 160px;"></div>
                                                     </div>
+                                                    <div id="accountchecking"></div>
                                                     <div class="form-group">
                                                         <div class="col-sm-offset-3 col-sm-5">
                                                             <input type="submit" name="submit_up" value="Sign in" class="btn btn-success">
@@ -413,6 +416,43 @@ if (isset($_POST['submit_up'])) {
                             $('#tempdiv').html(msg);
                         }
                         hello(msg);
+                    });
+                    
+
+                return false;
+
+                
+            });
+
+
+            $('.signupform').on('submit',function()
+            {
+
+                var name=$("#field1").val();
+               var register=$("#field2").val();
+               var email=$("#field3").val();
+                
+               
+               var msg;
+                
+                $.ajax({
+                    method: "POST",
+                    url: "signup_verify.php",
+                    data: { name:name,register:register,email:email}
+                    })
+                    .done(function( msg ) {
+                        if(msg=="Username already exists")
+                        {
+                            $('#usernamematching').html(msg);
+                        }
+                        else if(msg=="Only VIT email is recognised")
+                        {
+                            $('#emailchecking').html(msg);
+                        }
+                        else
+                        {
+                            $('#accountchecking').html(msg);
+                        }
                     });
                     
 

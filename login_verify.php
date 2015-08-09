@@ -1,6 +1,11 @@
 <?php require_once("includes/session.php");?>
 <?php require_once("includes/db_connection.php");?>
 <?php require_once("includes/functions.php");?>
+<?php
+if (logged_in()) {
+    redirect_to ("public/Inside/buzz.php");
+}
+?>
 <?php 
 
         $username = $_POST["username"];
@@ -23,7 +28,7 @@
                 echo "Account not confirmed";
             }
         } else {
-            echo "Invalid Username or Passowrd.";            
+            echo "Invalid Username or Password.";            
         }
            
 ?>
