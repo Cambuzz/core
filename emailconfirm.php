@@ -15,9 +15,7 @@ if ($code==$db_code) {
     $result = mysqli_query($conn, $query);
     if ($result && mysqli_affected_rows($conn) == 1) {
         $_SESSION["username"] = $username;
-        redirect_to("public/Inside/buzz.php");            
-    }
-       
+        redirect_to("public/Inside/buzz.php")       
     } else {
         $_SESSION["message"] = "Updation failed.";
     }
