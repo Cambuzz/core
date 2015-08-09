@@ -385,13 +385,10 @@ if (isset($_POST['submit'])) {
                                             <div class="row">
                                                 <!-- Metabox :: Publish Settings -->
                                                 <div class="col-sm-4">
-                                                    <div class="panel panel-primary" data-collapsed="0">
+                                                    <div class="panel panel-default" data-collapsed="0">
                                                         <div class="panel-heading">
                                                             <div class="panel-title">
                                                                 Buzz Timing
-                                                            </div>
-                                                            <div class="panel-options">
-                                                                <a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
                                                             </div>
                                                         </div>
                                                         <div class="panel-body">
