@@ -218,7 +218,7 @@ if (isset($_POST['submit'])) {
     
     <!-- Buzz button -->
     <link rel="stylesheet" type="text/css" href="assets/css/buttoncreatebuzz.css" />
-    <link rel="stylesheet" src="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/normalize.css" />
     <!-- Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
