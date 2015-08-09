@@ -7,40 +7,7 @@ if (logged_in()) {
     redirect_to ("public/Inside/buzz.php");
 }
 ?>
-<?php
-$username = "";
-if (isset($_POST['submit'])) {
 
-    $required_fields = array("username", "password");
-    validate_presence($required_fields);
-    
-    if (empty($errors)) {
-
-        $username = $_POST["username"];
-        $password = $_POST["password"];
-        
-        $query_email = "SELECT * FROM users WHERE username = '{$username}'";
-        $result_email = mysqli_query($conn, $query_email);
-        while ($row=mysqli_fetch_assoc($result_email)) {
-            $db_confirmed = $row['confirmed'];
-        }
-        $found_user = attempt_login($username, $password);
-
-        if ($found_user) {
-
-            if ($db_confirmed==1) {
-                $_SESSION["user_id"] = $found_user["id"];
-                $_SESSION["username"] = $found_user["username"];
-                redirect_to("public/Inside/buzz.php");
-            } else {
-                echo "Account not confirmed";
-            }
-        } else {
-            $_SESSION["message"] = "Username/password not found.";
-        }
-    }
-} 
-?>
 <?php
 if (isset($_POST['submit_up'])) {
     $query_ucheck = "SELECT username FROM users WHERE username = '{$_POST['username']}'";
@@ -175,15 +142,16 @@ if (isset($_POST['submit_up'])) {
                         <div class="content-style-form content-style-form-1">
                             <span class="icon icon-close">Close the dialog</span>
                             <h2>Login</h2>
-                            <form method="post" action="index.php">
+                            <form class="loginform">
                                 <p>
                                     <label>Registration Number</label>
-                                    <input type="text" name="username" value="" />
+                                    <input type="text" class="regno" required name="username" value="" />
                                 </p>
                                 <p>
                                     <label>Password</label>
-                                    <input type="password" name="password" value="" />
+                                    <input type="password" class="passwor" required name="password" value="" />
                                 </p>
+                                 <div id="tempdiv"></div>
                                 <p>
                                     <input type="submit" class="btn btn-danger" name="submit" value="Login" style="text-align: center;">
                                 </p>
@@ -417,6 +385,51 @@ if (isset($_POST['submit_up'])) {
 
         });
     </script>
+
+    <script  src="HTTP://code.jquery.com/jquery-1.9.1.min.js"></script>
+    
+    <script type="text/javascript">
+        
+        
+        $(document).ready(function(){
+           
+            $('.loginform').on('submit',function()
+            {
+
+                var registration_no_login=$(".regno").val();
+                var password_login=$(".passwor").val();
+                
+               
+               var msg;
+                
+                $.ajax({
+                    method: "POST",
+                    url: "login_verify.php",
+                    data: { username:registration_no_login,password:password_login }
+                    })
+                    .done(function( msg ) {
+                        $('#tempdiv').html(msg);
+                        hello(msg);
+                    });
+                    
+
+                return false;
+
+                
+            });
+            
+            function hello(msg)
+            {
+                if(msg=="loggedin")
+                {
+                    window.location.href="public/Inside/buzz.php";
+                }
+            }
+            
+        });
+        
+    </script> 
+
 </body>
 
 </html>
