@@ -15,7 +15,7 @@ if ($code==$db_code) {
     $result = mysqli_query($conn, $query);
     if ($result && mysqli_affected_rows($conn) == 1) {
        redirect_to("public/Inside/buzz.php");
-     else {
+    } else {
         $_SESSION["message"] = "Updation failed.";
     }
 } else {
