@@ -231,7 +231,7 @@ if (isset($_POST['submit'])) {
     </script>
 </head>
 
-<body class="page-body">
+<body class="page-body page-left">
     <div class="page-container">
         <div class="sidebar-menu">
             <div class="sidebar-menu-inner" style="font-family: 'Montserrat', sans-serif">
