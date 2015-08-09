@@ -777,7 +777,7 @@ if (isset($_POST['submit'])) {
                                                     </div>
                                                     </header>
                                                     <div class="story-main-content">
-                                                    <p style="font-size: 30px; font-family: 'Playfair Display', serif; font-weight: bold; line-height: 1.3; color: black;"><?php echo $notification["title"]; ?></p>
+                                                    <p style="font-size: 30px; font-family: 'Montserrat', serif; font-weight: bold; line-height: 1.3; color: black;"><?php echo $notification["title"]; ?></p>
                                                     <p><?php echo $notification["content"]. " "; ?>                                                
                                                     </p>                                                
                                                     <b style="margin-top: 10px; display: block; margin-left: auto; margin-right: auto; font-family:'Montserrat', sans-serif">
@@ -828,7 +828,7 @@ if (isset($_POST['submit'])) {
                                                     </div>
                                                     </header>
                                                     <div class="story-main-content">
-                                                    <p style="font-size: 30px; font-family: 'Playfair Display', serif; font-weight: bold; line-height: 1.3; color: black;"><?php echo $notification["title"]; ?></p>
+                                                    <p style="font-size: 30px; font-family: 'Montserrat', serif; font-weight: bold; line-height: 1.3; color: black;"><?php echo $notification["title"]; ?></p>
                                                     <p><?php echo $notification["content"]. " "; ?>
                                                     
                                                     </p>
@@ -874,7 +874,7 @@ if (isset($_POST['submit'])) {
                                                     </div>
                                                     </header>
                                                     <div class="story-main-content">
-                                                    <p style="font-size: 30px; font-family: 'Playfair Display', serif; font-weight: bold; line-height: 1.3; color: black;"><?php echo $notification["title"]; ?></p>
+                                                    <p style="font-size: 30px; font-family: 'Montserrat', serif; font-weight: bold; line-height: 1.3; color: black;"><?php echo $notification["title"]; ?></p>
                                                     <p><?php echo $notification["content"]. " "; ?>
                                                     
                                                     </p>
