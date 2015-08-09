@@ -319,6 +319,13 @@ header .header-content .header-content-inner p {
         padding-bottom: 5px;
         text-align: center;
     }
+
+    header .header-content .header-content-inner .heading-text {
+        font-size: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 @media(min-width:768px) {
