@@ -1,7 +1,6 @@
 <?php require_once("../../includes/session.php");?>
 <?php require_once("../../includes/db_connection.php");?>
 <?php require_once("../../includes/functions.php");?>
-<?php confirm_logged_in(); ?>
 <?php
 $event_set = find_all_events();
 ?>
