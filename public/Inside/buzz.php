@@ -258,6 +258,7 @@ if (isset($_POST['submit'])) {
     }
     @media screen and (max-width: 789px) {
      .endingdate{
+       margin-top: 10px;
        float: none;
        display: block;
        margin-left: auto;
