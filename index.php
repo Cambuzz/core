@@ -58,9 +58,10 @@ if (isset($_POST['submit_up'])) {
 
             $sname = $_POST['sname'];
             $username = mysql_prep($_POST["username"]);
-            $email_id = $_POST['email'];
-            $retval = ereg("(@vit.ac.in$)", $email_id);
-            if( $retval == true )
+            $email = $_POST['email'];
+            $retval1 = ereg("(@vit.ac.in$)", $email);
+            $retval2 = ereg("(^@vit.ac.in)", $email);
+            if( $retval1 == true && $retval2==false )
             {
                 $hashed_password = password_encrypt($_POST["password"]); 
                 $confirmcode = rand(); 
