@@ -415,7 +415,7 @@ if (isset($_POST['submit'])) {
                                                 </div>
                                                 <!-- Metabox :: Poster Image -->
                                                 <div class="col-sm-4">
-                                                    <div class="panel panel-primary" data-collapsed="0">
+                                                    <div class="panel panel-default" data-collapsed="0">
                                                         <div class="panel-heading" style="display: inline-block;">
                                                             <div class="panel-title">
                                                                 Upload your poster
@@ -453,7 +453,7 @@ if (isset($_POST['submit'])) {
                                                 </div>
                                                 <!-- Metabox :: Branch -->
                                                 <div class="col-sm-2">
-                                                    <div class="panel panel-primary" data-collapsed="0">
+                                                    <div class="panel panel-default" data-collapsed="0">
                                                         <div class="panel-heading">
                                                             <div class="panel-title">
                                                                 Related to any Branch?
@@ -505,13 +505,10 @@ if (isset($_POST['submit'])) {
                                                 </div>
                                                 <!-- Metabox :: Club -->
                                                 <div class="col-sm-2">
-                                                    <div class="panel panel-primary" data-collapsed="0">
+                                                    <div class="panel panel-default" data-collapsed="0">
                                                         <div class="panel-heading">
                                                             <div class="panel-title">
                                                                 Related to any Club?
-                                                            </div>
-                                                            <div class="panel-options">
-                                                                <a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
                                                             </div>
                                                         </div>
                                                         <div class="panel-body">
