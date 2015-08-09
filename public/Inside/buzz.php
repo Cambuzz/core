@@ -255,9 +255,8 @@ if (isset($_POST['submit'])) {
        margin-right: auto;
        text-align: center;
        }
-    }
-    @media screen and (max-width: 789px) {
-     .endingdate{
+
+    .endingdate{
        margin-top: 10px;
        float: none;
        display: block;
@@ -265,9 +264,18 @@ if (isset($_POST['submit'])) {
        margin-right: auto;
        text-align: center;
        }
-    }
-
     
+    .user-thumb{
+        display: none;
+       }
+
+    .story{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+       }
+
+    }    
     </style>
   
     <script>
