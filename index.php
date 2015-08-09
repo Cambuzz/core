@@ -21,24 +21,24 @@ if (isset($_POST['submit'])) {
         
         $query_email = "SELECT * FROM users WHERE username = '{$username}'";
         $result_email = mysqli_query($conn, $query_email);
-        while ($row=mysqli_fetch_assoc($result_email)) {
-            $db_confirmed = $row['confirmed'];
+        //while ($row=mysqli_fetch_assoc($result_email)) {
+          //  $db_confirmed = $row['confirmed'];
         }
         $found_user = attempt_login($username, $password);
 
         if ($found_user) {
 
-            if ($db_confirmed==1) {
+           // if ($db_confirmed==1) {
                 $_SESSION["user_id"] = $found_user["id"];
                 $_SESSION["username"] = $found_user["username"];
                 redirect_to("public/Inside/buzz.php");
-            } else {
-                echo "Account not confirmed";
-            }
+            //} else {
+              //  echo "Account not confirmed";
+            //}
         } else {
             $_SESSION["message"] = "Username/password not found.";
         }
-    }
+    //}
 } 
 ?>
 <?php
@@ -61,8 +61,8 @@ if (isset($_POST['submit_up'])) {
             $email = $_POST['email'];
             $hashed_password = password_encrypt($_POST["password"]); 
             $confirmcode = rand(); 
-            $query = "INSERT INTO users (sname, username, email, hashed_password, confirmed, confirm_code)";
-            $query .= " VALUES ('{$sname}', '{$username}', '{$email}', '{$hashed_password}', '0', '{$confirmcode}')";
+            $query = "INSERT INTO users (sname, username, email, hashed_password)";
+            $query .= " VALUES ('{$sname}', '{$username}', '{$email}', '{$hashed_password}')";
             $result = mysqli_query($conn, $query);         
 
             if ($result) {
@@ -71,9 +71,12 @@ if (isset($_POST['submit_up'])) {
 
                 if ($found_user) {
 
-                    $message = "Confirm your email by clicking the link http://cambuzz.co.in/emailconfirm.php?username=$username&code=$confirmcode";
-                    mail($email, "Confirm your email", $message, "From: prashant_bhardwaj@cambuzz.co.in");
-                    echo "Registration complete, confirm your email";
+                    //$message = "Confirm your email by clicking the link http://52.74.246.227/emailconfirm.php?username=$username&code=$confirmcode";
+                    //mail($email, "Confirm your email", $message, "From: prashant_bhardwaj@52.74.246.227");
+                    //echo "Registration complete, confirm your email";
+                  $_SESSION["user_id"]=$found_user["id"];
+                  $_SESSION["username"]=$found_user["username"];    
+                  redirect_to("public/Inside/buzz.php");
                 } else {
                     $_SESSION["message"] = "Username/password not found.";
                 }
