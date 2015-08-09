@@ -408,7 +408,10 @@ if (isset($_POST['submit_up'])) {
                     data: { username:registration_no_login,password:password_login }
                     })
                     .done(function( msg ) {
-                        $('#tempdiv').html(msg);
+                        if(msg!="loggedin")
+                        {
+                            $('#tempdiv').html(msg);
+                        }
                         hello(msg);
                     });
                     
