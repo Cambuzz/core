@@ -37,16 +37,20 @@
     <meta name="description" content="Cambuzz" />
     <meta name="author" content="" />
     <title>Cambuzz</title>
-    <link rel="stylesheet" href="assets/css/font-icons/entypo/css/entypo.css">
-    <link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,900' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-     
-    <link rel="stylesheet" type="text/css" href="assets/css/buttoncreatebuzz.css" />
-    <link rel="stylesheet" href="assets/css/bootstrap.css">
+   <link rel="stylesheet" href="assets/css/bootstrap.css">
     <link rel="stylesheet" href="assets/css/style-core.css">
     <link rel="stylesheet" href="assets/css/style-theme.css">
     <link rel="stylesheet" href="assets/css/style-forms.css">
-    <link rel="stylesheet" src="assets/normalize.css" />
+    
+    <!-- Buzz button -->
+    <link rel="stylesheet" type="text/css" href="assets/css/buttoncreatebuzz.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/normalize.css" />
+    <!-- Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="assets/css/font-icons/entypo/css/entypo.css">
+
     <script>
     $.noConflict();
     </script>
