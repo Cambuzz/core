@@ -89,7 +89,9 @@
                     
                     $(document).ready(function() {
                         var clock;
-
+                        var d=new Date();
+                        var t= d.getTime();
+                        t=t/1000;
                         clock = $('.clock').FlipClock({
                             clockFace: 'DailyCounter',
                             autoStart: false,
@@ -100,10 +102,9 @@
                             }
                         });
                                 
-                        clock.setTime(432002);
+                        clock.setTime(1439222791.917+397301-t);
                         clock.setCountdown(true);
                         clock.start();
-
                     });
                 </script>
         </div>
