@@ -42,7 +42,7 @@
     <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
      
     <link rel="stylesheet" type="text/css" href="assets/css/buttoncreatebuzz.css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
     <link rel="stylesheet" href="assets/css/style-core.css">
     <link rel="stylesheet" href="assets/css/style-theme.css">
     <link rel="stylesheet" href="assets/css/style-forms.css">
@@ -367,12 +367,13 @@ if (isset($_POST['submit_search'])) {
             </footer>
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+    <script src="assets/js/modernizr.custom.js"></script>
     <script src="assets/js/style-demo.js"></script>
     <script src="assets/js/style-custom.js"></script>
-    <script src="assets/js/style-api.js"></script>    
-    <script src="assets/js/modernizr.custom.js"></script>
-    <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
-    <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="assets/js/style-api.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/classie/1.0.1/classie.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/TweenMax.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
