@@ -367,14 +367,14 @@ if (isset($_POST['submit'])) {
             
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
                                 <i class="entypo-attention"></i>
-                                <span class="badge badge-info">6</span>
+                                <span class="badge badge-info">2</span>
                             </a>
             
                             <ul class="dropdown-menu">
                                 <li class="top">
                                     <p class="small">
                                         <a href="#" class="pull-right">Mark all Read</a>
-                                        You have <strong>6</strong> new notifications.
+                                        You have <strong>2</strong> new notifications.
                                     </p>
                                 </li>
                                 
