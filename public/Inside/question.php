@@ -79,7 +79,7 @@ if ((isset($_POST['submit']))&&(isset($_POST['answer']))) {
     
 </head>
 
-<body class="page-body page-fade-only">
+<body class="page-body page-left-in">
     <div class="page-container">
         <!-- add class "sidebar-collapsed" to close sidebar by default, "chat-visible" to make chat appear always -->
         <div class="sidebar-menu">
