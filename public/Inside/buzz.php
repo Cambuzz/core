@@ -283,7 +283,7 @@ if (isset($_POST['submit'])) {
     </script>
 </head>
 
-<body class="page-body page-fade-only">
+<body class="page-body page-left-in">
     <div class="page-container">
         <div class="sidebar-menu">
             <div class="sidebar-menu-inner" style="font-family: 'Montserrat', sans-serif">
