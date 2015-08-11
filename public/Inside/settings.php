@@ -527,7 +527,7 @@ if (isset($_POST['submit'])) {
     <![endif]-->
 </head>
 
-<body>
+<body class="page-body page-fade-only">
     <div class="page-container">
         <div class="sidebar-menu">
             <div class="sidebar-menu-inner">
@@ -603,8 +603,65 @@ if (isset($_POST['submit'])) {
         </div>
         <div class="main-content" style="overflow: hidden;">
             <div class="row">
-                <!-- Profile Info and Notifications -->
-                <!-- Raw Links -->
+                 <div class="col-md-6 col-sm-8 clearfix">
+                    <ul class="user-info pull-left pull-right-xs pull-none-xsm">
+            
+                        <!--  Notifications -->
+                        <li class="notifications dropdown">
+            
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                <i class="entypo-attention"></i>
+                                <span class="badge badge-info">2</span>
+                            </a>
+            
+                            <ul class="dropdown-menu">
+                                <li class="top">
+                                    <p class="small">
+                                        <a href="#" class="pull-right">Mark all Read</a>
+                                        You have <strong>2</strong> new notifications.
+                                    </p>
+                                </li>
+                                
+                                <li>
+                                    <ul class="dropdown-menu-list scroller">
+                                        <li class="unread notification-success">
+                                            <a href="#">
+                                                <i class="entypo-user-add pull-right"></i>
+                                                
+                                                <span class="line">
+                                                    <strong>Sharad Sharad</strong>
+                                                </span>
+                                                
+                                                <span class="line small">
+                                                    30 seconds ago
+                                                </span>
+                                            </a>
+                                        </li>
+                                        
+                                        <li class="unread notification-secondary">
+                                            <a href="#">
+                                                <i class="entypo-heart pull-right"></i>
+                                                
+                                                <span class="line">
+                                                    <strong>You gotta answer</strong>
+                                                </span>
+                                                
+                                                <span class="line small">
+                                                    2 minutes ago
+                                                </span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                
+                                <li class="external">
+                                    <a href="#">View all notifications</a>
+                                </li>
+                            </ul>
+            
+                        </li>       
+                    </ul>
+                </div>
                 <div class="col-md-6 col-sm-4 clearfix hidden-xs" style="float: right;">
                     <ul class="list-inline links-list pull-right">
                         <!-- Language Selector -->
@@ -857,8 +914,8 @@ if (isset($_POST['submit'])) {
                             </div>
                         </div>
                 </div>
-                <div class="form-group default-padding">
-                    <input type="submit" name="submit" class="btn btn-success" value="Save Changes">
+                 <div class="form-group default-padding" style="display: flex; justify-content: center; align-items: center;">
+                    <input type="submit" name="submit" class="btn btn-success" value="Save Changes" style="margin-right: 5px;">
                     <button class="btn"><a href="buzz.php">Cancel</a></button>
                 </div>
             </div>
@@ -869,21 +926,24 @@ if (isset($_POST['submit'])) {
     </div>
     </article>
     </div>
-      <script src="assets/js/gsap/main-gsap.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/modernizr.custom.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  
+
+    <script src="assets/js/fileinput.js"></script>
+    <script src="assets/js/style-custom.js"></script>
+    <script src="assets/js/style-demo.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/classie/1.0.1/classie.min.js"></script>
+
+    <!-- Bottom scripts (common) -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/TweenMax.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="assets/js/joinable.js"></script>
     <script src="assets/js/resizeable.js"></script>
+    <script src="assets/js/uiMorphingButton_fixed.js"></script>
     <script src="assets/js/style-api.js"></script>
-    <script src="assets/js/style-demo.js"></script>
-    <!-- Imported scripts on this page -->
-    <script src="assets/js/fileinput.js"></script>
-    <!-- JavaScripts initializations and stuff -->
-    <script src="assets/js/style-custom.js"></script>
-    <!-- Demo Settings -->
-    <script src="assets/js/jquery.easing.min.js"></script>
-    <script src="assets/js/jquery.fittext.js"></script>
-    <script src="assets/js/classie.js"></script>
-    <script src="assets/js/wow.min.js"></script>
+   
    
     <script type="text/javascript">
     var file = document.getElementById('propic');

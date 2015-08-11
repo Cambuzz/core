@@ -1,0 +1,114 @@
+<!DOCTYPE html "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Cambuzz</title>
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-icons/entypo/css/entypo.css">
+    <!-- Custom Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css" type="text/css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="timer/compiled/flipclock.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="timer/compiled/flipclock.min.js"></script>
+    <link rel="stylesheet" href="css/creative.css" type="text/css">
+    <link rel="stylesheet" src="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/background.css" />
+    <link rel="stylesheet" type="text/css" href="css/buttoncreatebuzz.css">
+    <script src="js/modernizr.custom.js"></script>
+    <!-- // <script src="https://code.jquery.com/jquery-2.1.4.js"></script> -->
+   
+</head>
+
+<body id="page-top">
+    <ul class="cb-slideshow">
+        <li><span>Image 01</span>
+        </li>
+        <li><span>Image 02</span>
+        </li>
+        <li><span>Image 03</span>
+        </li>
+        <li><span>Image 04</span>
+        </li>
+        <li><span>Image 05</span>
+        </li>
+        <li><span>Image 06</span>
+        </li>
+    </ul>
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-inverse" style="background-color: black; opacity: .4;">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top"></a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    <header>
+        <div class="header-content">
+            <div class="header-content-inner">
+                <div class="heading-text animated fadeInUp">cambu<span class="animated tada">zz</span></div>
+                <p class="animated fadeInUp"><span style="font-size: 20px;">&#35; </span>VITC Chapter</p>
+            </div>
+        </div>
+        <style>
+        .mockup-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        </style>
+        <div class="mockup-content">
+            <div class="left">
+                <div class="clock" style="margin:0em; font-size: 15px;"></div>
+                <div class="message"></div>
+                <script type="text/javascript">
+                var clock;
+
+                $(document).ready(function() {
+                    var clock;
+                    var d = new Date();
+                    var t = d.getTime();
+                    t = t / 1000;
+                    clock = $('.clock').FlipClock({
+                        clockFace: 'DailyCounter',
+                        autoStart: false,
+                        callbacks: {
+                            stop: function() {
+                                $('.message').html('The clock has stopped!')
+                            }
+                        }
+                    });
+
+                    clock.setTime(1439222791.917 + 397301 - t);
+                    clock.setCountdown(true);
+                    clock.start();
+                });
+                </script>
+            </div>
+        </div>
+    </header>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/classie/1.0.1/classie.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</body>
+
+</html>
