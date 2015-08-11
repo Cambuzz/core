@@ -386,7 +386,7 @@ if (logged_in()) {
                var register=$("#field2").val();
                var email=$("#field3").val();
                var password=$("#txtNewPassword").val();
-               alert('hello');
+               //alert('hello');
                var msg;
                 
                 $.ajax({
