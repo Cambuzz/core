@@ -129,16 +129,6 @@ $event_set = find_all_events();
                                                 $name_print_title = mysqli_fetch_assoc($name_print_result);
                                                  ?>
                                                     <article class="story">
-                                                    <aside class="user-thumb">
-                                                    <?php                
-                                                    if (empty($name_print_title["data_propic"])) { ?>
-                                                        <img src="assets/images/nopic.png" height="44px" width="44px" alt="" class="img-circle">
-                                                        <?php
-                                                    } elseif (isset($name_print_title["data_propic"])) {
-                                                        echo '<img src="data:image/jpeg;base64,' . base64_encode($name_print_title['data_propic']) . '" height="44px" width="44px" alt="" class="img-circle">';         
-                                                    }
-                                                    ?>
-                                                    </aside>
                                                     <div class="story-content">
                                                     <header>
                                                     <div class="publisher" style="color: #303641; font-family: 'Montserrat', sans-serif;">
@@ -180,16 +170,7 @@ $event_set = find_all_events();
                                                 $name_print_title = mysqli_fetch_assoc($name_print_result);
                                                 ?>
                                                     <article class="story">
-                                                    <aside class="user-thumb">
-                                                    <?php
-                                                    if (empty($name_print_title["data_propic"])) { ?>
-                                                        <img src="assets/images/nopic.png" height="44px" width="44px" alt="" class="img-circle">
-                                                        <?php 
-                                                    } elseif (isset($name_print_title["data_propic"])) {
-                                                        echo '<img src="data:image/jpeg;base64,' . base64_encode($name_print_title['data_propic']) . '" height="44px" width="44px" alt="" class="img-circle">';      
-                                                    }
-                                                    ?>
-                                                    </aside>
+                                                    
                                                     <div class="story-content">
                                                     <header>
                                                     <div class="publisher" style="color: #303641; font-family: 'Montserrat', sans-serif;">
@@ -222,7 +203,7 @@ $event_set = find_all_events();
                                                     </div>
                                                     </div>                                                    
                                                     </article>
-                                                    <a href="delete_event.php?id=<?php echo urlencode($notification["id"]); ?>" onclick="return confirm('Are you sure?');">Delete</a>
+                                                    
                                                     <hr> 
                                                  <?php
                                                 }                   
