@@ -1340,6 +1340,7 @@ html.demo-7,
 @media(max-width:767px) {
     .content-style-overlay {
         font-size: 75%;
+        padding: 0;
     }
     .content-style-overlay .icon-close {
         top: 5px;
@@ -1347,6 +1348,15 @@ html.demo-7,
     }
     .mockup-content {
         padding-top: 0%;
+    }
+
+    .panel
+    {
+       background-color: none !important;
+       border: none !important; 
+       border-radius: none !important; 
+      -webkit-box-shadow: none !important;
+       box-shadow: none !important;
     }
 }
 
