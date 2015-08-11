@@ -12,6 +12,7 @@ $event_set = find_all_events();
     confirm_query($name_result);
     $name_title = mysqli_fetch_assoc($name_result);
     $first_name = explode(" ", $name_title['sname']);
+    $current_id = $name_title['id'];
     $slang_query = "SELECT * FROM slangs";
     $slang_result = mysqli_query($conn, $slang_query);
     confirm_query($slang_result);    

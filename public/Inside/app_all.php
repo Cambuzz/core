@@ -10,7 +10,7 @@ $event_set = find_all_events();
     $result = mysqli_query($conn, $query);
     confirm_query($result);
         
-    $work = "DELETE  FROM notify WHERE end_date_time < NOW()";
+    $work = "DELETE  FROM notify WHERE end_date_time < '{$delete_time}'";
     mysqli_query($conn, $work);
 ?>
 <!DOCTYPE html>

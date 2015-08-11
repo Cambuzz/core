@@ -10,6 +10,7 @@
     confirm_query($name_result);
     $name_title = mysqli_fetch_assoc($name_result);
     $first_name = explode(" ", $name_title['sname']);
+    $current_id = $name_title['id'];
 ?>
 <?php
 $user = find_user_by_username($_SESSION["username"]);
@@ -90,13 +91,27 @@ if (isset($_POST['submit'])) {
                 $sname = $_POST['sname'];
                 $email = $_POST['email'];                
                 $hashed_password = password_encrypt($_POST["new_password"]);
-                $name_propic = $conn->real_escape_string ($_FILES['propic']['name']);
-                $mime_propic = $conn->real_escape_string ($_FILES['propic']['type']);
-                $data_propic = $conn->real_escape_string(file_get_contents($_FILES ['propic']['tmp_name']));
-                $size_propic = intval($_FILES['propic']['size']);
+
+
+                $target_dir = "images/";
+                $target_file = $target_dir . basename($_FILES["propic"]["name"]);
+                
+                $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+
+                move_uploaded_file($_FILES["propic"]["tmp_name"],"images/$current_id.jpg");
+                $proset = 1;
+                         
+
+                // $image=basename( $_FILES["propic"]["name"],".jpg"); 
+
+
+               // $name_propic = $conn->real_escape_string ($_FILES['propic']['name']);
+                //$mime_propic = $conn->real_escape_string ($_FILES['propic']['type']);
+               // $data_propic = $conn->real_escape_string(file_get_contents($_FILES ['propic']['tmp_name']));
+                //$size_propic = intval($_FILES['propic']['size']);
                 $filter_branch = implode(" ", $_POST['branch']);
                 $filter_club = implode(" ", $_POST['club']);
-                $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', hashed_password = '{$hashed_password}', filter_branch = '{$filter_branch}', filter_club = '{$filter_club}', name_propic = '{$name_propic}', mime_propic = '{$mime_propic}', data_propic = '{$data_propic}', size_propic = '{$size_propic}' WHERE username = '{$current_user}' LIMIT 1";
+                $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', hashed_password = '{$hashed_password}', filter_branch = '{$filter_branch}', filter_club = '{$filter_club}', proset = {$proset} WHERE username = '{$current_user}' LIMIT 1";
                 $result = mysqli_query($conn, $query);
                 if ($result && mysqli_affected_rows($conn) == 1) {
                     redirect_to("buzz.php");
@@ -124,13 +139,25 @@ if (isset($_POST['submit'])) {
                 $sname = $_POST['sname'];
                 $email = $_POST['email'];                
                 $hashed_password = password_encrypt($_POST["new_password"]);
-                $name_propic = $conn->real_escape_string ($_FILES['propic']['name']);
-                $mime_propic = $conn->real_escape_string ($_FILES['propic']['type']);
-                $data_propic = $conn->real_escape_string(file_get_contents($_FILES ['propic']['tmp_name']));
-                $size_propic = intval($_FILES['propic']['size']);
+                $target_dir = "images/";
+                $target_file = $target_dir . basename($_FILES["propic"]["name"]);
+                
+                $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+
+                move_uploaded_file($_FILES["propic"]["tmp_name"],"images/$current_id.jpg");
+                $proset = 1;
+                         
+
+                // $image=basename( $_FILES["propic"]["name"],".jpg"); 
+
+
+               // $name_propic = $conn->real_escape_string ($_FILES['propic']['name']);
+                //$mime_propic = $conn->real_escape_string ($_FILES['propic']['type']);
+               // $data_propic = $conn->real_escape_string(file_get_contents($_FILES ['propic']['tmp_name']));
+                //$size_propic = intval($_FILES['propic']['size']);
                 $filter_branch = implode(" ", $_POST['branch']);
                 
-                $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', hashed_password = '{$hashed_password}', filter_branch = '{$filter_branch}', name_propic = '{$name_propic}', mime_propic = '{$mime_propic}', data_propic = '{$data_propic}', size_propic = '{$size_propic}' WHERE username = '{$current_user}' LIMIT 1";
+                $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', hashed_password = '{$hashed_password}', filter_branch = '{$filter_branch}', proset = {$proset} WHERE username = '{$current_user}' LIMIT 1";
                 $result = mysqli_query($conn, $query);
                 if ($result && mysqli_affected_rows($conn) == 1) {
                     redirect_to("buzz.php");
@@ -158,13 +185,25 @@ if (isset($_POST['submit'])) {
                 $sname = $_POST['sname'];
                 $email = $_POST['email'];                
                 $hashed_password = password_encrypt($_POST["new_password"]);
-                $name_propic = $conn->real_escape_string ($_FILES['propic']['name']);
-                $mime_propic = $conn->real_escape_string ($_FILES['propic']['type']);
-                $data_propic = $conn->real_escape_string(file_get_contents($_FILES ['propic']['tmp_name']));
-                $size_propic = intval($_FILES['propic']['size']);
+                $target_dir = "images/";
+                $target_file = $target_dir . basename($_FILES["propic"]["name"]);
+                
+                $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+
+                move_uploaded_file($_FILES["propic"]["tmp_name"],"images/$current_id.jpg");
+                $proset = 1;
+                         
+
+                // $image=basename( $_FILES["propic"]["name"],".jpg"); 
+
+
+               // $name_propic = $conn->real_escape_string ($_FILES['propic']['name']);
+                //$mime_propic = $conn->real_escape_string ($_FILES['propic']['type']);
+               // $data_propic = $conn->real_escape_string(file_get_contents($_FILES ['propic']['tmp_name']));
+                //$size_propic = intval($_FILES['propic']['size']);
                 
                 $filter_club = implode(" ", $_POST['club']);
-                $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', hashed_password = '{$hashed_password}', filter_club = '{$filter_club}', name_propic = '{$name_propic}', mime_propic = '{$mime_propic}', data_propic = '{$data_propic}', size_propic = '{$size_propic}' WHERE username = '{$current_user}' LIMIT 1";
+                $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', hashed_password = '{$hashed_password}', filter_club = '{$filter_club}', proset = {$proset} WHERE username = '{$current_user}' LIMIT 1";
                 $result = mysqli_query($conn, $query);
                 if ($result && mysqli_affected_rows($conn) == 1) {
                     redirect_to("buzz.php");
@@ -192,12 +231,24 @@ if (isset($_POST['submit'])) {
                 $sname = $_POST['sname'];
                 $email = $_POST['email'];                
                 $hashed_password = password_encrypt($_POST["new_password"]);
-                $name_propic = $conn->real_escape_string ($_FILES['propic']['name']);
-                $mime_propic = $conn->real_escape_string ($_FILES['propic']['type']);
-                $data_propic = $conn->real_escape_string(file_get_contents($_FILES ['propic']['tmp_name']));
-                $size_propic = intval($_FILES['propic']['size']);
+                $target_dir = "images/";
+                $target_file = $target_dir . basename($_FILES["propic"]["name"]);
                 
-                $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', hashed_password = '{$hashed_password}', name_propic = '{$name_propic}', mime_propic = '{$mime_propic}', data_propic = '{$data_propic}', size_propic = '{$size_propic}' WHERE username = '{$current_user}' LIMIT 1";
+                $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+
+                move_uploaded_file($_FILES["propic"]["tmp_name"],"images/$current_id.jpg");
+                $proset = 1;
+                         
+
+                // $image=basename( $_FILES["propic"]["name"],".jpg"); 
+
+
+               // $name_propic = $conn->real_escape_string ($_FILES['propic']['name']);
+                //$mime_propic = $conn->real_escape_string ($_FILES['propic']['type']);
+               // $data_propic = $conn->real_escape_string(file_get_contents($_FILES ['propic']['tmp_name']));
+                //$size_propic = intval($_FILES['propic']['size']);
+                
+                $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', hashed_password = '{$hashed_password}', proset = {$proset} WHERE username = '{$current_user}' LIMIT 1";
                 $result = mysqli_query($conn, $query);
                 if ($result && mysqli_affected_rows($conn) == 1) {
                     redirect_to("buzz.php");
@@ -337,13 +388,25 @@ if (isset($_POST['submit'])) {
             $sname = $_POST['sname'];
             $email = $_POST['email'];                
             
-            $name_propic = $conn->real_escape_string ($_FILES['propic']['name']);
-            $mime_propic = $conn->real_escape_string ($_FILES['propic']['type']);
-            $data_propic = $conn->real_escape_string(file_get_contents($_FILES ['propic']['tmp_name']));
-            $size_propic = intval($_FILES['propic']['size']);
+            $target_dir = "images/";
+                $target_file = $target_dir . basename($_FILES["propic"]["name"]);
+                
+                $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+
+                move_uploaded_file($_FILES["propic"]["tmp_name"],"images/$current_id.jpg");
+                $proset = 1;
+                         
+
+                // $image=basename( $_FILES["propic"]["name"],".jpg"); 
+
+
+               // $name_propic = $conn->real_escape_string ($_FILES['propic']['name']);
+                //$mime_propic = $conn->real_escape_string ($_FILES['propic']['type']);
+               // $data_propic = $conn->real_escape_string(file_get_contents($_FILES ['propic']['tmp_name']));
+                //$size_propic = intval($_FILES['propic']['size']);
             $filter_branch = implode(" ", $_POST['branch']);
             $filter_club = implode(" ", $_POST['club']);
-            $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', filter_branch = '{$filter_branch}', filter_club = '{$filter_club}', name_propic = '{$name_propic}', mime_propic = '{$mime_propic}', data_propic = '{$data_propic}', size_propic = '{$size_propic}' WHERE username = '{$current_user}' LIMIT 1";
+            $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', filter_branch = '{$filter_branch}', filter_club = '{$filter_club}', proset = {$proset} WHERE username = '{$current_user}' LIMIT 1";
             $result = mysqli_query($conn, $query);
             if ($result && mysqli_affected_rows($conn) == 1) {
                 redirect_to("buzz.php");
@@ -359,13 +422,25 @@ if (isset($_POST['submit'])) {
             $sname = $_POST['sname'];
             $email = $_POST['email'];                
             
-            $name_propic = $conn->real_escape_string ($_FILES['propic']['name']);
-            $mime_propic = $conn->real_escape_string ($_FILES['propic']['type']);
-            $data_propic = $conn->real_escape_string(file_get_contents($_FILES ['propic']['tmp_name']));
-            $size_propic = intval($_FILES['propic']['size']);
+            $target_dir = "images/";
+                $target_file = $target_dir . basename($_FILES["propic"]["name"]);
+                
+                $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+
+                move_uploaded_file($_FILES["propic"]["tmp_name"],"images/$current_id.jpg");
+                $proset = 1;
+                         
+
+                // $image=basename( $_FILES["propic"]["name"],".jpg"); 
+
+
+               // $name_propic = $conn->real_escape_string ($_FILES['propic']['name']);
+                //$mime_propic = $conn->real_escape_string ($_FILES['propic']['type']);
+               // $data_propic = $conn->real_escape_string(file_get_contents($_FILES ['propic']['tmp_name']));
+                //$size_propic = intval($_FILES['propic']['size']);
             $filter_branch = implode(" ", $_POST['branch']);
             
-            $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', filter_branch = '{$filter_branch}', name_propic = '{$name_propic}', mime_propic = '{$mime_propic}', data_propic = '{$data_propic}', size_propic = '{$size_propic}' WHERE username = '{$current_user}' LIMIT 1";
+            $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', filter_branch = '{$filter_branch}', proset = {$proset} WHERE username = '{$current_user}' LIMIT 1";
             $result = mysqli_query($conn, $query);
             if ($result && mysqli_affected_rows($conn) == 1) {
                 redirect_to("buzz.php");
@@ -381,13 +456,25 @@ if (isset($_POST['submit'])) {
             $sname = $_POST['sname'];
             $email = $_POST['email'];                
             
-            $name_propic = $conn->real_escape_string ($_FILES['propic']['name']);
-            $mime_propic = $conn->real_escape_string ($_FILES['propic']['type']);
-            $data_propic = $conn->real_escape_string(file_get_contents($_FILES ['propic']['tmp_name']));
-            $size_propic = intval($_FILES['propic']['size']);
+            $target_dir = "images/";
+                $target_file = $target_dir . basename($_FILES["propic"]["name"]);
+                
+                $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+
+                move_uploaded_file($_FILES["propic"]["tmp_name"],"images/$current_id.jpg");
+                $proset = 1;
+                         
+
+                // $image=basename( $_FILES["propic"]["name"],".jpg"); 
+
+
+               // $name_propic = $conn->real_escape_string ($_FILES['propic']['name']);
+                //$mime_propic = $conn->real_escape_string ($_FILES['propic']['type']);
+               // $data_propic = $conn->real_escape_string(file_get_contents($_FILES ['propic']['tmp_name']));
+                //$size_propic = intval($_FILES['propic']['size']);
             $filter_branch = implode(" ", $_POST['branch']);
             $filter_club = implode(" ", $_POST['club']);
-            $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', filter_club = '{$filter_club}', name_propic = '{$name_propic}', mime_propic = '{$mime_propic}', data_propic = '{$data_propic}', size_propic = '{$size_propic}' WHERE username = '{$current_user}' LIMIT 1";
+            $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', filter_club = '{$filter_club}', proset = {$proset} WHERE username = '{$current_user}' LIMIT 1";
             $result = mysqli_query($conn, $query);
             if ($result && mysqli_affected_rows($conn) == 1) {
                 redirect_to("buzz.php");
@@ -403,12 +490,24 @@ if (isset($_POST['submit'])) {
             $sname = $_POST['sname'];
             $email = $_POST['email'];                
             
-            $name_propic = $conn->real_escape_string ($_FILES['propic']['name']);
-            $mime_propic = $conn->real_escape_string ($_FILES['propic']['type']);
-            $data_propic = $conn->real_escape_string(file_get_contents($_FILES ['propic']['tmp_name']));
-            $size_propic = intval($_FILES['propic']['size']);
+            $target_dir = "images/";
+                $target_file = $target_dir . basename($_FILES["propic"]["name"]);
+                
+                $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+
+                move_uploaded_file($_FILES["propic"]["tmp_name"],"images/$current_id.jpg");
+                $proset = 1;
+                         
+
+                // $image=basename( $_FILES["propic"]["name"],".jpg"); 
+
+
+               // $name_propic = $conn->real_escape_string ($_FILES['propic']['name']);
+                //$mime_propic = $conn->real_escape_string ($_FILES['propic']['type']);
+               // $data_propic = $conn->real_escape_string(file_get_contents($_FILES ['propic']['tmp_name']));
+                //$size_propic = intval($_FILES['propic']['size']);
             
-            $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', name_propic = '{$name_propic}', mime_propic = '{$mime_propic}', data_propic = '{$data_propic}', size_propic = '{$size_propic}' WHERE username = '{$current_user}' LIMIT 1";
+            $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', proset = {$proset} WHERE username = '{$current_user}' LIMIT 1";
             $result = mysqli_query($conn, $query);
             if ($result && mysqli_affected_rows($conn) == 1) {
                 redirect_to("buzz.php");
@@ -553,12 +652,14 @@ if (isset($_POST['submit'])) {
                     <div class="sui-normal">
                         <div class="user-link">
                             <?php
-                                if (empty($name_title["data_propic"])) { 
+                                if ($name_title["proset"]==0) { 
                             ?>
                                     <img src="assets/images/nopic.png" class="img-circle" height="200px" width="100px" style="border-radius: 100%;" />
                             <?php
-                                } elseif (isset($name_title["data_propic"])) {
-                                        echo '<img src="data:image/jpeg;base64,' . base64_encode($name_title['data_propic']) . '" class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>';        
+                                } elseif ($name_title["proset"]==1) {
+                                        $imageid=$name_title['id'];
+                                        //echo '<img src="data:image/jpeg;base64,' . base64_encode($name_title['data_propic']) . '" class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>'; 
+                                        echo "<img src='images/$imageid.jpg class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>";       
                                 }
                             ?>
                             <span>Welcome,</span>
