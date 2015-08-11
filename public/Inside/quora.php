@@ -10,12 +10,58 @@
     confirm_query($name_result);
     $name_title = mysqli_fetch_assoc($name_result);
     $first_name = explode(" ", $name_title['sname']);
-    
+    $slang_query = "SELECT * FROM slangs";
+    $slang_result = mysqli_query($conn, $slang_query);
+    confirm_query($slang_result);
 ?>
 <?php
     if (isset($_POST['submit'])) {
         if (isset($_POST['question'])) {
-            
+            $flag=1;    
+            while ($slang_list = mysqli_fetch_assoc($slang_result)) {
+                $s1 = $slang_list['COL 1'];
+                $s2 = $_POST['question'];
+                $s=$s1." ".$s2;
+                //echo $s;echo "<br>";
+                $n= strlen($s);
+                $m = strlen($s1);    
+                $Z = new SplFixedArray($n);
+                $Z[0] = $n;
+                $L = 0;
+                $R = 0;
+                for ($i= 1; $i < $n; $i++) { 
+                    if ($i> $R) {
+                        $L = $R = $i;
+                        while ($R < $n && $s[$R-$L+$i]==$s[$R-$L]) {
+                            $R++;
+                        }
+                        $Z[$i] = $R-$L;
+                        $R--;
+                    } else {
+                        $k = $i-$L;
+                        if ($Z[$k]<$R-$i+1) {
+                            $Z[$k] = $Z[$i];
+                        } else {
+                            $L = $i;
+                            while ($R < $n && $s[$R-$L+$i]==$s[$R-$L]) {
+                                $R++;
+                            }
+                            $Z[$i] = $R-$L;
+                            $R--;
+                        }
+                    }
+                } 
+                $flag=1;    
+                for ($i=1; $i < $n ; $i++) { 
+                    if ($Z[$i]>=$m) {
+                        //echo "no abuse";echo "<br>";
+                        $flag=0;
+                        break;
+                    }
+                }
+                if($flag==0)break;                               
+            }
+            if ($flag==1) {
                 $question = $_POST['question'];
                 $quest_user = $current_user;
                 date_default_timezone_set('Asia/Calcutta');
@@ -23,7 +69,7 @@
                 $query = "INSERT INTO quora (question, quest_user, quest_time) VALUES ('{$question}', '{$quest_user}', '{$quest_time}')";
                 $sql = mysqli_query($conn, $query);
                 redirect_to("quora.php"); 
-                        
+            }            
         }
     }
 ?>

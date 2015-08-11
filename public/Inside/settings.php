@@ -495,7 +495,7 @@ if (isset($_POST['submit'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Cambuzz" />
     <meta name="author" content="" />
-    <title>Campbuzz</title>
+    <title>Cambuzz</title>
     <link rel="stylesheet" href="assets/css/bootstrap.css">
     <link rel="stylesheet" href="assets/css/style-core.css">
     <link rel="stylesheet" href="assets/css/style-theme.css">
