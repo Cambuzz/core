@@ -8,9 +8,10 @@ if (logged_in()) {
 }
 ?>
 <?php
-			$sname = $_POST['name'];
+            $sname = $_POST['name'];
             $username = mysql_prep($_POST["register"]);
             $email = $_POST['email'];
+            $password=$_POST['password'];
  $query_ucheck = "SELECT username FROM users WHERE username = '{$username}'";
     $result_ucheck = mysqli_query($conn, $query_ucheck);
     if (mysqli_num_rows($result_ucheck) !=0) {
@@ -23,14 +24,13 @@ if (logged_in()) {
             $retval2 = ereg("(^@vit.ac.in)", $email);
             if( $retval1 == true && $retval2==false )
             {
-                $hashed_password = password_encrypt($_POST["password"]); 
+                $hashed_password = password_encrypt($password); 
                 $confirmcode = rand(); 
                 $query = "INSERT INTO users (sname, username, email, hashed_password, confirmed, confirm_code)";
                 $query .= " VALUES ('{$sname}', '{$username}', '{$email}', '{$hashed_password}', '0', '{$confirmcode}')";
                 $result = mysqli_query($conn, $query);         
 
                 if ($result) {
-                    $password = $_POST["password"];
                     $found_user = attempt_login($username, $password);
 
                     if ($found_user) {
@@ -42,7 +42,7 @@ if (logged_in()) {
                 } 
             }
             else{
-            	echo "Only VIT email is recognised";
+                echo "Only VIT email is recognised";
             }                       
         
     }     

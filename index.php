@@ -8,54 +8,7 @@ if (logged_in()) {
 }
 ?>
 
-<?php
-if (isset($_POST['submit_up'])) {
-    $query_ucheck = "SELECT username FROM users WHERE username = '{$_POST['username']}'";
-    $result_ucheck = mysqli_query($conn, $query_ucheck);
-    if (mysqli_num_rows($result_ucheck) !=0) {
-        echo "Username already exists";
-    } else {
-        $required_fields = array("username", "password");
-        validate_presence($required_fields);
-    
-        $fields_with_max_lengths = array("username" => 30);
-        validate_max_lengths($fields_with_max_lengths);
 
-        if (empty($errors)) {
-
-            $sname = $_POST['sname'];
-            $username = mysql_prep($_POST["username"]);
-            $email = $_POST['email'];
-            $retval1 = ereg("(@vit.ac.in$)", $email);
-            $retval2 = ereg("(^@vit.ac.in)", $email);
-            if( $retval1 == true && $retval2==false )
-            {
-                $hashed_password = password_encrypt($_POST["password"]); 
-                $confirmcode = rand(); 
-                $query = "INSERT INTO users (sname, username, email, hashed_password, confirmed, confirm_code)";
-                $query .= " VALUES ('{$sname}', '{$username}', '{$email}', '{$hashed_password}', '0', '{$confirmcode}')";
-                $result = mysqli_query($conn, $query);         
-
-                if ($result) {
-                    $password = $_POST["password"];
-                    $found_user = attempt_login($username, $password);
-
-                    if ($found_user) {
-
-                        $message = "Confirm your email by clicking the link http://cambuzz.co.in/emailconfirm.php?username=$username&code=$confirmcode";
-                        mail($email, "Confirm your email", $message, "From: prashant_bhardwaj@Cambuzz.co.in");
-                        echo "Registration complete, confirm your email";
-                    } else {
-                        $_SESSION["message"] = "Username/password not found.";
-                    }
-                } else {
-                    $_SESSION["message"] = "Profile creation failed.";
-                }
-            }                       
-        }
-    }     
-}
-?>
 <!DOCTYPE html "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html lang="en">
 
@@ -173,7 +126,7 @@ if (isset($_POST['submit_up'])) {
                                     <div class="col-md-12">
                                         <div class="panel panel-default" data-collapsed="0">
                                             <div class="panel-body">
-                                                <form role="form" class="form-horizontal form-groups-bordered" class="signupform" enctype="multipart/form-data">
+                                                <form role="form" class="form-horizontal form-groups-bordered" id="signupform" enctype="multipart/form-data">
                                                     <div class="form-group">
                                                         <label for="field-1" class="col-sm-3 control-label">Name</label>
                                                         <div class="col-sm-5">
@@ -425,20 +378,21 @@ if (isset($_POST['submit_up'])) {
             });
 
 
-            $('.signupform').on('submit',function()
+            $('#signupform').on('submit',function()
             {
-
+                if($("#txtNewPassword").val()==$("#txtConfirmPassword").val())
+                {
                 var name=$("#field1").val();
                var register=$("#field2").val();
                var email=$("#field3").val();
-                
-               
+               var password=$("#txtNewPassword").val();
+               alert('hello');
                var msg;
                 
                 $.ajax({
                     method: "POST",
                     url: "signup_verify.php",
-                    data: { name:name,register:register,email:email}
+                    data: { name:name,register:register,email:email,password:password}
                     })
                     .done(function( msg ) {
                         if(msg=="Username already exists")
@@ -455,7 +409,7 @@ if (isset($_POST['submit_up'])) {
                         }
                     });
                     
-
+                }
                 return false;
 
                 
