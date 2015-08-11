@@ -512,11 +512,6 @@ if (isset($_POST['submit'])) {
     
     
     <!-- <link rel="stylesheet" type="text/css" href="assets/css/stylingtextinput.css" /> -->
-    <script src="assets/js/modernizr.custom.js"></script>
-    <script src="assets/js/jquery-1.11.0.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>    
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
-    
     <script>
     $.noConflict();
     </script>
@@ -757,6 +752,7 @@ if (isset($_POST['submit'])) {
                                         </div>
                                         <div id="propic_form" style="display: none;">
                                             <div class="form-group">
+                                                <label for="field-1" class="col-sm-3 control-label">Choose a new one!</label>
                                                 <div class="col-sm-5">
                                                     <input type="file" name="propic" accept=".jpeg, .jpg, .bmp, .png" class="form-control" id="propic">
                                                 </div>
@@ -945,7 +941,20 @@ if (isset($_POST['submit'])) {
     <script src="assets/js/uiMorphingButton_fixed.js"></script>
     <script src="assets/js/style-api.js"></script>
    
-   
+    <script>
+        $('#yes').click(function() {
+            $('#password_form').slideDown();
+        });
+        $('#no').click(function() {
+            $('#password_form').slideUp();
+        });
+        $('#yes_propic').click(function() {
+            $('#propic_form').slideDown();
+        });
+        $('#no_propic').click(function() {
+            $('#propic_form').slideUp();
+        });    
+    </script>
     <script type="text/javascript">
     var file = document.getElementById('propic');
 
