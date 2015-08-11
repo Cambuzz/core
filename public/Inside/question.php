@@ -10,7 +10,9 @@
     confirm_query($name_result);
     $name_title = mysqli_fetch_assoc($name_result);
     $first_name = explode(" ", $name_title['sname']);
-    
+    $slang_query = "SELECT * FROM slangs";
+    $slang_result = mysqli_query($conn, $slang_query);
+    confirm_query($slang_result);  
 ?>
 <?php
 $current_user = $_SESSION["username"];
@@ -34,7 +36,51 @@ $query_post_answer = "SELECT * FROM answers WHERE qid = {$id}";
 $result_post_answer = mysqli_query($conn, $query_post_answer); ?>
 <?php   
 if ((isset($_POST['submit']))&&(isset($_POST['answer']))) {
-    
+    $flag=1;    
+    while ($slang_list = mysqli_fetch_assoc($slang_result)) {
+        $s1 = $slang_list['COL 1'];
+        $s2 = $_POST['answer'];
+        $s=$s1." ".$s2;
+        //echo $s;echo "<br>";
+        $n= strlen($s);
+        $m = strlen($s1);    
+        $Z = new SplFixedArray($n);
+        $Z[0] = $n;
+        $L = 0;
+        $R = 0;
+        for ($i= 1; $i < $n; $i++) { 
+            if ($i> $R) {
+                $L = $R = $i;
+                while ($R < $n && $s[$R-$L+$i]==$s[$R-$L]) {
+                    $R++;
+                }
+                $Z[$i] = $R-$L;
+                $R--;
+            } else {
+                $k = $i-$L;
+                if ($Z[$k]<$R-$i+1) {
+                    $Z[$k] = $Z[$i];
+                } else {
+                    $L = $i;
+                    while ($R < $n && $s[$R-$L+$i]==$s[$R-$L]) {
+                        $R++;
+                    }
+                    $Z[$i] = $R-$L;
+                    $R--;
+                }
+            }
+        } 
+        $flag=1;    
+        for ($i=1; $i < $n ; $i++) { 
+            if ($Z[$i]>=$m) {
+                //echo "no abuse";echo "<br>";
+                $flag=0;
+                break;
+            }
+        }
+        if($flag==0)break;                               
+    }
+    if ($flag==1) {
         $qid = $question["id"];
         $answer = $_POST['answer'];
         $answer_poster = $current_user;
@@ -48,7 +94,7 @@ if ((isset($_POST['submit']))&&(isset($_POST['answer']))) {
         } else {
             $_SESSION["message"] = "Answer posting failed.";
         }        
-    
+    }
 }
        
 
@@ -87,8 +133,8 @@ if ((isset($_POST['submit']))&&(isset($_POST['answer']))) {
                 <header class="logo-env">
                     <!-- logo -->
                     <div class="logo">
-                        <a href="index.html">
-                            <h1 style="font-family: 'Pacifico', sans-serif; font-weight: 200px; color: white; margin-top: -2px; font-size:25px;">vitcc campbuzz</h1>
+                        <a href="buzz.php">
+                            <h1 style="font-family: 'Pacifico', sans-serif; font-weight: 200px; color: white; margin-top: -2px; font-size:25px;">vitcc cambuzz</h1>
                         </a>
                     </div>
                     <!-- logo collapse icon -->
