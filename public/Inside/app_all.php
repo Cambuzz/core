@@ -54,20 +54,68 @@ $event_set = find_all_events();
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <style>
+            
+    
+     .startingdate{
+        padding: 5px; 
+        font-size: 12px; 
+        background-color: #00a651; 
+        color: white; 
+        border-radius: 5px; 
+        float: left;
+
+    }
+
+     .endingdate{
+        padding: 5px; 
+        font-size: 12px; 
+        background-color: #e85657; 
+        color: white; 
+        border-radius: 5px; 
+        float: right;
+
+     }
+    @media screen and (max-width: 789px) {
+     .startingdate{
+       float: none;
+       display: block;
+       margin-left: auto;
+       margin-right: auto;
+       text-align: center;
+       }
+
+    .endingdate{
+       margin-top: 10px;
+       float: none;
+       display: block;
+       margin-left: auto;
+       margin-right: auto;
+       text-align: center;
+       }
+    
+    .user-thumb{
+        display: none;
+       }
+
+    .story{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+       }
+
+    }    
+    </style>
+
+    
+
 </head>
 
 <body >
     <div class="page-container">
         <div class="main-content">
             <!-- main content starts here -->
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="morph-button morph-button-overlay morph-button-fixed">
-                        <button type="button">News Feed</button>
-                    </div>
-                </div>
-                <hr>
-                <div class="profile-env">
+              <div class="profile-env">
                     <section class="profile-feed">
                         <div class="profile-stories">
                             <?php
@@ -179,116 +227,31 @@ $event_set = find_all_events();
                                                  <?php
                                                 }                   
                                             } 
-                                                    
-                                 //for m   
-                             // while
                         ?>   
                         </div>
                     </section>
                 </div>
-            </div>
+        </div>
             <footer>
             </footer>
-        </div>
-        <!-- <div class="col-sm-3">
-                    <div class="tile-progress tile-red">
-                        <div class="tile-header">
-                            <h3>Page Views</h3>
-                            <span>so far in our blog, and our website.</span>
-                        </div>
-                        <div class="tile-progressbar">
-                            <span data-fill="35.5%"></span>
-                        </div>
-                        <div class="tile-footer">
-                            <h4>
-                            <span class="pct-counter">0</span>% increase
-                        </h4>
-                            <span>so far in our blog and our website</span>
-                        </div>
-                    </div>
-                    <div class="tile-progress tile-green">
-                        <div class="tile-header">
-                            <h3>Unique Users</h3>
-                            <span>so far in our blog, and our website.</span>
-                        </div>
-                        <div class="tile-progressbar">
-                            <span data-fill="51.2%"></span>
-                        </div>
-                        <div class="tile-footer">
-                            <h4>
-                            <span class="pct-counter">0</span>% increase
-                        </h4>
-                            <span>so far in our blog and our website</span>
-                        </div>
-                    </div>
-                    <div class="tile-progress tile-aqua">
-                        <div class="tile-header">
-                            <h3>Bounce Rate</h3>
-                            <span>so far in our blog, and our website.</span>
-                        </div>
-                        <div class="tile-progressbar">
-                            <span data-fill="69.9%"></span>
-                        </div>
-                        <div class="tile-footer">
-                            <h4>
-                            <span class="pct-counter">0</span>% increase
-                        </h4>
-                            <span>so far in our blog and our website</span>
-                        </div>
-                    </div>
-                </div> -->
-        <!-- Footer -->
     </div>
-    <!--  -->
-    <!-- Imported styles on this page -->
-    <!-- Imported styles on this page -->
-    <link rel="stylesheet" href="assets/js/select2/select2-bootstrap.css">
-    <link rel="stylesheet" href="assets/js/select2/select2.css">
-    <link rel="stylesheet" href="assets/js/selectboxit/jquery.selectBoxIt.css">
-    <link rel="stylesheet" href="assets/js/daterangepicker/daterangepicker-bs3.css">
-    <link rel="stylesheet" href="assets/js/icheck/skins/minimal/_all.css">
-    <link rel="stylesheet" href="assets/js/icheck/skins/square/_all.css">
-    <link rel="stylesheet" href="assets/js/icheck/skins/flat/_all.css">
-    <link rel="stylesheet" href="assets/js/icheck/skins/futurico/futurico.css">
-    <link rel="stylesheet" href="assets/js/icheck/skins/polaris/polaris.css">
+    <script src="assets/js/modernizr.custom.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  
+
+    <script src="assets/js/fileinput.js"></script>
+    <script src="assets/js/style-custom.js"></script>
+    <script src="assets/js/style-demo.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/classie/1.0.1/classie.min.js"></script>
+
     <!-- Bottom scripts (common) -->
-    <script src="assets/js/gsap/main-gsap.js"></script>
-    <script src="assets/js/jquery-ui/js/jquery-ui-1.10.3.minimal.min.js"></script>
-    <script src="assets/js/bootstrap.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/TweenMax.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="assets/js/joinable.js"></script>
     <script src="assets/js/resizeable.js"></script>
-    <script src="assets/js/style-api.js"></script>
-    <script src="assets/js/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
     <script src="assets/js/uiMorphingButton_fixed.js"></script>
-    <script src="assets/js/style-demo.js"></script>
-    <!-- Imported scripts on this page -->
-    <script src="assets/js/wysihtml5/bootstrap-wysihtml5.js"></script>
-    <script src="assets/js/jquery.multi-select.js"></script>
-    <script src="assets/js/fileinput.js"></script>
-    <script src="assets/js/bootstrap-datepicker.js"></script>
-    <script src="assets/js/selectboxit/jquery.selectBoxIt.min.js"></script>
-    <script src="assets/js/bootstrap-tagsinput.min.js"></script>
-    <script src="assets/js/style-chat.js"></script>
-    <script src="assets/js/select2/select2.min.js"></script>
-    <script src="assets/js/bootstrap-tagsinput.min.js"></script>
-    <script src="assets/js/typeahead.min.js"></script>
-    <script src="assets/js/selectboxit/jquery.selectBoxIt.min.js"></script>
-    <script src="assets/js/bootstrap-datepicker.js"></script>
-    <script src="assets/js/bootstrap-timepicker.min.js"></script>
-    <script src="assets/js/bootstrap-colorpicker.min.js"></script>
-    <script src="assets/js/daterangepicker/moment.min.js"></script>
-    <script src="assets/js/daterangepicker/daterangepicker.js"></script>
-    <script src="assets/js/jquery.multi-select.js"></script>
-    <script src="assets/js/icheck/icheck.min.js"></script>
-    <script src="assets/js/style-chat.js"></script>
-    <!-- JavaScripts initializations and stuff -->
-    <script src="assets/js/style-custom.js"></script>
-    <!-- Demo Settings -->
-    <script src="assets/js/jquery.easing.min.js"></script>
-    <script src="assets/js/jquery.fittext.js"></script>
-    <script src="assets/js/classie.js"></script>
-    <script src="assets/js/wow.min.js"></script>
-    
+    <script src="assets/js/style-api.js"></script>
    
   
 </body>
