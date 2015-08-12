@@ -98,7 +98,7 @@ if (isset($_POST['submit'])) {
                 
                 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 
-                move_uploaded_file($_FILES["propic"]["tmp_name"],"images/$current_id.jpg");
+                move_uploaded_file($_FILES["propic"]["tmp_name"],getcwd()."images/$current_id.jpg");
                 $proset = 1;
                          
 
@@ -144,7 +144,7 @@ if (isset($_POST['submit'])) {
                 
                 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 
-                move_uploaded_file($_FILES["propic"]["tmp_name"],"images/$current_id.jpg");
+                 move_uploaded_file($_FILES["propic"]["tmp_name"],getcwd()."images/$current_id.jpg");
                 $proset = 1;
                          
 
@@ -190,7 +190,7 @@ if (isset($_POST['submit'])) {
                 
                 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 
-                move_uploaded_file($_FILES["propic"]["tmp_name"],"images/$current_id.jpg");
+                 move_uploaded_file($_FILES["propic"]["tmp_name"],getcwd()."images/$current_id.jpg");
                 $proset = 1;
                          
 
@@ -236,7 +236,7 @@ if (isset($_POST['submit'])) {
                 
                 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 
-                move_uploaded_file($_FILES["propic"]["tmp_name"],"images/$current_id.jpg");
+                move_uploaded_file($_FILES["propic"]["tmp_name"],getcwd()."images/$current_id.jpg");
                 $proset = 1;
                          
 
@@ -393,7 +393,7 @@ if (isset($_POST['submit'])) {
                 
                 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 
-                move_uploaded_file($_FILES["propic"]["tmp_name"],"images/$current_id.jpg");
+                move_uploaded_file($_FILES["propic"]["tmp_name"],getcwd()."images/$current_id.jpg");
                 $proset = 1;
                          
 
@@ -427,7 +427,7 @@ if (isset($_POST['submit'])) {
                 
                 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 
-                move_uploaded_file($_FILES["propic"]["tmp_name"],"images/$current_id.jpg");
+                move_uploaded_file($_FILES["propic"]["tmp_name"],getcwd()."images/$current_id.jpg");
                 $proset = 1;
                          
 
@@ -461,7 +461,7 @@ if (isset($_POST['submit'])) {
                 
                 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 
-                move_uploaded_file($_FILES["propic"]["tmp_name"],"images/$current_id.jpg");
+                move_uploaded_file($_FILES["propic"]["tmp_name"],getcwd()."images/$current_id.jpg");
                 $proset = 1;
                          
 
@@ -495,7 +495,7 @@ if (isset($_POST['submit'])) {
                 
                 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 
-                move_uploaded_file($_FILES["propic"]["tmp_name"],"images/$current_id.jpg");
+                move_uploaded_file($_FILES["propic"]["tmp_name"],getcwd()."images/$current_id.jpg");
                 $proset = 1;
                          
 
