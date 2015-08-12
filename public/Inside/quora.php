@@ -10,6 +10,7 @@
     confirm_query($name_result);
     $name_title = mysqli_fetch_assoc($name_result);
     $first_name = explode(" ", $name_title['sname']);
+    $current_id = $name_title['id'];
     $slang_query = "SELECT * FROM slangs";
     $slang_result = mysqli_query($conn, $slang_query);
     confirm_query($slang_result);
@@ -133,12 +134,16 @@
                     <div class="sui-normal">
                         <div class="user-link">
                             <?php
-                                if (empty($name_title["data_propic"])) { 
+                                if ($name_title["proset"]==0) { 
                             ?>
                                     <img src="assets/images/nopic.png" class="img-circle" height="200px" width="100px" style="border-radius: 100%;" />
                             <?php
-                                } elseif (isset($name_title["data_propic"])) {
-                                        echo '<img src="data:image/jpeg;base64,' . base64_encode($name_title['data_propic']) . '" class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>';        
+                                } elseif ($name_title["proset"]==1) {
+                                        $imageid=$name_title['id'];
+
+                                        //echo '<img src="data:image/jpeg;base64,' . base64_encode($name_title['data_propic']) . '" class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>'; 
+                                        
+                                        echo '<img src="images/' . $imageid . '.jpg "class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>';
                                 }
                             ?>
                             <span>Welcome,</span>
@@ -327,14 +332,19 @@ if (isset($_POST['submit_search'])) {
                 $pic_result = mysqli_query($conn, $pic_query);
                 confirm_query($pic_result);
                 $pic = mysqli_fetch_assoc($pic_result);
-                if (empty($pic["data_propic"])) { 
-                ?>
-                <img src="assets/images/nopic.png" class="img-circle" height="44px" width="44px" />
-                <?php
-                } elseif (isset($pic["data_propic"])) {
-                echo '<img src="data:image/jpeg;base64,' . base64_encode($pic['data_propic']) . '" class="img-circle" height="44px" width="44px" />';        
-                }
-                ?> 
+                
+                                if ($pic["proset"]==0) { 
+                            ?>
+                                    <img src="assets/images/nopic.png" class="img-circle" height="200px" width="100px" style="border-radius: 100%;" />
+                            <?php
+                                } elseif ($pic["proset"]==1) {
+                                        $imageid=$pic['id'];
+
+                                        //echo '<img src="data:image/jpeg;base64,' . base64_encode($name_title['data_propic']) . '" class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>'; 
+                                        
+                                        echo '<img src="images/' . $imageid . '.jpg "class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>';
+                                }
+                            ?>
                 <a href="question.php?id=<?php echo urlencode($search_title["id"]); ?>"><?php echo $search_title['question'];echo "</a>"; ?>
                 <?php
                 $flag = 1;
@@ -368,14 +378,19 @@ if (isset($_POST['submit_search'])) {
                                                                     $pic_result = mysqli_query($conn, $pic_query);
                                                                     confirm_query($pic_result);
                                                                     $pic = mysqli_fetch_assoc($pic_result);
-                                                                    if (empty($pic["data_propic"])) { 
-                                                                ?>
-                                                                        <img src="assets/images/nopic.png" class="img-circle" height="44px" width="44px" />
-                                                                <?php
-                                                                    } elseif (isset($pic["data_propic"])) {
-                                                                        echo '<img src="data:image/jpeg;base64,' . base64_encode($pic['data_propic']) . '" class="img-circle" height="44px" width="44px" />';        
-                                                                    }
-                                                                ?>
+                                                                    
+                                if ($pic["proset"]==0) { 
+                            ?>
+                                    <img src="assets/images/nopic.png" class="img-circle" height="200px" width="100px" style="border-radius: 100%;" />
+                            <?php
+                                } elseif ($pic["proset"]==1) {
+                                        $imageid=$pic['id'];
+
+                                        //echo '<img src="data:image/jpeg;base64,' . base64_encode($name_title['data_propic']) . '" class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>'; 
+                                        
+                                        echo '<img src="images/' . $imageid . '.jpg "class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>';
+                                }
+                            ?>
                                                         </a>
                                                         </aside>
                                                         <div class="story-content">
@@ -411,14 +426,19 @@ if (isset($_POST['submit_search'])) {
                                                                     $pic_result = mysqli_query($conn, $pic_query);
                                                                     confirm_query($pic_result);
                                                                     $pic = mysqli_fetch_assoc($pic_result);
-                                                                    if (empty($pic["data_propic"])) { 
-                                                                ?>
-                                                                        <img src="assets/images/nopic.png" class="img-circle" height="44px" width="44px" />
-                                                                <?php
-                                                                    } elseif (isset($pic["data_propic"])) {
-                                                                        echo '<img src="data:image/jpeg;base64,' . base64_encode($pic['data_propic']) . '" class="img-circle" height="44px" width="44px" />';        
-                                                                    }
-                                                                ?>
+                                                                    
+                                if ($pic["proset"]==0) { 
+                            ?>
+                                    <img src="assets/images/nopic.png" class="img-circle" height="200px" width="100px" style="border-radius: 100%;" />
+                            <?php
+                                } elseif ($pic["proset"]==1) {
+                                        $imageid=$pic['id'];
+
+                                        //echo '<img src="data:image/jpeg;base64,' . base64_encode($name_title['data_propic']) . '" class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>'; 
+                                        
+                                        echo '<img src="images/' . $imageid . '.jpg "class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>';
+                                }
+                            ?>
                                                         </a>
                                                         </aside>
                                                         <div class="story-content">

@@ -36,7 +36,7 @@ if (logged_in()) {
                     if ($found_user) {
 
                         $message = "Confirm your email by clicking the link http://cambuzz.co.in/emailconfirm.php?username=$username&code=$confirmcode";
-                        mail($email, "Confirm your email", $message, "From: prashant.bhardwaj2014@vit.ac.in");
+                        mail($email, "Confirm your email", $message, "From: pkpbhardwaj729@gmail.com");
                         echo "Registration complete, confirm your email";
                     } 
                 } 

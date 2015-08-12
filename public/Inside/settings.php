@@ -658,8 +658,10 @@ if (isset($_POST['submit'])) {
                             <?php
                                 } elseif ($name_title["proset"]==1) {
                                         $imageid=$name_title['id'];
+
                                         //echo '<img src="data:image/jpeg;base64,' . base64_encode($name_title['data_propic']) . '" class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>'; 
-                                        echo "<img src='images/$imageid.jpg class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>";       
+                                        
+                                        echo '<img src="images/' . $imageid . '.jpg "class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>';
                                 }
                             ?>
                             <span>Welcome,</span>

@@ -10,6 +10,7 @@
     confirm_query($name_result);
     $name_title = mysqli_fetch_assoc($name_result);
     $first_name = explode(" ", $name_title['sname']);
+    $current_id = $name_title['id'];
     $slang_query = "SELECT * FROM slangs";
     $slang_result = mysqli_query($conn, $slang_query);
     confirm_query($slang_result);  
@@ -156,12 +157,16 @@ if ((isset($_POST['submit']))&&(isset($_POST['answer']))) {
                     <div class="sui-normal">
                         <div class="user-link">
                             <?php
-                                if (empty($name_title["data_propic"])) { 
+                                if ($name_title["proset"]==0) { 
                             ?>
                                     <img src="assets/images/nopic.png" class="img-circle" height="200px" width="100px" style="border-radius: 100%;" />
                             <?php
-                                } elseif (isset($name_title["data_propic"])) {
-                                        echo '<img src="data:image/jpeg;base64,' . base64_encode($name_title['data_propic']) . '" class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>';        
+                                } elseif ($name_title["proset"]==1) {
+                                        $imageid=$name_title['id'];
+
+                                        //echo '<img src="data:image/jpeg;base64,' . base64_encode($name_title['data_propic']) . '" class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>'; 
+                                        
+                                        echo '<img src="images/' . $imageid . '.jpg "class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>';
                                 }
                             ?>
                             <span>Welcome,</span>
@@ -234,14 +239,19 @@ if ((isset($_POST['submit']))&&(isset($_POST['answer']))) {
                                         $pic_result = mysqli_query($conn, $pic_query);
                                         confirm_query($pic_result);
                                         $pic = mysqli_fetch_assoc($pic_result);
-                                        if (empty($pic["data_propic"])) { 
-                                        ?>
-                                            <img src="assets/images/nopic.png" class="img-circle" height="44px" width="44px" />
-                                        <?php
-                                        } elseif (isset($pic["data_propic"])) {
-                                            echo '<img src="data:image/jpeg;base64,' . base64_encode($pic['data_propic']) . '" class="img-circle" height="44px" width="44px" />';        
-                                        }
-                                        ?>
+                                        
+                                if ($pic["proset"]==0) { 
+                            ?>
+                                    <img src="assets/images/nopic.png" class="img-circle" height="200px" width="100px" style="border-radius: 100%;" />
+                            <?php
+                                } elseif ($pic["proset"]==1) {
+                                        $imageid=$pic['id'];
+
+                                        //echo '<img src="data:image/jpeg;base64,' . base64_encode($name_title['data_propic']) . '" class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>'; 
+                                        
+                                        echo '<img src="images/' . $imageid . '.jpg "class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>';
+                                }
+                            ?>
                                     </a>
                                 </aside>
                                 <div class="story-content">
@@ -290,14 +300,19 @@ if ((isset($_POST['submit']))&&(isset($_POST['answer']))) {
                                                             $poster_pic_result = mysqli_query($conn, $poster_pic_query);
                                                             confirm_query($poster_pic_result);
                                                             $poster_pic = mysqli_fetch_assoc($poster_pic_result);
-                                                            if (empty($poster_pic["data_propic"])) { 
-                                                            ?>
-                                                                <img src="assets/images/nopic.png" class="img-circle" height="44px" width="44px" />
-                                                            <?php
-                                                            } elseif (isset($poster_pic["data_propic"])) {
-                                                                echo '<img src="data:image/jpeg;base64,' . base64_encode($poster_pic['data_propic']) . '" class="img-circle" height="44px" width="44px" />';        
-                                                            }
-                                                            ?>
+                                                            
+                                if ($poster_pic["proset"]==0) { 
+                            ?>
+                                    <img src="assets/images/nopic.png" class="img-circle" height="200px" width="100px" style="border-radius: 100%;" />
+                            <?php
+                                } elseif ($poster_pic["proset"]==1) {
+                                        $imageid=$poster_pic['id'];
+
+                                        //echo '<img src="data:image/jpeg;base64,' . base64_encode($name_title['data_propic']) . '" class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>'; 
+                                        
+                                        echo '<img src="images/' . $imageid . '.jpg "class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>';
+                                }
+                            ?>
                                                 </div>
                                                 <div class="user-comment-content">
                                                     <div class="user-comment-name">
@@ -327,14 +342,19 @@ if ((isset($_POST['submit']))&&(isset($_POST['answer']))) {
                                                     $poster_pic_result = mysqli_query($conn, $poster_pic_query);
                                                     confirm_query($poster_pic_result);
                                                     $poster_pic = mysqli_fetch_assoc($poster_pic_result);
-                                                    if (empty($poster_pic["data_propic"])) { 
-                                                    ?>
-                                                        <img src="assets/images/nopic.png" class="img-circle" height="44px" width="44px" />
-                                                    <?php
-                                                    } elseif (isset($poster_pic["data_propic"])) {
-                                                        echo '<img src="data:image/jpeg;base64,' . base64_encode($poster_pic['data_propic']) . '" class="img-circle" height="44px" width="44px" />';        
-                                                    }
-                                                    ?>
+                                                    
+                                if ($poster_pic["proset"]==0) { 
+                            ?>
+                                    <img src="assets/images/nopic.png" class="img-circle" height="200px" width="100px" style="border-radius: 100%;" />
+                            <?php
+                                } elseif ($poster_pic["proset"]==1) {
+                                        $imageid=$poster_pic['id'];
+
+                                        //echo '<img src="data:image/jpeg;base64,' . base64_encode($name_title['data_propic']) . '" class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>'; 
+                                        
+                                        echo '<img src="images/' . $imageid . '.jpg "class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>';
+                                }
+                            ?>
                                                 </div>
                                                 <div class="user-comment-content">
                                                     <div class="user-comment-name">
@@ -364,14 +384,18 @@ if ((isset($_POST['submit']))&&(isset($_POST['answer']))) {
                                             <li class="comment-form">
                                                 <div class="user-comment-thumb">
                                                     <?php
-                                                        if (empty($name_title["data_propic"])) { 
-                                                    ?>
-                                                            <img src="assets/images/nopic.png" class="img-circle" height="44px" width="44px" />
-                                                    <?php
-                                                        } elseif (isset($name_title["data_propic"])) {
-                                                                echo '<img src="data:image/jpeg;base64,' . base64_encode($name_title['data_propic']) . '" class="img-circle" height="44px" width="44px" />';        
-                                                        }
-                                                    ?>
+                                if ($name_title["proset"]==0) { 
+                            ?>
+                                    <img src="assets/images/nopic.png" class="img-circle" height="200px" width="100px" style="border-radius: 100%;" />
+                            <?php
+                                } elseif ($name_title["proset"]==1) {
+                                        $imageid=$name_title['id'];
+
+                                        //echo '<img src="data:image/jpeg;base64,' . base64_encode($name_title['data_propic']) . '" class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>'; 
+                                        
+                                        echo '<img src="images/' . $imageid . '.jpg "class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>';
+                                }
+                            ?>
                                                 </div>
                                                 <div class="user-comment-content">
                                                 <form method="post" action="question.php?id=<?php echo urlencode($_GET["id"]); ?>">
