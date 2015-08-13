@@ -5,7 +5,7 @@
 <?php confirm_logged_in(); ?>
 <?php
     $current_user = $_SESSION["username"];
-    $name_query = "SELECT * FROM users WHERE username = '{$current_user}' ";
+    $name_query = "SELECT * FROM users WHERE username = '{$current_user}' LIMIT 1";
     $name_result = mysqli_query($conn, $name_query);
     confirm_query($name_result);
     $name_title = mysqli_fetch_assoc($name_result);
@@ -98,7 +98,7 @@ if (isset($_POST['submit'])) {
                 
                 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 
-                move_uploaded_file($_FILES["propic"]["tmp_name"],getcwd()."images/$current_id.jpg");
+                move_uploaded_file($_FILES["propic"]["tmp_name"],"images/.$current_id.jpg");
                 $proset = 1;
                          
 
@@ -111,7 +111,7 @@ if (isset($_POST['submit'])) {
                 //$size_propic = intval($_FILES['propic']['size']);
                 $filter_branch = implode(" ", $_POST['branch']);
                 $filter_club = implode(" ", $_POST['club']);
-                $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', hashed_password = '{$hashed_password}', filter_branch = '{$filter_branch}', filter_club = '{$filter_club}', proset = {$proset} WHERE username = '{$current_user}' ";
+                $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', hashed_password = '{$hashed_password}', filter_branch = '{$filter_branch}', filter_club = '{$filter_club}', proset = {$proset} WHERE username = '{$current_user}' LIMIT 1";
                 $result = mysqli_query($conn, $query);
                 if ($result && mysqli_affected_rows($conn) == 1) {
                     redirect_to("buzz.php");
@@ -144,7 +144,7 @@ if (isset($_POST['submit'])) {
                 
                 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 
-                 move_uploaded_file($_FILES["propic"]["tmp_name"],getcwd()."images/$current_id.jpg");
+                move_uploaded_file($_FILES["propic"]["tmp_name"],"images/$current_id.jpg");
                 $proset = 1;
                          
 
@@ -157,7 +157,7 @@ if (isset($_POST['submit'])) {
                 //$size_propic = intval($_FILES['propic']['size']);
                 $filter_branch = implode(" ", $_POST['branch']);
                 
-                $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', hashed_password = '{$hashed_password}', filter_branch = '{$filter_branch}', proset = {$proset} WHERE username = '{$current_user}' ";
+                $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', hashed_password = '{$hashed_password}', filter_branch = '{$filter_branch}', proset = {$proset} WHERE username = '{$current_user}' LIMIT 1";
                 $result = mysqli_query($conn, $query);
                 if ($result && mysqli_affected_rows($conn) == 1) {
                     redirect_to("buzz.php");
@@ -190,7 +190,7 @@ if (isset($_POST['submit'])) {
                 
                 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 
-                 move_uploaded_file($_FILES["propic"]["tmp_name"],getcwd()."images/$current_id.jpg");
+                move_uploaded_file($_FILES["propic"]["tmp_name"],"images/$current_id.jpg");
                 $proset = 1;
                          
 
@@ -203,7 +203,7 @@ if (isset($_POST['submit'])) {
                 //$size_propic = intval($_FILES['propic']['size']);
                 
                 $filter_club = implode(" ", $_POST['club']);
-                $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', hashed_password = '{$hashed_password}', filter_club = '{$filter_club}', proset = {$proset} WHERE username = '{$current_user}'  ";
+                $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', hashed_password = '{$hashed_password}', filter_club = '{$filter_club}', proset = {$proset} WHERE username = '{$current_user}' LIMIT 1";
                 $result = mysqli_query($conn, $query);
                 if ($result && mysqli_affected_rows($conn) == 1) {
                     redirect_to("buzz.php");
@@ -236,7 +236,7 @@ if (isset($_POST['submit'])) {
                 
                 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 
-                move_uploaded_file($_FILES["propic"]["tmp_name"],getcwd()."images/$current_id.jpg");
+                move_uploaded_file($_FILES["propic"]["tmp_name"],"images/$current_id.jpg");
                 $proset = 1;
                          
 
@@ -248,7 +248,7 @@ if (isset($_POST['submit'])) {
                // $data_propic = $conn->real_escape_string(file_get_contents($_FILES ['propic']['tmp_name']));
                 //$size_propic = intval($_FILES['propic']['size']);
                 
-                $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', hashed_password = '{$hashed_password}', proset = {$proset} WHERE username = '{$current_user}'  ";
+                $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', hashed_password = '{$hashed_password}', proset = {$proset} WHERE username = '{$current_user}' LIMIT 1";
                 $result = mysqli_query($conn, $query);
                 if ($result && mysqli_affected_rows($conn) == 1) {
                     redirect_to("buzz.php");
@@ -279,7 +279,7 @@ if (isset($_POST['submit'])) {
                 
                 $filter_branch = implode(" ", $_POST['branch']);
                 $filter_club = implode(" ", $_POST['club']);
-                $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', hashed_password = '{$hashed_password}', filter_branch = '{$filter_branch}', filter_club = '{$filter_club}' WHERE username = '{$current_user}'  ";
+                $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', hashed_password = '{$hashed_password}', filter_branch = '{$filter_branch}', filter_club = '{$filter_club}' WHERE username = '{$current_user}' LIMIT 1";
                 $result = mysqli_query($conn, $query);
                 if ($result && mysqli_affected_rows($conn) == 1) {
                     redirect_to("buzz.php");
@@ -310,7 +310,7 @@ if (isset($_POST['submit'])) {
                 
                 $filter_branch = implode(" ", $_POST['branch']);
                 
-                $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', hashed_password = '{$hashed_password}', filter_branch = '{$filter_branch}' WHERE username = '{$current_user}'  ";
+                $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', hashed_password = '{$hashed_password}', filter_branch = '{$filter_branch}' WHERE username = '{$current_user}' LIMIT 1";
                 $result = mysqli_query($conn, $query);
                 if ($result && mysqli_affected_rows($conn) == 1) {
                     redirect_to("buzz.php");
@@ -340,7 +340,7 @@ if (isset($_POST['submit'])) {
                 $hashed_password = password_encrypt($_POST["new_password"]);
                 
                 $filter_club = implode(" ", $_POST['club']);
-                $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', hashed_password = '{$hashed_password}', filter_club = '{$filter_club}' WHERE username = '{$current_user}'  ";
+                $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', hashed_password = '{$hashed_password}', filter_club = '{$filter_club}' WHERE username = '{$current_user}' LIMIT 1";
                 $result = mysqli_query($conn, $query);
                 if ($result && mysqli_affected_rows($conn) == 1) {
                     redirect_to("buzz.php");
@@ -369,7 +369,7 @@ if (isset($_POST['submit'])) {
                 $email = $_POST['email'];                
                 $hashed_password = password_encrypt($_POST["new_password"]);
                 
-                $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', hashed_password = '{$hashed_password}' WHERE username = '{$current_user}'  ";
+                $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', hashed_password = '{$hashed_password}' WHERE username = '{$current_user}' LIMIT 1";
                 $result = mysqli_query($conn, $query);
                 if ($result && mysqli_affected_rows($conn) == 1) {
                     redirect_to("buzz.php");
@@ -393,7 +393,7 @@ if (isset($_POST['submit'])) {
                 
                 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 
-                move_uploaded_file($_FILES["propic"]["tmp_name"],getcwd()."images/$current_id.jpg");
+                move_uploaded_file($_FILES["propic"]["tmp_name"],"images/$current_id.jpg");
                 $proset = 1;
                          
 
@@ -406,7 +406,7 @@ if (isset($_POST['submit'])) {
                 //$size_propic = intval($_FILES['propic']['size']);
             $filter_branch = implode(" ", $_POST['branch']);
             $filter_club = implode(" ", $_POST['club']);
-            $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', filter_branch = '{$filter_branch}', filter_club = '{$filter_club}', proset = {$proset} WHERE username = '{$current_user}'  ";
+            $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', filter_branch = '{$filter_branch}', filter_club = '{$filter_club}', proset = {$proset} WHERE username = '{$current_user}' LIMIT 1";
             $result = mysqli_query($conn, $query);
             if ($result && mysqli_affected_rows($conn) == 1) {
                 redirect_to("buzz.php");
@@ -427,7 +427,7 @@ if (isset($_POST['submit'])) {
                 
                 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 
-                move_uploaded_file($_FILES["propic"]["tmp_name"],getcwd()."images/$current_id.jpg");
+                move_uploaded_file($_FILES["propic"]["tmp_name"],"images/$current_id.jpg");
                 $proset = 1;
                          
 
@@ -440,7 +440,7 @@ if (isset($_POST['submit'])) {
                 //$size_propic = intval($_FILES['propic']['size']);
             $filter_branch = implode(" ", $_POST['branch']);
             
-            $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', filter_branch = '{$filter_branch}', proset = {$proset} WHERE username = '{$current_user}'  ";
+            $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', filter_branch = '{$filter_branch}', proset = {$proset} WHERE username = '{$current_user}' LIMIT 1";
             $result = mysqli_query($conn, $query);
             if ($result && mysqli_affected_rows($conn) == 1) {
                 redirect_to("buzz.php");
@@ -461,7 +461,7 @@ if (isset($_POST['submit'])) {
                 
                 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 
-                move_uploaded_file($_FILES["propic"]["tmp_name"],getcwd()."images/$current_id.jpg");
+                move_uploaded_file($_FILES["propic"]["tmp_name"],"images/$current_id.jpg");
                 $proset = 1;
                          
 
@@ -474,7 +474,7 @@ if (isset($_POST['submit'])) {
                 //$size_propic = intval($_FILES['propic']['size']);
             $filter_branch = implode(" ", $_POST['branch']);
             $filter_club = implode(" ", $_POST['club']);
-            $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', filter_club = '{$filter_club}', proset = {$proset} WHERE username = '{$current_user}'  ";
+            $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', filter_club = '{$filter_club}', proset = {$proset} WHERE username = '{$current_user}' LIMIT 1";
             $result = mysqli_query($conn, $query);
             if ($result && mysqli_affected_rows($conn) == 1) {
                 redirect_to("buzz.php");
@@ -495,7 +495,7 @@ if (isset($_POST['submit'])) {
                 
                 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 
-                move_uploaded_file($_FILES["propic"]["tmp_name"],getcwd()."images/$current_id.jpg");
+                move_uploaded_file($_FILES["propic"]["tmp_name"],"images/$current_id.jpg");
                 $proset = 1;
                          
 
@@ -507,7 +507,7 @@ if (isset($_POST['submit'])) {
                // $data_propic = $conn->real_escape_string(file_get_contents($_FILES ['propic']['tmp_name']));
                 //$size_propic = intval($_FILES['propic']['size']);
             
-            $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', proset = {$proset} WHERE username = '{$current_user}'  ";
+            $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', proset = {$proset} WHERE username = '{$current_user}' LIMIT 1";
             $result = mysqli_query($conn, $query);
             if ($result && mysqli_affected_rows($conn) == 1) {
                 redirect_to("buzz.php");
@@ -525,7 +525,7 @@ if (isset($_POST['submit'])) {
             
             $filter_branch = implode(" ", $_POST['branch']);
             $filter_club = implode(" ", $_POST['club']);
-            $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', filter_branch = '{$filter_branch}', filter_club = '{$filter_club}' WHERE username = '{$current_user}'  ";
+            $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', filter_branch = '{$filter_branch}', filter_club = '{$filter_club}' WHERE username = '{$current_user}' LIMIT 1";
             $result = mysqli_query($conn, $query);
             if ($result && mysqli_affected_rows($conn) == 1) {
                 redirect_to("buzz.php");
@@ -542,7 +542,7 @@ if (isset($_POST['submit'])) {
             $email = $_POST['email'];
             $filter_branch = implode(" ", $_POST['branch']);
             
-            $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', filter_branch = '{$filter_branch}' WHERE username = '{$current_user}'  ";
+            $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', filter_branch = '{$filter_branch}' WHERE username = '{$current_user}' LIMIT 1";
             $result = mysqli_query($conn, $query);
             if ($result && mysqli_affected_rows($conn) == 1) {
                 redirect_to("buzz.php");
@@ -559,7 +559,7 @@ if (isset($_POST['submit'])) {
             $email = $_POST['email'];
             
             $filter_club = implode(" ", $_POST['club']);
-            $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', filter_club = '{$filter_club}' WHERE username = '{$current_user}'  ";
+            $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', filter_club = '{$filter_club}' WHERE username = '{$current_user}' LIMIT 1";
             $result = mysqli_query($conn, $query);
             if ($result && mysqli_affected_rows($conn) == 1) {
                 redirect_to("buzz.php");
@@ -574,7 +574,7 @@ if (isset($_POST['submit'])) {
         if (empty($errors)) {                
             $sname = $_POST['sname'];
             $email = $_POST['email'];
-            $query = "UPDATE users SET sname = '{$sname}', email = '{$email}' WHERE username = '{$current_user}'  ";
+            $query = "UPDATE users SET sname = '{$sname}', email = '{$email}' WHERE username = '{$current_user}' LIMIT 1";
             $result = mysqli_query($conn, $query);
             if ($result && mysqli_affected_rows($conn) == 1) {
                 redirect_to("buzz.php");
@@ -661,7 +661,7 @@ if (isset($_POST['submit'])) {
 
                                         //echo '<img src="data:image/jpeg;base64,' . base64_encode($name_title['data_propic']) . '" class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>'; 
                                         
-                                        echo '<img src="images/' . $imageid . '.jpg "class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>';
+                                        echo '<img src="images/' . $imageid . '.jpg "class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>'; 
                                 }
                             ?>
                             <span>Welcome,</span>
