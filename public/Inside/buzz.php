@@ -16,7 +16,7 @@
 ?>
 <?php
 date_default_timezone_set('Asia/Calcutta');
-$id_time = date("Y-m-d\TH:i:s");
+$id_time = date("Y-m-d H-i-s");
 $buzz_id = $current_user.$id_time;
 ?>
 <?php
@@ -69,8 +69,8 @@ if (isset($_POST['submit'])) {
                 if($flag==0)break;                               
             }
             if ($flag==1) {
-                $title = $_POST['title'];
-                $content = $_POST['content'];
+                $title = mysql_real_escape_string($_POST['title']);
+                $content = mysql_real_escape_string($_POST['content']);
                 $start_date_time = $_POST['start_date_time'];
                 $end_date_time = $_POST['end_date_time'];
                 $branch = implode(" ",$_POST['branch']);
@@ -137,8 +137,8 @@ if (isset($_POST['submit'])) {
                 if($flag==0)break;                               
             }
             if ($flag==1) {
-                $title = $_POST['title'];
-                $content = $_POST['content'];
+                $title = mysql_real_escape_string($_POST['title']);
+                $content = mysql_real_escape_string($_POST['content']);
                 $start_date_time = $_POST['start_date_time'];
                 $end_date_time = $_POST['end_date_time'];
                 $branch = implode(" ",$_POST['branch']);
@@ -205,8 +205,8 @@ if (isset($_POST['submit'])) {
                 if($flag==0)break;                               
             }
             if ($flag==1) {
-                $title = $_POST['title'];
-                $content = $_POST['content'];
+                $title = mysql_real_escape_string($_POST['title']);
+                $content = mysql_real_escape_string($_POST['content']);
                 $start_date_time = $_POST['start_date_time'];
                 $end_date_time = $_POST['end_date_time'];
                 $branch = "xyz";
@@ -273,8 +273,8 @@ if (isset($_POST['submit'])) {
                 if($flag==0)break;                               
             }
             if ($flag==1) {
-                $title = $_POST['title'];
-                $content = $_POST['content'];
+                $title = mysql_real_escape_string($_POST['title']);
+                $content = mysql_real_escape_string($_POST['content']);
                 $start_date_time = $_POST['start_date_time'];
                 $end_date_time = $_POST['end_date_time'];               
                 $target_dir = "images/posters/";
@@ -341,8 +341,8 @@ if (isset($_POST['submit'])) {
                 if($flag==0)break;                               
             }
             if ($flag==1) {
-                $title = $_POST['title'];
-                $content = $_POST['content'];
+                $title = mysql_real_escape_string($_POST['title']);
+                $content = mysql_real_escape_string($_POST['content']);
                 $start_date_time = $_POST['start_date_time'];
                 $end_date_time = $_POST['end_date_time'];
                 $branch = implode(" ", $_POST['branch']);
@@ -404,8 +404,8 @@ if (isset($_POST['submit'])) {
                 if($flag==0)break;                               
             }
             if ($flag==1) {
-                $title = $_POST['title'];
-                $content = $_POST['content'];
+                $title = mysql_real_escape_string($_POST['title']);
+                $content = mysql_real_escape_string($_POST['content']);
                 $start_date_time = $_POST['start_date_time'];
                 $end_date_time = $_POST['end_date_time'];
                 $branch = implode(" ", $_POST['branch']);
@@ -467,8 +467,8 @@ if (isset($_POST['submit'])) {
                 if($flag==0)break;                               
             }
             if ($flag==1) {
-                $title = $_POST['title'];
-                $content = $_POST['content'];
+                $title = mysql_real_escape_string($_POST['title']);
+                $content = mysql_real_escape_string($_POST['content']);
                 $start_date_time = $_POST['start_date_time'];
                 $end_date_time = $_POST['end_date_time'];
                 $branch = "xyz";
@@ -530,8 +530,8 @@ if (isset($_POST['submit'])) {
                 if($flag==0)break;                               
             }
             if ($flag==1) {
-                $title = $_POST['title'];
-                $content = $_POST['content'];
+                $title = mysql_real_escape_string($_POST['title']);
+                $content = mysql_real_escape_string($_POST['content']);
                 $start_date_time = $_POST['start_date_time'];
                 $end_date_time = $_POST['end_date_time'];
                 $buzz_username = $_SESSION['username'];
@@ -1278,8 +1278,10 @@ if (isset($_POST['submit'])) {
                                                     
                                                     </p>
                                                     <?php
-                                                    $posterid=$notification['buzz_username'].$notification['buzz_time'];                                        
-                                                    echo '<img src="images/posters' . $posterid . '.jpg " class="img-responsive" ">'; ?>
+                                                    $poster_time = strtotime($notification['buzz_time']);                                                    
+                                                    $posterid=$notification['buzz_username'].date("Y-m-d H-i-s", $poster_time); 
+                                                    echo $posterid;                                       
+                                                    echo '<img src="images/posters/' . $posterid . '.jpg "class="img-responsive">'; ?>
                                                     <b style="margin-top: 10px; display: block; margin-left: auto; margin-right: auto; font-family:'Montserrat', sans-serif">
                                                     <?php 
                                                     $timestamp_start = strtotime($notification["start_date_time"]);
@@ -1331,8 +1333,10 @@ if (isset($_POST['submit'])) {
                                                     
                                                     </p>
                                                     <?php
-                                                    $posterid=$notification['buzz_username'].$notification['buzz_time'];                                        
-                                                    echo '<img src="images/posters' . $posterid . '.jpg " class="img-responsive" ">'; ?>
+                                                    $poster_time = strtotime($notification['buzz_time']);                                                    
+                                                    $posterid=$notification['buzz_username'].date("Y-m-d H-i-s", $poster_time); 
+                                                    echo $posterid;                                       
+                                                    echo '<img src="images/posters/' . $posterid . '.jpg "class="img-responsive">'; ?>
                                                     <b style="margin-top: 10px; display: block; margin-left: auto; margin-right: auto; font-family:'Montserrat', sans-serif">
                                                     <?php 
                                                     $timestamp_start = strtotime($notification["start_date_time"]);
