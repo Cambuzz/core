@@ -196,7 +196,7 @@ $buzz_id = $current_user.$id_time;
                                                     <?php
                                                     $poster_time = strtotime($notification['buzz_time']);                                                    
                                                     $posterid=$notification['buzz_username'].date("Y-m-d H-i-s", $poster_time); 
-                                                    echo $posterid;                                       
+                                                                                         
                                                     echo '<img src="images/posters/' . $posterid . '.jpg "class="img-responsive">'; ?>
                                                     <b style="margin-top: 10px; display: block; margin-left: auto; margin-right: auto; font-family:'Montserrat', sans-serif">
                                                     <?php 
