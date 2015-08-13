@@ -27,7 +27,7 @@ if (isset($_POST['submit'])) {
             $flag=1;    
             while ($slang_list = mysqli_fetch_assoc($slang_result)) {
                 $s1 = $slang_list['COL 1'];
-                $s2 = $_POST['title']." ".$_POST['content'];
+                $s2 = $_POST['title']." ". mysqli_real_escape_string($conn, $_POST['content']);
                 $s=$s1." ".$s2;
                 //echo $s;echo "<br>";
                 $n= strlen($s);
@@ -70,7 +70,7 @@ if (isset($_POST['submit'])) {
             }
             if ($flag==1) {
                 $title =  mysqli_real_escape_string($conn, $_POST['title']);
-                $content = $_POST['content'];
+                $content =  mysqli_real_escape_string($conn, $_POST['content']);
                 $start_date_time = $_POST['start_date_time'];
                 $end_date_time = $_POST['end_date_time'];
                 $branch = implode(" ",$_POST['branch']);
@@ -95,7 +95,7 @@ if (isset($_POST['submit'])) {
             $flag=1;    
             while ($slang_list = mysqli_fetch_assoc($slang_result)) {
                 $s1 = $slang_list['COL 1'];
-                $s2 = $_POST['title']." ".$_POST['content'];
+                $s2 = $_POST['title']." ". mysqli_real_escape_string($conn, $_POST['content']);
                 $s=$s1." ".$s2;
                 //echo $s;echo "<br>";
                 $n= strlen($s);
@@ -138,7 +138,7 @@ if (isset($_POST['submit'])) {
             }
             if ($flag==1) {
                 $title =  mysqli_real_escape_string($conn, $_POST['title']);
-                $content = $_POST['content'];
+                $content =  mysqli_real_escape_string($conn, $_POST['content']);
                 $start_date_time = $_POST['start_date_time'];
                 $end_date_time = $_POST['end_date_time'];
                 $branch = implode(" ",$_POST['branch']);
@@ -150,7 +150,7 @@ if (isset($_POST['submit'])) {
                 $poset = 1;
                 $buzz_username = $_SESSION['username'];
                 date_default_timezone_set('Asia/Calcutta');
-                $buzz_time = date("Y-m-d\TH:i:s");
+                $buzz_time = date("Y-m-d H-i-s");
                 if($content !=''){
                     $query = "INSERT INTO notify (title, content, start_date_time, end_date_time, branch, club, poset, buzz_username, buzz_time)";
                     $query .= " VALUES ('{$title}', '{$content}', '{$start_date_time}', '{$end_date_time}', '{$branch}', '{$club}', {$poset}, '{$buzz_username}', '{$buzz_time}')";
@@ -163,7 +163,7 @@ if (isset($_POST['submit'])) {
             $flag=1;    
             while ($slang_list = mysqli_fetch_assoc($slang_result)) {
                 $s1 = $slang_list['COL 1'];
-                $s2 = $_POST['title']." ".$_POST['content'];
+                $s2 = $_POST['title']." ". mysqli_real_escape_string($conn, $_POST['content']);
                 $s=$s1." ".$s2;
                 //echo $s;echo "<br>";
                 $n= strlen($s);
@@ -206,7 +206,7 @@ if (isset($_POST['submit'])) {
             }
             if ($flag==1) {
                 $title =  mysqli_real_escape_string($conn, $_POST['title']);
-                $content = $_POST['content'];
+                $content =  mysqli_real_escape_string($conn, $_POST['content']);
                 $start_date_time = $_POST['start_date_time'];
                 $end_date_time = $_POST['end_date_time'];
                 $branch = "xyz";
@@ -218,7 +218,7 @@ if (isset($_POST['submit'])) {
                 $poset = 1;
                 $buzz_username = $_SESSION['username'];
                 date_default_timezone_set('Asia/Calcutta');
-                $buzz_time = date("Y-m-d\TH:i:s");
+                $buzz_time = date("Y-m-d H-i-s");
                 if($content !=''){
                     $query = "INSERT INTO notify (title, content, start_date_time, end_date_time, branch, club, poset, buzz_username, buzz_time)";
                     $query .= " VALUES ('{$title}', '{$content}', '{$start_date_time}', '{$end_date_time}', '{$branch}', '{$club}', {$poset}, '{$buzz_username}', '{$buzz_time}')";
@@ -231,7 +231,7 @@ if (isset($_POST['submit'])) {
             $flag=1;    
             while ($slang_list = mysqli_fetch_assoc($slang_result)) {
                 $s1 = $slang_list['COL 1'];
-                $s2 = $_POST['title']." ".$_POST['content'];
+                $s2 = $_POST['title']." ". mysqli_real_escape_string($conn, $_POST['content']);
                 $s=$s1." ".$s2;
                 //echo $s;echo "<br>";
                 $n= strlen($s);
@@ -274,7 +274,7 @@ if (isset($_POST['submit'])) {
             }
             if ($flag==1) {
                 $title =  mysqli_real_escape_string($conn, $_POST['title']);
-                $content = $_POST['content'];
+                $content =  mysqli_real_escape_string($conn, $_POST['content']);
                 $start_date_time = $_POST['start_date_time'];
                 $end_date_time = $_POST['end_date_time'];               
                 $target_dir = "images/posters/";
@@ -284,7 +284,7 @@ if (isset($_POST['submit'])) {
                 $poset = 1;
                 $buzz_username = $_SESSION['username'];
                 date_default_timezone_set('Asia/Calcutta');
-                $buzz_time = date("Y-m-d\TH:i:s");
+                $buzz_time = date("Y-m-d H-i-s");
                 if($content !=''){
                     $query = "INSERT INTO notify (title, content, start_date_time, end_date_time, poset, buzz_username, buzz_time)";
                     $query .= " VALUES ('{$title}', '{$content}', '{$start_date_time}', '{$end_date_time}', {$poset}, '{$buzz_username}', '{$buzz_time}')";
@@ -299,7 +299,7 @@ if (isset($_POST['submit'])) {
             $flag=1;    
             while ($slang_list = mysqli_fetch_assoc($slang_result)) {
                 $s1 = $slang_list['COL 1'];
-                $s2 = $_POST['title']." ".$_POST['content'];
+                $s2 = $_POST['title']." ". mysqli_real_escape_string($conn, $_POST['content']);
                 $s=$s1." ".$s2;
                 //echo $s;echo "<br>";
                 $n= strlen($s);
@@ -342,14 +342,14 @@ if (isset($_POST['submit'])) {
             }
             if ($flag==1) {
                 $title =  mysqli_real_escape_string($conn, $_POST['title']);
-                $content = $_POST['content'];
+                $content =  mysqli_real_escape_string($conn, $_POST['content']);
                 $start_date_time = $_POST['start_date_time'];
                 $end_date_time = $_POST['end_date_time'];
                 $branch = implode(" ", $_POST['branch']);
                 $club = implode(" ", $_POST['club']);
                 $buzz_username = $_SESSION['username'];
                 date_default_timezone_set('Asia/Calcutta');
-                $buzz_time = date("Y-m-d\TH:i:s");
+                $buzz_time = date("Y-m-d H-i-s");
                 if($content !=''){
                     $query = "INSERT INTO notify (title, content, start_date_time, end_date_time, branch, club, buzz_username, buzz_time)"; 
                     $query .=" VALUES ('{$title}', '{$content}', '{$start_date_time}', '{$end_date_time}', '{$branch}', '{$club}', '{$buzz_username}', '{$buzz_time}')";
@@ -362,7 +362,7 @@ if (isset($_POST['submit'])) {
             $flag=1;    
             while ($slang_list = mysqli_fetch_assoc($slang_result)) {
                 $s1 = $slang_list['COL 1'];
-                $s2 = $_POST['title']." ".$_POST['content'];
+                $s2 = $_POST['title']." ". mysqli_real_escape_string($conn, $_POST['content']);
                 $s=$s1." ".$s2;
                 //echo $s;echo "<br>";
                 $n= strlen($s);
@@ -405,14 +405,14 @@ if (isset($_POST['submit'])) {
             }
             if ($flag==1) {
                 $title =  mysqli_real_escape_string($conn, $_POST['title']);
-                $content = $_POST['content'];
+                $content =  mysqli_real_escape_string($conn, $_POST['content']);
                 $start_date_time = $_POST['start_date_time'];
                 $end_date_time = $_POST['end_date_time'];
                 $branch = implode(" ", $_POST['branch']);
                 $club = "xyz";
                 $buzz_username = $_SESSION['username'];
                 date_default_timezone_set('Asia/Calcutta');
-                $buzz_time = date("Y-m-d\TH:i:s");
+                $buzz_time = date("Y-m-d H-i-s");
                 if($content !=''){
                     $query = "INSERT INTO notify (title, content, start_date_time, end_date_time, branch, club, buzz_username, buzz_time)"; 
                     $query .=" VALUES ('{$title}', '{$content}', '{$start_date_time}', '{$end_date_time}', '{$branch}', '{$club}', '{$buzz_username}', '{$buzz_time}')";
@@ -425,7 +425,7 @@ if (isset($_POST['submit'])) {
             $flag=1;    
             while ($slang_list = mysqli_fetch_assoc($slang_result)) {
                 $s1 = $slang_list['COL 1'];
-                $s2 = $_POST['title']." ".$_POST['content'];
+                $s2 = $_POST['title']." ". mysqli_real_escape_string($conn, $_POST['content']);
                 $s=$s1." ".$s2;
                 //echo $s;echo "<br>";
                 $n= strlen($s);
@@ -468,14 +468,14 @@ if (isset($_POST['submit'])) {
             }
             if ($flag==1) {
                 $title =  mysqli_real_escape_string($conn, $_POST['title']);
-                $content = $_POST['content'];
+                $content =  mysqli_real_escape_string($conn, $_POST['content']);
                 $start_date_time = $_POST['start_date_time'];
                 $end_date_time = $_POST['end_date_time'];
                 $branch = "xyz";
                 $club = implode(" ", $_POST['club']);
                 $buzz_username = $_SESSION['username'];
                 date_default_timezone_set('Asia/Calcutta');
-                $buzz_time = date("Y-m-d\TH:i:s");
+                $buzz_time = date("Y-m-d H-i-s");
                 if($content !=''){
                     $query = "INSERT INTO notify (title, content, start_date_time, end_date_time, branch, club, buzz_username, buzz_time)"; 
                     $query .=" VALUES ('{$title}', '{$content}', '{$start_date_time}', '{$end_date_time}', '{$branch}', '{$club}', '{$buzz_username}', '{$buzz_time}')";
@@ -488,7 +488,7 @@ if (isset($_POST['submit'])) {
             $flag=1;    
             while ($slang_list = mysqli_fetch_assoc($slang_result)) {
                 $s1 = $slang_list['COL 1'];
-                $s2 = $_POST['title']." ".$_POST['content'];
+                $s2 = $_POST['title']." ". mysqli_real_escape_string($conn, $_POST['content']);
                 $s=$s1." ".$s2;
                 //echo $s;echo "<br>";
                 $n= strlen($s);
@@ -531,12 +531,12 @@ if (isset($_POST['submit'])) {
             }
             if ($flag==1) {
                 $title =  mysqli_real_escape_string($conn, $_POST['title']);
-                $content = $_POST['content'];
+                $content =  mysqli_real_escape_string($conn, $_POST['content']);
                 $start_date_time = $_POST['start_date_time'];
                 $end_date_time = $_POST['end_date_time'];
                 $buzz_username = $_SESSION['username'];
                 date_default_timezone_set('Asia/Calcutta');
-                $buzz_time = date("Y-m-d\TH:i:s");
+                $buzz_time = date("Y-m-d H-i-s");
                 if($content !=''){
                     $query = "INSERT INTO notify (title, content, start_date_time, end_date_time, buzz_username, buzz_time)"; 
                     $query .=" VALUES ('{$title}', '{$content}', '{$start_date_time}', '{$end_date_time}', '{$buzz_username}', '{$buzz_time}')";
@@ -1268,7 +1268,7 @@ if (isset($_POST['submit'])) {
                                                     <?php
                                                     $poster_time = strtotime($notification['buzz_time']);                                                    
                                                     $posterid=$notification['buzz_username'].date("Y-m-d H-i-s", $poster_time); 
-                                                    echo $posterid;                                       
+                                                                                          
                                                     echo '<img src="images/posters/' . $posterid . '.jpg "class="img-responsive">'; ?>
                                                     <b style="margin-top: 10px; display: block; margin-left: auto; margin-right: auto; font-family:'Montserrat', sans-serif">
                                                     <?php 
@@ -1323,7 +1323,7 @@ if (isset($_POST['submit'])) {
                                                     <?php
                                                     $poster_time = strtotime($notification['buzz_time']);                                                    
                                                     $posterid=$notification['buzz_username'].date("Y-m-d H-i-s", $poster_time); 
-                                                    echo $posterid;                                       
+                                                                                          
                                                     echo '<img src="images/posters/' . $posterid . '.jpg "class="img-responsive">'; ?>
                                                     <b style="margin-top: 10px; display: block; margin-left: auto; margin-right: auto; font-family:'Montserrat', sans-serif">
                                                     <?php 
