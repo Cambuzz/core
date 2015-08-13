@@ -3,11 +3,6 @@
 <?php require_once("../../includes/functions.php");?>
 <?php confirm_logged_in(); ?>
 <?php
-$event_set = find_all_events();
-$event = find_event_by_id($_GET["id"]);
-$buzz_id = $event["id"];
-?>
-<?php
     $current_user = $_SESSION["username"];
     $name_query = "SELECT * FROM users WHERE username = '{$current_user}' LIMIT 1";
     $name_result = mysqli_query($conn, $name_query);
@@ -18,6 +13,11 @@ $buzz_id = $event["id"];
     $slang_query = "SELECT * FROM slangs";
     $slang_result = mysqli_query($conn, $slang_query);
     confirm_query($slang_result);    
+?>
+<?php
+date_default_timezone_set('Asia/Calcutta');
+$id_time = date("Y-m-d\TH:i:s");
+$buzz_id = $current_user.$id_time;
 ?>
 <?php
 if (isset($_POST['submit'])) {
@@ -1280,7 +1280,7 @@ if (isset($_POST['submit'])) {
                                                     
                                                     </p>
                                                     <?php
-                                                    $posterid=$notification['id'];                                        
+                                                    $posterid=$notification['buzz_username'].$notification['buzz_time'];                                        
                                                     echo '<img src="images/posters' . $posterid . '.jpg " class="img-responsive" ">'; ?>
                                                     <b style="margin-top: 10px; display: block; margin-left: auto; margin-right: auto; font-family:'Montserrat', sans-serif">
                                                     <?php 
@@ -1333,7 +1333,7 @@ if (isset($_POST['submit'])) {
                                                     
                                                     </p>
                                                     <?php
-                                                    $posterid=$notification['id'];                                        
+                                                    $posterid=$notification['buzz_username'].$notification['buzz_time'];                                        
                                                     echo '<img src="images/posters' . $posterid . '.jpg " class="img-responsive" ">'; ?>
                                                     <b style="margin-top: 10px; display: block; margin-left: auto; margin-right: auto; font-family:'Montserrat', sans-serif">
                                                     <?php 

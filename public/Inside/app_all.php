@@ -121,7 +121,7 @@ $event_set = find_all_events();
                             <?php
                             while($notification = mysqli_fetch_assoc($result)) {       
                                                                               
-                                            if (empty($notification['data'])) { 
+                                            if ($notification['poset']==0) { 
                                                 $buzz_user = $notification["buzz_username"];
                                                 $name_print_query = "SELECT * FROM users WHERE username = '{$buzz_user}' LIMIT 1";
                                                 $name_print_result = mysqli_query($conn, $name_print_query);
@@ -162,7 +162,7 @@ $event_set = find_all_events();
                                                     
                                                     <hr> <?php                                     
                                                 
-                                            } elseif (isset($notification['data'])) { 
+                                            } elseif ($notification['poset']==1) { 
                                                 $buzz_user = $notification["buzz_username"];
                                                 $name_print_query = "SELECT * FROM users WHERE username = '{$buzz_user}' LIMIT 1";
                                                 $name_print_result = mysqli_query($conn, $name_print_query);
@@ -188,7 +188,9 @@ $event_set = find_all_events();
                                                     <p><?php echo $notification["content"]. " "; ?>
                                                     
                                                     </p>
-                                                    <?php echo '<img src="data:image/jpeg;base64,' . base64_encode($notification['data']) . '" class="img-responsive" ">'; ?>
+                                                    <?php
+                                                    $posterid=$notification['buzz_username'].$notification['buzz_time'];                                        
+                                                    echo '<img src="images/posters' . $posterid . '.jpg " class="img-responsive" ">'; ?>
                                                     <b style="margin-top: 10px; display: block; margin-left: auto; margin-right: auto; font-family:'Montserrat', sans-serif">
                                                     <?php 
                                                     $timestamp_start = strtotime($notification["start_date_time"]);
