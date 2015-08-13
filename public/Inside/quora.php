@@ -192,7 +192,7 @@
                         <li class="notifications dropdown">
             
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                                <i class="entypo-attention"></i>
+                                <i class="entypo-mail"></i>
                                 <span class="badge badge-info">2</span>
                             </a>
             

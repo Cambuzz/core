@@ -401,7 +401,7 @@ if ((isset($_POST['submit']))&&(isset($_POST['answer']))) {
                                                 </div>
                                                 <div class="user-comment-content">
                                                 <form method="post" action="question.php?id=<?php echo urlencode($_GET["id"]); ?>">
-                                                    <textarea class="form-control autogrow" name="answer" value="" required placeholder="Write a comment..."></textarea>
+                                                    <textarea style="padding-right: 70px;" class="form-control autogrow" name="answer" value="" required placeholder="Write a comment..."></textarea>
                                                     <input type="submit" name="submit" class="btn btn-info" style="background-color: #333; color: white; margin-top: 2px;"> 
                                                 </div>
                                             </li>
@@ -418,54 +418,6 @@ if ((isset($_POST['submit']))&&(isset($_POST['answer']))) {
             <footer>
             </footer>
         </div>
-        <!-- <div class="col-sm-3">
-                    <div class="tile-progress tile-red">
-                        <div class="tile-header">
-                            <h3>Page Views</h3>
-                            <span>so far in our blog, and our website.</span>
-                        </div>
-                        <div class="tile-progressbar">
-                            <span data-fill="35.5%"></span>
-                        </div>
-                        <div class="tile-footer">
-                            <h4>
-                            <span class="pct-counter">0</span>% increase
-                        </h4>
-                            <span>so far in our blog and our website</span>
-                        </div>
-                    </div>
-                    <div class="tile-progress tile-green">
-                        <div class="tile-header">
-                            <h3>Unique Users</h3>
-                            <span>so far in our blog, and our website.</span>
-                        </div>
-                        <div class="tile-progressbar">
-                            <span data-fill="51.2%"></span>
-                        </div>
-                        <div class="tile-footer">
-                            <h4>
-                            <span class="pct-counter">0</span>% increase
-                        </h4>
-                            <span>so far in our blog and our website</span>
-                        </div>
-                    </div>
-                    <div class="tile-progress tile-aqua">
-                        <div class="tile-header">
-                            <h3>Bounce Rate</h3>
-                            <span>so far in our blog, and our website.</span>
-                        </div>
-                        <div class="tile-progressbar">
-                            <span data-fill="69.9%"></span>
-                        </div>
-                        <div class="tile-footer">
-                            <h4>
-                            <span class="pct-counter">0</span>% increase
-                        </h4>
-                            <span>so far in our blog and our website</span>
-                        </div>
-                    </div>
-                </div> -->
-        <!-- Footer -->
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
