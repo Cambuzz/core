@@ -4,6 +4,8 @@
 <?php confirm_logged_in(); ?>
 <?php
 $event_set = find_all_events();
+$event = find_event_by_id($_GET["id"]);
+$buzz_id = $event["id"];
 ?>
 <?php
     $current_user = $_SESSION["username"];
@@ -73,16 +75,17 @@ if (isset($_POST['submit'])) {
                 $end_date_time = $_POST['end_date_time'];
                 $branch = implode(" ",$_POST['branch']);
                 $club = implode(" ", $_POST['club']);
-                $name = $conn->real_escape_string ($_FILES['uploaded_file']['name']);
-                $mime = $conn->real_escape_string ($_FILES['uploaded_file']['type']);
-                $data = $conn->real_escape_string(file_get_contents($_FILES ['uploaded_file']['tmp_name']));
-                $size = intval($_FILES['uploaded_file']['size']);
+                $target_dir = "images/posters/";
+                $target_file = $target_dir . basename($_FILES["uploaded_file"]["name"]);                
+                $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+                move_uploaded_file($_FILES["uploaded_file"]["tmp_name"],"images/posters/$buzz_id.jpg");
+                $poset = 1;
                 $buzz_username = $_SESSION['username'];
                 date_default_timezone_set('Asia/Calcutta');
                 $buzz_time = date("Y-m-d\TH:i:s");
                 if($content !=''){
-                    $query = "INSERT INTO notify (title, content, start_date_time, end_date_time, branch, club, name, mime, size, data, buzz_username, buzz_time)";
-                    $query .= " VALUES ('{$title}', '{$content}', '{$start_date_time}', '{$end_date_time}', '{$branch}', '{$club}', '{$name}', '{$mime}', '{$size}', '{$data}', '{$buzz_username}', '{$buzz_time}')";
+                    $query = "INSERT INTO notify (title, content, start_date_time, end_date_time, branch, club, poset, buzz_username, buzz_time)";
+                    $query .= " VALUES ('{$title}', '{$content}', '{$start_date_time}', '{$end_date_time}', '{$branch}', '{$club}', {$poset}, '{$buzz_username}', '{$buzz_time}')";
                     $sql = mysqli_query($conn, $query);
                 } else {
                     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
@@ -140,16 +143,17 @@ if (isset($_POST['submit'])) {
                 $end_date_time = $_POST['end_date_time'];
                 $branch = implode(" ",$_POST['branch']);
                 $club = "xyz";
-                $name = $conn->real_escape_string ($_FILES['uploaded_file']['name']);
-                $mime = $conn->real_escape_string ($_FILES['uploaded_file']['type']);
-                $data = $conn->real_escape_string(file_get_contents($_FILES ['uploaded_file']['tmp_name']));
-                $size = intval($_FILES['uploaded_file']['size']);
+                $target_dir = "images/posters/";
+                $target_file = $target_dir . basename($_FILES["uploaded_file"]["name"]);                
+                $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+                move_uploaded_file($_FILES["uploaded_file"]["tmp_name"],"images/posters/$buzz_id.jpg");
+                $poset = 1;
                 $buzz_username = $_SESSION['username'];
                 date_default_timezone_set('Asia/Calcutta');
                 $buzz_time = date("Y-m-d\TH:i:s");
                 if($content !=''){
-                    $query = "INSERT INTO notify (title, content, start_date_time, end_date_time, branch, club, name, mime, size, data, buzz_username, buzz_time)";
-                    $query .= " VALUES ('{$title}', '{$content}', '{$start_date_time}', '{$end_date_time}', '{$branch}', '{$club}', '{$name}', '{$mime}', '{$size}', '{$data}', '{$buzz_username}', '{$buzz_time}')";
+                    $query = "INSERT INTO notify (title, content, start_date_time, end_date_time, branch, club, poset, buzz_username, buzz_time)";
+                    $query .= " VALUES ('{$title}', '{$content}', '{$start_date_time}', '{$end_date_time}', '{$branch}', '{$club}', {$poset}, '{$buzz_username}', '{$buzz_time}')";
                     $sql = mysqli_query($conn, $query);
                 } else {
                     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
@@ -207,16 +211,17 @@ if (isset($_POST['submit'])) {
                 $end_date_time = $_POST['end_date_time'];
                 $branch = "xyz";
                 $club = implode(" ", $_POST['club']);
-                $name = $conn->real_escape_string ($_FILES['uploaded_file']['name']);
-                $mime = $conn->real_escape_string ($_FILES['uploaded_file']['type']);
-                $data = $conn->real_escape_string(file_get_contents($_FILES ['uploaded_file']['tmp_name']));
-                $size = intval($_FILES['uploaded_file']['size']);
+                $target_dir = "images/posters/";
+                $target_file = $target_dir . basename($_FILES["uploaded_file"]["name"]);                
+                $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+                move_uploaded_file($_FILES["uploaded_file"]["tmp_name"],"images/posters/$buzz_id.jpg");
+                $poset = 1;
                 $buzz_username = $_SESSION['username'];
                 date_default_timezone_set('Asia/Calcutta');
                 $buzz_time = date("Y-m-d\TH:i:s");
                 if($content !=''){
-                    $query = "INSERT INTO notify (title, content, start_date_time, end_date_time, branch, club, name, mime, size, data, buzz_username, buzz_time)";
-                    $query .= " VALUES ('{$title}', '{$content}', '{$start_date_time}', '{$end_date_time}', '{$branch}', '{$club}', '{$name}', '{$mime}', '{$size}', '{$data}', '{$buzz_username}', '{$buzz_time}')";
+                    $query = "INSERT INTO notify (title, content, start_date_time, end_date_time, branch, club, poset, buzz_username, buzz_time)";
+                    $query .= " VALUES ('{$title}', '{$content}', '{$start_date_time}', '{$end_date_time}', '{$branch}', '{$club}', {$poset}, '{$buzz_username}', '{$buzz_time}')";
                     $sql = mysqli_query($conn, $query);
                 } else {
                     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
@@ -272,16 +277,17 @@ if (isset($_POST['submit'])) {
                 $content = $_POST['content'];
                 $start_date_time = $_POST['start_date_time'];
                 $end_date_time = $_POST['end_date_time'];               
-                $name = $conn->real_escape_string ($_FILES['uploaded_file']['name']);
-                $mime = $conn->real_escape_string ($_FILES['uploaded_file']['type']);
-                $data = $conn->real_escape_string(file_get_contents($_FILES ['uploaded_file']['tmp_name']));
-                $size = intval($_FILES['uploaded_file']['size']);
+                $target_dir = "images/posters/";
+                $target_file = $target_dir . basename($_FILES["uploaded_file"]["name"]);                
+                $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+                move_uploaded_file($_FILES["uploaded_file"]["tmp_name"],"images/posters/$buzz_id.jpg");
+                $poset = 1;
                 $buzz_username = $_SESSION['username'];
                 date_default_timezone_set('Asia/Calcutta');
                 $buzz_time = date("Y-m-d\TH:i:s");
                 if($content !=''){
-                    $query = "INSERT INTO notify (title, content, start_date_time, end_date_time, name, mime, size, data, buzz_username, buzz_time)";
-                    $query .= " VALUES ('{$title}', '{$content}', '{$start_date_time}', '{$end_date_time}', '{$name}', '{$mime}', '{$size}', '{$data}', '{$buzz_username}', '{$buzz_time}')";
+                    $query = "INSERT INTO notify (title, content, start_date_time, end_date_time, poset, buzz_username, buzz_time)";
+                    $query .= " VALUES ('{$title}', '{$content}', '{$start_date_time}', '{$end_date_time}', {$poset}, '{$buzz_username}', '{$buzz_time}')";
                     $sql = mysqli_query($conn, $query);
                 } else {
                     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
@@ -1126,7 +1132,7 @@ if (isset($_POST['submit'])) {
                                     $flag=0;    
                                     for ($i=1; $i < $n ; $i++) { 
                                         if ($Z[$i]>$n2) {                                              
-                                            if (empty($notification['data'])) { 
+                                            if ($notification['poset']==0) { 
                                                 $buzz_user = $notification["buzz_username"];
                                                 $name_print_query = "SELECT * FROM users WHERE username = '{$buzz_user}' LIMIT 1";
                                                 $name_print_result = mysqli_query($conn, $name_print_query);
@@ -1231,7 +1237,7 @@ if (isset($_POST['submit'])) {
                                                     <hr> <?php
                                                 }
                                                 
-                                            } elseif (isset($notification['data'])) { 
+                                            } elseif ($notification['poset']==1) { 
                                                 $buzz_user = $notification["buzz_username"];
                                                 $name_print_query = "SELECT * FROM users WHERE username = '{$buzz_user}' LIMIT 1";
                                                 $name_print_result = mysqli_query($conn, $name_print_query);
@@ -1271,7 +1277,9 @@ if (isset($_POST['submit'])) {
                                                     <p><?php echo $notification["content"]. " "; ?>
                                                     
                                                     </p>
-                                                    <?php echo '<img src="data:image/jpeg;base64,' . base64_encode($notification['data']) . '" class="img-responsive" ">'; ?>
+                                                    <?php
+                                                    $posterid=$notification['id'];                                        
+                                                    echo '<img src="images/posters' . $posterid . '.jpg " class="img-responsive" ">'; ?>
                                                     <b style="margin-top: 10px; display: block; margin-left: auto; margin-right: auto; font-family:'Montserrat', sans-serif">
                                                     <?php 
                                                     $timestamp_start = strtotime($notification["start_date_time"]);
@@ -1322,7 +1330,9 @@ if (isset($_POST['submit'])) {
                                                     <p><?php echo $notification["content"]. " "; ?>
                                                     
                                                     </p>
-                                                    <?php echo '<img src="data:image/jpeg;base64,' . base64_encode($notification['data']) . '" class="img-responsive" ">'; ?>
+                                                    <?php
+                                                    $posterid=$notification['id'];                                        
+                                                    echo '<img src="images/posters' . $posterid . '.jpg " class="img-responsive" ">'; ?>
                                                     <b style="margin-top: 10px; display: block; margin-left: auto; margin-right: auto; font-family:'Montserrat', sans-serif">
                                                     <?php 
                                                     $timestamp_start = strtotime($notification["start_date_time"]);

@@ -36,7 +36,7 @@ if (logged_in()) {
                     if ($found_user) {
 
                         $message = "Confirm your email by clicking the link http://cambuzz.co.in/emailconfirm.php?username=$username&code=$confirmcode";
-                        mail($email, "Confirm your email", $message, "From: pkpbhardwaj729@gmail.com");
+                        mail($email, "Confirm your email", $message, "From: cambuzz.vitcc@gmail.com");
                         echo "Kindly check your VIT email and confirm your registration after closing this signup form.";
                         echo "<br>"; 
                         echo"(Check your spam folder if you don't find it in your inbox.)";
