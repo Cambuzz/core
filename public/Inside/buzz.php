@@ -730,7 +730,7 @@ if (isset($_POST['submit'])) {
                         <li class="notifications dropdown">
             
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                                <i class="entypo-attention"></i>
+                                <i class="entypo-mail"></i>
                                 <span class="badge badge-info">2</span>
                             </a>
             
@@ -744,26 +744,12 @@ if (isset($_POST['submit'])) {
                                 
                                 <li>
                                     <ul class="dropdown-menu-list scroller">
-                                        <li class="unread notification-success">
-                                            <a href="#">
-                                                <i class="entypo-user-add pull-right"></i>
-                                                
-                                                <span class="line">
-                                                    <strong>Sharad Sharad</strong>
-                                                </span>
-                                                
-                                                <span class="line small">
-                                                    30 seconds ago
-                                                </span>
-                                            </a>
-                                        </li>
-                                        
                                         <li class="unread notification-secondary">
                                             <a href="#">
                                                 <i class="entypo-heart pull-right"></i>
                                                 
                                                 <span class="line">
-                                                    <strong>You gotta answer</strong>
+                                                    <strong>Somebody answered your question</strong>
                                                 </span>
                                                 
                                                 <span class="line small">
