@@ -730,7 +730,7 @@ if (isset($_POST['submit'])) {
                         <li class="notifications dropdown">
             
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                                <i class="entypo-attention"></i>
+                                <i class="entypo-mail"></i>
                                 <span class="badge badge-info">2</span>
                             </a>
             
@@ -744,26 +744,12 @@ if (isset($_POST['submit'])) {
                                 
                                 <li>
                                     <ul class="dropdown-menu-list scroller">
-                                        <li class="unread notification-success">
-                                            <a href="#">
-                                                <i class="entypo-user-add pull-right"></i>
-                                                
-                                                <span class="line">
-                                                    <strong>Sharad Sharad</strong>
-                                                </span>
-                                                
-                                                <span class="line small">
-                                                    30 seconds ago
-                                                </span>
-                                            </a>
-                                        </li>
-                                        
                                         <li class="unread notification-secondary">
                                             <a href="#">
                                                 <i class="entypo-heart pull-right"></i>
                                                 
                                                 <span class="line">
-                                                    <strong>You gotta answer</strong>
+                                                    <strong>Somebody answered your question</strong>
                                                 </span>
                                                 
                                                 <span class="line small">
@@ -859,7 +845,7 @@ if (isset($_POST['submit'])) {
                                             <div class="row">
                                                 <!-- Metabox :: Publish Settings -->
                                                 <div class="col-sm-4">
-                                                    <div class="panel panel-default" data-collapsed="0">
+                                                    <div class="panel panel-primary" data-collapsed="0">
                                                         <div class="panel-heading">
                                                             <div class="panel-title">
                                                                 Buzz Timing
@@ -889,7 +875,7 @@ if (isset($_POST['submit'])) {
                                                 </div>
                                                 <!-- Metabox :: Poster Image -->
                                                 <div class="col-sm-4">
-                                                    <div class="panel panel-default" data-collapsed="0">
+                                                    <div class="panel panel-primary" data-collapsed="0">
                                                         <div class="panel-heading" style="display: inline-block;">
                                                             <div class="panel-title">
                                                                 Upload your poster
@@ -927,7 +913,7 @@ if (isset($_POST['submit'])) {
                                                 </div>
                                                 <!-- Metabox :: Branch -->
                                                 <div class="col-sm-2">
-                                                    <div class="panel panel-default" data-collapsed="0">
+                                                    <div class="panel panel-primary" data-collapsed="0">
                                                         <div class="panel-heading">
                                                             <div class="panel-title">
                                                                 Related to any Branch?
@@ -979,7 +965,7 @@ if (isset($_POST['submit'])) {
                                                 </div>
                                                 <!-- Metabox :: Club -->
                                                 <div class="col-sm-2">
-                                                    <div class="panel panel-default" data-collapsed="0">
+                                                    <div class="panel panel-primary" data-collapsed="0">
                                                         <div class="panel-heading">
                                                             <div class="panel-title">
                                                                 Related to any Club?
@@ -1157,6 +1143,9 @@ if (isset($_POST['submit'])) {
                                                     </aside>
                                                     <div class="story-content">
                                                     <header>
+                                                    <div style="float: right; margin-top: 2px;">
+                                                           <a style="font-size: 14px;" class="entypo-trash" href="delete_event.php?id=<?php echo urlencode($notification["id"]); ?>" onclick="return confirm('Are you sure?');"></a>
+                                                    </div>
                                                     <div class="publisher" style="color: #303641; font-family: 'Montserrat', sans-serif;">
                                                     <span style="font-weight: bold;"><?php echo $name_print_title["sname"]; ?></span><span style="color: #9b9fa6;">&nbsp;posted a buzz!</span>
                                                     <em style="color: #9b9fa6;">
@@ -1185,7 +1174,6 @@ if (isset($_POST['submit'])) {
                                                     </div>            
                                                     </div>                                                                                                   
                                                     </article>
-                                                    <a href="delete_event.php?id=<?php echo urlencode($notification["id"]); ?>" onclick="return confirm('Are you sure?');">Delete</a>
                                                     <hr>
                                         <?php   } else { ?>
                                                     <article class="story">
