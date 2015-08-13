@@ -69,8 +69,8 @@ if (isset($_POST['submit'])) {
                 if($flag==0)break;                               
             }
             if ($flag==1) {
-                $title = mysql_real_escape_string($_POST['title']);
-                $content = mysql_real_escape_string($_POST['content']);
+                $title = $_POST['title'];
+                $content = $_POST['content'];
                 $start_date_time = $_POST['start_date_time'];
                 $end_date_time = $_POST['end_date_time'];
                 $branch = implode(" ",$_POST['branch']);
@@ -137,8 +137,8 @@ if (isset($_POST['submit'])) {
                 if($flag==0)break;                               
             }
             if ($flag==1) {
-                $title = mysql_real_escape_string($_POST['title']);
-                $content = mysql_real_escape_string($_POST['content']);
+                $title = $_POST['title'];
+                $content = $_POST['content'];
                 $start_date_time = $_POST['start_date_time'];
                 $end_date_time = $_POST['end_date_time'];
                 $branch = implode(" ",$_POST['branch']);
@@ -205,8 +205,8 @@ if (isset($_POST['submit'])) {
                 if($flag==0)break;                               
             }
             if ($flag==1) {
-                $title = mysql_real_escape_string($_POST['title']);
-                $content = mysql_real_escape_string($_POST['content']);
+                $title = $_POST['title'];
+                $content = $_POST['content'];
                 $start_date_time = $_POST['start_date_time'];
                 $end_date_time = $_POST['end_date_time'];
                 $branch = "xyz";
@@ -273,8 +273,8 @@ if (isset($_POST['submit'])) {
                 if($flag==0)break;                               
             }
             if ($flag==1) {
-                $title = mysql_real_escape_string($_POST['title']);
-                $content = mysql_real_escape_string($_POST['content']);
+                $title = $_POST['title'];
+                $content = $_POST['content'];
                 $start_date_time = $_POST['start_date_time'];
                 $end_date_time = $_POST['end_date_time'];               
                 $target_dir = "images/posters/";
@@ -341,8 +341,8 @@ if (isset($_POST['submit'])) {
                 if($flag==0)break;                               
             }
             if ($flag==1) {
-                $title = mysql_real_escape_string($_POST['title']);
-                $content = mysql_real_escape_string($_POST['content']);
+                $title = $_POST['title'];
+                $content = $_POST['content'];
                 $start_date_time = $_POST['start_date_time'];
                 $end_date_time = $_POST['end_date_time'];
                 $branch = implode(" ", $_POST['branch']);
@@ -404,9 +404,9 @@ if (isset($_POST['submit'])) {
                 if($flag==0)break;                               
             }
             if ($flag==1) {
-                $title = mysql_real_escape_string($_POST['title']);
-                $content = mysql_real_escape_string($_POST['content']);
-                $start_date_time = $_POST['start_date_time'];
+                $title = $_POST['title'];
+                $content = $_POST['content'];
+                $start_date_time = $['start_date_time'];
                 $end_date_time = $_POST['end_date_time'];
                 $branch = implode(" ", $_POST['branch']);
                 $club = "xyz";
@@ -467,8 +467,8 @@ if (isset($_POST['submit'])) {
                 if($flag==0)break;                               
             }
             if ($flag==1) {
-                $title = mysql_real_escape_string($_POST['title']);
-                $content = mysql_real_escape_string($_POST['content']);
+                $title = $_POST['title'];
+                $content = $_POST['content'];
                 $start_date_time = $_POST['start_date_time'];
                 $end_date_time = $_POST['end_date_time'];
                 $branch = "xyz";
@@ -530,8 +530,8 @@ if (isset($_POST['submit'])) {
                 if($flag==0)break;                               
             }
             if ($flag==1) {
-                $title = mysql_real_escape_string($_POST['title']);
-                $content = mysql_real_escape_string($_POST['content']);
+                $title = $_POST['title'];
+                $content = $_POST['content'];
                 $start_date_time = $_POST['start_date_time'];
                 $end_date_time = $_POST['end_date_time'];
                 $buzz_username = $_SESSION['username'];
