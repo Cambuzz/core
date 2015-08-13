@@ -13,6 +13,11 @@ $event_set = find_all_events();
     $work = "DELETE  FROM notify WHERE end_date_time < '{$delete_time}'";
     mysqli_query($conn, $work);
 ?>
+<?php
+date_default_timezone_set('Asia/Calcutta');
+$id_time = date("Y-m-d H-i-s");
+$buzz_id = $current_user.$id_time;
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -189,8 +194,10 @@ $event_set = find_all_events();
                                                     
                                                     </p>
                                                     <?php
-                                                    $posterid=$notification['buzz_username'].$notification['buzz_time'];                                        
-                                                    echo '<img src="images/posters' . $posterid . '.jpg " class="img-responsive" ">'; ?>
+                                                    $poster_time = strtotime($notification['buzz_time']);                                                    
+                                                    $posterid=$notification['buzz_username'].date("Y-m-d H-i-s", $poster_time); 
+                                                    echo $posterid;                                       
+                                                    echo '<img src="images/posters/' . $posterid . '.jpg "class="img-responsive">'; ?>
                                                     <b style="margin-top: 10px; display: block; margin-left: auto; margin-right: auto; font-family:'Montserrat', sans-serif">
                                                     <?php 
                                                     $timestamp_start = strtotime($notification["start_date_time"]);

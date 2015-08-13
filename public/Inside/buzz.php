@@ -69,7 +69,7 @@ if (isset($_POST['submit'])) {
                 if($flag==0)break;                               
             }
             if ($flag==1) {
-                $title = $_POST['title'];
+                $title =  mysqli_real_escape_string($conn, $_POST['title']);
                 $content = $_POST['content'];
                 $start_date_time = $_POST['start_date_time'];
                 $end_date_time = $_POST['end_date_time'];
@@ -137,7 +137,7 @@ if (isset($_POST['submit'])) {
                 if($flag==0)break;                               
             }
             if ($flag==1) {
-                $title = $_POST['title'];
+                $title =  mysqli_real_escape_string($conn, $_POST['title']);
                 $content = $_POST['content'];
                 $start_date_time = $_POST['start_date_time'];
                 $end_date_time = $_POST['end_date_time'];
@@ -205,7 +205,7 @@ if (isset($_POST['submit'])) {
                 if($flag==0)break;                               
             }
             if ($flag==1) {
-                $title = $_POST['title'];
+                $title =  mysqli_real_escape_string($conn, $_POST['title']);
                 $content = $_POST['content'];
                 $start_date_time = $_POST['start_date_time'];
                 $end_date_time = $_POST['end_date_time'];
@@ -273,7 +273,7 @@ if (isset($_POST['submit'])) {
                 if($flag==0)break;                               
             }
             if ($flag==1) {
-                $title = $_POST['title'];
+                $title =  mysqli_real_escape_string($conn, $_POST['title']);
                 $content = $_POST['content'];
                 $start_date_time = $_POST['start_date_time'];
                 $end_date_time = $_POST['end_date_time'];               
@@ -341,7 +341,7 @@ if (isset($_POST['submit'])) {
                 if($flag==0)break;                               
             }
             if ($flag==1) {
-                $title = $_POST['title'];
+                $title =  mysqli_real_escape_string($conn, $_POST['title']);
                 $content = $_POST['content'];
                 $start_date_time = $_POST['start_date_time'];
                 $end_date_time = $_POST['end_date_time'];
@@ -404,9 +404,9 @@ if (isset($_POST['submit'])) {
                 if($flag==0)break;                               
             }
             if ($flag==1) {
-                $title = $_POST['title'];
+                $title =  mysqli_real_escape_string($conn, $_POST['title']);
                 $content = $_POST['content'];
-                $start_date_time = $['start_date_time'];
+                $start_date_time = $_POST['start_date_time'];
                 $end_date_time = $_POST['end_date_time'];
                 $branch = implode(" ", $_POST['branch']);
                 $club = "xyz";
@@ -467,7 +467,7 @@ if (isset($_POST['submit'])) {
                 if($flag==0)break;                               
             }
             if ($flag==1) {
-                $title = $_POST['title'];
+                $title =  mysqli_real_escape_string($conn, $_POST['title']);
                 $content = $_POST['content'];
                 $start_date_time = $_POST['start_date_time'];
                 $end_date_time = $_POST['end_date_time'];
@@ -530,7 +530,7 @@ if (isset($_POST['submit'])) {
                 if($flag==0)break;                               
             }
             if ($flag==1) {
-                $title = $_POST['title'];
+                $title =  mysqli_real_escape_string($conn, $_POST['title']);
                 $content = $_POST['content'];
                 $start_date_time = $_POST['start_date_time'];
                 $end_date_time = $_POST['end_date_time'];
