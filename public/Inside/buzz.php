@@ -1135,14 +1135,19 @@ if (isset($_POST['submit'])) {
                                                 if ($buzz_user==$current_user) { ?>
                                                     <article class="story">
                                                     <aside class="user-thumb">
-                                                    <?php                
-                                                    if (empty($name_print_title["data_propic"])) { ?>
-                                                        <img src="assets/images/nopic.png" height="44px" width="44px" alt="" class="img-circle">
-                                                        <?php
-                                                    } elseif (isset($name_print_title["data_propic"])) {
-                                                        echo '<img src="data:image/jpeg;base64,' . base64_encode($name_print_title['data_propic']) . '" height="44px" width="44px" alt="" class="img-circle">';         
-                                                    }
-                                                    ?>
+                                                    <?php
+                                if ($name_print_title["proset"]==0) { 
+                            ?>
+                                    <img src="assets/images/nopic.png" height="44px" width="44px" alt="" class="img-circle" />
+                            <?php
+                                } elseif ($name_print_title["proset"]==1) {
+                                        $imageid=$name_print_title['id'];
+
+                                        //echo '<img src="data:image/jpeg;base64,' . base64_encode($name_title['data_propic']) . '" class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>'; 
+                                        
+                                        echo '<img src="images/' . $imageid . '.jpg "height="44px" width="44px" alt="" class="img-circle">';
+                                }
+                            ?>
                                                     </aside>
                                                     <div class="story-content">
                                                     <header>
@@ -1179,14 +1184,19 @@ if (isset($_POST['submit'])) {
                                         <?php   } else { ?>
                                                     <article class="story">
                                                     <aside class="user-thumb">
-                                                    <?php                
-                                                    if (empty($name_print_title["data_propic"])) { ?>
-                                                        <img src="assets/images/nopic.png" height="44px" width="44px" alt="" class="img-circle">
-                                                        <?php
-                                                    } elseif (isset($name_print_title["data_propic"])) {
-                                                        echo '<img src="data:image/jpeg;base64,' . base64_encode($name_print_title['data_propic']) . '" height="44px" width="44px" alt="" class="img-circle">';         
-                                                    }
-                                                    ?>
+                                                    <?php
+                                if ($name_print_title["proset"]==0) { 
+                            ?>
+                                    <img src="assets/images/nopic.png" height="44px" width="44px" alt="" class="img-circle" />
+                            <?php
+                                } elseif ($name_print_title["proset"]==1) {
+                                        $imageid=$name_print_title['id'];
+
+                                        //echo '<img src="data:image/jpeg;base64,' . base64_encode($name_title['data_propic']) . '" class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>'; 
+                                        
+                                        echo '<img src="images/' . $imageid . '.jpg "height="44px" width="44px" alt="" class="img-circle">';
+                                }
+                            ?>
                                                     </aside>
                                                     <div class="story-content">
                                                     <header>
@@ -1231,13 +1241,18 @@ if (isset($_POST['submit'])) {
                                                     <article class="story">
                                                     <aside class="user-thumb">
                                                     <?php
-                                                    if (empty($name_print_title["data_propic"])) { ?>
-                                                        <img src="assets/images/nopic.png" height="44px" width="44px" alt="" class="img-circle">
-                                                        <?php 
-                                                    } elseif (isset($name_print_title["data_propic"])) {
-                                                        echo '<img src="data:image/jpeg;base64,' . base64_encode($name_print_title['data_propic']) . '" height="44px" width="44px" alt="" class="img-circle">';      
-                                                    }
-                                                    ?>
+                                if ($name_print_title["proset"]==0) { 
+                            ?>
+                                    <img src="assets/images/nopic.png" height="44px" width="44px" alt="" class="img-circle" />
+                            <?php
+                                } elseif ($name_print_title["proset"]==1) {
+                                        $imageid=$name_print_title['id'];
+
+                                        //echo '<img src="data:image/jpeg;base64,' . base64_encode($name_title['data_propic']) . '" class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>'; 
+                                        
+                                        echo '<img src="images/' . $imageid . '.jpg "height="44px" width="44px" alt="" class="img-circle">';
+                                }
+                            ?>
                                                     </aside>
                                                     <div class="story-content">
                                                     <header>
@@ -1277,13 +1292,18 @@ if (isset($_POST['submit'])) {
                                                     <article class="story">
                                                     <aside class="user-thumb">
                                                     <?php
-                                                    if (empty($name_print_title["data_propic"])) { ?>
-                                                        <img src="assets/images/nopic.png" height="44px" width="44px" alt="" class="img-circle">
-                                                        <?php 
-                                                    } elseif (isset($name_print_title["data_propic"])) {
-                                                        echo '<img src="data:image/jpeg;base64,' . base64_encode($name_print_title['data_propic']) . '" height="44px" width="44px" alt="" class="img-circle">';      
-                                                    }
-                                                    ?>
+                                if ($name_print_title["proset"]==0) { 
+                            ?>
+                                    <img src="assets/images/nopic.png" height="44px" width="44px" alt="" class="img-circle" />
+                            <?php
+                                } elseif ($name_print_title["proset"]==1) {
+                                        $imageid=$name_print_title['id'];
+
+                                        //echo '<img src="data:image/jpeg;base64,' . base64_encode($name_title['data_propic']) . '" class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>'; 
+                                        
+                                        echo '<img src="images/' . $imageid . '.jpg "height="44px" width="44px" alt="" class="img-circle">';
+                                }
+                            ?>
                                                     </aside>
                                                     <div class="story-content">
                                                     <header>

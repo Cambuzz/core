@@ -333,16 +333,17 @@ if (isset($_POST['submit_search'])) {
                 confirm_query($pic_result);
                 $pic = mysqli_fetch_assoc($pic_result);
                 
+                                
                                 if ($pic["proset"]==0) { 
                             ?>
-                                    <img src="assets/images/nopic.png" class="img-circle" height="200px" width="100px" style="border-radius: 100%;" />
+                                    <img src="assets/images/nopic.png" height="44px" width="44px" alt="" class="img-circle" />
                             <?php
                                 } elseif ($pic["proset"]==1) {
                                         $imageid=$pic['id'];
 
                                         //echo '<img src="data:image/jpeg;base64,' . base64_encode($name_title['data_propic']) . '" class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>'; 
                                         
-                                        echo '<img src="images/' . $imageid . '.jpg "class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>';
+                                        echo '<img src="images/' . $imageid . '.jpg "height="44px" width="44px" alt="" class="img-circle">';
                                 }
                             ?>
                 <a href="question.php?id=<?php echo urlencode($search_title["id"]); ?>"><?php echo $search_title['question'];echo "</a>"; ?>
@@ -381,14 +382,14 @@ if (isset($_POST['submit_search'])) {
                                                                     
                                 if ($pic["proset"]==0) { 
                             ?>
-                                    <img src="assets/images/nopic.png" class="img-circle" height="200px" width="100px" style="border-radius: 100%;" />
+                                    <img src="assets/images/nopic.png" height="44px" width="44px" alt="" class="img-circle" />
                             <?php
                                 } elseif ($pic["proset"]==1) {
                                         $imageid=$pic['id'];
 
                                         //echo '<img src="data:image/jpeg;base64,' . base64_encode($name_title['data_propic']) . '" class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>'; 
                                         
-                                        echo '<img src="images/' . $imageid . '.jpg "class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>';
+                                        echo '<img src="images/' . $imageid . '.jpg "height="44px" width="44px" alt="" class="img-circle">';
                                 }
                             ?>
                                                         </a>
@@ -427,16 +428,16 @@ if (isset($_POST['submit_search'])) {
                                                                     confirm_query($pic_result);
                                                                     $pic = mysqli_fetch_assoc($pic_result);
                                                                     
-                                if ($pic["proset"]==0) { 
+                               if ($pic["proset"]==0) { 
                             ?>
-                                    <img src="assets/images/nopic.png" class="img-circle" height="200px" width="100px" style="border-radius: 100%;" />
+                                    <img src="assets/images/nopic.png" height="44px" width="44px" alt="" class="img-circle" />
                             <?php
                                 } elseif ($pic["proset"]==1) {
                                         $imageid=$pic['id'];
 
                                         //echo '<img src="data:image/jpeg;base64,' . base64_encode($name_title['data_propic']) . '" class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>'; 
                                         
-                                        echo '<img src="images/' . $imageid . '.jpg "class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>';
+                                        echo '<img src="images/' . $imageid . '.jpg "height="44px" width="44px" alt="" class="img-circle">';
                                 }
                             ?>
                                                         </a>

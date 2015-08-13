@@ -240,16 +240,17 @@ if ((isset($_POST['submit']))&&(isset($_POST['answer']))) {
                                         confirm_query($pic_result);
                                         $pic = mysqli_fetch_assoc($pic_result);
                                         
+                               
                                 if ($pic["proset"]==0) { 
                             ?>
-                                    <img src="assets/images/nopic.png" class="img-circle" height="200px" width="100px" style="border-radius: 100%;" />
+                                    <img src="assets/images/nopic.png" height="44px" width="44px" alt="" class="img-circle" />
                             <?php
                                 } elseif ($pic["proset"]==1) {
                                         $imageid=$pic['id'];
 
                                         //echo '<img src="data:image/jpeg;base64,' . base64_encode($name_title['data_propic']) . '" class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>'; 
                                         
-                                        echo '<img src="images/' . $imageid . '.jpg "class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>';
+                                        echo '<img src="images/' . $imageid . '.jpg "height="44px" width="44px" alt="" class="img-circle">';
                                 }
                             ?>
                                     </a>
@@ -301,16 +302,17 @@ if ((isset($_POST['submit']))&&(isset($_POST['answer']))) {
                                                             confirm_query($poster_pic_result);
                                                             $poster_pic = mysqli_fetch_assoc($poster_pic_result);
                                                             
+                                
                                 if ($poster_pic["proset"]==0) { 
                             ?>
-                                    <img src="assets/images/nopic.png" class="img-circle" height="200px" width="100px" style="border-radius: 100%;" />
+                                    <img src="assets/images/nopic.png" height="44px" width="44px" alt="" class="img-circle" />
                             <?php
                                 } elseif ($poster_pic["proset"]==1) {
                                         $imageid=$poster_pic['id'];
 
                                         //echo '<img src="data:image/jpeg;base64,' . base64_encode($name_title['data_propic']) . '" class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>'; 
                                         
-                                        echo '<img src="images/' . $imageid . '.jpg "class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>';
+                                        echo '<img src="images/' . $imageid . '.jpg "height="44px" width="44px" alt="" class="img-circle">';
                                 }
                             ?>
                                                 </div>
@@ -345,14 +347,14 @@ if ((isset($_POST['submit']))&&(isset($_POST['answer']))) {
                                                     
                                 if ($poster_pic["proset"]==0) { 
                             ?>
-                                    <img src="assets/images/nopic.png" class="img-circle" height="200px" width="100px" style="border-radius: 100%;" />
+                                    <img src="assets/images/nopic.png" height="44px" width="44px" alt="" class="img-circle" />
                             <?php
                                 } elseif ($poster_pic["proset"]==1) {
                                         $imageid=$poster_pic['id'];
 
                                         //echo '<img src="data:image/jpeg;base64,' . base64_encode($name_title['data_propic']) . '" class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>'; 
                                         
-                                        echo '<img src="images/' . $imageid . '.jpg "class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>';
+                                        echo '<img src="images/' . $imageid . '.jpg "height="44px" width="44px" alt="" class="img-circle">';
                                 }
                             ?>
                                                 </div>
@@ -386,14 +388,14 @@ if ((isset($_POST['submit']))&&(isset($_POST['answer']))) {
                                                     <?php
                                 if ($name_title["proset"]==0) { 
                             ?>
-                                    <img src="assets/images/nopic.png" class="img-circle" height="200px" width="100px" style="border-radius: 100%;" />
+                                    <img src="assets/images/nopic.png" height="44px" width="44px" alt="" class="img-circle" />
                             <?php
                                 } elseif ($name_title["proset"]==1) {
                                         $imageid=$name_title['id'];
 
                                         //echo '<img src="data:image/jpeg;base64,' . base64_encode($name_title['data_propic']) . '" class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>'; 
                                         
-                                        echo '<img src="images/' . $imageid . '.jpg "class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>';
+                                        echo '<img src="images/' . $imageid . '.jpg "height="44px" width="44px" alt="" class="img-circle">';
                                 }
                             ?>
                                                 </div>
