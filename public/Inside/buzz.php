@@ -1157,6 +1157,9 @@ if (isset($_POST['submit'])) {
                                                     </aside>
                                                     <div class="story-content">
                                                     <header>
+                                                    <div style="float: right; margin-top: 2px;">
+                                                           <a style="font-size: 14px;" class="entypo-trash" href="delete_event.php?id=<?php echo urlencode($notification["id"]); ?>" onclick="return confirm('Are you sure?');"></a>
+                                                    </div>
                                                     <div class="publisher" style="color: #303641; font-family: 'Montserrat', sans-serif;">
                                                     <span style="font-weight: bold;"><?php echo $name_print_title["sname"]; ?></span><span style="color: #9b9fa6;">&nbsp;posted a buzz!</span>
                                                     <em style="color: #9b9fa6;">
@@ -1185,7 +1188,6 @@ if (isset($_POST['submit'])) {
                                                     </div>            
                                                     </div>                                                                                                   
                                                     </article>
-                                                    <a href="delete_event.php?id=<?php echo urlencode($notification["id"]); ?>" onclick="return confirm('Are you sure?');">Delete</a>
                                                     <hr>
                                         <?php   } else { ?>
                                                     <article class="story">
