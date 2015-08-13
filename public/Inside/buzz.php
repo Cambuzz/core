@@ -3,9 +3,12 @@
 <?php require_once("../../includes/functions.php");?>
 <?php confirm_logged_in(); ?>
 <?php
-$event_set = find_all_events();
-$event = find_event_by_id($_GET["id"]);
-$buzz_id = $event["id"];
+    $event_set = find_all_events();
+    $query = "SELECT * FROM notify";
+    $result = mysqli_query($conn, $query);
+    confirm_query($result);
+    $poster_id = mysqli_fetch_assoc($result);
+    $buzz_id = $poster_id['id'];
 ?>
 <?php
     $current_user = $_SESSION["username"];
