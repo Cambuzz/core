@@ -8,3 +8,4 @@
   mod_gzip_item_exclude mime ^image/.* 
   mod_gzip_item_include handler ^cgi-script$
 </ifModule>
+ErrorDocument 403 403.shtml
