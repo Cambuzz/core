@@ -32,7 +32,14 @@ $id = $question["id"];
 $query = "SELECT * FROM quora WHERE id = {$id} LIMIT 1";
 $result = mysqli_query($conn, $query);
 $view_quest = mysqli_fetch_assoc($result);
-
+if($current_user==$view_quest["quest_user"] &&  $view_quest['comment_counter']>0)
+{
+    $counter = $view_quest['comment_counter'];
+    $comment_counter = $counter-1;    
+        
+    $query_counter = "UPDATE quora SET comment_counter = {$comment_counter} WHERE id = {$id}";
+    $result_counter = mysqli_query($conn, $query_counter);    
+}
 $query_post_answer = "SELECT * FROM answers WHERE qid = {$id}";
 $result_post_answer = mysqli_query($conn, $query_post_answer); ?>
 <?php   
@@ -87,14 +94,19 @@ if ((isset($_POST['submit']))&&(isset($_POST['answer']))) {
         $answer_poster = $current_user;
         date_default_timezone_set('Asia/Calcutta');
         $answer_time = date("Y-m-d\TH:i:s");
+        if($current_user!=$view_quest["quest_user"])
+        {
+            $counter = $view_quest['comment_counter'];
+            $comment_counter = $counter+1;    
+            $query_counter = "UPDATE quora SET comment_counter = {$comment_counter} WHERE id = {$id}";
+            $result_counter = mysqli_query($conn, $query_counter);
+        }
         $query_answer = "INSERT INTO answers (qid, answer, answer_poster, answer_time) VALUES ('{$qid}', '{$answer}', '{$answer_poster}', '{$answer_time}')";
         $result_answer = mysqli_query($conn, $query_answer);
 
         if ($result_answer && mysqli_affected_rows($conn) == 1) {
             redirect_to("question.php?id=$id");
-        } else {
-            $_SESSION["message"] = "Answer posting failed.";
-        }        
+        }       
     }
 }
        
