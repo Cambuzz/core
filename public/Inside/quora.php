@@ -415,7 +415,7 @@ if (isset($_POST['submit_search'])) {
                                                             <!-- <span class="caret"></span> -->
                                                           </i>
                                                             <ul class="dropdown-menu" aria-labelledby="dLabel">
-                                                                <li><a id="edit">Edit</a></li>
+                                                                <li><a href="javascript:;" onclick="jQuery('#modal-1').modal('show');">Edit</a></li>
                                                                 <li><a href="delete_question.php?id=<?php echo urlencode($quest_list["id"]); ?>" onclick="return confirm('Are you sure?');">Delete</a>
                                                                 </li>
                                                             </ul>
@@ -476,10 +476,7 @@ if (isset($_POST['submit_search'])) {
                                             ?>
                                             )</span></a>
                                         </a>
-                                    </footer>
-                                    <div id="show-edit" style="display: none;">
-                                     Hello
-                                    </div> 
+                                    </footer> 
                                     <!-- separator -->
                                 </div>
                             </article>
@@ -512,11 +509,27 @@ if (isset($_POST['submit_search'])) {
     <script src="assets/js/resizeable.js"></script>
     <script src="assets/js/uiMorphingButton_fixed.js"></script>
     <script src="assets/js/style-api.js"></script>
-    <script>
-    $("#edit").click(function() {
-        $("#show-edit").slideToggle("slow");
-    });
     </script>
+    <div class="modal fade" id="modal-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Basic Modal</h4>
+                </div>
+                
+                <div class="modal-body">
+                    Hello I am a Modal!
+                </div>
+                
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-info">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
     
 </body>
 
