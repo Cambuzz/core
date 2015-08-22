@@ -592,7 +592,7 @@ $comment=0;
                     $query_post_answer = "SELECT * FROM answers WHERE qid = {$quest_list['id']}";
                     $result_post_answer = mysqli_query($conn, $query_post_answer);
                     while ($view_answer = mysqli_fetch_assoc($result_post_answer)) {
-                        $commentor_query = "SELECT * FROM users WHERE username = '{$view_answer['answer_poster']}' LIMIT 1";
+                        $commentor_query = "SELECT * FROM users WHERE username = '{$view_answer['answer_poster']}' ";
                         $commentor_result = mysqli_query($conn, $commentor_query);
                         confirm_query($commentor_result);
                         while ($commentor = mysqli_fetch_assoc($commentor_result)) {
