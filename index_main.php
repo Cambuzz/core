@@ -185,7 +185,7 @@ if (logged_in()) {
     
     <script>
     (function() {
-        var docElem = w`ow.document.documentElement,
+        var docElem = window.document.documentElement,
             didScroll, scrollPosition;
 
         // trick to prevent scrolling when opening/closing button
