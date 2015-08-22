@@ -19,6 +19,9 @@ if (logged_in()) {
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Cambuzz</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <!-- Custom Fonts -->
