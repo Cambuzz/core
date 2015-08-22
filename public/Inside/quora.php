@@ -480,6 +480,12 @@ if (isset($_POST['submit_search'])) {
                                     <!-- separator -->
                                 </div>
                             </article>
+                                            <?php
+                                                }   
+                                            ?>                                   
+                                    
+                                    <!-- story like and comment link -->
+                                    
                         </div>
                     </section>
                 </div>
