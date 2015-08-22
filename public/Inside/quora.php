@@ -103,7 +103,7 @@
     </script>
     </head>
 
-<body class="page-body">
+<body class="page-body page-left-in">
     <div class="page-container">
         <!-- add class "sidebar-collapsed" to close sidebar by default, "chat-visible" to make chat appear always -->
         <div class="sidebar-menu">
@@ -480,12 +480,6 @@ if (isset($_POST['submit_search'])) {
                                     <!-- separator -->
                                 </div>
                             </article>
-                                            <?php
-                                                }   
-                                            ?>                                   
-                                    
-                                    <!-- story like and comment link -->
-                                    
                         </div>
                     </section>
                 </div>
