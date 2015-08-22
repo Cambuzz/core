@@ -1347,7 +1347,7 @@ html.demo-7,
         right: 5px;
     }
     .mockup-content {
-        padding-top: 0%;
+        padding-top: 0% !important;
     }
 
     .panel
