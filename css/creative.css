@@ -43,7 +43,6 @@ h6 {
 }
 
 p {
-    margin-bottom: 20px;
     font-size: 16px;
     line-height: 1.5;
 }
@@ -166,7 +165,6 @@ header {
     min-height: auto;
     text-align: center;
     color: #fff;
-    background-image: url('../img/header.jpg');
     background-position: center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -212,7 +210,6 @@ header .header-content .header-content-inner {
 }*/
 
 header .header-content .header-content-inner p {
-    margin-bottom: 50px;
     font-size: 16px;
     font-weight: 300;
     font-family: 'Montserrat', sans-serif;
@@ -238,7 +235,7 @@ header .header-content .header-content-inner p {
     header .header-content .header-content-inner p {
         margin-right: auto;
         margin-left: auto;
-        max-width: 80%;
+        max-width: 100%;
         font-size: 18px;
     }
 }
