@@ -103,7 +103,7 @@
     </script>
     </head>
 
-<body class="page-body page-left-in" style="font-family: 'Montserrat';">
+<body class="page-body page-left-in">
     <div class="page-container">
         <!-- add class "sidebar-collapsed" to close sidebar by default, "chat-visible" to make chat appear always -->
         <div class="sidebar-menu">
@@ -206,17 +206,17 @@
                 <div class="profile-env">
                     <section class="profile-feed">
                             <!-- Search search form -->
-					<form method="post" class="search-bar" action="quora.php" enctype="application/x-www-form-urlencoded">
-						
-						<div class="input-group" style="margin-bottom: 40px;">
-							<input type="text" class="form-control input-lg" name="search" required placeholder="Search for any question ...">
-							
-							<div class="input-group-btn">
-								<input type="submit" name="submit_search" value="Search" class="btn btn-lg btn-success btn-icon"><i class="entypo-search"></i>
-								
-							</div>
-						</div>
-					</form>
+                    <form method="post" class="search-bar" action="quora.php" enctype="application/x-www-form-urlencoded">
+                        
+                        <div class="input-group" style="margin-bottom: 40px;">
+                            <input type="text" class="form-control input-lg" name="search" required placeholder="Search for any question ...">
+                            
+                            <div class="input-group-btn">
+                                <input type="submit" name="submit_search" value="Search" class="btn btn-lg btn-success btn-icon"><i class="entypo-search"></i>
+                                
+                            </div>
+                        </div>
+                    </form>
                     <div>
                     <?php
 if (isset($_POST['submit_search'])) {
@@ -232,8 +232,8 @@ if (isset($_POST['submit_search'])) {
         $out = explode(" ", $sent1);
         $size_array = sizeof($out);
         for ($m=0; $m < $size_array; $m++) { 
-            $sry = array("$out[$m] $sent2");
-        $temp = $out[$m];
+            $sry = array("$out[$m] $sent2 ");
+        $temp = $out[$m]." ";
         $n2 = strlen($temp);
         $s = implode(" ", $sry);
         $n = strlen($s);
@@ -291,9 +291,14 @@ if (isset($_POST['submit_search'])) {
                 $flag = 1;
             }
             if ($flag==1) {
+                echo "<br>";
+                echo "<br>";
+                echo "<br>";
+                echo "<br>";
                 break;
             }
         }
+        if($flag==1)break;
     }
     }
 }   ?> </div>
