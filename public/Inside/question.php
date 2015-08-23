@@ -132,6 +132,7 @@ if ((isset($_POST['submit']))&&(isset($_POST['answer']))) {
     <link rel="stylesheet" href="assets/css/style-theme.css">
     <link rel="stylesheet" href="assets/css/style-forms.css">
     <link rel="stylesheet" src="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" />
+    <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
     <script>
     $.noConflict();
     </script>
