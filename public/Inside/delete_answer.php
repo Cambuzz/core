@@ -3,21 +3,24 @@
 <?php require_once("../../includes/functions.php");?>
 <?php confirm_logged_in(); ?>
 <?php 
-$answer = find_answer_by_id($_GET["id"]);
-if (!$answer) {
-	redirect_to("quora.php");
-}
+//$answer = find_answer_by_id($_GET["id"]);
+$username=$_POST['username'];
+//$get = $_GET['id'];
+//if (!$answer) {
+//	redirect_to("question.php?id=$get");
+//}
 
-$id = $answer["id"];
-$query = "DELETE FROM answers WHERE id = {$id} LIMIT 1";
+//$id = $answer["id"];
+$query = "DELETE FROM answers WHERE id = {$username}";
 $result = mysqli_query($conn, $query);
-
-if ($result && mysqli_affected_rows($conn) == 1) {
-
-	redirect_to("question.php?id=<?php echo urlencode($id);");
-} else {
-
-	redirect_to("question.php?id=<?php echo urlencode($id);");
-}
+if($result)
+	echo "done";
+else
+	echo "notdone";
+//if ($result && mysqli_affected_rows($conn) == 1) {
+//	redirect_to("question.php?id=$get");
+//} else {
+//	redirect_to("question.php?id=$get");
+//}
 
 ?>
