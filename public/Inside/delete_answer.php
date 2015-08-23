@@ -14,10 +14,10 @@ $result = mysqli_query($conn, $query);
 
 if ($result && mysqli_affected_rows($conn) == 1) {
 
-	redirect_to("quora.php");
+	redirect_to("question.php?id=<?php echo urlencode($id);");
 } else {
 
-	redirect_to("quora.php");
+	redirect_to("question.php?id=<?php echo urlencode($id);");
 }
 
 ?>

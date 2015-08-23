@@ -306,6 +306,7 @@ if ((isset($_POST['submit']))&&(isset($_POST['answer']))) {
                                         <ul class="comments">
                                         <?php
                                         while ($view_answer = mysqli_fetch_assoc($result_post_answer)) { ?>
+                                            <div id=<?php echo $view_answer["id"]?> >
                                             <li> <!-- coment post begin -->
                                                 <div class="user-comment-thumb">
                                                 <?php if ($view_answer['answer_poster']==$current_user) {
@@ -349,8 +350,8 @@ if ((isset($_POST['submit']))&&(isset($_POST['answer']))) {
                                                         </a> -->
                                                     </div>
                                                 </div>
-                                                <a href="delete_answer.php?id=<?php echo urlencode($view_answer["id"]); ?>" onclick="return confirm('Are you sure?');">Delete</a>
-                                            </li> <?php
+                                               <form class="answerdelete"><input type="text" class="deleteregn" style="display:none" value=<?php echo $answer_id?> ><a href="#" class="deletelink" id="$answer_id"  >Delete</a></form>
+                                            </li></div> <?php
                                                 } else {
                                                     $poster_pic_query = "SELECT * FROM users WHERE username = '{$view_answer['answer_poster']}' LIMIT 1";
                                                     $poster_pic_result = mysqli_query($conn, $poster_pic_query);
@@ -391,7 +392,7 @@ if ((isset($_POST['submit']))&&(isset($_POST['answer']))) {
                                                         </a> -->
                                                     </div>
                                                 </div>
-                                            </li> <?php
+                                            </li> </div><?php
                                                 }
                                                     
                                    } ?>    <!-- coment post end -->
@@ -439,6 +440,39 @@ if ((isset($_POST['submit']))&&(isset($_POST['answer']))) {
     <script src="assets/js/modernizr.custom.js"></script>    
     <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/TweenMax.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+
+
+     <script type="text/javascript">
+        
+        
+        $(document).ready(function(){
+           //alert("hello");
+            $('.answerdelete').on('click',function()
+            {
+                var username=$(this).children(".deleteregn").val();
+                var confirm1=confirm("Are you sure?");
+                if(confirm1==1)
+               {
+                $.ajax({
+                    method: "POST",
+                    url: "delete_answer.php",
+                    data: {username:username}
+                    })
+                    .done(function(data){
+                        //alert(data);
+                        $("#"+username).hide(100);
+                    });
+                }
+
+                return false;
+
+                
+            });
+            
+        });
+        
+    </script> 
 </body>
 
 </html>
