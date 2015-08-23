@@ -243,7 +243,7 @@
                                $timarr[5][0]=13;
                                $timarr[5][1]=20;
                                $timarr[6][0]=14;
-                               $timarr[6][1]=5;
+                               $timarr[6][1]=05;
                                $timarr[7][0]=14;
                                $timarr[7][1]=55;
                                $timarr[8][0]=15;
@@ -264,6 +264,7 @@
                                elseif ($day=="Friday") $r=4;
                                if($r==10) {
                                    echo "Today is a holiday";
+                                   echo "<br>";
                                }
                                elseif($hour<6 || $hour>22) {
                                    echo "Your teacher is sleeping now";echo "<br>";
@@ -291,9 +292,9 @@
                                            $flag=1;
                                        }
                                    }        
-                                } elseif ($hour>19 || ($hour==19 && $minute>30)) {
+                                } elseif ($hour>19 || ($hour==19 && $minute>30)) {Your teacher might have left the college
                                    echo "Its too late. Your teacher might have left the college";
-                                   echo "&nbsp;";
+                                   echo "<br>";
                                } else {
                                    $flag=0;
                                    $ind=0;
@@ -302,14 +303,14 @@
                                            if( $minute<=$timarr[$i][1]) {
                                                if($matrix[$r][$i]==0) {
                                                    echo "Free Till";
-                                                   echo "&nbsp;";
+                                                   echo "<br>;";
                                                    $k=$i;
                                                    while ($matrix[$r][$k]==0 ) {
                                                        $k++;
                                                        if($k==13)break;
                                                    }
                                                    echo $timarr[$k-1][0].":".$timarr[$k-1][1];echo "<br>";
-                                                   if($k==13){echo "UR techr mit hav left";echo "<br>";}
+                                                   if($k==13){echo "Your teacher might have left the college";echo "<br>";}
                                                    for ($j=$k+1; $j < 13; $j++) { 
                                                        if($matrix[$r][$j]==0) {
                                                            if($flag==0) {
@@ -318,10 +319,10 @@
                                                             }
                                                            if($j!=0) {
                                                                echo $timarr[$j-1][0].":".$timarr[$j-1][1]."-".$timarr[$j][0].":".$timarr[$j][1];
-                                                               echo "&nbsp;";
+                                                               echo "<br>";
                                                            } else {
                                                                echo "8:00-".$timarr[$j][0].":".$timarr[$j][1];
-                                                               echo "&nbsp;";
+                                                               echo "<br>";
                                                            }
                                                            $flag=1;
                                                           
@@ -330,7 +331,7 @@
                                                    }
                                                    $flag=1;
                                                } elseif ($matrix[$r][$i]==1) {
-                                                   echo "Class";echo "&nbsp;";
+                                                   echo "Lecture";echo "<br>";
                                                    for ($j=$i+1; $j < 13; $j++) {                         
                                                        if($matrix[$r][$j]==0) {
                                                            if($flag==0) {echo "You can meet your teacher between :";echo "<br>";}
@@ -340,26 +341,26 @@
                                                            $flag=1;
                                                        }
                                                    }
-                                                   if($flag==0)echo "Srry! Faculty isn't free today";
+                                                   if($flag==0)echo "Sorry! Faculty isn't free today";
                                                } else {
-                                                   echo "Lunch";echo "&nbsp;";
+                                                   echo "Lunch";echo "<br>";
                                                    for ($j=$i+1; $j < 13; $j++) {                         
                                                        if($matrix[$r][$j]==0) {
                                                            if($flag==0) {
                                                            echo "You can meet your teacher between : ";echo "<br>";
                                                            if($j!=0) {
                                                                echo $timarr[$j-1][0].":".$timarr[$j-1][1]."-".$timarr[$j][0].":".$timarr[$j][1];
-                                                               echo "&nbsp;";
+                                                               echo "<br>";
                                                            } else {
                                                                echo "8:00-".$timarr[$j][0].":".$timarr[$j][1];
-                                                               echo "&nbsp;";
+                                                               echo "<br>";
                                                            }
                                                            $flag=1;
                                                        }
                                                    }
                                                }                    
                                            }                    
-                                           if($flag==0)echo "Srry! Faculty isn't free today";
+                                           if($flag==0)echo "Sorry! Faculty isn't free today";
                                            break;
                                        }
                                    }
