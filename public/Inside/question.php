@@ -139,7 +139,7 @@ if ((isset($_POST['submit']))&&(isset($_POST['answer']))) {
     
 </head>
 
-<body class="page-body page-left-in" style="font-family: 'Montserrat;'">
+<body class="page-body page-left-in" style="font-family: 'Montserrat';">
     <div class="page-container">
         <!-- add class "sidebar-collapsed" to close sidebar by default, "chat-visible" to make chat appear always -->
         <div class="sidebar-menu">
@@ -283,7 +283,7 @@ if ((isset($_POST['submit']))&&(isset($_POST['answer']))) {
                                         </div>
                                     </header>
                                     <div class="story-main-content">
-                                        <p style="font-size: 20px; line-height: 1; sans-serif; font-weight:bold; color: black;"><?php echo $view_quest['question']; ?></p>
+                                        <p style="font-size: 20px; line-height: 1.3; sans-serif; font-weight:bold; color: black;"><?php echo $view_quest['question']; ?></p>
                                     </div>
                                     <h1></h1>
                                     <!-- story like and comment link -->
