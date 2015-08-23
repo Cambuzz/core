@@ -21,25 +21,39 @@
     <meta name="description" content="Cambuzz" />
     <meta name="author" content="" />
     <title>Cambuzz</title>
+    <link rel="stylesheet" href="assets/css/font-icons/entypo/css/entypo.css">
     <link rel="stylesheet" href="assets/css/bootstrap.css">
     <link rel="stylesheet" href="assets/css/style-core.css">
     <link rel="stylesheet" href="assets/css/style-theme.css">
     <link rel="stylesheet" href="assets/css/style-forms.css">
-    
-    <!-- Buzz button -->
-    <link rel="stylesheet" type="text/css" href="assets/css/buttoncreatebuzz.css" />
-    <link rel="stylesheet" type="text/css" href="assets/css/normalize.css" />
-    <!-- Fonts -->
-    <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,900' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="assets/css/font-icons/entypo/css/entypo.css">
-
-    <script src="assets/js/search/prefixfree.min.js"></script>
     <link rel="stylesheet" href="assets/css/search.css">
+   
+    <link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,900' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+
+    <!-- styleinput -->
+    <link rel="stylesheet" type="text/css" href="assets/css/normalize.css" />
+    <script src="assets/js/search/prefixfree.min.js"></script>
     <script>
     $.noConflict();
     </script>
+    <script>
+      function showHint(str) {
+          if (str.length == 0) { 
+              document.getElementById("txtHint").innerHTML = "";
+              return;
+          } else {
+              var xmlhttp = new XMLHttpRequest();
+              xmlhttp.onreadystatechange = function() {
+                  if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                      document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
+                  }
+              }
+              xmlhttp.open("GET", "gethint.php?q=" + str, true);
+              xmlhttp.send();
+          }
+      }
+</script>
 </head>
 
 <body class="page-body  page-left-in">
@@ -122,65 +136,8 @@
         </div>
         <div class="main-content">
             <div class="row">
-                 <div class="col-md-6 col-sm-8 clearfix">
-                    <ul class="user-info pull-left pull-right-xs pull-none-xsm">
-            
-                        <!--  Notifications -->
-                        <li class="notifications dropdown">
-            
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                                <i class="entypo-mail"></i>
-                                <span class="badge badge-info">2</span>
-                            </a>
-            
-                            <ul class="dropdown-menu">
-                                <li class="top">
-                                    <p class="small">
-                                        <a href="#" class="pull-right">Mark all Read</a>
-                                        You have <strong>2</strong> new notifications.
-                                    </p>
-                                </li>
-                                
-                                <li>
-                                    <ul class="dropdown-menu-list scroller">
-                                        <li class="unread notification-success">
-                                            <a href="#">
-                                                <i class="entypo-user-add pull-right"></i>
-                                                
-                                                <span class="line">
-                                                    <strong>Sharad Sharad</strong>
-                                                </span>
-                                                
-                                                <span class="line small">
-                                                    30 seconds ago
-                                                </span>
-                                            </a>
-                                        </li>
-                                        
-                                        <li class="unread notification-secondary">
-                                            <a href="#">
-                                                <i class="entypo-heart pull-right"></i>
-                                                
-                                                <span class="line">
-                                                    <strong>You gotta answer</strong>
-                                                </span>
-                                                
-                                                <span class="line small">
-                                                    2 minutes ago
-                                                </span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                
-                                <li class="external">
-                                    <a href="#">View all notifications</a>
-                                </li>
-                            </ul>
-            
-                        </li>       
-                    </ul>
-                </div>
+                <!-- Profile Info and Notifications -->
+                <!-- Raw Links -->
                 <div class="col-md-6 col-sm-4 clearfix hidden-xs" style="float: right;">
                     <ul class="list-inline links-list pull-right">
                         <!-- Language Selector -->
@@ -208,19 +165,22 @@
         C134.004,10.987,133.084,13.042,131.597,14.529c0,0,9.554,9.554,9.554,9.554H0" />
                         </svg>
                         <label for="search" class="search-label"></label>
-                        <input type="search" id="search" autocomplete="on" name="search_name" class="input-search" />
+                        <input type="search" id="search" name="search_name" class="input-search" onkeyup="showHint(this.value)" />
                     </div>
-                    </form>   
-                </div>
+                    </form>                      
+                </div>                
             </div>
+
                    <div class="a-st" style="font-size: 20px; display:flex;justify-content:center;align-items:center; margin-top: 200px;">  
+                   <p>Suggestions: <span id="txtHint"></span></p>
                     <?php
                            if (isset($_POST['search_name'])) {
                                $search_name = $_POST['search_name'];
-                               $search_query = "SELECT * FROM teacher WHERE name = '{$search_name}' LIMIT 1";
+                               $search_query = "SELECT * FROM faculty_final WHERE name = '{$search_name}' LIMIT 1";
                                $search_result = mysqli_query($conn, $search_query);
                                confirm_query($search_result);
                                $search_title = mysqli_fetch_assoc($search_result);
+                               //echo $search_title['period'];
                                if (!$search_title['name']) {
                                    echo "Not in database";
                                } else {
@@ -282,8 +242,9 @@
                                        $r=0;
                                    }
                                    $flag=0;
-                                   for ($j=0; $j < 13; $j++) { 
-                                       if($matrix[$r][$j]==1) {
+                                   for ($j=0; $j < 13; $j++) {
+
+                                       if($matrix[$r][$j]==0) {
                                            if($flag==0) {
                                                echo "You can meet your teacher between :";
                                                echo "<br>";
@@ -295,10 +256,11 @@
                                                echo "8:00-".$timarr[$j][0].":".$timarr[$j][1];
                                                echo "<br>";
                                            }
+
                                            $flag=1;
                                        }
                                    }        
-                               } elseif ($hour>19 || ($hour==19 && $minute>30)) {
+                                } elseif ($hour>19 || ($hour==19 && $minute>30)) {
                                    echo "Its too late. Your teacher might have left the college";
                                    echo "&nbsp;";
                                } else {
@@ -307,17 +269,18 @@
                                    for ($i=0; $i <13 ; $i++) { 
                                        if($hour<=$timarr[$i][0]) {
                                            if( $minute<=$timarr[$i][1]) {
-                                               if($matrix[$r][$i]==1) {
+                                               if($matrix[$r][$i]==0) {
                                                    echo "Free Till";
                                                    echo "&nbsp;";
                                                    $k=$i;
-                                                   while ($matrix[$r][$k]==1 ) {
+                                                   while ($matrix[$r][$k]==0 ) {
                                                        $k++;
                                                        if($k==13)break;
                                                    }
                                                    echo $timarr[$k-1][0].":".$timarr[$k-1][1];echo "<br>";
+                                                   if($k==13){echo "UR techr mit hav left";echo "<br>";}
                                                    for ($j=$k+1; $j < 13; $j++) { 
-                                                       if($matrix[$r][$j]==1) {
+                                                       if($matrix[$r][$j]==0) {
                                                            if($flag==0) {
                                                                echo "You can also meet your teacher between : ";
                                                                echo "<br>";
@@ -330,12 +293,15 @@
                                                                echo "&nbsp;";
                                                            }
                                                            $flag=1;
+                                                          
                                                        }
+
                                                    }
-                                               } elseif ($matrix[$r][$i]==0) {
+                                                   $flag=1;
+                                               } elseif ($matrix[$r][$i]==1) {
                                                    echo "Class";echo "&nbsp;";
                                                    for ($j=$i+1; $j < 13; $j++) {                         
-                                                       if($matrix[$r][$j]==1) {
+                                                       if($matrix[$r][$j]==0) {
                                                            if($flag==0) {echo "You can meet your teacher between :";echo "<br>";}
                                                            if($j!=0) {
                                                                echo " ".$timarr[$j-1][0].":".$timarr[$j-1][1]."-".$timarr[$j][0].":".$timarr[$j][1];echo "<br>";
@@ -347,7 +313,7 @@
                                                } else {
                                                    echo "Lunch";echo "&nbsp;";
                                                    for ($j=$i+1; $j < 13; $j++) {                         
-                                                       if($matrix[$r][$j]==1) {
+                                                       if($matrix[$r][$j]==0) {
                                                            if($flag==0) {
                                                            echo "You can meet your teacher between : ";echo "<br>";
                                                            if($j!=0) {
@@ -375,28 +341,12 @@
         <footer>
         </footer>
     </div>
-    <script src="assets/js/modernizr.custom.js"></script>
-    <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  
-
-    <script src="assets/js/fileinput.js"></script>
-    <script src="assets/js/style-custom.js"></script>
-    <script src="assets/js/style-demo.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/classie/1.0.1/classie.min.js"></script>
-
-    <!-- Bottom scripts (common) -->
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/TweenMax.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="assets/js/joinable.js"></script>
-    <script src="assets/js/resizeable.js"></script>
-    <script src="assets/js/uiMorphingButton_fixed.js"></script>
-    <script src="assets/js/style-api.js"></script>
-    <!-- Imported scripts on this page -->
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
     <script src="assets/js/search/index.js"></script>
-        
-     
-    
+    <script src="assets/js/gsap/main-gsap.js"></script>
+    <!-- Imported scripts on this page --> 
+    <script src="assets/js/style-custom.js"></script>
+    <script src="assets/js/style-api.js"></script>
     
    
 </body>
