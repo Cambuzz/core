@@ -584,7 +584,7 @@ $comment=0;
                 if ($total_answers!=0) {
                   
                     $hide = " ";
-                    if($quest_list["comment_counter"]>0)
+                    if($quest_list["comment_counter"]>0 && $quest_list["quest_user"]!="cambuzz")
                     {
 
                         $comment++;
@@ -807,7 +807,7 @@ $comment=0;
                                                            $hide = "style= 'display: none;'"; 
                                                         } else {
                                                             $hide = " ";
-                                                            if($quest_list["comment_counter"]>0)
+                                                            if($quest_list["comment_counter"]>0 && $quest_list["quest_user"]!="cambuzz")
                                                             {
                                                                 $comment++;
                                                            
