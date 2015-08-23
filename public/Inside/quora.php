@@ -212,8 +212,7 @@
 							<input type="text" class="form-control input-lg" name="search" required placeholder="Search for any question ...">
 							
 							<div class="input-group-btn">
-								<input type="submit" name="submit_search" value="Search" class="btn btn-lg btn-success btn-icon"><i class="entypo-search"></i>
-								
+                                <input type="submit" href="javascript:;" onclick="jQuery('#modal-2').modal('show');" name="submit_search" value="Search" class="btn btn-lg btn-success btn-icon" style="padding-right: 25px; ">
 							</div>
 						</div>
 					</form>
@@ -470,7 +469,21 @@ if (isset($_POST['submit_search'])) {
             </div>
         </div>
     </div>
-    
+        <div class="modal fade" id="modal-2">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Search Results</h4>
+                </div>
+                
+                <div class="modal-body">
+                    Question-1
+                </div>
+            </div>
+        </div>
+    </div>  
 </body>
 
 </html>
