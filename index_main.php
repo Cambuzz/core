@@ -164,7 +164,7 @@ if (logged_in()) {
                                                     <div id="accountchecking"></div>
                                                     <div class="form-group">
                                                         <div class="col-sm-offset-3 col-sm-5">
-                                                            <input type="submit" name="submit_up" value="Sign in" class="btn btn-success">
+                                                            <input type="submit" name="submit_up" value="Submit" class="btn btn-success">
                                                         </div>
                                                     </div>
                                                 </form>

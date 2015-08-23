@@ -34,26 +34,58 @@
     <!-- styleinput -->
     <link rel="stylesheet" type="text/css" href="assets/css/normalize.css" />
     <script src="assets/js/search/prefixfree.min.js"></script>
+    <style>
+      .tt-query, /* UPDATE: newer versions use tt-input instead of tt-query */
+            .tt-hint {
+                width: 396px;
+                height: 30px;
+                padding: 8px 12px;
+                font-size: 24px;
+                line-height: 30px;
+                border: 2px solid #ccc;
+                border-radius: 8px;
+                outline: none;
+            }
+
+            .tt-query { /* UPDATE: newer versions use tt-input instead of tt-query */
+                box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+            }
+
+            .tt-hint {
+                color: #999;
+            }
+
+            .tt-menu { /* UPDATE: newer versions use tt-menu instead of tt-dropdown-menu */
+                width: 422px;
+                margin-top: 12px;
+                padding: 8px 0;
+                background-color: #fff;
+                border: 1px solid #ccc;
+                border: 1px solid rgba(0, 0, 0, 0.2);
+                border-radius: 8px;
+                box-shadow: 0 5px 10px rgba(0,0,0,.2);
+            }
+
+            .tt-suggestion {
+                padding: 3px 20px;
+                font-size: 18px;
+                line-height: 24px;
+            }
+
+            .tt-suggestion.tt-is-under-cursor { /* UPDATE: newer versions use .tt-suggestion.tt-cursor */
+                color: #fff;
+                background-color: #0097cf;
+
+            }
+
+            .tt-suggestion p {
+                margin: 0;
+            }
+
+    </style>
     <script>
     $.noConflict();
     </script>
-    <script>
-      function showHint(str) {
-          if (str.length == 0) { 
-              document.getElementById("txtHint").innerHTML = "";
-              return;
-          } else {
-              var xmlhttp = new XMLHttpRequest();
-              xmlhttp.onreadystatechange = function() {
-                  if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                      document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
-                  }
-              }
-              xmlhttp.open("GET", "gethint.php?q=" + str, true);
-              xmlhttp.send();
-          }
-      }
-</script>
 </head>
 
 <body class="page-body  page-left-in">
@@ -165,14 +197,13 @@
         C134.004,10.987,133.084,13.042,131.597,14.529c0,0,9.554,9.554,9.554,9.554H0" />
                         </svg>
                         <label for="search" class="search-label"></label>
-                        <input type="search" id="search" name="search_name" class="input-search" onkeyup="showHint(this.value)" />
+                        <input type="search" id="search" name="search_name" class="input-search"/>
                     </div>
                     </form>                      
                 </div>                
             </div>
 
                    <div class="a-st" style="font-size: 20px; display:flex;justify-content:center;align-items:center; margin-top: 200px;">  
-                   <p>Suggestions: <span id="txtHint"></span></p>
                     <?php
                            if (isset($_POST['search_name'])) {
                                $search_name = $_POST['search_name'];
@@ -347,8 +378,405 @@
     <!-- Imported scripts on this page --> 
     <script src="assets/js/style-custom.js"></script>
     <script src="assets/js/style-api.js"></script>
-    
-   
+    <script src="assets/js/typeahead.js"></script>
+
+    <script>
+      var substringMatcher = function(strs) {
+      return function findMatches(q, cb) {
+        var matches, substringRegex;
+
+        // an array that will be populated with substring matches
+        matches = [];
+
+        // regex used to determine if a string contains the substring `q`
+        substrRegex = new RegExp(q, 'i');
+
+        // iterate through the pool of strings and for any string that
+        // contains the substring `q`, add it to the `matches` array
+        $.each(strs, function(i, str) {
+          if (substrRegex.test(str)) {
+            matches.push(str);
+          }
+        });
+
+        cb(matches);
+      };
+    };
+
+ var teachersname = [
+     'A. ASHOK ',
+     'A. GIRIDHARAN ',
+     'A. SURESH ',
+     'A.ANURADHA ',
+     'A.D. SIVAGAMI ',
+     'AARTHI PRIYA S ',
+     'Abdulquadir.md ',
+     'ABHISHEK KUMAR SINGH ',
+     'Abraham Sudharson Ponraj ',
+     'ALAMELU C ',
+     'Alan G ',
+     'Alok.chauhan ',
+     'ANANIAH DURAI ',
+     'Anantha Krishnan V ',
+     'Angalaeswari S ',
+     'Angeline Ezhilarasi G ',
+     'ANGELINE GAUTAMI FERNANDO ',
+     'Anita Angeline ',
+     'ANJALI GOPAKUMAR ',
+     'Annamalai K ',
+     'ANNIS FATHIMA ',
+     'Anusooya.g ',
+     'Aparna V ',
+     'Arockia Selvakumar ',
+     'Arockiasamy S ',
+     'ARUN KUMAR A ',
+     'Arun Kumar Sarma ',
+     'ASHA S ',
+     'ASNATHVICTY PHAMILA Y ',
+     'Atanu Dutta ',
+     'Augusta Sophy Beulet P ',
+     'B. Nagajayanthi ',
+     'BALA MURUGAN M S ',
+     'BALAJI J ',
+     'Balamurugan P ',
+     'Berin Greeni A ',
+     'BERLIN HENCY V ',
+     'BHARGHA RAJARAM ',
+     'Bhaskara Rao ',
+     'BHUVANESWARI ',
+     'Bhuvaneswari R ',
+     'Bindhu V M ',
+     'BINU BEN JOSE D R ',
+     'Bornali Sarma ',
+     'Brintha Therese A ',
+     'C. UMAYAL ',
+     'C. UTHIRAM ',
+     'C. Vijayalakshmi ',
+     'Caroline Ponraj ',
+     'Chandrasekar G ',
+     'Chandrasekaran N ',
+     'CHITRA K ',
+     'CHRISTO MICHAEL T ',
+     'Christyjackson.j ',
+     'CLAUDIA JEYA PUSHPA D ',
+     'D.SARAVANA KUMAR ',
+     'DAVID MAXIM GURURAJ A ',
+     'Davidson Jebaseelan ',
+     'Deivanai K ',
+     'DEVAPRAKASAM D ',
+     'Dhanasekar S ',
+     'DINKAR V R ',
+     'DIVYA P V ',
+     'Dr Elavenil S ',
+     'Dr. A. Peer Fathima ',
+     'DR. NIRMAL THYAGU ',
+     'DR. R. CHENDUR KUMARAN ',
+     'DR. R. NANDHINI ',
+     'DR. R. NARAYANAN ',
+     'DR. S. JEYANTHI ',
+     'Dr. Shyam Kumar M B ',
+     'DR. SREEKANTH DONDAPATI ',
+     'DR. VATITHILINGAM C ',
+     'DR.AJITH ',
+     'DR.AJITHL ',
+     'DR.AJITHT ',
+     'DR.BHARGAVI ',
+     'DR.BINDU.B ',
+     'DR.DEIVANATHAN ',
+     'DR.MADYEVAN.B ',
+     'DR.RAMESH SUNDAR.J ',
+     'Dr.Saravanan K ',
+     'DR.SUBHAKARA REDDY ',
+     'Evangeline Sabina Rajasekar ',
+     'FATHEH VEER SINGH ',
+     'Febin Daya J  ',
+     'Febin Daya J L ',
+     'Feroskhan M ',
+     'Gajendra Kumar ',
+     'GANDHI M ',
+     'Ganesan R ',
+     'Gayathri Devi B ',
+     'gayathri r ',
+     'Geetha M ',
+     'GEETHA S ',
+     'Gnana Swathika O V ',
+     'GOPINATH MUDHANA ',
+     'GOPINATHAN N ',
+     'Govindarajan P ',
+     'Guga Priya G ',
+     'GUNABALAN R ',
+     'Hannah Grace G ',
+     'HARI PRAKASH N ',
+     'Hariharan S ',
+     'Harini S ',
+     'Helen Santhi M ',
+     'Hema N ',
+     'Hemamalini ',
+     'HEMANTH C ',
+     'HEPSIBA MABEL V ',
+     'Ilakiyaselvan N ',
+     'Indra Raja Singh ',
+     'INFANT SOLOMON VINOTH S ',
+     'IYSWARYA ANNAPOORANI ',
+     'JAFFERSON J M ',
+     'JAGADEESH KANNAN R ',
+     'Jaganathan B ',
+     'JAGANNATH M ',
+     'James Daniel Paul P ',
+     'Jamuna K ',
+     'Janardhan Reddy K ',
+     'Jaya Vignesh T ',
+     'JAYANTA PARUI ',
+     'JAYARAM B ',
+     'JEBARAJ.C ',
+     'Jegadeeshwaran  ',
+     'Jegadeeshwaran R ',
+     'Jeganathan L ',
+     'Jenila Livingston L M ',
+     'John Kennedy L ',
+     'John Sahaya Rani Alex ',
+     'Joseph Daniel ',
+     'Joseph Jeya Anand S ',
+     'Joseph Sathiaraj P ',
+     'Justus S ',
+     'K. KAVIYARASAN ',
+     'K. VINISHARANI ',
+     'Kaliyappan M ',
+     'Kalyani Desikan ',
+     'Kanchana Bhaskaran V S ',
+     'Kanchana Devi ',
+     'KANIMOZHI G ',
+     'Kannan S ',
+     'Karmel A ',
+     'Karthikeyan C P ',
+     'KARTHIKEYAN K ',
+     'KARTHIYAINI S ',
+     'KARUNAMURTHY K ',
+     'KAUSTAB GHOSH ',
+     'Kavya Alluru ',
+     'KESAVARMOORTHY R ',
+     'Khadar Nawas K ',
+     'KRISHNENDU BISWAS ',
+     'KRITHIGA S ',
+     'Kumar R ',
+     'KURUSEELAN S ',
+     'Lakshmi B ',
+     'Lavanya V ',
+     'Lenin Babu M C ',
+     'Lenin N C ',
+     'Luke Gerard Christie ',
+     'M SUKUMAR ',
+     'M. Elango ',
+     'M. Jayasudha ',
+     'M. Prabhakar ',
+     'M. SUNDARARAJAN ',
+     'M.P. SRINIVASAN ',
+     'Maddikera Kalyan Chakravarthi ',
+     'Mahalakshmi S ',
+     'Maheswari N ',
+     'Maheswari R ',
+     'Maheswari S ',
+     'MALATHI G ',
+     'Manavalla Sreekanth ',
+     'Manikandan N ',
+     'Manikandan P ',
+     'Manimaran ',
+     'Manoj Kumar R ',
+     'MARIA EVELYN JUCUNDA ',
+     'Mary Chandini Y ',
+     'MAYA RATHNASABAPATHY ',
+     'Meenakshi J ',
+     'Meera P S ',
+     'Menaka R ',
+     'Mini Ghosh ',
+     'MOHAMED IMRAN A ',
+     'Mohan K ',
+     'Mohana N ',
+     'Muralidhar A ',
+     'Muthulakshmi S ',
+     'MUTHUMANI K ',
+     'Muthunagai ',
+     'N.Gobinath ',
+     'Nachiyappan.s ',
+     'NAGARAJ S V ',
+     'NATHIYA N ',
+     'NAVAMATHAVAN R ',
+     'Neelanarayanan.v ',
+     'NEW FACULTY - VITBS ',
+     'NIKITA KONNIKAR ',
+     'Niraj Kumar ',
+     'Nisha V.M ',
+     'Nithya Darisini P.S ',
+     'Nithya P ',
+     'Nithya Venkatesan ',
+     'NITYARANI.B ',
+     'Nivedita M ',
+     'Padmanabhan R ',
+     'Pankaj Shukla ',
+     'PARTHIBAN V ',
+     'Parvathi R ',
+     'PATCHAINAYAGI S ',
+     'Pattabiraman V ',
+     'POORNIMA T ',
+     'Prabakaran R ',
+     'Prabhakar Rao B V A N S S ',
+     'Prabhakar V ',
+     'Prabhakaran D ',
+     'Pradeep Kumar T.S ',
+     'Pradeep.kv ',
+     'Prakash B ',
+     'Prakash R ',
+     'prakash.v ',
+     'Prassanna.J ',
+     'Prathiba A ',
+     'Pratibha Nalini R ',
+     'PREMALATHA L ',
+     'Priyaadharshini M ',
+     'Priyadarshini J ',
+     'Prof. Nilanjan Tewari ',
+     'Prof.Nithyanandam P ',
+     'Prof.Sakthi Ganesh M ',
+     'Prof.Vijayakumar ',
+     'punitha.k ',
+     'Punithavelan N ',
+     'QI NAICHAN ',
+     'R. Senthil Kumar ',
+     'RABBIRAJ C ',
+     'Rabindrakumar singh ',
+     'Radha R ',
+     'RAGHUKIRAN NADIMPALLI ',
+     'Rajarajeswari S ',
+     'RAJASEKARAN V ',
+     'RAJASINGH HANDAL DEVADAS ',
+     'RAJAVENKATESAN P R L ',
+     'Rajendra Kumar K ',
+     'Rajesh Kanna B ',
+     'Rajesh Kumar ',
+     'Rajesh M ',
+     'Rajitha K ',
+     'Rajiv Vincent ',
+     'Rajkumar S ',
+     'Ralph Samuel Thangaraj ',
+     'Ramesh Kannan M ',
+     'Ramesh R ',
+     'Ramesh.ragala ',
+     'RAVI MEDHANKAR ',
+     'Ravi Prakash Dwivedi ',
+     'Ravi Sankar A ',
+     'RAVI V ',
+     'Reena Monica P ',
+     'Reeves Wesley J ',
+     'Rekha D ',
+     'REVATHI G K ',
+     'Revathi S ',
+     'Rukmani P ',
+     'Rupam Singh ',
+     'S. Bharathi Raja ',
+     'S. Radha ',
+     'S.YUVARAJ ',
+     'Sabumon P C ',
+     'Sailaja V ',
+     'Sajidha S.A ',
+     'SAKKARAVARTHI R ',
+     'SAKTHIVEL K ',
+     'Sakthivel S M ',
+     'Saleel Ismail ',
+     'Saleena B ',
+     'Sandhya P ',
+     'SANGEETHA RG ',
+     'SANJIT DAS ',
+     'Sankary V ',
+     'Saradha Rajkumar ',
+     'SARANYA NAIR M ',
+     'SARAVANAKUMAR R ',
+     'Saroj Kumar Dash ',
+     'Sasikumar M ',
+     'Sasipriya P ',
+     'Sathis Kumar B ',
+     'SATHISH KUMAR A ',
+     'Sathyarajasekaran K ',
+     'Savariah Xavier Y C ',
+     'SENTHIL KUMAR K ',
+     'Senthil Kumar M ',
+     'Senthil Kumar N ',
+     'Senthilpandian M ',
+     'Shankar G ',
+     'Sharath Kumar Jagannathan ',
+     'Sharon Sophia ',
+     'Shihabudheen M Maliyekkal ',
+     'Shridevi S ',
+     'sivabalakrishnan.m ',
+     'SIVAGAMI M ',
+     'SIVAKAMI B ',
+     'Sivakumar R ',
+     'Sivarajan S ',
+     'SIVASUBRAMANIAN.A ',
+     'Sreedevi V T ',
+     'SRI RAMALAKSHMI P ',
+     'Sri Revathi B ',
+     'Sridhar Ranganathan ',
+     'Sridhar V G ',
+     'SRIKANTH GOLLAPUDI ',
+     'Srivatsan K ',
+     'Srutha Keerthi B ',
+     'Subashini S ',
+     'SUBBULAKSHMI T ',
+     'SUBBULEKSHMI D ',
+     'Subhashini N ',
+     'Subhasri Vijayakumar ',
+     'SUCHETHA M ',
+     'Suganya G ',
+     'Sugumaran V ',
+     'Sumaiya Thaseen I ',
+     'SWEETLIN HEMALATHA C ',
+     'SyedIbrahim.SP ',
+     'T. RATNAJI ',
+     'T.DEEPA ',
+     'Tamil Selvan P ',
+     'Tanushree Choudhry ',
+     'Thomas Abraham J V ',
+     'Tulasiprasad.sariki ',
+     'Uma Maheswari S ',
+     'Uma Maheswari V ',
+     'Umadevi S ',
+     'Umamaheswari E ',
+     'UMASANKAR V ',
+     'UMITTY SRINIVASA RAO ',
+     'Usha Kiran Kommuri ',
+     'V. VIGNESH ',
+     'Vanchinathan P ',
+     'Vasanthika S ',
+     'VASUGI K ',
+     'VASUGI V ',
+     'VELMATHI G ',
+     'Venkatasubramanian K ',
+     'VENUGOPAL T ',
+     'Vergin Raja Sarobin M ',
+     'VETRIVELAN P ',
+     'Vigneswaran T ',
+     'Vijayakumar.v ',
+     'Vijayalakshmi A ',
+     'VIJAYALAKSHMI V ',
+     'Vijayaram T R ',
+     'VIJENDER NALLAPU ',
+     'VINAYAGAMURTHY G ',
+     'Vinitha G ',
+     'VISHNU PRIYA R ',
+     'VISITING FACULTY -1 ',
+     'Viswanathan V ',
+     'Yamini Sreevalli I ', 
+    ];
+
+    $('.search .input-search').typeahead({
+      hint: false,
+      highlight: true,
+      minLength: 1
+    },
+    {
+      name: 'teachersname',
+      source: substringMatcher(teachersname)
+    });
+</script>
 </body>
 
 </html>
