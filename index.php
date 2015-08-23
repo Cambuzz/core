@@ -24,11 +24,9 @@ if (logged_in()) {
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/font-icons/entypo/css/entypo.css">
     <!-- Custom Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400' rel='stylesheet' type='text/css'>
     <!-- Animate CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css" type="text/css">
     <!-- Custom CSS -->
@@ -166,7 +164,7 @@ if (logged_in()) {
                                                     <div id="accountchecking"></div>
                                                     <div class="form-group">
                                                         <div class="col-sm-offset-3 col-sm-5">
-                                                            <input type="submit" name="submit_up" value="Sign in" class="btn btn-success">
+                                                            <input type="submit" name="submit_up" value="Submit" class="btn btn-success">
                                                         </div>
                                                     </div>
                                                 </form>
@@ -389,7 +387,7 @@ if (logged_in()) {
                var register=$("#field2").val();
                var email=$("#field3").val();
                var password=$("#txtNewPassword").val();
-               
+               //alert('hello');
                var msg;
                 
                 $.ajax({

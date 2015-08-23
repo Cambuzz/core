@@ -777,7 +777,7 @@ $comment=0;
                         <li class="notifications dropdown">
             
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                                <i class="entypo-mail"></i>
+                                <i class="entypo-bell"></i>
                                 <span class="badge badge-info" <?php echo $hide; ?> > <?php echo $comment; ?></span>
                             </a>
             

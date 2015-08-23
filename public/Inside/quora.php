@@ -184,66 +184,6 @@
         </div>
         <div class="main-content">
             <div class="row">
-                <!-- Raw Links -->
-                <div class="col-md-6 col-sm-8 clearfix">
-                    <ul class="user-info pull-left pull-right-xs pull-none-xsm">
-            
-                        <!--  Notifications -->
-                        <li class="notifications dropdown">
-            
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                                <i class="entypo-mail"></i>
-                                <span class="badge badge-info">2</span>
-                            </a>
-            
-                            <ul class="dropdown-menu">
-                                <li class="top">
-                                    <p class="small">
-                                        <a href="#" class="pull-right">Mark all Read</a>
-                                        You have <strong>2</strong> new notifications.
-                                    </p>
-                                </li>
-                                
-                                <li>
-                                    <ul class="dropdown-menu-list scroller">
-                                        <li class="unread notification-success">
-                                            <a href="#">
-                                                <i class="entypo-user-add pull-right"></i>
-                                                
-                                                <span class="line">
-                                                    <strong>Sharad Sharad</strong>
-                                                </span>
-                                                
-                                                <span class="line small">
-                                                    30 seconds ago
-                                                </span>
-                                            </a>
-                                        </li>
-                                        
-                                        <li class="unread notification-secondary">
-                                            <a href="#">
-                                                <i class="entypo-heart pull-right"></i>
-                                                
-                                                <span class="line">
-                                                    <strong>You gotta answer</strong>
-                                                </span>
-                                                
-                                                <span class="line small">
-                                                    2 minutes ago
-                                                </span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                
-                                <li class="external">
-                                    <a href="#">View all notifications</a>
-                                </li>
-                            </ul>
-            
-                        </li>       
-                    </ul>
-                </div>
                 <div class="col-md-5 col-sm-4 clearfix hidden-xs" style="float: right;">
                     <ul class="list-inline links-list pull-right">
                         <!-- Language Selector -->
