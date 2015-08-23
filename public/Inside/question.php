@@ -90,7 +90,7 @@ if ((isset($_POST['submit']))&&(isset($_POST['answer']))) {
     }
     if ($flag==1) {
         $qid = $question["id"];
-        $answer = $_POST['answer'];
+        $answer = mysqli_real_escape_string($conn, $_POST['answer']);
         $answer_poster = $current_user;
         date_default_timezone_set('Asia/Calcutta');
         $answer_time = date("Y-m-d\TH:i:s");
