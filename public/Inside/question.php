@@ -339,6 +339,7 @@ if ((isset($_POST['submit']))&&(isset($_POST['answer']))) {
                                                         <?php 
                                                             $post_time = strtotime($view_answer['answer_time']);
                                                             echo date("d M, y | h:i a", $post_time);
+                                                            $answer_id=$view_answer['id'];
                                                          ?>
                                                         </a> 
                                                         <!-- <a href="#">
