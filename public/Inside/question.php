@@ -132,13 +132,14 @@ if ((isset($_POST['submit']))&&(isset($_POST['answer']))) {
     <link rel="stylesheet" href="assets/css/style-theme.css">
     <link rel="stylesheet" href="assets/css/style-forms.css">
     <link rel="stylesheet" src="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" />
+    <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
     <script>
     $.noConflict();
     </script>
     
 </head>
 
-<body class="page-body page-left-in">
+<body class="page-body page-left-in" style="font-family: 'Montserrat';">
     <div class="page-container">
         <!-- add class "sidebar-collapsed" to close sidebar by default, "chat-visible" to make chat appear always -->
         <div class="sidebar-menu">
@@ -282,7 +283,7 @@ if ((isset($_POST['submit']))&&(isset($_POST['answer']))) {
                                         </div>
                                     </header>
                                     <div class="story-main-content">
-                                        <p style="font-size: 40px; line-height: 1; font-family:'Montserrat', sans-serif; font-weight:bold; color: black;"><?php echo $view_quest['question']; ?></p>
+                                        <p style="font-size: 20px; line-height: 1.3; sans-serif; font-weight:bold; color: black;"><?php echo $view_quest['question']; ?></p>
                                     </div>
                                     <h1></h1>
                                     <!-- story like and comment link -->
