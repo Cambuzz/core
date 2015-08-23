@@ -791,8 +791,6 @@ $comment=0;
                                 <li>
                                     <ul class="dropdown-menu-list scroller">
                                         <li class="unread notification-secondary">
-                                            <a href="#">
-                                            
                                                 <span class="line">
                                                     <?php
                                                 $comment=0;
@@ -833,7 +831,7 @@ $comment=0;
                                                                         ?>
                                                                         <strong><a href="question.php?id=<?php echo urlencode($quest_list["id"]); ?>"><?php echo $person. " and ". $multi . " others commented on your question<br />"; ?></a></strong> <?php
                                                                     } elseif ($quest_list["comment_counter"]==1) { ?>
-                                                                        <strong><a href="question.php?id=<?php echo urlencode($quest_list["id"]); ?>"><?php echo $person." commented on your question<br />"; ?></a></strong> <?php
+                                                                        <strong><a style="font-family:'Montserrat'; font-weight: 100; display: flex; justify-content: center; padding: 10px;" href="question.php?id=<?php echo urlencode($quest_list["id"]); ?>"><?php echo $person." commented on your question<br />"; ?></a></strong> <?php
                                                                     }
                                                                     break;                                                                                                                                       
                                                                 }
