@@ -282,7 +282,7 @@ if ((isset($_POST['submit']))&&(isset($_POST['answer']))) {
                                         </div>
                                     </header>
                                     <div class="story-main-content">
-                                        <p style="font-size: 40px; line-height: 1; font-family:'Montserrat', sans-serif; font-weight:bold; color: black;"><?php echo $view_quest['question']; ?></p>
+                                        <p style="font-size: 20px; line-height: 1; font-family:'Montserrat', sans-serif; font-weight:bold; color: black;"><?php echo $view_quest['question']; ?></p>
                                     </div>
                                     <h1></h1>
                                     <!-- story like and comment link -->
