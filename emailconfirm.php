@@ -16,6 +16,7 @@ if ($code==$db_code) {
     if ($result) {
         redirect_to("index.php");       
     }
+  }
 ?>
 <?php
 if (isset ($conn)){
