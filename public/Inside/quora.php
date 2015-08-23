@@ -103,7 +103,7 @@
     </script>
     </head>
 
-<body class="page-body page-left-in" style="font-family: 'Montserrat';">
+<body class="page-body page-left-in">
     <div class="page-container">
         <!-- add class "sidebar-collapsed" to close sidebar by default, "chat-visible" to make chat appear always -->
         <div class="sidebar-menu">
@@ -231,8 +231,8 @@ if (isset($_POST['submit_search'])) {
         $out = explode(" ", $sent1);
         $size_array = sizeof($out);
         for ($m=0; $m < $size_array; $m++) { 
-            $sry = array("$out[$m] $sent2");
-        $temp = $out[$m];
+            $sry = array("$out[$m] $sent2 ");
+        $temp = $out[$m]." ";
         $n2 = strlen($temp);
         $s = implode(" ", $sry);
         $n = strlen($s);
@@ -290,9 +290,14 @@ if (isset($_POST['submit_search'])) {
                 $flag = 1;
             }
             if ($flag==1) {
+                echo "<br>";
+                echo "<br>";
+                echo "<br>";
+                echo "<br>";
                 break;
             }
         }
+        if($flag==1)break;
     }
     }
 }   ?> </div>
