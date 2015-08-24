@@ -573,7 +573,8 @@ $comment=0;
         $hide = "style= 'display: none;'";
     } else
     {
-        $question_set = find_all_questions();
+       $question_set =  mysqli_query($conn, "SELECT * FROM quora WHERE quest_user = '{$current_user}'");
+        
         for ($i=0; $i < $total_quest; $i++) { 
             while ($quest_list = mysqli_fetch_assoc($question_set)) {
                 $count_answer_query = "SELECT COUNT(*) FROM answers WHERE qid = {$quest_list["id"]}";
@@ -795,7 +796,7 @@ $comment=0;
                                                 <span class="line">
                                                     <?php
                                                 $comment=0;
-                                                $question_set = find_all_questions();
+                                               $question_set =  mysqli_query($conn, "SELECT * FROM quora WHERE quest_user = '{$current_user}'");
                                                 for ($i=0; $i < $total_quest; $i++) { 
                                                     while ($quest_list = mysqli_fetch_assoc($question_set)) {
                                                         $count_answer_query = "SELECT COUNT(*) FROM answers WHERE qid = {$quest_list["id"]}";
