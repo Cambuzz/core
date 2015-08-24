@@ -64,7 +64,7 @@
                 if($flag==0)break;                               
             }
             if ($flag==1) {
-                $question = $_POST['question'];
+                $question = mysqli_real_escape_string($conn, $_POST['question']);
                 $quest_user = $current_user;
                 date_default_timezone_set('Asia/Calcutta');
                 $quest_time = date("Y-m-d\TH:i:s");

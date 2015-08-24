@@ -208,7 +208,7 @@
                    <div class="a-st" style="font-size: 20px; display:flex;justify-content:center;align-items:center; margin-top: 200px;">  
                     <?php
                            if (isset($_POST['search_name'])) {
-                               $search_name = $_POST['search_name'];
+                               $search_name = mysqli_real_escape_string($conn, $_POST['search_name']);
                                $search_query = "SELECT * FROM faculty_final WHERE name = '{$search_name}' LIMIT 1";
                                $search_result = mysqli_query($conn, $search_query);
                                confirm_query($search_result);
