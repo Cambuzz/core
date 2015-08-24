@@ -380,6 +380,8 @@
     <script src="assets/js/style-custom.js"></script>
     <script src="assets/js/style-api.js"></script>
     <script src="assets/js/typeahead.js"></script>
+    <script src="assets/js/modernizr.custom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/classie/1.0.1/classie.min.js"></script>
 
     <script>
       var substringMatcher = function(strs) {

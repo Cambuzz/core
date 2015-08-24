@@ -159,7 +159,6 @@
                             <i class="entypo-pencil"></i> Account Settings
                         </a>
                         <span class="close-sui-popup">&times;</span>
-                       
                     </div>
                 </div>
                 <ul id="main-menu" class="main-menu">

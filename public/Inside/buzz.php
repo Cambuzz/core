@@ -692,10 +692,10 @@ $comment=0;
     </script>
 </head>
 
-<body class="page-body page-left-in">
+<body class="page-body page-left-in" style="font-family: 'Montserrat';">
     <div class="page-container">
         <div class="sidebar-menu">
-            <div class="sidebar-menu-inner" style="font-family: 'Montserrat', sans-serif">
+            <div class="sidebar-menu-inner">
                 <header class="logo-env">
                     <!-- logo -->
                     <div class="logo">
