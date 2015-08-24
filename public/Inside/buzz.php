@@ -734,7 +734,7 @@ $comment=0;
                                          if($dpcounter>0)
                                         echo '<img src="images/' . $imageid."_".$dpcounter. '.jpg "class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>';
                                         else
-                                         echo '<img src="images/' . $imageid. '.jpg "class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>';
+                                         echo '<img src="images/' . $imageid. '.jpg "class="img-circle" style="border-radius: 100%;  min-height: 100px; min-width: 100px;"/>';
                                 }
                             ?>
                             <span>Welcome,</span>
