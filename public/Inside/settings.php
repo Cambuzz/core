@@ -861,14 +861,13 @@ if (isset($_POST['submit'])) {
                                 </div>
                             </div>
                         </div>
+                         <div class="form-group default-padding" style="display: flex; justify-content: center; align-items: center;">
+                            <input type="submit" name="submit" class="btn btn-success" value="Save Changes" style="margin-right: 5px;">
+                            <button class="btn"><a href="buzz.php">Cancel</a></button>
+                        </div>
                     </form>
                 </div>
-                 <div class="form-group default-padding" style="display: flex; justify-content: center; align-items: center;">
-                    <input type="submit" name="submit" class="btn btn-success" value="Save Changes" style="margin-right: 5px;">
-                    <button class="btn"><a href="buzz.php">Cancel</a></button>
-                </div>
-            </div>
-        </div>
+           </div>
     </div>
     <footer>
     </footer>
