@@ -13,7 +13,10 @@ $event_set = find_all_events();
 
     <?php
         while($notification = mysqli_fetch_assoc($result)) $output[]=$notification;
+        echo "{";
+         echo '"Buzz": ';
         print(json_encode($output));
+        echo "}";
     ?>                       
 
 <?php
