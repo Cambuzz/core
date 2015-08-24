@@ -188,7 +188,7 @@
             <hr/>
             <div class="row">
                 <div class="col-sm-12">
-                    <h2 style="text-align: center; margin-top: 10%;">Start Searching! Get working!</h2>
+                    <h2 style="text-align: center; margin-top: 10%;">Enter Faculty's Name:</h2>
                     <form action="track_teacher.php" method="post">
                     <div class="search">
                         <svg version="1.1" viewBox="0 0 142.358 24.582">
