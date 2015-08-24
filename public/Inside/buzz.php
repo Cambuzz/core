@@ -1487,8 +1487,7 @@ $comment=0;
     <script src="assets/js/modernizr.custom.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  
-
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/TweenMax.min.js"></script>
     <script src="assets/js/fileinput.js"></script>
     <script src="assets/js/style-custom.js"></script>
     <script src="assets/js/style-demo.js"></script>
@@ -1496,7 +1495,6 @@ $comment=0;
     <script src="https://cdnjs.cloudflare.com/ajax/libs/classie/1.0.1/classie.min.js"></script>
 
     <!-- Bottom scripts (common) -->
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/TweenMax.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="assets/js/joinable.js"></script>
     <script src="assets/js/resizeable.js"></script>
