@@ -27,7 +27,7 @@ if (isset($_POST['submit'])) {
             $flag=1;    
             while ($slang_list = mysqli_fetch_assoc($slang_result)) {
                 $s1 = $slang_list['COL 1'];
-                $s2 = $_POST['title']." ". mysqli_real_escape_string($conn, $_POST['content']);
+                $s2 = mysqli_real_escape_string($conn, htmlspecialchars($_POST['title']))." ". mysqli_real_escape_string($conn, htmlspecialchars($_POST['content']));
                 $s=$s1." ".$s2;
                 //echo $s;echo "<br>";
                 $n= strlen($s);
@@ -69,8 +69,8 @@ if (isset($_POST['submit'])) {
                 if($flag==0)break;                               
             }
             if ($flag==1) {
-                $title =  mysqli_real_escape_string($conn, $_POST['title']);
-                $content =  mysqli_real_escape_string($conn, $_POST['content']);
+                $title =  mysqli_real_escape_string($conn, htmlspecialchars($_POST['title']));
+                $content =  mysqli_real_escape_string($conn, htmlspecialchars($_POST['content']));
                 $start_date_time = $_POST['start_date_time'];
                 $end_date_time = $_POST['end_date_time'];
                 $branch = implode(" ",$_POST['branch']);
@@ -95,7 +95,7 @@ if (isset($_POST['submit'])) {
             $flag=1;    
             while ($slang_list = mysqli_fetch_assoc($slang_result)) {
                 $s1 = $slang_list['COL 1'];
-                $s2 = $_POST['title']." ". mysqli_real_escape_string($conn, $_POST['content']);
+                $s2 = mysqli_real_escape_string($conn, htmlspecialchars($_POST['title']))." ". mysqli_real_escape_string($conn, htmlspecialchars($_POST['content']));
                 $s=$s1." ".$s2;
                 //echo $s;echo "<br>";
                 $n= strlen($s);
@@ -137,8 +137,8 @@ if (isset($_POST['submit'])) {
                 if($flag==0)break;                               
             }
             if ($flag==1) {
-                $title =  mysqli_real_escape_string($conn, $_POST['title']);
-                $content =  mysqli_real_escape_string($conn, $_POST['content']);
+                $title =  mysqli_real_escape_string($conn, htmlspecialchars($_POST['title']));
+                $content =  mysqli_real_escape_string($conn, htmlspecialchars($_POST['content']));
                 $start_date_time = $_POST['start_date_time'];
                 $end_date_time = $_POST['end_date_time'];
                 $branch = implode(" ",$_POST['branch']);
@@ -163,7 +163,7 @@ if (isset($_POST['submit'])) {
             $flag=1;    
             while ($slang_list = mysqli_fetch_assoc($slang_result)) {
                 $s1 = $slang_list['COL 1'];
-                $s2 = $_POST['title']." ". mysqli_real_escape_string($conn, $_POST['content']);
+                $s2 = mysqli_real_escape_string($conn, htmlspecialchars($_POST['title']))." ". mysqli_real_escape_string($conn, htmlspecialchars($_POST['content']));
                 $s=$s1." ".$s2;
                 //echo $s;echo "<br>";
                 $n= strlen($s);
@@ -205,8 +205,8 @@ if (isset($_POST['submit'])) {
                 if($flag==0)break;                               
             }
             if ($flag==1) {
-                $title =  mysqli_real_escape_string($conn, $_POST['title']);
-                $content =  mysqli_real_escape_string($conn, $_POST['content']);
+                $title =  mysqli_real_escape_string($conn, htmlspecialchars($_POST['title']));
+                $content =  mysqli_real_escape_string($conn, htmlspecialchars($_POST['content']));
                 $start_date_time = $_POST['start_date_time'];
                 $end_date_time = $_POST['end_date_time'];
                 $branch = "xyz";
@@ -231,7 +231,7 @@ if (isset($_POST['submit'])) {
             $flag=1;    
             while ($slang_list = mysqli_fetch_assoc($slang_result)) {
                 $s1 = $slang_list['COL 1'];
-                $s2 = $_POST['title']." ". mysqli_real_escape_string($conn, $_POST['content']);
+                $s2 = mysqli_real_escape_string($conn, htmlspecialchars($_POST['title']))." ". mysqli_real_escape_string($conn, htmlspecialchars($_POST['content']));
                 $s=$s1." ".$s2;
                 //echo $s;echo "<br>";
                 $n= strlen($s);
@@ -273,8 +273,8 @@ if (isset($_POST['submit'])) {
                 if($flag==0)break;                               
             }
             if ($flag==1) {
-                $title =  mysqli_real_escape_string($conn, $_POST['title']);
-                $content =  mysqli_real_escape_string($conn, $_POST['content']);
+                $title =  mysqli_real_escape_string($conn, htmlspecialchars($_POST['title']));
+                $content =  mysqli_real_escape_string($conn, htmlspecialchars($_POST['content']));
                 $start_date_time = $_POST['start_date_time'];
                 $end_date_time = $_POST['end_date_time'];               
                 $target_dir = "images/posters/";
@@ -299,7 +299,7 @@ if (isset($_POST['submit'])) {
             $flag=1;    
             while ($slang_list = mysqli_fetch_assoc($slang_result)) {
                 $s1 = $slang_list['COL 1'];
-                $s2 = $_POST['title']." ". mysqli_real_escape_string($conn, $_POST['content']);
+                $s2 = mysqli_real_escape_string($conn, htmlspecialchars($_POST['title']))." ". mysqli_real_escape_string($conn, htmlspecialchars($_POST['content']));
                 $s=$s1." ".$s2;
                 //echo $s;echo "<br>";
                 $n= strlen($s);
@@ -341,8 +341,8 @@ if (isset($_POST['submit'])) {
                 if($flag==0)break;                               
             }
             if ($flag==1) {
-                $title =  mysqli_real_escape_string($conn, $_POST['title']);
-                $content =  mysqli_real_escape_string($conn, $_POST['content']);
+                $title =  mysqli_real_escape_string($conn, htmlspecialchars($_POST['title']));
+                $content =  mysqli_real_escape_string($conn, htmlspecialchars($_POST['content']));
                 $start_date_time = $_POST['start_date_time'];
                 $end_date_time = $_POST['end_date_time'];
                 $branch = implode(" ", $_POST['branch']);
@@ -362,7 +362,7 @@ if (isset($_POST['submit'])) {
             $flag=1;    
             while ($slang_list = mysqli_fetch_assoc($slang_result)) {
                 $s1 = $slang_list['COL 1'];
-                $s2 = $_POST['title']." ". mysqli_real_escape_string($conn, $_POST['content']);
+                $s2 = mysqli_real_escape_string($conn, htmlspecialchars($_POST['title']))." ". mysqli_real_escape_string($conn, htmlspecialchars($_POST['content']));
                 $s=$s1." ".$s2;
                 //echo $s;echo "<br>";
                 $n= strlen($s);
@@ -404,8 +404,8 @@ if (isset($_POST['submit'])) {
                 if($flag==0)break;                               
             }
             if ($flag==1) {
-                $title =  mysqli_real_escape_string($conn, $_POST['title']);
-                $content =  mysqli_real_escape_string($conn, $_POST['content']);
+                $title =  mysqli_real_escape_string($conn, htmlspecialchars($_POST['title']));
+                $content =  mysqli_real_escape_string($conn, htmlspecialchars($_POST['content']));
                 $start_date_time = $_POST['start_date_time'];
                 $end_date_time = $_POST['end_date_time'];
                 $branch = implode(" ", $_POST['branch']);
@@ -425,7 +425,7 @@ if (isset($_POST['submit'])) {
             $flag=1;    
             while ($slang_list = mysqli_fetch_assoc($slang_result)) {
                 $s1 = $slang_list['COL 1'];
-                $s2 = $_POST['title']." ". mysqli_real_escape_string($conn, $_POST['content']);
+                $s2 = mysqli_real_escape_string($conn, htmlspecialchars($_POST['title']))." ". mysqli_real_escape_string($conn, htmlspecialchars($_POST['content']));
                 $s=$s1." ".$s2;
                 //echo $s;echo "<br>";
                 $n= strlen($s);
@@ -467,8 +467,8 @@ if (isset($_POST['submit'])) {
                 if($flag==0)break;                               
             }
             if ($flag==1) {
-                $title =  mysqli_real_escape_string($conn, $_POST['title']);
-                $content =  mysqli_real_escape_string($conn, $_POST['content']);
+                $title =  mysqli_real_escape_string($conn, htmlspecialchars($_POST['title']));
+                $content =  mysqli_real_escape_string($conn, htmlspecialchars($_POST['content']));
                 $start_date_time = $_POST['start_date_time'];
                 $end_date_time = $_POST['end_date_time'];
                 $branch = "xyz";
@@ -488,7 +488,7 @@ if (isset($_POST['submit'])) {
             $flag=1;    
             while ($slang_list = mysqli_fetch_assoc($slang_result)) {
                 $s1 = $slang_list['COL 1'];
-                $s2 = $_POST['title']." ". mysqli_real_escape_string($conn, $_POST['content']);
+                $s2 = mysqli_real_escape_string($conn, htmlspecialchars($_POST['title']))." ". mysqli_real_escape_string($conn, htmlspecialchars($_POST['content']));
                 $s=$s1." ".$s2;
                 //echo $s;echo "<br>";
                 $n= strlen($s);
@@ -530,8 +530,8 @@ if (isset($_POST['submit'])) {
                 if($flag==0)break;                               
             }
             if ($flag==1) {
-                $title =  mysqli_real_escape_string($conn, $_POST['title']);
-                $content =  mysqli_real_escape_string($conn, $_POST['content']);
+                $title =  mysqli_real_escape_string($conn, htmlspecialchars($_POST['title']));
+                $content =  mysqli_real_escape_string($conn, htmlspecialchars($_POST['content']));
                 $start_date_time = $_POST['start_date_time'];
                 $end_date_time = $_POST['end_date_time'];
                 $buzz_username = $_SESSION['username'];
@@ -728,10 +728,13 @@ $comment=0;
                             <?php
                                 } elseif ($name_title["proset"]==1) {
                                         $imageid=$name_title['id'];
-
+                                        $dpcounter=$name_title['dpcounter'];
                                         //echo '<img src="data:image/jpeg;base64,' . base64_encode($name_title['data_propic']) . '" class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>'; 
                                         
-                                        echo '<img src="images/' . $imageid . '.jpg "class="img-circle" style="border-radius: 100%; min-width: 100px; min-height: 100px;"/>';
+                                         if($dpcounter>0)
+                                        echo '<img src="images/' . $imageid."_".$dpcounter. '.jpg "class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>';
+                                        else
+                                         echo '<img src="images/' . $imageid. '.jpg "class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>';
                                 }
                             ?>
                             <span>Welcome,</span>
@@ -739,7 +742,9 @@ $comment=0;
                         </div>
                     </div>
                     <div class="sui-hover inline-links animate-in">
-                        <a href="settings.php"><i class="entypo-pencil"></i> Account Settings</a>
+                        <a href="settings.php">
+                            <i class="entypo-pencil"></i> Account Settings
+                        </a>
                         <span class="close-sui-popup">&times;</span>
                        
                     </div>
@@ -1222,10 +1227,13 @@ $comment=0;
                             <?php
                                 } elseif ($name_print_title["proset"]==1) {
                                         $imageid=$name_print_title['id'];
+                                        $dpcounter=$name_print_title['dpcounter'];
 
                                         //echo '<img src="data:image/jpeg;base64,' . base64_encode($name_title['data_propic']) . '" class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>'; 
-                                        
-                                        echo '<img src="images/' . $imageid . '.jpg "height="44px" width="44px" alt="" class="img-circle">';
+                                           if($dpcounter>0)
+                                        echo '<img src="images/' . $imageid."_".$dpcounter . '.jpg "height="44px" width="44px" alt="" class="img-circle">';
+                                        else
+                                        echo '<img src="images/' . $imageid. '.jpg "height="44px" width="44px" alt="" class="img-circle">';
                                 }
                             ?>
                                                     </aside>
@@ -1303,10 +1311,13 @@ $comment=0;
                             <?php
                                 } elseif ($name_print_title["proset"]==1) {
                                         $imageid=$name_print_title['id'];
-
+                                        $dpcounter=$name_print_title['dpcounter'];
                                         //echo '<img src="data:image/jpeg;base64,' . base64_encode($name_title['data_propic']) . '" class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>'; 
                                         
-                                        echo '<img src="images/' . $imageid . '.jpg "height="44px" width="44px" alt="" class="img-circle">';
+                                         if($dpcounter>0)
+                                        echo '<img src="images/' . $imageid."_".$dpcounter . '.jpg "height="44px" width="44px" alt="" class="img-circle">';
+                                        else
+                                        echo '<img src="images/' . $imageid. '.jpg "height="44px" width="44px" alt="" class="img-circle">';
                                 }
                             ?>
                                                     </aside>
@@ -1358,11 +1369,14 @@ $comment=0;
                                     <img src="assets/images/nopic.png" height="44px" width="44px" alt="" class="img-circle" />
                             <?php
                                 } elseif ($name_print_title["proset"]==1) {
-                                        $imageid=$name_print_title['id'];
-
+                                         $imageid=$name_print_title['id'];
+                                        $dpcounter=$name_print_title['dpcounter'];
                                         //echo '<img src="data:image/jpeg;base64,' . base64_encode($name_title['data_propic']) . '" class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>'; 
                                         
-                                        echo '<img src="images/' . $imageid . '.jpg "height="44px" width="44px" alt="" class="img-circle">';
+                                           if($dpcounter>0)
+                                        echo '<img src="images/' . $imageid."_".$dpcounter . '.jpg "height="44px" width="44px" alt="" class="img-circle">';
+                                        else
+                                        echo '<img src="images/' . $imageid. '.jpg "height="44px" width="44px" alt="" class="img-circle">';
                                 }
                             ?>
                                                     </aside>
@@ -1417,10 +1431,13 @@ $comment=0;
                             <?php
                                 } elseif ($name_print_title["proset"]==1) {
                                         $imageid=$name_print_title['id'];
-
+                                        $dpcounter=$name_print_title['dpcounter'];
                                         //echo '<img src="data:image/jpeg;base64,' . base64_encode($name_title['data_propic']) . '" class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>'; 
                                         
-                                        echo '<img src="images/' . $imageid . '.jpg "height="44px" width="44px" alt="" class="img-circle">';
+                                           if($dpcounter>0)
+                                        echo '<img src="images/' . $imageid."_".$dpcounter . '.jpg "height="44px" width="44px" alt="" class="img-circle">';
+                                        else
+                                        echo '<img src="images/' . $imageid. '.jpg "height="44px" width="44px" alt="" class="img-circle">';
                                 }
                             ?>
                                                     </aside>

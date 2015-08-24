@@ -11,6 +11,7 @@
     $name_title = mysqli_fetch_assoc($name_result);
     $first_name = explode(" ", $name_title['sname']);
     $current_id = $name_title['id'];
+     $dpcounter= $name_title['dpcounter'];
 ?>
 <?php
 $user = find_user_by_username($_SESSION["username"]);
@@ -81,24 +82,29 @@ if (isset($_POST['submit'])) {
         if (empty($errors)) {
 
             $username = $_SESSION["username"];
-            $password = mysqli_real_escape_string($conn, $_POST['password']);
+            $password = mysqli_real_escape_string($conn, htmlspecialchars($_POST['password']));
             $found_user = attempt_login($username, $password);
 
             if ($found_user) {
 
                 $_SESSION["user_id"] = $found_user["id"];
                 $_SESSION["username"] = $found_user["username"];
-                $sname = mysqli_real_escape_string($conn, $_POST['sname']);
-                $email = mysqli_real_escape_string($conn, $_POST['email']);                
+                $sname = mysqli_real_escape_string($conn, htmlspecialchars($_POST['sname']));
+                $email = mysqli_real_escape_string($conn, htmlspecialchars($_POST['email']));                
                 $hashed_password = password_encrypt($_POST["new_password"]);
                 $target_dir = "images/";
                 $target_file = $target_dir . basename($_FILES["propic"]["name"]);                
                 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-                move_uploaded_file($_FILES["propic"]["tmp_name"],"images/.$current_id.jpg");
+               
+                 $dpcounter1=$dpcounter;
+                $dpcounter=$dpcounter+1;
+                $path="images/".$current_id."_".$dpcounter.".jpg";
+                $path1="images/".$current_id."_".$dpcounter1.".jpg";
+                 unlink($path1);move_uploaded_file($_FILES["propic"]["tmp_name"],$path);
                 $proset = 1;
                 $filter_branch = implode(" ", $_POST['branch']);
                 $filter_club = implode(" ", $_POST['club']);
-                $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', hashed_password = '{$hashed_password}', filter_branch = '{$filter_branch}', filter_club = '{$filter_club}', proset = {$proset} WHERE username = '{$current_user}' LIMIT 1";
+                $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', hashed_password = '{$hashed_password}', filter_branch = '{$filter_branch}', filter_club = '{$filter_club}', proset = {$proset} ,dpcounter={$dpcounter} WHERE username = '{$current_user}' LIMIT 1";
                 $result = mysqli_query($conn, $query);
                 if ($result && mysqli_affected_rows($conn) == 1) {
                     redirect_to("buzz.php");
@@ -116,22 +122,26 @@ if (isset($_POST['submit'])) {
         if (empty($errors)) {
 
             $username = $_SESSION["username"];
-            $password = mysqli_real_escape_string($conn, $_POST['password']);
+            $password = mysqli_real_escape_string($conn, htmlspecialchars($_POST['password']));
             $found_user = attempt_login($username, $password);
 
             if ($found_user) {
 
                 $_SESSION["user_id"] = $found_user["id"];
                 $_SESSION["username"] = $found_user["username"];
-                $sname = mysqli_real_escape_string($conn, $_POST['sname']);
-                $email = mysqli_real_escape_string($conn, $_POST['email']);                
+                $sname = mysqli_real_escape_string($conn, htmlspecialchars($_POST['sname']));
+                $email = mysqli_real_escape_string($conn, htmlspecialchars($_POST['email']));                
                 $hashed_password = password_encrypt($_POST["new_password"]);
                 $target_dir = "images/";
                 $target_file = $target_dir . basename($_FILES["propic"]["name"]);                
                 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-                move_uploaded_file($_FILES["propic"]["tmp_name"],"images/$current_id.jpg");
+                $dpcounter1=$dpcounter;
+                $dpcounter=$dpcounter+1;
+                $path="images/".$current_id."_".$dpcounter.".jpg";
+                $path1="images/".$current_id."_".$dpcounter1.".jpg";
+                 unlink($path1);move_uploaded_file($_FILES["propic"]["tmp_name"],$path);
                 $filter_branch = implode(" ", $_POST['branch']);                
-                $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', hashed_password = '{$hashed_password}', filter_branch = '{$filter_branch}', proset = {$proset} WHERE username = '{$current_user}' LIMIT 1";
+                $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', hashed_password = '{$hashed_password}', filter_branch = '{$filter_branch}', proset = {$proset} ,dpcounter={$dpcounter} WHERE username = '{$current_user}' LIMIT 1";
                 $result = mysqli_query($conn, $query);
                 if ($result && mysqli_affected_rows($conn) == 1) {
                     redirect_to("buzz.php");
@@ -149,23 +159,27 @@ if (isset($_POST['submit'])) {
         if (empty($errors)) {
 
             $username = $_SESSION["username"];
-            $password = mysqli_real_escape_string($conn, $_POST['password']);
+            $password = mysqli_real_escape_string($conn, htmlspecialchars($_POST['password']));
             $found_user = attempt_login($username, $password);
 
             if ($found_user) {
 
                 $_SESSION["user_id"] = $found_user["id"];
                 $_SESSION["username"] = $found_user["username"];
-                $sname = mysqli_real_escape_string($conn, $_POST['sname']);
-                $email = mysqli_real_escape_string($conn, $_POST['email']);                
+                $sname = mysqli_real_escape_string($conn, htmlspecialchars($_POST['sname']));
+                $email = mysqli_real_escape_string($conn, htmlspecialchars($_POST['email']));                
                 $hashed_password = password_encrypt($_POST["new_password"]);
                 $target_dir = "images/";
                 $target_file = $target_dir . basename($_FILES["propic"]["name"]);                
                 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-                move_uploaded_file($_FILES["propic"]["tmp_name"],"images/$current_id.jpg");
+              $dpcounter1=$dpcounter;
+                $dpcounter=$dpcounter+1;
+                $path="images/".$current_id."_".$dpcounter.".jpg";
+                $path1="images/".$current_id."_".$dpcounter1.".jpg";
+                 unlink($path1);move_uploaded_file($_FILES["propic"]["tmp_name"],$path);
                 $proset = 1;
                 $filter_club = implode(" ", $_POST['club']);
-                $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', hashed_password = '{$hashed_password}', filter_club = '{$filter_club}', proset = {$proset} WHERE username = '{$current_user}' LIMIT 1";
+                $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', hashed_password = '{$hashed_password}', filter_club = '{$filter_club}', proset = {$proset} ,dpcounter={$dpcounter} WHERE username = '{$current_user}' LIMIT 1";
                 $result = mysqli_query($conn, $query);
                 if ($result && mysqli_affected_rows($conn) == 1) {
                     redirect_to("buzz.php");
@@ -183,22 +197,26 @@ if (isset($_POST['submit'])) {
         if (empty($errors)) {
 
             $username = $_SESSION["username"];
-            $password = mysqli_real_escape_string($conn, $_POST['password']);
+            $password = mysqli_real_escape_string($conn, htmlspecialchars($_POST['password']));
             $found_user = attempt_login($username, $password);
 
             if ($found_user) {
 
                 $_SESSION["user_id"] = $found_user["id"];
                 $_SESSION["username"] = $found_user["username"];
-                $sname = mysqli_real_escape_string($conn, $_POST['sname']);
-                $email = mysqli_real_escape_string($conn, $_POST['email']);                
+                $sname = mysqli_real_escape_string($conn, htmlspecialchars($_POST['sname']));
+                $email = mysqli_real_escape_string($conn, htmlspecialchars($_POST['email']));                
                 $hashed_password = password_encrypt($_POST["new_password"]);
                 $target_dir = "images/";
                 $target_file = $target_dir . basename($_FILES["propic"]["name"]);                
                 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-                move_uploaded_file($_FILES["propic"]["tmp_name"],"images/$current_id.jpg");
+               $dpcounter1=$dpcounter;
+                $dpcounter=$dpcounter+1;
+                $path="images/".$current_id."_".$dpcounter.".jpg";
+                $path1="images/".$current_id."_".$dpcounter1.".jpg";
+                 unlink($path1);move_uploaded_file($_FILES["propic"]["tmp_name"],$path);
                 $proset = 1;
-                $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', hashed_password = '{$hashed_password}', proset = {$proset} WHERE username = '{$current_user}' LIMIT 1";
+                $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', hashed_password = '{$hashed_password}', proset = {$proset} ,dpcounter={$dpcounter} WHERE username = '{$current_user}' LIMIT 1";
                 $result = mysqli_query($conn, $query);
                 if ($result && mysqli_affected_rows($conn) == 1) {
                     redirect_to("buzz.php");
@@ -216,20 +234,20 @@ if (isset($_POST['submit'])) {
         if (empty($errors)) {
 
             $username = $_SESSION["username"];
-            $password = mysqli_real_escape_string($conn, $_POST['password']);
+            $password = mysqli_real_escape_string($conn, htmlspecialchars($_POST['password']));
             $found_user = attempt_login($username, $password);
 
             if ($found_user) {
 
                 $_SESSION["user_id"] = $found_user["id"];
                 $_SESSION["username"] = $found_user["username"];
-                $sname = mysqli_real_escape_string($conn, $_POST['sname']);
-                $email = mysqli_real_escape_string($conn, $_POST['email']);                
+                $sname = mysqli_real_escape_string($conn, htmlspecialchars($_POST['sname']));
+                $email = mysqli_real_escape_string($conn, htmlspecialchars($_POST['email']));                
                 $hashed_password = password_encrypt($_POST["new_password"]);
                 
                 $filter_branch = implode(" ", $_POST['branch']);
                 $filter_club = implode(" ", $_POST['club']);
-                $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', hashed_password = '{$hashed_password}', filter_branch = '{$filter_branch}', filter_club = '{$filter_club}' WHERE username = '{$current_user}' LIMIT 1";
+                $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', hashed_password = '{$hashed_password}', filter_branch = '{$filter_branch}', filter_club = '{$filter_club}' ,dpcounter={$dpcounter} WHERE username = '{$current_user}' LIMIT 1";
                 $result = mysqli_query($conn, $query);
                 if ($result && mysqli_affected_rows($conn) == 1) {
                     redirect_to("buzz.php");
@@ -247,20 +265,20 @@ if (isset($_POST['submit'])) {
         if (empty($errors)) {
 
             $username = $_SESSION["username"];
-            $password = mysqli_real_escape_string($conn, $_POST['password']);
+            $password = mysqli_real_escape_string($conn, htmlspecialchars($_POST['password']));
             $found_user = attempt_login($username, $password);
 
             if ($found_user) {
 
                 $_SESSION["user_id"] = $found_user["id"];
                 $_SESSION["username"] = $found_user["username"];
-                $sname = mysqli_real_escape_string($conn, $_POST['sname']);
-                $email = mysqli_real_escape_string($conn, $_POST['email']);                
+                $sname = mysqli_real_escape_string($conn, htmlspecialchars($_POST['sname']));
+                $email = mysqli_real_escape_string($conn, htmlspecialchars($_POST['email']));                
                 $hashed_password = password_encrypt($_POST["new_password"]);
                 
                 $filter_branch = implode(" ", $_POST['branch']);
                 
-                $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', hashed_password = '{$hashed_password}', filter_branch = '{$filter_branch}' WHERE username = '{$current_user}' LIMIT 1";
+                $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', hashed_password = '{$hashed_password}', filter_branch = '{$filter_branch}' ,dpcounter={$dpcounter} WHERE username = '{$current_user}' LIMIT 1";
                 $result = mysqli_query($conn, $query);
                 if ($result && mysqli_affected_rows($conn) == 1) {
                     redirect_to("buzz.php");
@@ -278,19 +296,19 @@ if (isset($_POST['submit'])) {
         if (empty($errors)) {
 
             $username = $_SESSION["username"];
-            $password = mysqli_real_escape_string($conn, $_POST['password']);
+            $password = mysqli_real_escape_string($conn, htmlspecialchars($_POST['password']));
             $found_user = attempt_login($username, $password);
 
             if ($found_user) {
 
                 $_SESSION["user_id"] = $found_user["id"];
                 $_SESSION["username"] = $found_user["username"];
-                $sname = mysqli_real_escape_string($conn, $_POST['sname']);
-                $email = mysqli_real_escape_string($conn, $_POST['email']);                
+                $sname = mysqli_real_escape_string($conn, htmlspecialchars($_POST['sname']));
+                $email = mysqli_real_escape_string($conn, htmlspecialchars($_POST['email']));                
                 $hashed_password = password_encrypt($_POST["new_password"]);
                 
                 $filter_club = implode(" ", $_POST['club']);
-                $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', hashed_password = '{$hashed_password}', filter_club = '{$filter_club}' WHERE username = '{$current_user}' LIMIT 1";
+                $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', hashed_password = '{$hashed_password}', filter_club = '{$filter_club}' ,dpcounter={$dpcounter} WHERE username = '{$current_user}' LIMIT 1";
                 $result = mysqli_query($conn, $query);
                 if ($result && mysqli_affected_rows($conn) == 1) {
                     redirect_to("buzz.php");
@@ -308,18 +326,18 @@ if (isset($_POST['submit'])) {
         if (empty($errors)) {
 
             $username = $_SESSION["username"];
-            $password = mysqli_real_escape_string($conn, $_POST['password']);
+            $password = mysqli_real_escape_string($conn, htmlspecialchars($_POST['password']));
             $found_user = attempt_login($username, $password);
 
             if ($found_user) {
 
                 $_SESSION["user_id"] = $found_user["id"];
                 $_SESSION["username"] = $found_user["username"];
-                $sname = mysqli_real_escape_string($conn, $_POST['sname']);
-                $email = mysqli_real_escape_string($conn, $_POST['email']);                
+                $sname = mysqli_real_escape_string($conn, htmlspecialchars($_POST['sname']));
+                $email = mysqli_real_escape_string($conn, htmlspecialchars($_POST['email']));                
                 $hashed_password = password_encrypt($_POST["new_password"]);
                 
-                $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', hashed_password = '{$hashed_password}' WHERE username = '{$current_user}' LIMIT 1";
+                $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', hashed_password = '{$hashed_password}' ,dpcounter={$dpcounter} WHERE username = '{$current_user}' LIMIT 1";
                 $result = mysqli_query($conn, $query);
                 if ($result && mysqli_affected_rows($conn) == 1) {
                     redirect_to("buzz.php");
@@ -335,17 +353,21 @@ if (isset($_POST['submit'])) {
         validate_presence($required_fields);
     
         if (empty($errors)) {                
-            $sname = mysqli_real_escape_string($conn, $_POST['sname']);
-            $email = mysqli_real_escape_string($conn, $_POST['email']);                
+            $sname = mysqli_real_escape_string($conn, htmlspecialchars($_POST['sname']));
+            $email = mysqli_real_escape_string($conn, htmlspecialchars($_POST['email']));                
             
             $target_dir = "images/";
             $target_file = $target_dir . basename($_FILES["propic"]["name"]);                
             $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-            move_uploaded_file($_FILES["propic"]["tmp_name"],"images/$current_id.jpg");
+          $dpcounter1=$dpcounter;
+                $dpcounter=$dpcounter+1;
+                $path="images/".$current_id."_".$dpcounter.".jpg";
+                $path1="images/".$current_id."_".$dpcounter1.".jpg";
+                 unlink($path1);move_uploaded_file($_FILES["propic"]["tmp_name"],$path);
             $proset = 1;
             $filter_branch = implode(" ", $_POST['branch']);
             $filter_club = implode(" ", $_POST['club']);
-            $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', filter_branch = '{$filter_branch}', filter_club = '{$filter_club}', proset = {$proset} WHERE username = '{$current_user}' LIMIT 1";
+            $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', filter_branch = '{$filter_branch}', filter_club = '{$filter_club}', proset = {$proset} ,dpcounter={$dpcounter} WHERE username = '{$current_user}' LIMIT 1";
             $result = mysqli_query($conn, $query);
             if ($result && mysqli_affected_rows($conn) == 1) {
                 redirect_to("buzz.php");
@@ -358,17 +380,21 @@ if (isset($_POST['submit'])) {
         validate_presence($required_fields);
     
         if (empty($errors)) {                
-            $sname = mysqli_real_escape_string($conn, $_POST['sname']);
-            $email = mysqli_real_escape_string($conn, $_POST['email']);                
+            $sname = mysqli_real_escape_string($conn, htmlspecialchars($_POST['sname']));
+            $email = mysqli_real_escape_string($conn, htmlspecialchars($_POST['email']));                
             
             $target_dir = "images/";
             $target_file = $target_dir . basename($_FILES["propic"]["name"]);                
             $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-            move_uploaded_file($_FILES["propic"]["tmp_name"],"images/$current_id.jpg");
+           $dpcounter1=$dpcounter;
+                $dpcounter=$dpcounter+1;
+                $path="images/".$current_id."_".$dpcounter.".jpg";
+                $path1="images/".$current_id."_".$dpcounter1.".jpg";
+                 unlink($path1);move_uploaded_file($_FILES["propic"]["tmp_name"],$path);
             $proset = 1;
             $filter_branch = implode(" ", $_POST['branch']);
             
-            $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', filter_branch = '{$filter_branch}', proset = {$proset} WHERE username = '{$current_user}' LIMIT 1";
+            $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', filter_branch = '{$filter_branch}', proset = {$proset} ,dpcounter={$dpcounter} WHERE username = '{$current_user}' LIMIT 1";
             $result = mysqli_query($conn, $query);
             if ($result && mysqli_affected_rows($conn) == 1) {
                 redirect_to("buzz.php");
@@ -381,17 +407,21 @@ if (isset($_POST['submit'])) {
         validate_presence($required_fields);
     
         if (empty($errors)) {                
-            $sname = mysqli_real_escape_string($conn, $_POST['sname']);
-            $email = mysqli_real_escape_string($conn, $_POST['email']);                
+            $sname = mysqli_real_escape_string($conn, htmlspecialchars($_POST['sname']));
+            $email = mysqli_real_escape_string($conn, htmlspecialchars($_POST['email']));                
             
             $target_dir = "images/";
             $target_file = $target_dir . basename($_FILES["propic"]["name"]);                
             $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-            move_uploaded_file($_FILES["propic"]["tmp_name"],"images/$current_id.jpg");
+           $dpcounter1=$dpcounter;
+                $dpcounter=$dpcounter+1;
+                $path="images/".$current_id."_".$dpcounter.".jpg";
+                $path1="images/".$current_id."_".$dpcounter1.".jpg";
+                 unlink($path1);move_uploaded_file($_FILES["propic"]["tmp_name"],$path);
             $proset = 1;
             $filter_branch = implode(" ", $_POST['branch']);
             $filter_club = implode(" ", $_POST['club']);
-            $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', filter_club = '{$filter_club}', proset = {$proset} WHERE username = '{$current_user}' LIMIT 1";
+            $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', filter_club = '{$filter_club}', proset = {$proset} ,dpcounter={$dpcounter} WHERE username = '{$current_user}' LIMIT 1";
             $result = mysqli_query($conn, $query);
             if ($result && mysqli_affected_rows($conn) == 1) {
                 redirect_to("buzz.php");
@@ -404,15 +434,19 @@ if (isset($_POST['submit'])) {
         validate_presence($required_fields);
     
         if (empty($errors)) {                
-            $sname = mysqli_real_escape_string($conn, $_POST['sname']);
-            $email = mysqli_real_escape_string($conn, $_POST['email']);                
+            $sname = mysqli_real_escape_string($conn, htmlspecialchars($_POST['sname']));
+            $email = mysqli_real_escape_string($conn, htmlspecialchars($_POST['email']));                
             
             $target_dir = "images/";
             $target_file = $target_dir . basename($_FILES["propic"]["name"]);                
             $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-            move_uploaded_file($_FILES["propic"]["tmp_name"],"images/$current_id.jpg");
+           $dpcounter1=$dpcounter;
+                $dpcounter=$dpcounter+1;
+                $path="images/".$current_id."_".$dpcounter.".jpg";
+                $path1="images/".$current_id."_".$dpcounter1.".jpg";
+                 unlink($path1);move_uploaded_file($_FILES["propic"]["tmp_name"],$path);
             $proset = 1;
-            $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', proset = {$proset} WHERE username = '{$current_user}' LIMIT 1";
+            $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', proset = {$proset} ,dpcounter={$dpcounter} WHERE username = '{$current_user}' LIMIT 1";
             $result = mysqli_query($conn, $query);
             if ($result && mysqli_affected_rows($conn) == 1) {
                 redirect_to("buzz.php");
@@ -425,12 +459,12 @@ if (isset($_POST['submit'])) {
         validate_presence($required_fields);
     
         if (empty($errors)) {                
-            $sname = mysqli_real_escape_string($conn, $_POST['sname']);
-            $email = mysqli_real_escape_string($conn, $_POST['email']);           
+            $sname = mysqli_real_escape_string($conn, htmlspecialchars($_POST['sname']));
+            $email = mysqli_real_escape_string($conn, htmlspecialchars($_POST['email']));           
             
             $filter_branch = implode(" ", $_POST['branch']);
             $filter_club = implode(" ", $_POST['club']);
-            $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', filter_branch = '{$filter_branch}', filter_club = '{$filter_club}' WHERE username = '{$current_user}' LIMIT 1";
+            $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', filter_branch = '{$filter_branch}', filter_club = '{$filter_club}' ,dpcounter={$dpcounter} WHERE username = '{$current_user}' LIMIT 1";
             $result = mysqli_query($conn, $query);
             if ($result && mysqli_affected_rows($conn) == 1) {
                 redirect_to("buzz.php");
@@ -443,11 +477,11 @@ if (isset($_POST['submit'])) {
         validate_presence($required_fields);
     
         if (empty($errors)) {                
-            $sname = mysqli_real_escape_string($conn, $_POST['sname']);
-            $email = mysqli_real_escape_string($conn, $_POST['email']);
+            $sname = mysqli_real_escape_string($conn, htmlspecialchars($_POST['sname']));
+            $email = mysqli_real_escape_string($conn, htmlspecialchars($_POST['email']));
             $filter_branch = implode(" ", $_POST['branch']);
             
-            $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', filter_branch = '{$filter_branch}' WHERE username = '{$current_user}' LIMIT 1";
+            $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', filter_branch = '{$filter_branch}' ,dpcounter={$dpcounter} WHERE username = '{$current_user}' LIMIT 1";
             $result = mysqli_query($conn, $query);
             if ($result && mysqli_affected_rows($conn) == 1) {
                 redirect_to("buzz.php");
@@ -460,11 +494,11 @@ if (isset($_POST['submit'])) {
         validate_presence($required_fields);
     
         if (empty($errors)) {                
-            $sname = mysqli_real_escape_string($conn, $_POST['sname']);
-            $email = mysqli_real_escape_string($conn, $_POST['email']);
+            $sname = mysqli_real_escape_string($conn, htmlspecialchars($_POST['sname']));
+            $email = mysqli_real_escape_string($conn, htmlspecialchars($_POST['email']));
             
             $filter_club = implode(" ", $_POST['club']);
-            $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', filter_club = '{$filter_club}' WHERE username = '{$current_user}' LIMIT 1";
+            $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', filter_club = '{$filter_club}' ,dpcounter={$dpcounter} WHERE username = '{$current_user}' LIMIT 1";
             $result = mysqli_query($conn, $query);
             if ($result && mysqli_affected_rows($conn) == 1) {
                 redirect_to("buzz.php");
@@ -477,9 +511,9 @@ if (isset($_POST['submit'])) {
         validate_presence($required_fields);
     
         if (empty($errors)) {                
-            $sname = mysqli_real_escape_string($conn, $_POST['sname']);
-            $email = mysqli_real_escape_string($conn, $_POST['email']);
-            $query = "UPDATE users SET sname = '{$sname}', email = '{$email}' WHERE username = '{$current_user}' LIMIT 1";
+            $sname = mysqli_real_escape_string($conn, htmlspecialchars($_POST['sname']));
+            $email = mysqli_real_escape_string($conn, htmlspecialchars($_POST['email']));
+            $query = "UPDATE users SET sname = '{$sname}', email = '{$email}' ,dpcounter={$dpcounter} WHERE username = '{$current_user}' LIMIT 1";
             $result = mysqli_query($conn, $query);
             if ($result && mysqli_affected_rows($conn) == 1) {
                 redirect_to("buzz.php");
@@ -514,6 +548,7 @@ if (isset($_POST['submit'])) {
     <!-- Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,900' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="assets/css/font-icons/entypo/css/entypo.css">
     
     
@@ -529,7 +564,7 @@ if (isset($_POST['submit'])) {
     <![endif]-->
 </head>
 
-<body class="page-body page-fade-only" style="font-family: 'Montserrat';">
+<body class="page-body page-fade-only">
     <div class="page-container">
         <div class="sidebar-menu">
             <div class="sidebar-menu-inner">
@@ -564,11 +599,14 @@ if (isset($_POST['submit'])) {
                                     <img src="assets/images/nopic.png" class="img-circle" height="200px" width="100px" style="border-radius: 100%;" />
                             <?php
                                 } elseif ($name_title["proset"]==1) {
-                                        $imageid=$name_title['id'];
-
+                                       $imageid=$name_title['id'];
+                                        $dpcounter=$name_title['dpcounter'];
                                         //echo '<img src="data:image/jpeg;base64,' . base64_encode($name_title['data_propic']) . '" class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>'; 
                                         
-                                        echo '<img src="images/' . $imageid . '.jpg "class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>'; 
+                                       if($dpcounter>0)
+                                        echo '<img src="images/' . $imageid."_".$dpcounter. '.jpg "class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>';
+                                        else
+                                         echo '<img src="images/' . $imageid. '.jpg "class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>';
                                 }
                             ?>
                             <span>Welcome,</span>
@@ -626,7 +664,7 @@ if (isset($_POST['submit'])) {
             </div>
             <hr />
             <!-- main content starts here -->
-            <div class="container" style="width: 970px !important;">
+            <div class="container">
                 <div class="row">
                     <form role="form" method="post"  class="form-horizontal form-groups-bordered validate" enctype="multipart/form-data" action="settings.php">
                         <div class="row">
@@ -861,13 +899,13 @@ if (isset($_POST['submit'])) {
                                 </div>
                             </div>
                         </div>
-                         <div class="form-group default-padding" style="display: flex; justify-content: center; align-items: center;">
-                            <input type="submit" name="submit" class="btn btn-success" value="Save Changes" style="margin-right: 5px;">
-                            <button class="btn"><a href="buzz.php">Cancel</a></button>
-                        </div>
-                    </form>
                 </div>
-           </div>
+                 <div class="form-group default-padding" style="display: flex; justify-content: center; align-items: center;">
+                    <input type="submit" name="submit" class="btn btn-success" value="Save Changes" style="margin-right: 5px;">
+                    <button class="btn"><a href="buzz.php">Cancel</a></button>
+                </div>
+            </div>
+        </div>
     </div>
     <footer>
     </footer>

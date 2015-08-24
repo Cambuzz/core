@@ -22,7 +22,7 @@
             $flag=1;    
             while ($slang_list = mysqli_fetch_assoc($slang_result)) {
                 $s1 = $slang_list['COL 1'];
-                $s2 = $_POST['question'];
+                $s2 = mysqli_real_escape_string($conn, htmlspecialchars($_POST['question']));
                 $s=$s1." ".$s2;
                 //echo $s;echo "<br>";
                 $n= strlen($s);
@@ -64,7 +64,7 @@
                 if($flag==0)break;                               
             }
             if ($flag==1) {
-                $question = mysqli_real_escape_string($conn, $_POST['question']);
+                $question = mysqli_real_escape_string($conn, htmlspecialchars($_POST['question']));
                 $quest_user = $current_user;
                 date_default_timezone_set('Asia/Calcutta');
                 $quest_time = date("Y-m-d\TH:i:s");
@@ -144,10 +144,12 @@
                             <?php
                                 } elseif ($name_title["proset"]==1) {
                                         $imageid=$name_title['id'];
-
+                                        $dpcounter=$name_title['dpcounter'];
                                         //echo '<img src="data:image/jpeg;base64,' . base64_encode($name_title['data_propic']) . '" class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>'; 
-                                        
-                                        echo '<img src="images/' . $imageid . '.jpg "class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>';
+                                        if($dpcounter>0)
+                                        echo '<img src="images/' . $imageid."_".$dpcounter. '.jpg "class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>';
+                                        else
+                                         echo '<img src="images/' . $imageid. '.jpg "class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>';
                                 }
                             ?>
                             <span>Welcome,</span>
@@ -222,7 +224,7 @@
                     <div>
                     <?php
 if (isset($_POST['submit_search'])) {
-    $search = mysqli_real_escape_string($conn, $_POST['search']);
+    $search = mysqli_real_escape_string($conn, htmlspecialchars($_POST['search']));
     $search_query = "SELECT * FROM quora";
     $search_result = mysqli_query($conn, $search_query);
     confirm_query($search_result);
@@ -282,10 +284,12 @@ if (isset($_POST['submit_search'])) {
                             <?php
                                 } elseif ($pic["proset"]==1) {
                                         $imageid=$pic['id'];
-
+                                        $dpcounter=$pic['dpcounter'];
                                         //echo '<img src="data:image/jpeg;base64,' . base64_encode($name_title['data_propic']) . '" class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>'; 
-                                        
-                                        echo '<img src="images/' . $imageid . '.jpg "height="44px" width="44px" alt="" class="img-circle">';
+                                        if($dpcounter>0)
+                                        echo '<img src="images/' . $imageid."_".$dpcounter . '.jpg "height="44px" width="44px" alt="" class="img-circle">';
+                                        else
+                                        echo '<img src="images/' . $imageid. '.jpg "height="44px" width="44px" alt="" class="img-circle">';
                                 }
                             ?>
                 <a href="question.php?id=<?php echo urlencode($search_title["id"]); ?>"><?php echo $search_title['question'];echo "</a>"; ?>
@@ -333,10 +337,12 @@ if (isset($_POST['submit_search'])) {
                             <?php
                                 } elseif ($pic["proset"]==1) {
                                         $imageid=$pic['id'];
-
+                                       $dpcounter=$pic['dpcounter'];
                                         //echo '<img src="data:image/jpeg;base64,' . base64_encode($name_title['data_propic']) . '" class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>'; 
-                                        
-                                        echo '<img src="images/' . $imageid . '.jpg "height="44px" width="44px" alt="" class="img-circle">';
+                                      if($dpcounter>0)
+                                        echo '<img src="images/' . $imageid."_".$dpcounter . '.jpg "height="44px" width="44px" alt="" class="img-circle">';
+                                        else
+                                        echo '<img src="images/' . $imageid. '.jpg "height="44px" width="44px" alt="" class="img-circle">';
                                 }
                             ?>
                                                         </a>
@@ -380,11 +386,13 @@ if (isset($_POST['submit_search'])) {
                                     <img src="assets/images/nopic.png" height="44px" width="44px" alt="" class="img-circle" />
                             <?php
                                 } elseif ($pic["proset"]==1) {
-                                        $imageid=$pic['id'];
-
+                                       $imageid=$pic['id'];
+                                        $dpcounter=$pic['dpcounter'];
                                         //echo '<img src="data:image/jpeg;base64,' . base64_encode($name_title['data_propic']) . '" class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>'; 
-                                        
-                                        echo '<img src="images/' . $imageid . '.jpg "height="44px" width="44px" alt="" class="img-circle">';
+                                        if($dpcounter>0)
+                                        echo '<img src="images/' . $imageid."_".$dpcounter . '.jpg "height="44px" width="44px" alt="" class="img-circle">';
+                                        else
+                                        echo '<img src="images/' . $imageid. '.jpg "height="44px" width="44px" alt="" class="img-circle">';
                                 }
                             ?>
                                                         </a>
