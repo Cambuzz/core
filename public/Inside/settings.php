@@ -515,7 +515,6 @@ if (isset($_POST['submit'])) {
     <!-- Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,900' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="assets/css/font-icons/entypo/css/entypo.css">
     
     
@@ -531,7 +530,7 @@ if (isset($_POST['submit'])) {
     <![endif]-->
 </head>
 
-<body class="page-body page-fade-only">
+<body class="page-body page-fade-only" style="font-family: 'Montserrat';">
     <div class="page-container">
         <div class="sidebar-menu">
             <div class="sidebar-menu-inner">
@@ -628,7 +627,7 @@ if (isset($_POST['submit'])) {
             </div>
             <hr />
             <!-- main content starts here -->
-            <div class="container">
+            <div class="container" style="width: 970px !important;">
                 <div class="row">
                     <form role="form" method="post"  class="form-horizontal form-groups-bordered validate" enctype="multipart/form-data" action="settings.php">
                         <div class="row">
@@ -863,13 +862,13 @@ if (isset($_POST['submit'])) {
                                 </div>
                             </div>
                         </div>
+                         <div class="form-group default-padding" style="display: flex; justify-content: center; align-items: center;">
+                            <input type="submit" name="submit" class="btn btn-success" value="Save Changes" style="margin-right: 5px;">
+                            <button class="btn"><a href="buzz.php">Cancel</a></button>
+                        </div>
+                    </form>
                 </div>
-                 <div class="form-group default-padding" style="display: flex; justify-content: center; align-items: center;">
-                    <input type="submit" name="submit" class="btn btn-success" value="Save Changes" style="margin-right: 5px;">
-                    <button class="btn"><a href="buzz.php">Cancel</a></button>
-                </div>
-            </div>
-        </div>
+           </div>
     </div>
     <footer>
     </footer>

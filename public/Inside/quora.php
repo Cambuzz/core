@@ -107,7 +107,7 @@
     </script>
     </head>
 
-<body class="page-body page-left-in">
+<body class="page-body page-left-in" style="font-family: 'Montserrat';">
     <div class="page-container">
         <!-- add class "sidebar-collapsed" to close sidebar by default, "chat-visible" to make chat appear always -->
         <div class="sidebar-menu">
@@ -159,7 +159,6 @@
                             <i class="entypo-pencil"></i> Account Settings
                         </a>
                         <span class="close-sui-popup">&times;</span>
-                       
                     </div>
                 </div>
                 <ul id="main-menu" class="main-menu">

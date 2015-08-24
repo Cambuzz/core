@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="assets/css/style-theme.css">
     <link rel="stylesheet" href="assets/css/style-forms.css">
     <link rel="stylesheet" href="assets/css/search.css">
-   
+    <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,900' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
 
@@ -88,7 +88,7 @@
     </script>
 </head>
 
-<body class="page-body  page-left-in">
+<body class="page-body  page-left-in"  style="font-family: 'Montserrat';">
     <div class="page-container">
         <div class="sidebar-menu">
             <div class="sidebar-menu-inner">
@@ -188,7 +188,7 @@
             <hr/>
             <div class="row">
                 <div class="col-sm-12">
-                    <h2 style="text-align: center; margin-top: 10%;">Start Searching! Get working!</h2>
+                    <h2 style="text-align: center; margin-top: 10%;">Enter Faculty's Name:</h2>
                     <form action="track_teacher.php" method="post">
                     <div class="search">
                         <svg version="1.1" viewBox="0 0 142.358 24.582">
@@ -373,13 +373,23 @@
         <footer>
         </footer>
     </div>
-    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src="assets/js/modernizr.custom.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/TweenMax.min.js"></script>
     <script src="assets/js/search/index.js"></script>
-    <script src="assets/js/gsap/main-gsap.js"></script>
     <!-- Imported scripts on this page --> 
     <script src="assets/js/style-custom.js"></script>
     <script src="assets/js/style-api.js"></script>
+    <script src="assets/js/style-demo.js"></script>
+
     <script src="assets/js/typeahead.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/classie/1.0.1/classie.min.js"></script>
+    <script src="assets/js/joinable.js"></script>
+    <script src="assets/js/resizeable.js"></script>
+    <script src="assets/js/uiMorphingButton_fixed.js"></script>
+
 
     <script>
       var substringMatcher = function(strs) {
