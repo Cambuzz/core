@@ -27,9 +27,7 @@
     <link rel="stylesheet" href="assets/css/style-theme.css">
     <link rel="stylesheet" href="assets/css/style-forms.css">
     <link rel="stylesheet" href="assets/css/search.css">
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+   
     <link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,900' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
 
@@ -133,7 +131,7 @@
                                 }
                             ?>
                             <span>Welcome,</span>
-                            <strong><?php echo ucfirst($first_name[0]); ?></strong>
+                            <strong><?php echo htmlentities($first_name[0]); ?></strong>
                         </div>
                     </div>
                     <div class="sui-hover inline-links animate-in">
@@ -305,7 +303,7 @@
                                            if( $minute<=$timarr[$i][1]) {
                                                if($matrix[$r][$i]==0) {
                                                    echo "Free Till";
-                                                   echo "<br>;";
+                                                   echo "<br>";
                                                    $k=$i;
                                                    while ($matrix[$r][$k]==0 ) {
                                                        $k++;
