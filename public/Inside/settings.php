@@ -504,6 +504,9 @@ if (isset($_POST['submit'])) {
     <link rel="stylesheet" href="assets/css/style-core.css">
     <link rel="stylesheet" href="assets/css/style-theme.css">
     <link rel="stylesheet" href="assets/css/style-forms.css">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     
     <!-- Buzz button -->
     <link rel="stylesheet" type="text/css" href="assets/css/buttoncreatebuzz.css" />
@@ -570,7 +573,7 @@ if (isset($_POST['submit'])) {
                                 }
                             ?>
                             <span>Welcome,</span>
-                            <strong><?php echo htmlentities($first_name[0]); ?></strong>
+                            <strong><?php echo ucfirst($first_name[0]); ?></strong>
                         </div>
                     </div>
                     <div class="sui-hover inline-links animate-in">

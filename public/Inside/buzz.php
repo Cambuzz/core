@@ -622,7 +622,9 @@ $comment=0;
     <link rel="stylesheet" href="assets/css/style-core.css">
     <link rel="stylesheet" href="assets/css/style-theme.css">
     <link rel="stylesheet" href="assets/css/style-forms.css">
-    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <!-- Buzz button -->
     <link rel="stylesheet" type="text/css" href="assets/css/buttoncreatebuzz.css" />
     <link rel="stylesheet" type="text/css" href="assets/css/normalize.css" />
@@ -733,7 +735,7 @@ $comment=0;
                                 }
                             ?>
                             <span>Welcome,</span>
-                            <strong><?php echo htmlentities($first_name[0]); ?></strong>
+                            <strong><?php echo ucfirst($first_name[0]); ?></strong>
                         </div>
                     </div>
                     <div class="sui-hover inline-links animate-in">
@@ -1235,7 +1237,7 @@ $comment=0;
                                                            <a style="font-size: 14px;" class="entypo-trash" href="delete_event.php?id=<?php echo urlencode($notification["id"]); ?>" onclick="return confirm('Are you sure?');"></a>
                                                     </div>
                                                     <div class="publisher" style="color: #303641; font-family: 'Montserrat', sans-serif;">
-                                                    <span style="font-weight: bold;"><?php echo $name_print_title["sname"]; ?></span><span style="color: #9b9fa6;">&nbsp;posted a buzz!</span>
+                                                    <span style="font-weight: bold;"><?php echo ucfirst($name_print_title["sname"]); ?></span><span style="color: #9b9fa6;">&nbsp;posted a buzz!</span>
                                                     <em style="color: #9b9fa6;">
                                                         <?php 
                                                             $post_time = strtotime($notification['buzz_time']);
@@ -1245,8 +1247,38 @@ $comment=0;
                                                     </div>
                                                     </header>
                                                     <div class="story-main-content">
-                                                    <p style="font-size: 30px; font-family: 'Montserrat', serif; font-weight: bold; line-height: 1.3; color: black;"><?php echo $notification["title"]; ?></p>
-                                                    <p><?php echo nl2br($notification["content"]). " "; ?>                                                
+                                                    <p style="font-size: 30px; font-family: 'Montserrat', serif; font-weight: bold; line-height: 1.3; color: black;"><?php echo ucfirst($notification["title"]); ?></p>
+                                                    <p><?php 
+                                                       $pattern = '#[-a-zA-Z0-9@:%_\+.~\#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~\#?&//=]*)?#si';
+                                                        $str =ucfirst(ucfirst($notification["content"]));
+                                                        $num_found = preg_match_all($pattern, $str, $out);
+                                                        $str1=serialize($out);
+                                                        $start=0;
+                                                        for($i=0;$i<$num_found;$i++)
+                                                        {
+                                                            $flag=0;
+                                                            $s=strpos($str1,'https:',$start);
+                                                            if(!$s)
+                                                            {
+                                                                $s=strpos($str1,'www',$start);
+                                                                $flag++;
+                                                            }
+                                                            $s1=strpos($str1,';',$s);
+                                                            $s1=$s1-2;
+                                                            //echo $s." ".$s1." <br />";
+                                                            $start=$s1;
+                                                            $link=substr($str1,$s,$s1-$s+1);
+                                                            if($flag==1)
+                                                            {
+                                                                $link1="https://".$link;
+                                                            }
+                                                            else
+                                                            $link1=$link;
+                                                            //echo $link."<br />";
+                                                            $str=str_replace($link,"<a href='$link1'>$link1</a>",$str);
+                                                        }
+                                                    echo nl2br($str). " "; 
+                                                    ?>                                                                 
                                                     </p>                                                
                                                     <b style="margin-top: 10px; display: block; margin-left: auto; margin-right: auto; font-family:'Montserrat', sans-serif">
                                                     <?php
@@ -1283,7 +1315,7 @@ $comment=0;
                                                     <div class="story-content">
                                                     <header>
                                                     <div class="publisher" style="color: #303641; font-family: 'Montserrat', sans-serif;">
-                                                    <span style="font-weight: bold;"><?php echo $name_print_title["sname"]; ?></span><span style="color: #9b9fa6;">&nbsp;posted a buzz!</span>
+                                                    <span style="font-weight: bold;"><?php echo ucfirst($name_print_title["sname"]); ?></span><span style="color: #9b9fa6;">&nbsp;posted a buzz!</span>
                                                     <em style="color: #9b9fa6;">
                                                         <?php 
                                                             $post_time = strtotime($notification['buzz_time']);
@@ -1293,8 +1325,8 @@ $comment=0;
                                                     </div>
                                                     </header>
                                                     <div class="story-main-content">
-                                                    <p style="font-size: 30px; font-family: 'Montserrat', serif; font-weight: bold; line-height: 1.3; color: black;"><?php echo $notification["title"]; ?></p>
-                                                    <p><?php echo $notification["content"]. " "; ?>                                                
+                                                    <p style="font-size: 30px; font-family: 'Montserrat', serif; font-weight: bold; line-height: 1.3; color: black;"><?php echo ucfirst($notification["title"]); ?></p>
+                                                    <p><?php echo ucfirst(ucfirst($notification["content"])). " "; ?>                                                
                                                     </p>                                                
                                                     <b style="margin-top: 10px; display: block; margin-left: auto; margin-right: auto; font-family:'Montserrat', sans-serif">
                                                     <?php
@@ -1342,7 +1374,7 @@ $comment=0;
                                                            <a style="font-size: 14px;" class="entypo-trash" href="delete_event.php?id=<?php echo urlencode($notification["id"]); ?>" onclick="return confirm('Are you sure?');"></a>
                                                     </div>
                                                     <div class="publisher" style="color: #303641; font-family: 'Montserrat', sans-serif;">
-                                                    <span style="font-weight: bold;"><?php echo $name_print_title["sname"]; ?></span><span style="color: #9b9fa6;">&nbsp;posted a buzz!</span>
+                                                    <span style="font-weight: bold;"><?php echo ucfirst($name_print_title["sname"]); ?></span><span style="color: #9b9fa6;">&nbsp;posted a buzz!</span>
                                                     <em style="color: #9b9fa6;">
                                                         <?php 
                                                             $post_time = strtotime($notification['buzz_time']);
@@ -1352,8 +1384,8 @@ $comment=0;
                                                     </div>
                                                     </header>
                                                     <div class="story-main-content">
-                                                    <p style="font-size: 30px; font-family: 'Montserrat', serif; font-weight: bold; line-height: 1.3; color: black;"><?php echo $notification["title"]; ?></p>
-                                                    <p><?php echo $notification["content"]. " "; ?>
+                                                    <p style="font-size: 30px; font-family: 'Montserrat', serif; font-weight: bold; line-height: 1.3; color: black;"><?php echo ucfirst($notification["title"]); ?></p>
+                                                    <p><?php echo ucfirst(ucfirst($notification["content"])). " "; ?>
                                                     
                                                     </p>
                                                     <?php
@@ -1398,7 +1430,7 @@ $comment=0;
                                                     <header>
                                                     
                                                     <div class="publisher" style="color: #303641; font-family: 'Montserrat', sans-serif;">
-                                                    <span style="font-weight: bold;"><?php echo $name_print_title["sname"]; ?></span><span style="color: #9b9fa6;">&nbsp;posted a buzz!</span>
+                                                    <span style="font-weight: bold;"><?php echo ucfirst($name_print_title["sname"]); ?></span><span style="color: #9b9fa6;">&nbsp;posted a buzz!</span>
                                                     <em style="color: #9b9fa6;">
                                                         <?php 
                                                             $post_time = strtotime($notification['buzz_time']);
@@ -1408,8 +1440,8 @@ $comment=0;
                                                     </div>
                                                     </header>
                                                     <div class="story-main-content">
-                                                    <p style="font-size: 30px; font-family: 'Montserrat', serif; font-weight: bold; line-height: 1.3; color: black;"><?php echo $notification["title"]; ?></p>
-                                                    <p><?php echo $notification["content"]. " "; ?>
+                                                    <p style="font-size: 30px; font-family: 'Montserrat', serif; font-weight: bold; line-height: 1.3; color: black;"><?php echo ucfirst($notification["title"]); ?></p>
+                                                    <p><?php echo ucfirst(ucfirst($notification["content"])). " "; ?>
                                                     
                                                     </p>
                                                     <?php

@@ -137,7 +137,7 @@ $buzz_id = $current_user.$id_time;
                                                     <div class="story-content">
                                                     <header>
                                                     <div class="publisher" style="color: #303641; font-family: 'Montserrat', sans-serif;">
-                                                    <span style="font-weight: bold;"><?php echo $name_print_title["sname"]; ?></span><span style="color: #9b9fa6;">&nbsp;posted a buzz!</span>
+                                                    <span style="font-weight: bold;"><?php echo ucfirst($name_print_title["sname"]); ?></span><span style="color: #9b9fa6;">&nbsp;posted a buzz!</span>
                                                     <em style="color: #9b9fa6;">
                                                         <?php 
                                                             $post_time = strtotime($notification['buzz_time']);
@@ -148,7 +148,7 @@ $buzz_id = $current_user.$id_time;
                                                     </header>
                                                     <div class="story-main-content">
                                                     <p style="font-size: 30px; font-family: 'Playfair Display', serif; font-weight: bold; line-height: 1.3; color: black;"><?php echo $notification["title"]; ?></p>
-                                                    <p><?php echo $notification["content"]. " "; ?>                                                
+                                                    <p><?php echo ucfirst($notification["content"]). " "; ?>                                                
                                                     </p>                                                
                                                     <b style="margin-top: 10px; display: block; margin-left: auto; margin-right: auto; font-family:'Montserrat', sans-serif">
                                                     <?php
@@ -179,7 +179,7 @@ $buzz_id = $current_user.$id_time;
                                                     <div class="story-content">
                                                     <header>
                                                     <div class="publisher" style="color: #303641; font-family: 'Montserrat', sans-serif;">
-                                                    <span style="font-weight: bold;"><?php echo $name_print_title["sname"]; ?></span><span style="color: #9b9fa6;">&nbsp;posted a buzz!</span>
+                                                    <span style="font-weight: bold;"><?php echo ucfirst($name_print_title["sname"]); ?></span><span style="color: #9b9fa6;">&nbsp;posted a buzz!</span>
                                                     <em style="color: #9b9fa6;">
                                                         <?php 
                                                             $post_time = strtotime($notification['buzz_time']);
@@ -190,7 +190,7 @@ $buzz_id = $current_user.$id_time;
                                                     </header>
                                                     <div class="story-main-content">
                                                     <p style="font-size: 30px; font-family: 'Playfair Display', serif; font-weight: bold; line-height: 1.3; color: black;"><?php echo $notification["title"]; ?></p>
-                                                    <p><?php echo $notification["content"]. " "; ?>
+                                                    <p><?php echo ucfirst($notification["content"]). " "; ?>
                                                     
                                                     </p>
                                                     <?php
