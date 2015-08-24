@@ -731,7 +731,7 @@ $comment=0;
 
                                         //echo '<img src="data:image/jpeg;base64,' . base64_encode($name_title['data_propic']) . '" class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>'; 
                                         
-                                        echo '<img src="images/' . $imageid . '.jpg "class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>';
+                                        echo '<img src="images/' . $imageid . '.jpg "class="img-circle" style="border-radius: 100%; min-width: 100px; min-height: 100px;"/>';
                                 }
                             ?>
                             <span>Welcome,</span>
@@ -739,9 +739,7 @@ $comment=0;
                         </div>
                     </div>
                     <div class="sui-hover inline-links animate-in">
-                        <a href="settings.php">
-                            <i class="entypo-pencil"></i> Account Settings
-                        </a>
+                        <a href="settings.php"><i class="entypo-pencil"></i> Account Settings</a>
                         <span class="close-sui-popup">&times;</span>
                        
                     </div>
