@@ -8,7 +8,8 @@
     $name_result = mysqli_query($conn, $name_query);
     confirm_query($name_result);
     $name_title = mysqli_fetch_assoc($name_result);
-    $first_name = explode(" ", $name_title['sname'])
+    $first_name = explode(" ", $name_title['sname']);
+    $current_id = $name_title['id'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -85,12 +86,16 @@
                     <div class="sui-normal">
                         <div class="user-link">
                             <?php
-                                if (empty($name_title["data_propic"])) { 
+                                if ($name_title["proset"]==0) { 
                             ?>
                                     <img src="assets/images/nopic.png" class="img-circle" height="200px" width="100px" style="border-radius: 100%;" />
                             <?php
-                                } elseif (isset($name_title["data_propic"])) {
-                                        echo '<img src="data:image/jpeg;base64,' . base64_encode($name_title['data_propic']) . '" class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>';        
+                                } elseif ($name_title["proset"]==1) {
+                                        $imageid=$name_title['id'];
+
+                                        //echo '<img src="data:image/jpeg;base64,' . base64_encode($name_title['data_propic']) . '" class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>'; 
+                                        
+                                        echo '<img src="images/' . $imageid . '.jpg "class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>';
                                 }
                             ?>
                             <span>Welcome,</span>
