@@ -186,7 +186,7 @@ if ((isset($_POST['submit']))&&(isset($_POST['answer']))) {
                                 }
                             ?>
                             <span>Welcome,</span>
-                            <strong><?php echo htmlentities($first_name[0]); ?></strong>
+                            <strong><?php echo ucfirst($first_name[0]); ?></strong>
                         </div>
                     </div>
                     <div class="sui-hover inline-links animate-in">
@@ -275,7 +275,7 @@ if ((isset($_POST['submit']))&&(isset($_POST['answer']))) {
                                     <!-- story header -->
                                     <header>
                                         <div class="publisher">
-                                            <a href="#"><?php echo $pic['sname']; ?>
+                                            <a href="#"><?php echo ucfirst($pic['sname']); ?>
                                             posted a question
                                             <em>
                                             <?php 
@@ -286,7 +286,7 @@ if ((isset($_POST['submit']))&&(isset($_POST['answer']))) {
                                         </div>
                                     </header>
                                     <div class="story-main-content">
-                                        <p style="font-size: 20px; line-height: 1.3; sans-serif; font-weight:bold; color: black;"><?php echo $view_quest['question']; ?></p>
+                                        <p style="font-size: 20px; line-height: 1.3; sans-serif; font-weight:bold; color: black;"><?php echo ucfirst($view_quest['question']); ?></p>
                                     </div>
                                     <h1></h1>
                                     <!-- story like and comment link -->
@@ -335,7 +335,7 @@ if ((isset($_POST['submit']))&&(isset($_POST['answer']))) {
                                                 </div>
                                                 <div class="user-comment-content">
                                                     <div class="user-comment-name">
-                                                        <?php echo $poster_pic['sname']; ?>
+                                                        <?php echo ucfirst($poster_pic['sname']); ?>
                                                     </div>
                                                     <?php echo $view_answer['answer']; ?>
                                                     <div class="user-comment-meta">
@@ -378,7 +378,7 @@ if ((isset($_POST['submit']))&&(isset($_POST['answer']))) {
                                                 </div>
                                                 <div class="user-comment-content">
                                                     <div class="user-comment-name">
-                                                        <?php echo $poster_pic['sname']; ?>
+                                                        <?php echo ucfirst($poster_pic['sname']); ?>
                                                     </div>
                                                     <?php echo $view_answer['answer']; ?>
                                                     <div class="user-comment-meta">

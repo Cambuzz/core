@@ -133,7 +133,7 @@
                                 }
                             ?>
                             <span>Welcome,</span>
-                            <strong><?php echo htmlentities($first_name[0]); ?></strong>
+                            <strong><?php echo ucfirst($first_name[0]); ?></strong>
                         </div>
                     </div>
                     <div class="sui-hover inline-links animate-in">

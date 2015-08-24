@@ -150,7 +150,7 @@
                                 }
                             ?>
                             <span>Welcome,</span>
-                            <strong><?php echo htmlentities($first_name[0]); ?></strong>
+                            <strong><?php echo ucfirst($first_name[0]); ?></strong>
                         </div>
                     </div>
                     <div class="sui-hover inline-links animate-in">
@@ -345,7 +345,7 @@ if (isset($_POST['submit_search'])) {
                                         <!-- story header -->
                                                                 <header>
                                                                     <div class="publisher">
-                                                                        <a href="#"><?php echo $pic['sname'];  ?></a> posted a question
+                                                                        <a href="#"><?php echo ucfirst(ucfirst($pic['sname']));  ?></a> posted a question
                                                                         <em>
                                                                             <?php 
                                                                                 $post_time = strtotime($quest_list['quest_time']);
@@ -355,7 +355,7 @@ if (isset($_POST['submit_search'])) {
                                                                         </div>
                                                                 </header>
                                                         <div class="story-main-content">
-                                                            <a href="question.php?id=<?php echo urlencode($quest_list["id"]); ?>"><?php echo $quest_list['question'];echo "</a>"; ?></a>
+                                                            <a href="question.php?id=<?php echo urlencode($quest_list["id"]); ?>"><?php echo ucfirst($quest_list['question']);echo "</a>"; ?></a>
                                                         </div>
                                                         <div class="dropdown" style="float: right;">
                                                             <i class="entypo-pencil"id="dLabel" data-target="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -393,7 +393,7 @@ if (isset($_POST['submit_search'])) {
                                         <!-- story header -->
                                                                 <header>
                                                                     <div class="publisher">
-                                                                        <a href="#"><?php echo $pic['sname'];  ?></a> posted a question
+                                                                        <a href="#"><?php echo ucfirst(ucfirst($pic['sname']));  ?></a> posted a question
                                                                         <em>
                                                                             <?php 
                                                                                 $post_time = strtotime($quest_list['quest_time']);
@@ -403,7 +403,7 @@ if (isset($_POST['submit_search'])) {
                                                                         </div>
                                                                 </header>
                                                         <div class="story-main-content">
-                                                            <a href="question.php?id=<?php echo urlencode($quest_list["id"]); ?>"><?php echo $quest_list['question'];echo "</a>"; ?>
+                                                            <a href="question.php?id=<?php echo urlencode($quest_list["id"]); ?>"><?php echo ucfirst($quest_list['question']);echo "</a>"; ?>
                                                         </div>
                                                         <footer>
                                                             <?php    } ?>
