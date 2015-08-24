@@ -2,6 +2,7 @@
 <?php require_once("../../includes/db_connection.php");?>
 <?php require_once("../../includes/functions.php");?>
 <?php confirm_logged_in(); ?>
+
 <?php $question_set = find_all_questions(); ?>
 <?php
     $current_user = $_SESSION["username"];
@@ -206,16 +207,16 @@
                 <div class="profile-env">
                     <section class="profile-feed">
                             <!-- Search search form -->
-					<form method="post" class="search-bar" action="quora.php" enctype="application/x-www-form-urlencoded">
-						
-						<div class="input-group" style="margin-bottom: 40px;">
-							<input type="text" class="form-control input-lg" name="search" required placeholder="Search for any question ...">
-							
-							<div class="input-group-btn">
+                    <form method="post" class="search-bar" action="quora.php" enctype="application/x-www-form-urlencoded">
+                        
+                        <div class="input-group" style="margin-bottom: 40px;">
+                            <input type="text" class="form-control input-lg" name="search" required placeholder="Search for any question ...">
+                            
+                            <div class="input-group-btn">
                                 <input type="submit" href="javascript:;" onclick="jQuery('#modal-2').modal('show');" name="submit_search" value="Search" class="btn btn-lg btn-success btn-icon" style="padding-right: 25px; ">
-							</div>
-						</div>
-					</form>
+                            </div>
+                        </div>
+                    </form>
                     <div>
                     <?php
 if (isset($_POST['submit_search'])) {
@@ -352,14 +353,15 @@ if (isset($_POST['submit_search'])) {
                                                                         </div>
                                                                 </header>
                                                         <div class="story-main-content">
-                                                            <a href="question.php?id=<?php echo urlencode($quest_list["id"]); ?>"><?php echo $quest_list['question'];echo "</a>"; ?></a>
+
+                                                            <a href="question.php?id=<?php echo urlencode($quest_list["id"]); ?>"><?php echo $quest_list['question'];echo "</p></a>"; ?></a>
                                                         </div>
                                                         <div class="dropdown" style="float: right;">
                                                             <i class="entypo-pencil"id="dLabel" data-target="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                                             <!-- <span class="caret"></span> -->
                                                           </i>
                                                             <ul class="dropdown-menu" aria-labelledby="dLabel">
-                                                                <li><a href="javascript:;" onclick="jQuery('#modal-1').modal('show');">Edit</a></li>
+                                                                <li><a href="javascript:;" onclick="modalshow(<?php echo $quest_list['id'];?>);">Edit</a></li>
                                                                 <li><a href="delete_question.php?id=<?php echo urlencode($quest_list["id"]); ?>" onclick="return confirm('Are you sure?');">Delete</a>
                                                                 </li>
                                                             </ul>
@@ -453,24 +455,30 @@ if (isset($_POST['submit_search'])) {
     <script src="assets/js/resizeable.js"></script>
     <script src="assets/js/uiMorphingButton_fixed.js"></script>
     <script src="assets/js/style-api.js"></script>
+
+
+
     </script>
-    <div class="modal fade" id="modal-1">
+    <div class="modal" id="modal-1">
         <div class="modal-dialog">
             <div class="modal-content">
                 
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title">Basic Modal</h4>
+                    <h4 class="modal-title">Edit question</h4>
                 </div>
                 
                 <div class="modal-body">
-                    Hello I am a Modal!
+                    <form class="modalform">
+                    <textarea class="form-control autogrow"   name="question" placeholder="What do you want to know today?" required style="font-size:15px;"  class="questioncontent" ></textarea>
                 </div>
                 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-info">Save changes</button>
+                    <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+                    <button type="submit" class="btn btn-info">Save changes</button>
+                    
                 </div>
+                </form>
             </div>
         </div>
     </div>
@@ -489,6 +497,61 @@ if (isset($_POST['submit_search'])) {
             </div>
         </div>
     </div>  
+
+
+     
+     <script type="text/javascript">
+        var qid;
+        function modalshow(text)
+           {
+              $('#modal-1').modal('show');
+              //alert(text);
+              qid=text;
+           }
+
+          
+        $(document).ready(function(){
+           //alert("hello");
+
+           
+
+
+
+            $('.modalform').on('submit',function()
+            {
+                //var content=$("."+qid).html();
+                //alert(content);
+                //alert(qid);
+                //alert($(this).children(".questioncontent"));
+                var content=$(this).children().val();
+                 //$("#"+qid).val(content);
+                  
+                
+                $.ajax({
+                    method: "POST",
+                    url: "question_edit.php",
+                    data: {id:qid,content:content}
+                    })
+                    .done(function(){
+                        //alert(data);
+
+                        $('#modal-1').modal('hide');
+                        $('body').removeClass('modal-open');
+                        $(".modal-backdrop").remove();
+
+                        $("#"+qid).val(content);
+                        window.location.href="quora.php";
+                    });
+                
+                qid=-1;
+                return false;
+
+                
+            });
+            
+        });
+        
+    </script> 
 </body>
 
 </html>
