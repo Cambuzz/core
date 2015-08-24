@@ -27,9 +27,7 @@
     <link rel="stylesheet" href="assets/css/style-theme.css">
     <link rel="stylesheet" href="assets/css/style-forms.css">
     <link rel="stylesheet" href="assets/css/search.css">
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+   
     <link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,900' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
 
@@ -133,7 +131,7 @@
                                 }
                             ?>
                             <span>Welcome,</span>
-                            <strong><?php echo ucfirst($first_name[0]); ?></strong>
+                            <strong><?php echo htmlentities($first_name[0]); ?></strong>
                         </div>
                     </div>
                     <div class="sui-hover inline-links animate-in">
@@ -208,7 +206,7 @@
                    <div class="a-st" style="font-size: 20px; display:flex;justify-content:center;align-items:center; margin-top: 200px;">  
                     <?php
                            if (isset($_POST['search_name'])) {
-                               $search_name = mysqli_real_escape_string($conn, $_POST['search_name']);
+                               $search_name = $_POST['search_name'];
                                $search_query = "SELECT * FROM faculty_final WHERE name = '{$search_name}' LIMIT 1";
                                $search_result = mysqli_query($conn, $search_query);
                                confirm_query($search_result);
@@ -305,7 +303,7 @@
                                            if( $minute<=$timarr[$i][1]) {
                                                if($matrix[$r][$i]==0) {
                                                    echo "Free Till";
-                                                   echo "<br>;";
+                                                   echo "<br>";
                                                    $k=$i;
                                                    while ($matrix[$r][$k]==0 ) {
                                                        $k++;
