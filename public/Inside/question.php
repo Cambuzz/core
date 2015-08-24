@@ -337,7 +337,7 @@ if ((isset($_POST['submit']))&&(isset($_POST['answer']))) {
                                                     <div class="user-comment-name">
                                                         <?php echo ucfirst($poster_pic['sname']); ?>
                                                     </div>
-                                                    <?php echo $view_answer['answer']; ?>
+                                                    <?php echo ucfirst($view_answer['answer']); ?>
                                                     <div class="user-comment-meta">
                                                         <a href="#" class="comment-date">
                                                         <?php 
@@ -380,7 +380,7 @@ if ((isset($_POST['submit']))&&(isset($_POST['answer']))) {
                                                     <div class="user-comment-name">
                                                         <?php echo ucfirst($poster_pic['sname']); ?>
                                                     </div>
-                                                    <?php echo $view_answer['answer']; ?>
+                                                    <?php echo ucfirst($view_answer['answer']); ?>
                                                     <div class="user-comment-meta">
                                                         <a href="#" class="comment-date">
                                                         <?php 

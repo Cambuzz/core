@@ -4,7 +4,7 @@
 
 <?php
 $id=$_POST['id'];
-$content=$_POST['content'];
+$content= mysqli_real_escape_string($conn, $_POST['content']);
 $query = "UPDATE quora SET question = '{$content}' WHERE id = {$id} ";
 $result = mysqli_query($conn, $query);
 echo "done";
