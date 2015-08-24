@@ -223,7 +223,7 @@
                     <div>
                     <?php
 if (isset($_POST['submit_search'])) {
-    $search = $_POST['search'];
+    $search = mysqli_real_escape_string($conn, $_POST['search']);
     $search_query = "SELECT * FROM quora";
     $search_result = mysqli_query($conn, $search_query);
     confirm_query($search_result);

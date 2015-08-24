@@ -81,15 +81,15 @@ if (isset($_POST['submit'])) {
         if (empty($errors)) {
 
             $username = $_SESSION["username"];
-            $password = $_POST["password"];
+            $password = mysqli_real_escape_string($conn, $_POST['password']);
             $found_user = attempt_login($username, $password);
 
             if ($found_user) {
 
                 $_SESSION["user_id"] = $found_user["id"];
                 $_SESSION["username"] = $found_user["username"];
-                $sname = $_POST['sname'];
-                $email = $_POST['email'];                
+                $sname = mysqli_real_escape_string($conn, $_POST['sname']);
+                $email = mysqli_real_escape_string($conn, $_POST['email']);                
                 $hashed_password = password_encrypt($_POST["new_password"]);
                 $target_dir = "images/";
                 $target_file = $target_dir . basename($_FILES["propic"]["name"]);                
@@ -116,15 +116,15 @@ if (isset($_POST['submit'])) {
         if (empty($errors)) {
 
             $username = $_SESSION["username"];
-            $password = $_POST["password"];
+            $password = mysqli_real_escape_string($conn, $_POST['password']);
             $found_user = attempt_login($username, $password);
 
             if ($found_user) {
 
                 $_SESSION["user_id"] = $found_user["id"];
                 $_SESSION["username"] = $found_user["username"];
-                $sname = $_POST['sname'];
-                $email = $_POST['email'];                
+                $sname = mysqli_real_escape_string($conn, $_POST['sname']);
+                $email = mysqli_real_escape_string($conn, $_POST['email']);                
                 $hashed_password = password_encrypt($_POST["new_password"]);
                 $target_dir = "images/";
                 $target_file = $target_dir . basename($_FILES["propic"]["name"]);                
@@ -149,15 +149,15 @@ if (isset($_POST['submit'])) {
         if (empty($errors)) {
 
             $username = $_SESSION["username"];
-            $password = $_POST["password"];
+            $password = mysqli_real_escape_string($conn, $_POST['password']);
             $found_user = attempt_login($username, $password);
 
             if ($found_user) {
 
                 $_SESSION["user_id"] = $found_user["id"];
                 $_SESSION["username"] = $found_user["username"];
-                $sname = $_POST['sname'];
-                $email = $_POST['email'];                
+                $sname = mysqli_real_escape_string($conn, $_POST['sname']);
+                $email = mysqli_real_escape_string($conn, $_POST['email']);                
                 $hashed_password = password_encrypt($_POST["new_password"]);
                 $target_dir = "images/";
                 $target_file = $target_dir . basename($_FILES["propic"]["name"]);                
@@ -183,15 +183,15 @@ if (isset($_POST['submit'])) {
         if (empty($errors)) {
 
             $username = $_SESSION["username"];
-            $password = $_POST["password"];
+            $password = mysqli_real_escape_string($conn, $_POST['password']);
             $found_user = attempt_login($username, $password);
 
             if ($found_user) {
 
                 $_SESSION["user_id"] = $found_user["id"];
                 $_SESSION["username"] = $found_user["username"];
-                $sname = $_POST['sname'];
-                $email = $_POST['email'];                
+                $sname = mysqli_real_escape_string($conn, $_POST['sname']);
+                $email = mysqli_real_escape_string($conn, $_POST['email']);                
                 $hashed_password = password_encrypt($_POST["new_password"]);
                 $target_dir = "images/";
                 $target_file = $target_dir . basename($_FILES["propic"]["name"]);                
@@ -216,15 +216,15 @@ if (isset($_POST['submit'])) {
         if (empty($errors)) {
 
             $username = $_SESSION["username"];
-            $password = $_POST["password"];
+            $password = mysqli_real_escape_string($conn, $_POST['password']);
             $found_user = attempt_login($username, $password);
 
             if ($found_user) {
 
                 $_SESSION["user_id"] = $found_user["id"];
                 $_SESSION["username"] = $found_user["username"];
-                $sname = $_POST['sname'];
-                $email = $_POST['email'];                
+                $sname = mysqli_real_escape_string($conn, $_POST['sname']);
+                $email = mysqli_real_escape_string($conn, $_POST['email']);                
                 $hashed_password = password_encrypt($_POST["new_password"]);
                 
                 $filter_branch = implode(" ", $_POST['branch']);
@@ -247,15 +247,15 @@ if (isset($_POST['submit'])) {
         if (empty($errors)) {
 
             $username = $_SESSION["username"];
-            $password = $_POST["password"];
+            $password = mysqli_real_escape_string($conn, $_POST['password']);
             $found_user = attempt_login($username, $password);
 
             if ($found_user) {
 
                 $_SESSION["user_id"] = $found_user["id"];
                 $_SESSION["username"] = $found_user["username"];
-                $sname = $_POST['sname'];
-                $email = $_POST['email'];                
+                $sname = mysqli_real_escape_string($conn, $_POST['sname']);
+                $email = mysqli_real_escape_string($conn, $_POST['email']);                
                 $hashed_password = password_encrypt($_POST["new_password"]);
                 
                 $filter_branch = implode(" ", $_POST['branch']);
@@ -278,15 +278,15 @@ if (isset($_POST['submit'])) {
         if (empty($errors)) {
 
             $username = $_SESSION["username"];
-            $password = $_POST["password"];
+            $password = mysqli_real_escape_string($conn, $_POST['password']);
             $found_user = attempt_login($username, $password);
 
             if ($found_user) {
 
                 $_SESSION["user_id"] = $found_user["id"];
                 $_SESSION["username"] = $found_user["username"];
-                $sname = $_POST['sname'];
-                $email = $_POST['email'];                
+                $sname = mysqli_real_escape_string($conn, $_POST['sname']);
+                $email = mysqli_real_escape_string($conn, $_POST['email']);                
                 $hashed_password = password_encrypt($_POST["new_password"]);
                 
                 $filter_club = implode(" ", $_POST['club']);
@@ -308,15 +308,15 @@ if (isset($_POST['submit'])) {
         if (empty($errors)) {
 
             $username = $_SESSION["username"];
-            $password = $_POST["password"];
+            $password = mysqli_real_escape_string($conn, $_POST['password']);
             $found_user = attempt_login($username, $password);
 
             if ($found_user) {
 
                 $_SESSION["user_id"] = $found_user["id"];
                 $_SESSION["username"] = $found_user["username"];
-                $sname = $_POST['sname'];
-                $email = $_POST['email'];                
+                $sname = mysqli_real_escape_string($conn, $_POST['sname']);
+                $email = mysqli_real_escape_string($conn, $_POST['email']);                
                 $hashed_password = password_encrypt($_POST["new_password"]);
                 
                 $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', hashed_password = '{$hashed_password}' WHERE username = '{$current_user}' LIMIT 1";
@@ -335,8 +335,8 @@ if (isset($_POST['submit'])) {
         validate_presence($required_fields);
     
         if (empty($errors)) {                
-            $sname = $_POST['sname'];
-            $email = $_POST['email'];                
+            $sname = mysqli_real_escape_string($conn, $_POST['sname']);
+            $email = mysqli_real_escape_string($conn, $_POST['email']);                
             
             $target_dir = "images/";
             $target_file = $target_dir . basename($_FILES["propic"]["name"]);                
@@ -358,8 +358,8 @@ if (isset($_POST['submit'])) {
         validate_presence($required_fields);
     
         if (empty($errors)) {                
-            $sname = $_POST['sname'];
-            $email = $_POST['email'];                
+            $sname = mysqli_real_escape_string($conn, $_POST['sname']);
+            $email = mysqli_real_escape_string($conn, $_POST['email']);                
             
             $target_dir = "images/";
             $target_file = $target_dir . basename($_FILES["propic"]["name"]);                
@@ -381,8 +381,8 @@ if (isset($_POST['submit'])) {
         validate_presence($required_fields);
     
         if (empty($errors)) {                
-            $sname = $_POST['sname'];
-            $email = $_POST['email'];                
+            $sname = mysqli_real_escape_string($conn, $_POST['sname']);
+            $email = mysqli_real_escape_string($conn, $_POST['email']);                
             
             $target_dir = "images/";
             $target_file = $target_dir . basename($_FILES["propic"]["name"]);                
@@ -404,8 +404,8 @@ if (isset($_POST['submit'])) {
         validate_presence($required_fields);
     
         if (empty($errors)) {                
-            $sname = $_POST['sname'];
-            $email = $_POST['email'];                
+            $sname = mysqli_real_escape_string($conn, $_POST['sname']);
+            $email = mysqli_real_escape_string($conn, $_POST['email']);                
             
             $target_dir = "images/";
             $target_file = $target_dir . basename($_FILES["propic"]["name"]);                
@@ -425,8 +425,8 @@ if (isset($_POST['submit'])) {
         validate_presence($required_fields);
     
         if (empty($errors)) {                
-            $sname = $_POST['sname'];
-            $email = $_POST['email'];           
+            $sname = mysqli_real_escape_string($conn, $_POST['sname']);
+            $email = mysqli_real_escape_string($conn, $_POST['email']);           
             
             $filter_branch = implode(" ", $_POST['branch']);
             $filter_club = implode(" ", $_POST['club']);
@@ -443,8 +443,8 @@ if (isset($_POST['submit'])) {
         validate_presence($required_fields);
     
         if (empty($errors)) {                
-            $sname = $_POST['sname'];
-            $email = $_POST['email'];
+            $sname = mysqli_real_escape_string($conn, $_POST['sname']);
+            $email = mysqli_real_escape_string($conn, $_POST['email']);
             $filter_branch = implode(" ", $_POST['branch']);
             
             $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', filter_branch = '{$filter_branch}' WHERE username = '{$current_user}' LIMIT 1";
@@ -460,8 +460,8 @@ if (isset($_POST['submit'])) {
         validate_presence($required_fields);
     
         if (empty($errors)) {                
-            $sname = $_POST['sname'];
-            $email = $_POST['email'];
+            $sname = mysqli_real_escape_string($conn, $_POST['sname']);
+            $email = mysqli_real_escape_string($conn, $_POST['email']);
             
             $filter_club = implode(" ", $_POST['club']);
             $query = "UPDATE users SET sname = '{$sname}', email = '{$email}', filter_club = '{$filter_club}' WHERE username = '{$current_user}' LIMIT 1";
@@ -477,8 +477,8 @@ if (isset($_POST['submit'])) {
         validate_presence($required_fields);
     
         if (empty($errors)) {                
-            $sname = $_POST['sname'];
-            $email = $_POST['email'];
+            $sname = mysqli_real_escape_string($conn, $_POST['sname']);
+            $email = mysqli_real_escape_string($conn, $_POST['email']);
             $query = "UPDATE users SET sname = '{$sname}', email = '{$email}' WHERE username = '{$current_user}' LIMIT 1";
             $result = mysqli_query($conn, $query);
             if ($result && mysqli_affected_rows($conn) == 1) {
