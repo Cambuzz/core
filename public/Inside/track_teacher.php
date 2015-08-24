@@ -374,6 +374,8 @@
         </footer>
     </div>
     <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="assets/js/search/index.js"></script>
     <script src="assets/js/gsap/main-gsap.js"></script>
     <!-- Imported scripts on this page --> 
