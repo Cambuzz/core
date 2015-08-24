@@ -783,7 +783,6 @@ $comment=0;
                             <ul class="dropdown-menu">
                                 <li class="top">
                                     <p class="small">
-                                        <a href="#" class="pull-right">Mark all Read</a>
                                         You have <strong><?php echo $comment; ?></strong> new notifications.
                                     </p>
                                 </li>
@@ -792,8 +791,7 @@ $comment=0;
                                     <ul class="dropdown-menu-list scroller">
                                         <li class="unread notification-secondary">
                                             <a href="#">
-                                                <i class="entypo-heart pull-right"></i>
-                                                
+                                            
                                                 <span class="line">
                                                     <?php
                                                 $comment=0;
@@ -849,17 +847,11 @@ $comment=0;
                                                 ?>
                                                 </span>
                                                 
-                                                <span class="line small">
-                                                    2 minutes ago
-                                                </span>
                                             </a>
                                         </li>
                                     </ul>
                                 </li>
                                 
-                                <li class="external">
-                                    <a href="#">View all notifications</a>
-                                </li>
                             </ul>
             
                         </li>       
