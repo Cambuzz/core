@@ -514,7 +514,6 @@ if (isset($_POST['submit'])) {
     <!-- Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,900' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="assets/css/font-icons/entypo/css/entypo.css">
     
     
@@ -530,7 +529,7 @@ if (isset($_POST['submit'])) {
     <![endif]-->
 </head>
 
-<body class="page-body page-fade-only">
+<body class="page-body page-fade-only" style="font-family: 'Montserrat';">
     <div class="page-container">
         <div class="sidebar-menu">
             <div class="sidebar-menu-inner">

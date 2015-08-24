@@ -88,7 +88,7 @@
     </script>
 </head>
 
-<body class="page-body  page-left-in">
+<body class="page-body  page-left-in"  style="font-family: 'Montserrat';">
     <div class="page-container">
         <div class="sidebar-menu">
             <div class="sidebar-menu-inner">
