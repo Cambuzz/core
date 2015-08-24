@@ -1492,6 +1492,7 @@ $comment=0;
     <script src="assets/js/fileinput.js"></script>
     <script src="assets/js/style-custom.js"></script>
     <script src="assets/js/style-demo.js"></script>
+    <script src="assets/js/style-api.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/classie/1.0.1/classie.min.js"></script>
 
     <!-- Bottom scripts (common) -->
@@ -1500,7 +1501,7 @@ $comment=0;
     <script src="assets/js/joinable.js"></script>
     <script src="assets/js/resizeable.js"></script>
     <script src="assets/js/uiMorphingButton_fixed.js"></script>
-    <script src="assets/js/style-api.js"></script>
+    
         
     <!-- Imported scripts on this page -->
     <script type="text/javascript">
