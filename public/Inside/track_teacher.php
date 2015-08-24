@@ -292,7 +292,7 @@
                                            $flag=1;
                                        }
                                    }        
-                                } elseif ($hour>19 || ($hour==19 && $minute>30)) {Your teacher might have left the college
+                                } elseif ($hour>19 || ($hour==19 && $minute>30)) {
                                    echo "Its too late. Your teacher might have left the college";
                                    echo "<br>";
                                } else {
