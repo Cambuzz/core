@@ -47,7 +47,7 @@ if ((isset($_POST['submit']))&&(isset($_POST['answer']))) {
     $flag=1;    
     while ($slang_list = mysqli_fetch_assoc($slang_result)) {
         $s1 = $slang_list['COL 1'];
-        $s2 = $_POST['answer'];
+        $s2 = mysqli_real_escape_string($conn, htmlspecialchars($_POST['answer']));
         $s=$s1." ".$s2;
         //echo $s;echo "<br>";
         $n= strlen($s);
@@ -90,7 +90,7 @@ if ((isset($_POST['submit']))&&(isset($_POST['answer']))) {
     }
     if ($flag==1) {
         $qid = $question["id"];
-        $answer = mysqli_real_escape_string($conn, $_POST["answer"]);
+        $answer = mysqli_real_escape_string($conn, htmlspecialchars($_POST['answer']));
         $answer_poster = $current_user;
         date_default_timezone_set('Asia/Calcutta');
         $answer_time = date("Y-m-d\TH:i:s");

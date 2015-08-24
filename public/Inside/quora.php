@@ -22,7 +22,7 @@
             $flag=1;    
             while ($slang_list = mysqli_fetch_assoc($slang_result)) {
                 $s1 = $slang_list['COL 1'];
-                $s2 = $_POST['question'];
+                $s2 = mysqli_real_escape_string($conn, htmlspecialchars($_POST['question']));
                 $s=$s1." ".$s2;
                 //echo $s;echo "<br>";
                 $n= strlen($s);
@@ -64,7 +64,7 @@
                 if($flag==0)break;                               
             }
             if ($flag==1) {
-                $question = mysqli_real_escape_string($conn, $_POST['question']);
+                $question = mysqli_real_escape_string($conn, htmlspecialchars($_POST['question']));
                 $quest_user = $current_user;
                 date_default_timezone_set('Asia/Calcutta');
                 $quest_time = date("Y-m-d\TH:i:s");
@@ -223,7 +223,7 @@
                     <div>
                     <?php
 if (isset($_POST['submit_search'])) {
-    $search = mysqli_real_escape_string($conn, $_POST['search']);
+    $search = mysqli_real_escape_string($conn, htmlspecialchars($_POST['search']));
     $search_query = "SELECT * FROM quora";
     $search_result = mysqli_query($conn, $search_query);
     confirm_query($search_result);
