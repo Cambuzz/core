@@ -682,12 +682,12 @@ if (isset($_POST['submit'])) {
                                                 <input type="text" name="sname" value="<?php echo $name_title['sname']; ?>" class="form-control" id="field-1" required />
                                             </div>
                                         </div>
-                                        <div class="form-group">
+                                      <!--   <div class="form-group">
                                             <label for="field-4" class="col-sm-3 control-label">Email address</label>
                                             <div class="col-sm-5">
                                                 <input type="email" class="form-control" name="email" id="field-4" data-validate="required,email" value="<?php echo $name_title['email']; ?>" required />
                                             </div>
-                                        </div>
+                                        </div> -->
                                         <div class="form-group">
                                             <label for="field-1" class="col-sm-3 control-label">Change Password?</label>
                                             <div class="col-sm-5">
