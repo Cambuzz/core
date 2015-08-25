@@ -175,7 +175,7 @@ if ((isset($_POST['submit']))&&(isset($_POST['answer']))) {
                             <?php
                                 if ($name_title["proset"]==0) { 
                             ?>
-                                    <img src="assets/images/nopic.png" class="img-circle" height="200px" width="100px" style="border-radius: 100%;" />
+                                    <img src="assets/images/nopic.png" class="img-circle" height="100px" width="100px" style="border-radius: 100%; min-width: 100px; min-height: 100px;" />
                             <?php
                                 } elseif ($name_title["proset"]==1) {
                                         $imageid=$name_title['id'];
