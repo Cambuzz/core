@@ -398,6 +398,10 @@ if (logged_in()) {
                         {
                             $('#emailchecking').html(msg);
                         }
+                         else if(msg=="Email already exists")
+                        {
+                            $('#emailchecking').html(msg);
+                        }
                         else
                         {
                             $('#accountchecking').html(msg);

@@ -12,10 +12,16 @@ if (logged_in()) {
             $username = mysql_prep($_POST["register"]);
             $email = $_POST['email'];
             $password=$_POST['password'];
- $query_ucheck = "SELECT username FROM users WHERE username = '{$username}'";
-    $result_ucheck = mysqli_query($conn, $query_ucheck);
+            $query_ucheck = "SELECT username FROM users WHERE username = '{$username}'";
+            $result_ucheck = mysqli_query($conn, $query_ucheck);
+            $query_echeck = "SELECT email FROM users WHERE email = '{$email}'";
+    $result_echeck = mysqli_query($conn, $query_echeck);
     if (mysqli_num_rows($result_ucheck) !=0) {
         echo "Username already exists";
+    }
+    else if(mysqli_num_rows($result_echeck)!=0)
+    {
+        echo "Email already exists";
     } else {
 
         

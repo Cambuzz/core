@@ -1,8 +1,8 @@
 <?php
-define("DB_SERVER", "localhost");
-define("DB_USER", "root");
-define("DB_PASS", "25nov1992");
-define("DB_NAME", "cambuzz");
+define("DB_SERVER","localhost");
+define("DB_USER","root");
+define("DB_PASS","25nov1992");
+define("DB_NAME","cambuzz");
 
 // Create connection
 $conn = mysqli_connect(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
