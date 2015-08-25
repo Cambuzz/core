@@ -182,9 +182,9 @@ if ((isset($_POST['submit']))&&(isset($_POST['answer']))) {
                                         $dpcounter=$name_title['dpcounter'];
                                         //echo '<img src="data:image/jpeg;base64,' . base64_encode($name_title['data_propic']) . '" class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>'; 
                                           if($dpcounter>0)
-                                        echo '<img src="images/' . $imageid."_".$dpcounter . '.jpg "height="44px" width="44px" alt="" class="img-circle">';
+                                        echo '<img src="images/' . $imageid."_".$dpcounter . '.jpg "height="100px" width="100px" style="border-radius: 100%; min-width: 100px; min-height: 100px;" alt=""  class="img-circle">';
                                         else
-                                        echo '<img src="images/' . $imageid. '.jpg "height="44px" width="44px" alt="" class="img-circle">';
+                                        echo '<img src="images/' . $imageid. '.jpg "height="100px" width="100px" alt="" style="border-radius: 100%; min-width: 100px; min-height: 100px;" class="img-circle">';
                                 }
                             ?>
                             <span>Welcome,</span>
