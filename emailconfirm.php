@@ -14,7 +14,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 }
 
 $time=time();
-if(($ectstamp+100)<$time)
+if(($ectstamp+1800)<$time)
 {
   if($confirmed==0)
   {
