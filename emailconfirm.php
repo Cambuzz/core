@@ -16,8 +16,11 @@ while ($row = mysqli_fetch_assoc($result)) {
 $time=time();
 if(($ectstamp+100)<$time)
 {
+  if($confirmed==0)
+  {
   $query_delete="DELETE FROM users WHERE username='{$username}' LIMIT 1";
-$result_delete=mysqli_query($conn,$query_delete);
+   $result_delete=mysqli_query($conn,$query_delete);
+ }
     redirect_to("linkexpire.php");
 }
 
@@ -79,8 +82,8 @@ $result_delete=mysqli_query($conn,$query_delete);
             </div>
         </div>
          <form id="confirmform">
-         <input type="text" style="dislpay:none;" id="username" value="<?php echo $username; ?>">
-          <input type="text" style="dislpay:none;" id="code" value="<?php echo $code; ?>">
+         <input type="text" style="display:none;" id="username" value="<?php echo $username; ?>">
+          <input type="text" style="display:none;" id="code" value="<?php echo $code; ?>">
         <div class="mockup-content">
             <div class="morph-button morph-button-modal morph-button-modal-2 morph-button-fixed login">
            
@@ -134,6 +137,9 @@ $result_delete=mysqli_query($conn,$query_delete);
                         //$(".modal-backdrop").remove();
 
                         //$("#"+qid).val(content);
+                        if(msg=="done")
+                        window.location.href="index.php";
+                        else
                         alert(msg);
                     });
                   return false;
