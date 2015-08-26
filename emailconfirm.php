@@ -10,7 +10,10 @@ confirm_query($result);
 while ($row = mysqli_fetch_assoc($result)) {
 	$db_code = $row['confirm_code'];
 	$ectstamp= $row['ectstamp'];
+  $confirmed=$row['confirmed'];
 }
+if($confirmed==0)
+{
 $time=time();
 if(($ectstamp+1800)>$time)
 {
@@ -30,13 +33,14 @@ $query_delete="DELETE FROM users WHERE username='{$username}' LIMIT 1";
 $result_delete=mysqli_query($conn,$query_delete);
 //$r=mysqli_affected_rows($conn,$result_delete);
  if($result_delete)
- echo "Link Expired. Please signup again. We apologise for the inconvenience. https://www.cambuzz.co.in";
+ echo "Link Expired. Please signup again. We apologise for the inconvenience.";
   else
  echo "connection failed";
-    
-
-
 }
+}
+else
+echo "The account is already confirmed.";
+
 ?>
 <?php
 if (isset ($conn)){
