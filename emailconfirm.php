@@ -137,10 +137,8 @@ if(($ectstamp+100)<$time)
                         //$(".modal-backdrop").remove();
 
                         //$("#"+qid).val(content);
-                        if(msg=="done")
                         window.location.href="index.php";
-                        else
-                        alert(msg);
+                       
                     });
                   return false;
 
