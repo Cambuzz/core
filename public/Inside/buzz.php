@@ -557,10 +557,10 @@ if (isset($_POST['submit'])) {
     $filter_result = mysqli_query($conn, $filter_query);
     confirm_query($filter_result);
     $filter_array = mysqli_fetch_assoc($filter_result);
-    date_default_timezone_set('Asia/Calcutta');
-    $delete_time = date("Y-m-d\TH:i:s");
-    $work = "DELETE  FROM notify WHERE end_date_time < '{$delete_time}'";
-    mysqli_query($conn, $work);
+    //date_default_timezone_set('Asia/Calcutta');
+    //$delete_time = date("Y-m-d\TH:i:s");
+    //$work = "DELETE  FROM notify WHERE end_date_time < '{$delete_time}'";
+    //mysqli_query($conn, $work);
 ?>
 <?php
 $comment=0;
