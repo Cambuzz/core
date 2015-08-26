@@ -32,8 +32,9 @@ if (logged_in()) {
             {
                 $hashed_password = password_encrypt($password); 
                 $confirmcode = rand(); 
-                $query = "INSERT INTO users (sname, username, email, hashed_password, confirmed, confirm_code)";
-                $query .= " VALUES ('{$sname}', '{$username}', '{$email}', '{$hashed_password}', '0', '{$confirmcode}')";
+                $ectstamp=time();
+                $query = "INSERT INTO users (sname, username, email, hashed_password, confirmed, confirm_code,ectstamp)";
+                $query .= " VALUES ('{$sname}', '{$username}', '{$email}', '{$hashed_password}', '0', '{$confirmcode}','{$ectstamp}')";
                 $result = mysqli_query($conn, $query);         
 
                 if ($result) {

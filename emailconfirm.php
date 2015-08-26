@@ -9,7 +9,11 @@ $result = mysqli_query($conn, $query);
 confirm_query($result);
 while ($row = mysqli_fetch_assoc($result)) {
 	$db_code = $row['confirm_code'];
+	$ectstamp= $row['ectstamp'];
 }
+$time=time();
+if(($ectstamp+1800)>$time)
+{
 if ($code==$db_code) {
 	$query = "UPDATE users SET confirmed = '1', confirm_code = '0'";
     $result = mysqli_query($conn, $query);
@@ -17,6 +21,22 @@ if ($code==$db_code) {
         redirect_to("index.php");       
     }
   }
+}
+else
+{
+//$username=$row['username'];
+mysqli_close($result);
+$query_delete="DELETE FROM users WHERE username='{$username}' LIMIT 1";
+$result_delete=mysqli_query($conn,$query_delete);
+//$r=mysqli_affected_rows($conn,$result_delete);
+ if($result_delete)
+ echo "Link Expired. Please signup again. We apologise for the inconvenience. https://www.cambuzz.co.in";
+  else
+ echo "connection failed";
+    
+
+
+}
 ?>
 <?php
 if (isset ($conn)){
