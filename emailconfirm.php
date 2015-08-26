@@ -16,6 +16,8 @@ while ($row = mysqli_fetch_assoc($result)) {
 $time=time();
 if(($ectstamp+100)<$time)
 {
+  $query_delete="DELETE FROM users WHERE username='{$username}' LIMIT 1";
+$result_delete=mysqli_query($conn,$query_delete);
     redirect_to("linkexpire.php");
 }
 
@@ -76,20 +78,22 @@ if(($ectstamp+100)<$time)
                 <p class="animated fadeInUp"><span style="font-size: 20px;">&#35; </span>VITC Chapter</p>
             </div>
         </div>
-        
+         <form id="confirmform">
+         <input type="text" style="dislpay:none;" id="username" value=<?php echo $username; ?>>
+          <input type="text" style="dislpay:none;" id="code" value=<?php echo $code; ?>>
         <div class="mockup-content">
             <div class="morph-button morph-button-modal morph-button-modal-2 morph-button-fixed login">
-            <form id="confirmform">
-                <input type="text" style="dislpay:none" id="username" value=<?php echo $username; ?>>
-                <input type="text" style="dislpay:none" id="code" value=<?php echo $code; ?>>
-                <button type="button" style="color: white; background-color: #e75854;">Click to verify</button>
-            </form>   
+           
+                
+                <button type="submit" style="color: white; background-color: #e75854;">Click to verify</button>
+            
                
             </div>
             <!-- Sign Up Button -->
            
             <!-- morph-button -->
         </div>
+        </form>   
     </header>
     
     
