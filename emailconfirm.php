@@ -79,8 +79,8 @@ $result_delete=mysqli_query($conn,$query_delete);
             </div>
         </div>
          <form id="confirmform">
-         <input type="text" style="dislpay:none;" id="username" value=<?php echo $username; ?>>
-          <input type="text" style="dislpay:none;" id="code" value=<?php echo $code; ?>>
+         <input type="text" style="dislpay:none;" id="username" value="<?php echo $username; ?>">
+          <input type="text" style="dislpay:none;" id="code" value="<?php echo $code; ?>">
         <div class="mockup-content">
             <div class="morph-button morph-button-modal morph-button-modal-2 morph-button-fixed login">
            
@@ -112,7 +112,7 @@ $result_delete=mysqli_query($conn,$query_delete);
           
         $(document).ready(function(){
           
-            $('.confirmform').on('submit',function()
+            $('#confirmform').on('submit',function()
             {
                 //var content=$("."+qid).html();
                 //alert(content);
@@ -121,7 +121,7 @@ $result_delete=mysqli_query($conn,$query_delete);
                 var username=$("#username").val();
                 var code=$("#code").val();
                  //$("#"+qid).val(content);
-                  
+                //alert('hello');
                 
                 $.ajax({
                     method: "POST",
