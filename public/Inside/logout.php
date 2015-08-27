@@ -7,6 +7,7 @@ $_SESSION = array();
 if (isset($_COOKIE[session_name()])) {
 	setcookie(session_name(), '', time()-42000, '/');
 }
+                $username=$_SESSION["username"];
                 $query_delete="DELETE FROM live WHERE live_users='{$username}'";
                 $result_delete=mysqli_query($conn,$query_delete);
 session_destroy();
