@@ -34,8 +34,6 @@ if (logged_in()) {
     <link rel="stylesheet" src="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" />
     <link rel="stylesheet" type="text/css" href="css/background.css" />
     <link rel="stylesheet" type="text/css" href="css/buttoncreatebuzz.css">
-    <script src="js/modernizr.custom.js"></script>
-    <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
     
 </head>
 
@@ -159,6 +157,27 @@ if (logged_in()) {
                                                     <div class="form-group">
                                                         <div class="col-sm-offset-3 col-sm-5">
                                                             <input type="submit" name="submit_up" value="Submit" class="btn btn-success">
+                                                            <!-- <a href="javascript:;" onclick="jQuery('#modal-1').modal('show');" class="btn btn-default">Show Me</a> -->
+                                                        <div class="modal fade" id="modal-1">
+                                                            <div class="modal-dialog">
+                                                                <div class="modal-content">
+                                                                    
+                                                                    <div class="modal-header">
+                                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                                        <h4 class="modal-title">Basic Modal</h4>
+                                                                    </div>
+                                                                    
+                                                                    <div class="modal-body">
+                                                                        Hello I am a Modal!
+                                                                    </div>
+                                                                    
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                                        <button type="button" class="btn btn-info">Save changes</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                       </div> 
                                                         </div>
                                                     </div>
                                                 </form>
@@ -175,8 +194,9 @@ if (logged_in()) {
         </div>
     </header>
     
-    
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/classie/1.0.1/classie.min.js"></script>
+    <script src="js/modernizr.custom.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/classie/1.0.1/classie.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="js/uiMorphingButton_fixed.js"></script>
     
@@ -337,7 +357,6 @@ if (logged_in()) {
         });
     </script>
 
-    <script  src="HTTP://code.jquery.com/jquery-1.9.1.min.js"></script>
     
     <script type="text/javascript">
         
