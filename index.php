@@ -34,8 +34,6 @@ if (logged_in()) {
     <link rel="stylesheet" src="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" />
     <link rel="stylesheet" type="text/css" href="css/background.css" />
     <link rel="stylesheet" type="text/css" href="css/buttoncreatebuzz.css">
-    <script src="js/modernizr.custom.js"></script>
-    <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
     
 </head>
 
@@ -198,8 +196,9 @@ if (logged_in()) {
         </div>
     </header>
     
-    
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/classie/1.0.1/classie.min.js"></script>
+    <script src="js/modernizr.custom.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/classie/1.0.1/classie.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="js/uiMorphingButton_fixed.js"></script>
     
