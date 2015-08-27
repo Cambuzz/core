@@ -9,9 +9,12 @@ if (isset($_COOKIE[session_name()])) {
 }
                 $query_get="SELECT * FROM live WHERE id='1'";
                 $result_get= mysqli_query($conn, $query_get);
-                $live_users=mysqli_fetch_assoc($result_email);
-                $temp=$live_users['live_users']-1;
-                $query_update= "UPDATE live SET live_users='{$temp}' WHERE id= '1'";
+                 while ($live_users=mysqli_fetch_assoc($result_get))
+                 {
+                        $live = $live_users['live_users'];
+                 }
+                $live=$live-1;
+                $query_update= "UPDATE live SET live_users='{$live}' WHERE id= '1'";
                 $result = mysqli_query($conn, $query_update);
 session_destroy();
 redirect_to("../../index.php");

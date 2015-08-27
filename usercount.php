@@ -34,8 +34,11 @@ echo $total;
 
  $query_get="SELECT * FROM live WHERE id='1'";
  $result_get= mysqli_query($conn, $query_get);
- $live_users=mysqli_fetch_assoc($result_email);
- echo $live_users['live_users'];
+	     while ($live_users=mysqli_fetch_assoc($result_get))
+	                 {
+	                        $live = $live_users['live_users'];
+	                 }
+ echo $live;
 ?>	
 </p>
 </div>
