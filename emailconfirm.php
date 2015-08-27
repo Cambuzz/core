@@ -6,7 +6,7 @@ $username = $_GET['username'];
 $code = $_GET['code'];
 if(isset($_GET['username'])&&isset($_GET['code']))
 {
-$query = "SELECT * FROM users WHERE username = '{$username}' LIMIT 1";
+$query = "SELECT * FROM users WHERE username = '{$username}'";
 $result = mysqli_query($conn, $query);
 confirm_query($result);
 while ($row = mysqli_fetch_assoc($result)) {

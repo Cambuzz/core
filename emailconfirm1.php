@@ -6,7 +6,7 @@ $username = $_POST['username'];
 $code = $_POST['code'];
 if(isset($_POST['username'])&&isset($_POST['code']))
 {
-$query = "SELECT * FROM users WHERE username = '{$username}' LIMIT 1";
+$query = "SELECT * FROM users WHERE username = '{$username}'";
 $result = mysqli_query($conn, $query);
 confirm_query($result);
 while ($row = mysqli_fetch_assoc($result)) {
@@ -21,7 +21,7 @@ if(($ectstamp+1800)>$time)
 {
 if ($code==$db_code) 
 {
-    $query = "UPDATE users SET confirmed = '1', confirm_code = '0' LIMIT 1";
+    $query = "UPDATE users SET confirmed = '1', confirm_code = '0'";
     $result = mysqli_query($conn, $query);
     if ($result) 
     {
