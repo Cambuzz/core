@@ -19,5 +19,4 @@ if ($result && mysqli_affected_rows($conn) == 1) {
 
 	redirect_to("buzz.php");
 }
-
 ?>
