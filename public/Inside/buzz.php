@@ -1249,7 +1249,7 @@ $comment=0;
                                                     <header>
                                                     <div style="float: right; margin-top: 2px;">
                                                            <a style="font-size: 14px;" class="entypo-trash" href="delete_event.php?id=<?php echo urlencode($notification["id"]); ?>" onclick="return confirm('Are you sure?');"></a>
-                                                           <a style="font-size: 14px;" class="entypo-mail" href="edit_event.php?id=<?php echo urlencode($notification["id"]); ?>" onclick="modalshow(<?php echo $notification['id'];?>);"></a>
+                                                           
                                                     </div>
                                                     <div class="publisher" style="color: #303641; font-family: 'Montserrat', sans-serif;">
                                                     <span style="font-weight: bold;"><?php echo ucfirst($name_print_title["sname"]); ?></span><span style="color: #9b9fa6;">&nbsp;posted a buzz!</span>
@@ -1393,7 +1393,7 @@ $comment=0;
                                                     <header>
                                                     <div style="float: right; margin-top: 2px;">
                                                            <a style="font-size: 14px;" class="entypo-trash" href="delete_event.php?id=<?php echo urlencode($notification["id"]); ?>" onclick="return confirm('Are you sure?');"></a>
-                                                           <a style="font-size: 14px;" class="entypo-mail" href="edit_event.php?id=<?php echo urlencode($notification["id"]); ?>" onclick="modalshow(<?php echo $notification['id'];?>);"></a>
+                                                           
                                                     </div>
                                                     <div class="publisher" style="color: #303641; font-family: 'Montserrat', sans-serif;">
                                                     <span style="font-weight: bold;"><?php echo ucfirst($name_print_title["sname"]); ?></span><span style="color: #9b9fa6;">&nbsp;posted a buzz!</span>
@@ -1637,99 +1637,7 @@ $comment=0;
         });
     })();
     </script>
-    <div class="modal" id="modal-1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title">Edit question</h4>
-                </div>
-                
-                <div class="modal-body">
-                    <form class="modalform">
-                    <textarea class="form-control autogrow"   name="question" placeholder="What do you want to know today?" required style="font-size:15px;"  class="questioncontent" ></textarea>
-                </div>
-                
-                <div class="modal-footer">
-                    <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
-                    <button type="submit" class="btn btn-info">Save changes</button>
-                    
-                </div>
-                </form>
-            </div>
-        </div>
-    </div>
-        <div class="modal fade" id="modal-2">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title">Search Results</h4>
-                </div>
-                
-                <div class="modal-body">
-                    Question-1
-                </div>
-            </div>
-        </div>
-    </div>  
-
-
-     
-     <script type="text/javascript">
-        var qid;
-        function modalshow(text)
-           {
-              $('#modal-1').modal('show');
-              //alert(text);
-              qid=text;
-           }
-
-          
-        $(document).ready(function(){
-           //alert("hello");
-
-           
-
-
-
-            $('.modalform').on('submit',function()
-            {
-                //var content=$("."+qid).html();
-                //alert(content);
-                //alert(qid);
-                //alert($(this).children(".questioncontent"));
-                var content=$(this).children().val();
-                 //$("#"+qid).val(content);
-                  
-                
-                $.ajax({
-                    method: "POST",
-                    url: "question_edit.php",
-                    data: {id:qid,content:content}
-                    })
-                    .done(function(){
-                        //alert(data);
-
-                        $('#modal-1').modal('hide');
-                        $('body').removeClass('modal-open');
-                        $(".modal-backdrop").remove();
-
-                        $("#"+qid).val(content);
-                        window.location.href="quora.php";
-                    });
-                
-                qid=-1;
-                return false;
-
-                
-            });
-            
-        });
-        
-    </script>
+    
 </body>
 
 </html>
