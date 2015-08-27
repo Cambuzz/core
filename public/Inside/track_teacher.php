@@ -269,15 +269,15 @@
                                    echo "Today is a holiday";
                                    echo "<br>";
                                }
-                               elseif($hour<6 || $hour>22) {
+                               elseif($hour<=6 || $hour>=22) {
                                    echo "Your teacher is sleeping now";echo "<br>";
-                                   if($hour>22 && $r==4) {
+                                   if($hour>=22 && $r==4) {
                                        echo "Tommorow is a holiday";echo "<br>";
                                        echo "Monday:";echo "<br>";
                                        $r=0;
                                    }
-                                   else if($hour<24 && $hour>22){
-                                      echo "Tommorow's schedule\n" ;
+                                   elseif($hour<24 && $hour>=22){
+                                      echo "Tommorow's schedule, " ;
                                       $r++;
                                     }
                                    $flag=0;
