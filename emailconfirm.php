@@ -4,6 +4,8 @@
 <?php
 $username = $_GET['username'];
 $code = $_GET['code'];
+if(isset($_GET['username'])&&isset($_GET['code']))
+{
 $query = "SELECT * FROM users WHERE username = '{$username}'";
 $result = mysqli_query($conn, $query);
 confirm_query($result);
@@ -23,7 +25,7 @@ if(($ectstamp+1800)<$time)
  }
     redirect_to("linkexpire.php");
 }
-
+}
 
 ?>
 

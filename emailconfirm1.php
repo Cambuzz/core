@@ -4,6 +4,8 @@
 <?php
 $username = $_POST['username'];
 $code = $_POST['code'];
+if(isset($_POST['username'])&&isset($_POST['code']))
+{
 $query = "SELECT * FROM users WHERE username = '{$username}'";
 $result = mysqli_query($conn, $query);
 confirm_query($result);
@@ -23,7 +25,7 @@ if ($code==$db_code)
     $result = mysqli_query($conn, $query);
     if ($result) 
     {
-        redirect_to("index.php");       
+        echo "done";      
     }
 }
 }
@@ -42,4 +44,5 @@ $result_delete=mysqli_query($conn,$query_delete);
 }
 else
 echo "The account is already confirmed.";
+}
 ?>
