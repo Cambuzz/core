@@ -32,6 +32,7 @@ if (logged_in()) {
             {
                 $hashed_password = password_encrypt($password); 
                 $confirmcode = rand(); 
+                //$confirmcode = MD5($email."&*@dhv1%!@90!124^%&>>?".$username);
                 $ectstamp=time();
                 $query = "INSERT INTO users (sname, username, email, hashed_password, confirmed, confirm_code,ectstamp)";
                 $query .= " VALUES ('{$sname}', '{$username}', '{$email}', '{$hashed_password}', '0', '{$confirmcode}','{$ectstamp}')";
