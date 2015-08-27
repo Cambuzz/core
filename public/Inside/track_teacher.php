@@ -276,6 +276,10 @@
                                        echo "Monday:";echo "<br>";
                                        $r=0;
                                    }
+                                   else if($hour<24 && $hour>22){
+                                      echo "Tommorow's schedule\n" ;
+                                      $r++;
+                                    }
                                    $flag=0;
                                    for ($j=0; $j < 13; $j++) {
 
@@ -296,7 +300,7 @@
                                        }
                                    }        
                                 } elseif ($hour>19 || ($hour==19 && $minute>30)) {
-                                   echo "Its too late. Your teacher might have left the college";
+                                   echo "Its too late. Your teacher might have left the campus";
                                    echo "<br>";
                                } else {
                                    $flag=0;
@@ -313,7 +317,7 @@
                                                        if($k==13)break;
                                                    }
                                                    echo $timarr[$k-1][0].":".$timarr[$k-1][1];echo "<br>";
-                                                   if($k==13){echo "Your teacher might have left the college";echo "<br>";}
+                                                   if($k==13){echo "Your teacher might have left the campus";echo "<br>";}
                                                    for ($j=$k+1; $j < 13; $j++) { 
                                                        if($matrix[$r][$j]==0) {
                                                            if($flag==0) {
