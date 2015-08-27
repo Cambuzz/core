@@ -126,29 +126,6 @@ if (logged_in()) {
                                                             <input type="text" class="form-control" id="field1" name="sname" value="" required />
                                                         </div>
                                                     </div>
-                                                    <td>
-                                                        <a href="javascript:;" onclick="jQuery('#modal-1').modal('show');" class="btn btn-default">Show Me</a>
-                                                    </td>
-                                                    <div class="modal fade" id="modal-1">
-                                                        <div class="modal-dialog">
-                                                            <div class="modal-content">
-                                                                
-                                                                <div class="modal-header">
-                                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                                                    <h4 class="modal-title">Basic Modal</h4>
-                                                                </div>
-                                                                
-                                                                <div class="modal-body">
-                                                                    Hello I am a Modal!
-                                                                </div>
-                                                                
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                                                    <button type="button" class="btn btn-info">Save changes</button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
                                                     <div class="form-group">
                                                         <label for="field-1" class="col-sm-3 control-label">Registration Number</label>
                                                         <div class="col-sm-5">
@@ -180,6 +157,27 @@ if (logged_in()) {
                                                     <div class="form-group">
                                                         <div class="col-sm-offset-3 col-sm-5">
                                                             <input type="submit" name="submit_up" value="Submit" class="btn btn-success">
+                                                            <!-- <a href="javascript:;" onclick="jQuery('#modal-1').modal('show');" class="btn btn-default">Show Me</a> -->
+                                                        <div class="modal fade" id="modal-1">
+                                                            <div class="modal-dialog">
+                                                                <div class="modal-content">
+                                                                    
+                                                                    <div class="modal-header">
+                                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                                        <h4 class="modal-title">Basic Modal</h4>
+                                                                    </div>
+                                                                    
+                                                                    <div class="modal-body">
+                                                                        Hello I am a Modal!
+                                                                    </div>
+                                                                    
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                                        <button type="button" class="btn btn-info">Save changes</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                       </div> 
                                                         </div>
                                                     </div>
                                                 </form>
