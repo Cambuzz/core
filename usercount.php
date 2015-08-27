@@ -25,6 +25,19 @@ $total = $row[0];
 echo $total;
 ?>	
 </p>
+
+
+<h2>Live users</h2> 
+<p></p><br/><br/>
+<p>
+<?php
+
+ $query_get="SELECT * FROM live WHERE id='1'";
+ $result_get= mysqli_query($conn, $query_get);
+ $live_users=mysqli_fetch_assoc($result_email);
+ echo $live_users['live_users'];
+?>	
+</p>
 </div>
 </div>
 <?php include("includes/layouts/footer.php");?>
