@@ -9,7 +9,8 @@ if(isset($_POST['username'])&&isset($_POST['code']))
 $query = "SELECT * FROM users WHERE username = '{$username}'";
 $result = mysqli_query($conn, $query);
 confirm_query($result);
-while ($row = mysqli_fetch_assoc($result)) {
+while ($row = mysqli_fetch_assoc($result))
+{
     $db_code = $row['confirm_code'];
     $ectstamp= $row['ectstamp'];
   $confirmed=$row['confirmed'];
@@ -21,7 +22,7 @@ if(($ectstamp+1800)>$time)
 {
 if ($code==$db_code) 
 {
-    $query = "UPDATE users SET confirmed = '1', confirm_code = '0'";
+    $query = "UPDATE users SET confirmed = '1', confirm_code = '0' WHERE username = '{$username}'";
     $result = mysqli_query($conn, $query);
     if ($result) 
     {
