@@ -81,11 +81,12 @@ if (isset($_POST['submit'])) {
                 move_uploaded_file($_FILES["uploaded_file"]["tmp_name"],"images/posters/$buzz_id.jpg");
                 $poset = 1;
                 $buzz_username = $_SESSION['username'];
+                $app_name = $name_title['sname'];
                 date_default_timezone_set('Asia/Calcutta');
                 $buzz_time = date("Y-m-d\TH:i:s");
                 if($content !=''){
-                    $query = "INSERT INTO notify (title, content, start_date_time, end_date_time, branch, club, poset, buzz_username, buzz_time)";
-                    $query .= " VALUES ('{$title}', '{$content}', '{$start_date_time}', '{$end_date_time}', '{$branch}', '{$club}', {$poset}, '{$buzz_username}', '{$buzz_time}')";
+                    $query = "INSERT INTO notify (title, content, start_date_time, end_date_time, branch, club, poset, buzz_username, buzz_time, app_name)";
+                    $query .= " VALUES ('{$title}', '{$content}', '{$start_date_time}', '{$end_date_time}', '{$branch}', '{$club}', {$poset}, '{$buzz_username}', '{$buzz_time}', '{$app_name}')";
                     $sql = mysqli_query($conn, $query);
                 } else {
                     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
@@ -149,11 +150,12 @@ if (isset($_POST['submit'])) {
                 move_uploaded_file($_FILES["uploaded_file"]["tmp_name"],"images/posters/$buzz_id.jpg");
                 $poset = 1;
                 $buzz_username = $_SESSION['username'];
+                $app_name = $name_title['sname'];
                 date_default_timezone_set('Asia/Calcutta');
                 $buzz_time = date("Y-m-d H-i-s");
                 if($content !=''){
-                    $query = "INSERT INTO notify (title, content, start_date_time, end_date_time, branch, club, poset, buzz_username, buzz_time)";
-                    $query .= " VALUES ('{$title}', '{$content}', '{$start_date_time}', '{$end_date_time}', '{$branch}', '{$club}', {$poset}, '{$buzz_username}', '{$buzz_time}')";
+                    $query = "INSERT INTO notify (title, content, start_date_time, end_date_time, branch, club, poset, buzz_username, buzz_time, app_name)";
+                    $query .= " VALUES ('{$title}', '{$content}', '{$start_date_time}', '{$end_date_time}', '{$branch}', '{$club}', {$poset}, '{$buzz_username}', '{$buzz_time}', '{$app_name}')";
                     $sql = mysqli_query($conn, $query);
                 } else {
                     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
@@ -217,11 +219,12 @@ if (isset($_POST['submit'])) {
                 move_uploaded_file($_FILES["uploaded_file"]["tmp_name"],"images/posters/$buzz_id.jpg");
                 $poset = 1;
                 $buzz_username = $_SESSION['username'];
+                $app_name = $name_title['sname'];
                 date_default_timezone_set('Asia/Calcutta');
                 $buzz_time = date("Y-m-d H-i-s");
                 if($content !=''){
-                    $query = "INSERT INTO notify (title, content, start_date_time, end_date_time, branch, club, poset, buzz_username, buzz_time)";
-                    $query .= " VALUES ('{$title}', '{$content}', '{$start_date_time}', '{$end_date_time}', '{$branch}', '{$club}', {$poset}, '{$buzz_username}', '{$buzz_time}')";
+                    $query = "INSERT INTO notify (title, content, start_date_time, end_date_time, branch, club, poset, buzz_username, buzz_time, app_name)";
+                    $query .= " VALUES ('{$title}', '{$content}', '{$start_date_time}', '{$end_date_time}', '{$branch}', '{$club}', {$poset}, '{$buzz_username}', '{$buzz_time}', '{$app_name}')";
                     $sql = mysqli_query($conn, $query);
                 } else {
                     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
@@ -283,11 +286,12 @@ if (isset($_POST['submit'])) {
                 move_uploaded_file($_FILES["uploaded_file"]["tmp_name"],"images/posters/$buzz_id.jpg");
                 $poset = 1;
                 $buzz_username = $_SESSION['username'];
+                $app_name = $name_title['sname'];
                 date_default_timezone_set('Asia/Calcutta');
                 $buzz_time = date("Y-m-d H-i-s");
                 if($content !=''){
-                    $query = "INSERT INTO notify (title, content, start_date_time, end_date_time, poset, buzz_username, buzz_time)";
-                    $query .= " VALUES ('{$title}', '{$content}', '{$start_date_time}', '{$end_date_time}', {$poset}, '{$buzz_username}', '{$buzz_time}')";
+                    $query = "INSERT INTO notify (title, content, start_date_time, end_date_time, poset, buzz_username, buzz_time, app_name)";
+                    $query .= " VALUES ('{$title}', '{$content}', '{$start_date_time}', '{$end_date_time}', {$poset}, '{$buzz_username}', '{$buzz_time}', '{$app_name}')";
                     $sql = mysqli_query($conn, $query);
                 } else {
                     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
@@ -348,11 +352,12 @@ if (isset($_POST['submit'])) {
                 $branch = implode(" ", $_POST['branch']);
                 $club = implode(" ", $_POST['club']);
                 $buzz_username = $_SESSION['username'];
+                $app_name = $name_title['sname'];
                 date_default_timezone_set('Asia/Calcutta');
                 $buzz_time = date("Y-m-d H-i-s");
                 if($content !=''){
-                    $query = "INSERT INTO notify (title, content, start_date_time, end_date_time, branch, club, buzz_username, buzz_time)"; 
-                    $query .=" VALUES ('{$title}', '{$content}', '{$start_date_time}', '{$end_date_time}', '{$branch}', '{$club}', '{$buzz_username}', '{$buzz_time}')";
+                    $query = "INSERT INTO notify (title, content, start_date_time, end_date_time, branch, club, buzz_username, buzz_time, app_name)"; 
+                    $query .=" VALUES ('{$title}', '{$content}', '{$start_date_time}', '{$end_date_time}', '{$branch}', '{$club}', '{$buzz_username}', '{$buzz_time}', '{$app_name}')";
                     $sql = mysqli_query($conn, $query);
                 } else {
                     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
@@ -411,11 +416,12 @@ if (isset($_POST['submit'])) {
                 $branch = implode(" ", $_POST['branch']);
                 $club = "xyz";
                 $buzz_username = $_SESSION['username'];
+                $app_name = $name_title['sname'];
                 date_default_timezone_set('Asia/Calcutta');
                 $buzz_time = date("Y-m-d H-i-s");
                 if($content !=''){
-                    $query = "INSERT INTO notify (title, content, start_date_time, end_date_time, branch, club, buzz_username, buzz_time)"; 
-                    $query .=" VALUES ('{$title}', '{$content}', '{$start_date_time}', '{$end_date_time}', '{$branch}', '{$club}', '{$buzz_username}', '{$buzz_time}')";
+                    $query = "INSERT INTO notify (title, content, start_date_time, end_date_time, branch, club, buzz_username, buzz_time, app_name)"; 
+                    $query .=" VALUES ('{$title}', '{$content}', '{$start_date_time}', '{$end_date_time}', '{$branch}', '{$club}', '{$buzz_username}', '{$buzz_time}', '{$app_name}')";
                     $sql = mysqli_query($conn, $query);
                 } else {
                     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
@@ -474,11 +480,12 @@ if (isset($_POST['submit'])) {
                 $branch = "xyz";
                 $club = implode(" ", $_POST['club']);
                 $buzz_username = $_SESSION['username'];
+                $app_name = $name_title['sname'];
                 date_default_timezone_set('Asia/Calcutta');
                 $buzz_time = date("Y-m-d H-i-s");
                 if($content !=''){
-                    $query = "INSERT INTO notify (title, content, start_date_time, end_date_time, branch, club, buzz_username, buzz_time)"; 
-                    $query .=" VALUES ('{$title}', '{$content}', '{$start_date_time}', '{$end_date_time}', '{$branch}', '{$club}', '{$buzz_username}', '{$buzz_time}')";
+                    $query = "INSERT INTO notify (title, content, start_date_time, end_date_time, branch, club, buzz_username, buzz_time, app_name)"; 
+                    $query .=" VALUES ('{$title}', '{$content}', '{$start_date_time}', '{$end_date_time}', '{$branch}', '{$club}', '{$buzz_username}', '{$buzz_time}', '{$app_name}')";
                     $sql = mysqli_query($conn, $query);
                 } else {
                     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
@@ -535,11 +542,12 @@ if (isset($_POST['submit'])) {
                 $start_date_time = $_POST['start_date_time'];
                 $end_date_time = $_POST['end_date_time'];
                 $buzz_username = $_SESSION['username'];
+                $app_name = $name_title['sname'];
                 date_default_timezone_set('Asia/Calcutta');
                 $buzz_time = date("Y-m-d H-i-s");
                 if($content !=''){
-                    $query = "INSERT INTO notify (title, content, start_date_time, end_date_time, buzz_username, buzz_time)"; 
-                    $query .=" VALUES ('{$title}', '{$content}', '{$start_date_time}', '{$end_date_time}', '{$buzz_username}', '{$buzz_time}')";
+                    $query = "INSERT INTO notify (title, content, start_date_time, end_date_time, buzz_username, buzz_time, app_name)"; 
+                    $query .=" VALUES ('{$title}', '{$content}', '{$start_date_time}', '{$end_date_time}', '{$buzz_username}', '{$buzz_time}', '{$app_name}')";
                     $sql = mysqli_query($conn, $query);
                 } else {
                     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
@@ -1241,6 +1249,7 @@ $comment=0;
                                                     <header>
                                                     <div style="float: right; margin-top: 2px;">
                                                            <a style="font-size: 14px;" class="entypo-trash" href="delete_event.php?id=<?php echo urlencode($notification["id"]); ?>" onclick="return confirm('Are you sure?');"></a>
+                                                           
                                                     </div>
                                                     <div class="publisher" style="color: #303641; font-family: 'Montserrat', sans-serif;">
                                                     <span style="font-weight: bold;"><?php echo ucfirst($name_print_title["sname"]); ?></span><span style="color: #9b9fa6;">&nbsp;posted a buzz!</span>
@@ -1384,6 +1393,7 @@ $comment=0;
                                                     <header>
                                                     <div style="float: right; margin-top: 2px;">
                                                            <a style="font-size: 14px;" class="entypo-trash" href="delete_event.php?id=<?php echo urlencode($notification["id"]); ?>" onclick="return confirm('Are you sure?');"></a>
+                                                           
                                                     </div>
                                                     <div class="publisher" style="color: #303641; font-family: 'Montserrat', sans-serif;">
                                                     <span style="font-weight: bold;"><?php echo ucfirst($name_print_title["sname"]); ?></span><span style="color: #9b9fa6;">&nbsp;posted a buzz!</span>
@@ -1627,6 +1637,7 @@ $comment=0;
         });
     })();
     </script>
+    
 </body>
 
 </html>
