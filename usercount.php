@@ -14,7 +14,7 @@
 <div id="main">
 <div id="page">
 <h2>User Count</h2> 
-<p></p><br/><br/>
+<p></p>
 <p>
 <?php
 $query = "SELECT COUNT(username) FROM users";
@@ -28,17 +28,18 @@ echo $total;
 
 
 <h2>Live users</h2> 
-<p></p><br/><br/>
+<p></p>
 <p>
 <?php
 
- $query_get="SELECT * FROM live WHERE id='1'";
- $result_get= mysqli_query($conn, $query_get);
-	     while ($live_users=mysqli_fetch_assoc($result_get))
-	                 {
-	                        $live = $live_users['live_users'];
-	                 }
- echo $live;
+
+$query1 = "SELECT COUNT(live_users) FROM live";
+$result1 = mysqli_query($conn, $query1);
+confirm_query($result1);
+$row = mysqli_fetch_array($result1);
+$total1 = $row[0];
+echo $total1;
+
 ?>	
 </p>
 </div>

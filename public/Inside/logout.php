@@ -7,15 +7,8 @@ $_SESSION = array();
 if (isset($_COOKIE[session_name()])) {
 	setcookie(session_name(), '', time()-42000, '/');
 }
-                $query_get="SELECT * FROM live WHERE id='1'";
-                $result_get= mysqli_query($conn, $query_get);
-                 while ($live_users=mysqli_fetch_assoc($result_get))
-                 {
-                        $live = $live_users['live_users'];
-                 }
-                $live=$live-1;
-                $query_update= "UPDATE live SET live_users='{$live}' WHERE id= '1'";
-                $result = mysqli_query($conn, $query_update);
+                $query_delete="DELETE FROM live WHERE live_users='{$username}' LIMIT 1";
+                $result_delete=mysqli_query($conn,$query_delete);
 session_destroy();
 redirect_to("../../index.php");
 ?>
