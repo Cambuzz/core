@@ -29,19 +29,18 @@ if (!$question) {
 }
 
 $id = $question["id"];
-$query = "SELECT * FROM quora WHERE id = {$id} LIMIT 1";
+$query = "SELECT * FROM quora WHERE id = {$id}";
 $result = mysqli_query($conn, $query);
 $view_quest = mysqli_fetch_assoc($result);
 if($current_user==$view_quest["quest_user"] &&  $view_quest['comment_counter']>0)
 {
-    $counter = $view_quest['comment_counter'];
-    $comment_counter = $counter-1;    
-        
+    $comment_counter = 0;      
     $query_counter = "UPDATE quora SET comment_counter = {$comment_counter} WHERE id = {$id}";
     $result_counter = mysqli_query($conn, $query_counter);    
 }
 $query_post_answer = "SELECT * FROM answers WHERE qid = {$id}";
-$result_post_answer = mysqli_query($conn, $query_post_answer); ?>
+$result_post_answer = mysqli_query($conn, $query_post_answer); 
+?>
 <?php   
 if ((isset($_POST['submit']))&&(isset($_POST['answer']))) {
     $flag=1;    
