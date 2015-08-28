@@ -664,7 +664,7 @@ if (isset($_POST['submit'])) {
             </div>
             <hr />
             <!-- main content starts here -->
-            <div class="container">
+            <div class="container" style="width: 970px !important;">
                 <div class="row">
                     <form role="form" method="post"  class="form-horizontal form-groups-bordered validate" enctype="multipart/form-data" action="settings.php">
                         <div class="row">
@@ -903,6 +903,7 @@ if (isset($_POST['submit'])) {
                                 </div>
                             </div>
                         </div>
+                    </form>
                 </div>
             </div>
         </div>
