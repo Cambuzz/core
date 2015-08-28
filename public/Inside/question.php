@@ -339,7 +339,7 @@ if ((isset($_POST['submit']))&&(isset($_POST['answer']))) {
                                 }
                             ?>
                                                 </div>
-                                                <div class="user-comment-content">
+                                                <div class="user-comment-content" style="color: black;">
                                                     <div class="user-comment-name">
                                                         <?php echo ucfirst($poster_pic['sname']); ?>
                                                     </div>

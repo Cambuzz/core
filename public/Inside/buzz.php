@@ -625,7 +625,7 @@ $comment=0;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Cambuzz" />
     <meta name="author" content="" />
-    <title>Cambuzz</title>
+    <title>Buzz | Cambuzz</title>
     <link rel="stylesheet" href="assets/css/bootstrap.css">
     <link rel="stylesheet" href="assets/css/style-core.css">
     <link rel="stylesheet" href="assets/css/style-theme.css">
