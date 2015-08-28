@@ -669,6 +669,10 @@ if (isset($_POST['submit'])) {
                     <form role="form" method="post"  class="form-horizontal form-groups-bordered validate" enctype="multipart/form-data" action="settings.php">
                         <div class="row">
                             <div class="col-md-12">
+                            <div class="form-group default-padding" style="display: flex; justify-content: center; align-items: center;">
+                                <input type="submit" name="submit" class="btn btn-success" value="Save Changes" style="margin-right: 5px;">
+                                <button class="btn"><a href="buzz.php">Cancel</a></button>
+                            </div>
                                 <div class="panel panel-primary" data-collapsed="0">
                                     <div class="panel-heading">
                                         <div class="panel-title">
@@ -899,10 +903,6 @@ if (isset($_POST['submit'])) {
                                 </div>
                             </div>
                         </div>
-                </div>
-                 <div class="form-group default-padding" style="display: flex; justify-content: center; align-items: center;">
-                    <input type="submit" name="submit" class="btn btn-success" value="Save Changes" style="margin-right: 5px;">
-                    <button class="btn"><a href="buzz.php">Cancel</a></button>
                 </div>
             </div>
         </div>
