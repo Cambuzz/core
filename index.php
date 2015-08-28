@@ -38,6 +38,7 @@ if (logged_in()) {
 </head>
 
 <body id="page-top">
+<?php include_once("public/Inside/analyticstracking.php") ?>
     <ul class="cb-slideshow">
         <li><span>Image 01</span>
         </li>

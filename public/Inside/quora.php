@@ -108,6 +108,7 @@
     </head>
 
 <body class="page-body page-left-in" style="font-family: 'Montserrat';">
+<?php include_once("analyticstracking.php") ?>
     <div class="page-container">
         <!-- add class "sidebar-collapsed" to close sidebar by default, "chat-visible" to make chat appear always -->
         <div class="sidebar-menu">
