@@ -1387,7 +1387,7 @@ $comment=0;
                                                         for($i=0;$i<$num_found;$i++)
                                                         {
                                                             $flag=0;
-                                                            $s=strpos($str1,'http:',$start);
+                                                            $s=strpos($str1,'http',$start);
                                                             if(!$s)
                                                             {
                                                                 $s=strpos($str1,'www',$start);
@@ -1398,6 +1398,7 @@ $comment=0;
                                                             //echo $s." ".$s1." <br />";
                                                             $start=$s1;
                                                             $link=substr($str1,$s,$s1-$s+1);
+
                                                             if($flag==1)
                                                             {
                                                                 $link1="https://".$link;
