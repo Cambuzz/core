@@ -289,7 +289,40 @@ if ((isset($_POST['submit']))&&(isset($_POST['answer']))) {
                                         </div>
                                     </header>
                                     <div class="story-main-content">
-                                        <p style="font-size: 20px; line-height: 1.3; sans-serif; font-weight:bold; color: black;"><?php echo ucfirst($view_quest['question']); ?></p>
+                                        <p style="font-size: 20px; line-height: 1.3; sans-serif; font-weight:bold; color: black;">
+                                        <?php 
+                                            //echo ucfirst($view_quest['question']);
+                                            $pattern = '#[-a-zA-Z0-9@:%_\+.~\#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~\#?&//=]*)?#si';
+                                                        $str =ucfirst(ucfirst($view_quest['question']));
+                                                        $num_found = preg_match_all($pattern, $str, $out);
+                                                        $str1=serialize($out);
+                                                        $start=0;
+                                                        for($i=0;$i<$num_found;$i++)
+                                                        {
+                                                            $flag=0;
+                                                            $s=strpos($str1,'http',$start);
+                                                            if(!$s)
+                                                            {
+                                                                $s=strpos($str1,'www',$start);
+                                                                $flag++;
+                                                            }
+                                                            $s1=strpos($str1,';',$s);
+                                                            $s1=$s1-2;
+                                                            //echo $s." ".$s1." <br />";
+                                                            $start=$s1;
+                                                            $link=substr($str1,$s,$s1-$s+1);
+
+                                                            if($flag==1)
+                                                            {
+                                                                $link1="https://".$link;
+                                                            }
+                                                            else
+                                                            $link1=$link;
+                                                            //echo $link."<br />";
+                                                            $str=str_replace($link,"<a href='$link1'>$link1</a>",$str);
+                                                        }
+                                                    echo nl2br($str). " ";  
+                                        ?></p>
                                     </div>
                                     <h1></h1>
                                     <!-- story like and comment link -->
@@ -342,7 +375,40 @@ if ((isset($_POST['submit']))&&(isset($_POST['answer']))) {
                                                     <div class="user-comment-name">
                                                         <?php echo ucfirst($poster_pic['sname']); ?>
                                                     </div>
-                                                    <?php echo ucfirst($view_answer['answer']); ?>
+                                                    <?php 
+                                                        //echo ucfirst($view_answer['answer']); 
+                                                        $pattern = '#[-a-zA-Z0-9@:%_\+.~\#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~\#?&//=]*)?#si';
+                                                        $str =ucfirst(ucfirst($view_answer['answer']));
+                                                        $num_found = preg_match_all($pattern, $str, $out);
+                                                        $str1=serialize($out);
+                                                        $start=0;
+                                                        for($i=0;$i<$num_found;$i++)
+                                                        {
+                                                            $flag=0;
+                                                            $s=strpos($str1,'http',$start);
+                                                            if(!$s)
+                                                            {
+                                                                $s=strpos($str1,'www',$start);
+                                                                $flag++;
+                                                            }
+                                                            $s1=strpos($str1,';',$s);
+                                                            $s1=$s1-2;
+                                                            //echo $s." ".$s1." <br />";
+                                                            $start=$s1;
+                                                            $link=substr($str1,$s,$s1-$s+1);
+
+                                                            if($flag==1)
+                                                            {
+                                                                $link1="https://".$link;
+                                                            }
+                                                            else
+                                                            $link1=$link;
+                                                            //echo $link."<br />";
+                                                            $str=str_replace($link,"<a href='$link1'>$link1</a>",$str);
+                                                        }
+                                                    echo nl2br($str). " ";  
+                                        ?>
+                                                    ?>
                                                     <div class="user-comment-meta">
                                                         <a href="#" class="comment-date">
                                                         <?php 
@@ -387,7 +453,39 @@ if ((isset($_POST['submit']))&&(isset($_POST['answer']))) {
                                                     <div class="user-comment-name">
                                                         <?php echo ucfirst($poster_pic['sname']); ?>
                                                     </div>
-                                                    <?php echo ucfirst($view_answer['answer']); ?>
+                                                    <?php 
+                                                        //echo ucfirst($view_answer['answer']); 
+                                                        $pattern = '#[-a-zA-Z0-9@:%_\+.~\#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~\#?&//=]*)?#si';
+                                                        $str =ucfirst(ucfirst($view_answer['answer']));
+                                                        $num_found = preg_match_all($pattern, $str, $out);
+                                                        $str1=serialize($out);
+                                                        $start=0;
+                                                        for($i=0;$i<$num_found;$i++)
+                                                        {
+                                                            $flag=0;
+                                                            $s=strpos($str1,'http',$start);
+                                                            if(!$s)
+                                                            {
+                                                                $s=strpos($str1,'www',$start);
+                                                                $flag++;
+                                                            }
+                                                            $s1=strpos($str1,';',$s);
+                                                            $s1=$s1-2;
+                                                            //echo $s." ".$s1." <br />";
+                                                            $start=$s1;
+                                                            $link=substr($str1,$s,$s1-$s+1);
+
+                                                            if($flag==1)
+                                                            {
+                                                                $link1="https://".$link;
+                                                            }
+                                                            else
+                                                            $link1=$link;
+                                                            //echo $link."<br />";
+                                                            $str=str_replace($link,"<a href='$link1'>$link1</a>",$str);
+                                                        }
+                                                    echo nl2br($str). " ";  
+                                        ?>
                                                     <div class="user-comment-meta">
                                                         <a href="#" class="comment-date">
                                                         <?php 
