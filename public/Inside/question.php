@@ -330,7 +330,7 @@ if ((isset($_POST['submit']))&&(isset($_POST['answer']))) {
                                         <!-- <a href="#" class="liked">
                                             <i class="entypo-heart"></i> Liked <span>(8)</span>
                                         </a> -->
-                                        <a href="question.php">
+                                        
                                             <i class="entypo-comment"></i> Comment <span>(
                                             <?php
                                             $count_query = "SELECT COUNT(*) FROM answers WHERE qid = {$id}";
@@ -341,7 +341,7 @@ if ((isset($_POST['submit']))&&(isset($_POST['answer']))) {
                                             echo $total;
                                             ?>
                                             )</span>
-                                        </a>
+                                       
                                         <!-- story comments -->
                                         <ul class="comments">
                                         <?php
@@ -407,7 +407,7 @@ if ((isset($_POST['submit']))&&(isset($_POST['answer']))) {
                                                             $str=str_replace($link,"<a href='$link1'>$link1</a>",$str);
                                                         }
                                                     echo nl2br($str). " ";  
-                                        ?>
+                                        
                                                     ?>
                                                     <div class="user-comment-meta">
                                                         <a href="#" class="comment-date">
