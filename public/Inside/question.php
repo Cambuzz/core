@@ -384,7 +384,7 @@ if ((isset($_POST['submit']))&&(isset($_POST['answer']))) {
                                 }
                             ?>
                                                 </div>
-                                                <div class="user-comment-content">
+                                                <div class="user-comment-content" style="color: black;">
                                                     <div class="user-comment-name">
                                                         <?php echo ucfirst($poster_pic['sname']); ?>
                                                     </div>
@@ -427,7 +427,7 @@ if ((isset($_POST['submit']))&&(isset($_POST['answer']))) {
                                 }
                             ?>
                                                 </div>
-                                                <div class="user-comment-content">
+                                                <div class="user-comment-content" style="color: black;">
                                                 <form method="post" action="question.php?id=<?php echo urlencode($_GET["id"]); ?>">
                                                     <textarea style="padding-right: 70px;" class="form-control autogrow" name="answer" value="" required placeholder="Write a comment..."></textarea>
                                                     <input type="submit" name="submit" class="btn btn-info" style="background-color: #333; color: white; margin-top: 2px;"> 
