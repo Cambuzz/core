@@ -164,16 +164,16 @@ if (logged_in()) {
                                                                     
                                                                     <div class="modal-header">
                                                                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                                                        <h4 class="modal-title">Basic Modal</h4>
+                                                                        <h4 class="modal-title">Signup Verification</h4>
                                                                     </div>
                                                                     
-                                                                    <div class="modal-body">
-                                                                        Hello I am a Modal!
+                                                                    <div class="modal-body" id="modalcontent">
+                                                                        
                                                                     </div>
                                                                     
                                                                     <div class="modal-footer">
-                                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                                                        <button type="button" class="btn btn-info">Save changes</button>
+                                                                        <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                                        <button type="button" class="btn btn-info">Save changes</button> -->
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -392,6 +392,7 @@ if (logged_in()) {
             });
 
 
+            
             $('#signupform').on('submit',function()
             {
                 if($("#txtNewPassword").val()==$("#txtConfirmPassword").val())
@@ -423,7 +424,9 @@ if (logged_in()) {
                         }
                         else
                         {
-                            $('#accountchecking').html(msg);
+                             
+                            $('#modalcontent').html(msg);
+                            $('#modal-1').modal('show');
                         }
                     });
                     
