@@ -407,7 +407,7 @@ if ((isset($_POST['submit']))&&(isset($_POST['answer']))) {
                                                             $str=str_replace($link,"<a href='$link1'>$link1</a>",$str);
                                                         }
                                                     echo nl2br($str). " ";  
-                                        ?>
+                                        
                                                     ?>
                                                     <div class="user-comment-meta">
                                                         <a href="#" class="comment-date">
