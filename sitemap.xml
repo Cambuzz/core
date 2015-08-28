@@ -1,0 +1,17 @@
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+    <url>
+        <loc>http://cambuzz.co.in/</loc>
+    </url>
+    <url>
+        <loc>http://cambuzz.co.in/index.php</loc>
+    </url>
+    <url>
+        <loc>http://cambuzz.co.in/public/Inside/buzz.php</loc>
+    </url>
+    <url>
+        <loc>http://cambuzz.co.in/public/Inside/track_teacher.php</loc>
+    </url>
+    <url>
+       <loc>http://cambuzz.co.in/public/Inside/quora.php</loc>
+    </url>
+</urlset>
