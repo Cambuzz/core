@@ -585,31 +585,60 @@ $comment=0;
         
         for ($i=0; $i < $total_quest; $i++) { 
             while ($quest_list = mysqli_fetch_assoc($question_set)) {
-                $count_answer_query = "SELECT COUNT(*) FROM answers WHERE qid = {$quest_list["id"]}";
-                $count_answer_result = mysqli_query($conn, $count_answer_query);
-                confirm_query($count_answer_result);
-                $row_answer = mysqli_fetch_array($count_answer_result);
-                $total_answers = $row_answer[0];
-                if ($total_answers!=0) {
-                  
-                    $hide = " ";
-                    if($quest_list["comment_counter"]>0 && $quest_list["quest_user"]!="cambuzz")
-                    {
 
-                        $comment++;
-                    //$comment = $i+1;
-                    $query_post_answer = "SELECT * FROM answers WHERE qid = {$quest_list['id']}";
-                    $result_post_answer = mysqli_query($conn, $query_post_answer);
-                    while ($view_answer = mysqli_fetch_assoc($result_post_answer)) {
-                        $commentor_query = "SELECT * FROM users WHERE username = '{$view_answer['answer_poster']}' ";
-                        $commentor_result = mysqli_query($conn, $commentor_query);
-                        confirm_query($commentor_result);
-                        while ($commentor = mysqli_fetch_assoc($commentor_result)) {
-                            $person = $commentor['sname']. " commented on your question";
+
+
+                $new_comments=$quest_list['comment_counter'];
+                if($new_comments>0)
+                {
+                    $comment++;
+                        $count_answer_query = "SELECT * FROM answers WHERE qid = {$quest_list["id"]} ORDER BY id DESC LIMIT $new_comments";
+                        $count_answer_result = mysqli_query($conn, $count_answer_query);
+                        confirm_query($count_answer_result);
+
+                        while($row1=mysqli_fetch_array($count_answer_result))
+                        {
+                               $commentor_query = "SELECT * FROM users WHERE username = '{$row1['answer_poster']}' ";
+                                $commentor_result = mysqli_query($conn, $commentor_query);
+                                confirm_query($commentor_result);
+                                while ($commentor = mysqli_fetch_assoc($commentor_result)) {
+                                    $person = $commentor['sname']. " commented on your question";
+                                }
                         }
-                    }
-                  }
-                }           
+
+                }
+
+
+
+
+
+
+                                    /*$count_answer_query = "SELECT COUNT(*) FROM answers WHERE qid = {$quest_list["id"]}";
+                                    $count_answer_result = mysqli_query($conn, $count_answer_query);
+                                    confirm_query($count_answer_result);
+                                    $row_answer = mysqli_fetch_array($count_answer_result);
+                                    $total_answers = $row_answer[0];
+                                    if ($total_answers!=0) {
+                                      
+                                        $hide = " ";
+                                        if($quest_list["comment_counter"]>0 && $quest_list["quest_user"]!="cambuzz")
+                                        {
+
+                                            $comment++;
+                                        //$comment = $i+1;
+                                        $query_post_answer = "SELECT * FROM answers WHERE qid = {$quest_list['id']}";
+                                        $result_post_answer = mysqli_query($conn, $query_post_answer);
+                                        while ($view_answer = mysqli_fetch_assoc($result_post_answer)) {
+                                            $commentor_query = "SELECT * FROM users WHERE username = '{$view_answer['answer_poster']}' ";
+                                            $commentor_result = mysqli_query($conn, $commentor_query);
+                                            confirm_query($commentor_result);
+                                            while ($commentor = mysqli_fetch_assoc($commentor_result)) {
+                                                $person = $commentor['sname']. " commented on your question";
+                                            }
+                                        }
+                                      }
+                                    }    */
+
             }
         }
 
@@ -805,57 +834,143 @@ $comment=0;
                                     <ul class="dropdown-menu-list scroller">
                                         <li class="unread notification-secondary">
                                                 <span class="line">
-                                                    <?php
-                                                $comment=0;
-                                               $question_set =  mysqli_query($conn, "SELECT * FROM quora WHERE quest_user = '{$current_user}'");
-                                                for ($i=0; $i < $total_quest; $i++) { 
-                                                    while ($quest_list = mysqli_fetch_assoc($question_set)) {
-                                                        $count_answer_query = "SELECT COUNT(*) FROM answers WHERE qid = {$quest_list["id"]}";
-                                                        $count_answer_result = mysqli_query($conn, $count_answer_query);
-                                                        confirm_query($count_answer_result);
-                                                        $row_answer = mysqli_fetch_array($count_answer_result);
-                                                        $total_answers = $row_answer[0];
-                                                        if ($total_answers==0) {
-                                                           $hide = "style= 'display: none;'"; 
-                                                        } else {
-                                                            $hide = " ";
-                                                            if($quest_list["comment_counter"]>0 && $quest_list["quest_user"]!="cambuzz")
-                                                            {
-                                                                $comment++;
-                                                           
-                                                            //$comment = $i+1;
-                                                            $query_post_answer = "SELECT * FROM answers WHERE qid = {$quest_list['id']} ORDER BY answer_time DESC";
-                                                            $result_post_answer = mysqli_query($conn, $query_post_answer);
-                                                            while ($view_answer = mysqli_fetch_assoc($result_post_answer) ) {
-                                                               
-                                                                $commentor_query = "SELECT * FROM users WHERE username = '{$view_answer['answer_poster']}'";
-                                                                $commentor_result = mysqli_query($conn, $commentor_query);
-                                                                confirm_query($commentor_result);
-                                                                while ($commentor = mysqli_fetch_assoc($commentor_result)) {
-                                                                    $person = $commentor['sname']; 
-                                                                    $answer_counter_query = "SELECT COUNT(answer_poster) FROM answers WHERE qid = {$quest_list["id"]}";
-                                                                    $answer_counter_result = mysqli_query($conn, $answer_counter_query);
-                                                                    confirm_query($answer_counter_result);
-                                                                    $row_answer_counter = mysqli_fetch_array($answer_counter_result);
-                                                                    $total_answer_count = $row_answer_counter[0];
-                                                                    if ($quest_list["comment_counter"]>1) {
-                                                                        //$multi = $total_answer_count-1; 
-                                                                        $multi=$quest_list["comment_counter"]-1;
-                                                                        ?>
-                                                                        <strong><a href="question.php?id=<?php echo urlencode($quest_list["id"]); ?>"><?php echo $person. " and ". $multi . " others commented on your question<br />"; ?></a></strong> <?php
-                                                                    } elseif ($quest_list["comment_counter"]==1) { ?>
-                                                                        <strong><a style="font-family:'Montserrat'; font-weight: 100; display: flex; justify-content: center; padding: 10px;" href="question.php?id=<?php echo urlencode($quest_list["id"]); ?>"><?php echo $person." commented on your question<br />"; ?></a></strong> <?php
-                                                                    }
-                                                                    break;                                                                                                                                       
-                                                                }
-                                                                break;
-                                                            }
-                                                        }
-                                                        }           
-                                                    } 
-                                                }
-                                                     if($comment==0)
-                                                        $hide = "style= 'display: none;'"; 
+                                                   <?php
+
+
+                                                                            $question_set =  mysqli_query($conn, "SELECT * FROM quora WHERE quest_user = '{$current_user}'");
+                                                                            
+                                                                            for ($i=0; $i < $total_quest; $i++) { 
+                                                                                
+                                                                                while ($quest_list = mysqli_fetch_assoc($question_set)) {
+
+                                                                                    $new_comments=$quest_list['comment_counter'];
+                                                                                    if($new_comments>0)
+                                                                                    {
+                                                                                        $comment++;
+                                                                                            $count_answer_query = "SELECT * FROM answers WHERE qid = {$quest_list["id"]} ORDER BY id DESC LIMIT $new_comments";
+                                                                                            $count_answer_result = mysqli_query($conn, $count_answer_query);
+                                                                                            confirm_query($count_answer_result);
+                                                                                            $flag=0;
+                                                                                            $array=array();
+                                                                                            $count=0;
+                                                                                            while($row1=mysqli_fetch_array($count_answer_result))
+                                                                                            {
+                                                                                                   
+
+
+                                                                                                                $commentor_query = "SELECT * FROM users WHERE username = '{$row1['answer_poster']}'";
+                                                                                                                $commentor_result = mysqli_query($conn, $commentor_query);
+                                                                                                                confirm_query($commentor_result);
+                                                                                                                
+                                                                                                                while ($commentor = mysqli_fetch_assoc($commentor_result)) 
+                                                                                                                {
+                                                                                                                    if($flag==0)
+                                                                                                                    {
+                                                                                                                        $person = $commentor['sname']; 
+                                                                                                                        $flag++;
+                                                                                                                    }
+                                                                                                                    if(!in_array($commentor['username'],$array))
+                                                                                                                    {
+                                                                                                                        $array[]=$commentor['username'];
+                                                                                                                        $count++;
+
+                                                                                                                    }
+                                                                                                                }
+                                                                                                                
+
+                                                                                                                    
+                                                                                                                    //$answer_counter_query = "SELECT COUNT(answer_poster) FROM answers WHERE qid = {$quest_list["id"]}";
+                                                                                                                    //$answer_counter_result = mysqli_query($conn, $answer_counter_query);
+                                                                                                                    //confirm_query($answer_counter_result);
+                                                                                                                    //$row_answer_counter = mysqli_fetch_array($answer_counter_result);
+                                                                                                                    //$total_answer_count = $row_answer_counter[0];
+                                                                                                                    //if ($quest_list["comment_counter"]>1) {
+                                                                                                                        //$multi = $total_answer_count-1; 
+                                                                                                                      //  $multi=$quest_list["comment_counter"]-1;
+                                                                                                                        
+                                                                                                                    
+                                                                                                               
+
+                                                                                            }    
+                                                                                            if($count>1)
+                                                                                                                        {
+                                                                                                                            $multi=$count-1;
+                                                                                                                        ?>
+                                                                                                                        <strong><a style="font-family:'Montserrat'; font-weight: 100; display: flex; justify-content: center; padding: 10px;" href="question.php?id=<?php echo urlencode($quest_list["id"]); ?>"><?php echo $person. " and ". $multi . " others commented on your question<br />"; ?></a></strong> <?php
+                                                                                                                    } else { ?>
+                                                                                                                        <strong><a style="font-family:'Montserrat'; font-weight: 100; display: flex; justify-content: center; padding: 10px;" href="question.php?id=<?php echo urlencode($quest_list["id"]); ?>"><?php echo $person." commented on your question<br />"; ?></a></strong> <?php
+                                                                                                                    }
+
+                                                                                    }
+
+                                                                                }
+                                                                            }
+
+                                                                            if($comment==0)
+                                                                                $hide = "style= 'display: none;'";
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                           /* $comment=0;
+                                                                           $question_set =  mysqli_query($conn, "SELECT * FROM quora WHERE quest_user = '{$current_user}'");
+                                                                            for ($i=0; $i < $total_quest; $i++) { 
+                                                                                while ($quest_list = mysqli_fetch_assoc($question_set)) {
+                                                                                    $count_answer_query = "SELECT COUNT(*) FROM answers WHERE qid = {$quest_list["id"]}";
+                                                                                    $count_answer_result = mysqli_query($conn, $count_answer_query);
+                                                                                    confirm_query($count_answer_result);
+                                                                                    $row_answer = mysqli_fetch_array($count_answer_result);
+                                                                                    $total_answers = $row_answer[0];
+                                                                                    if ($total_answers==0) {
+                                                                                       $hide = "style= 'display: none;'"; 
+                                                                                    } else {
+                                                                                        $hide = " ";
+                                                                                        if($quest_list["comment_counter"]>0 && $quest_list["quest_user"]!="cambuzz")
+                                                                                        {
+                                                                                            $comment++;
+                                                                                       
+                                                                                        //$comment = $i+1;
+                                                                                        $query_post_answer = "SELECT * FROM answers WHERE qid = {$quest_list['id']} ORDER BY answer_time DESC";
+                                                                                        $result_post_answer = mysqli_query($conn, $query_post_answer);
+                                                                                        while ($view_answer = mysqli_fetch_assoc($result_post_answer) ) {
+                                                                                           
+                                                                                            $commentor_query = "SELECT * FROM users WHERE username = '{$view_answer['answer_poster']}'";
+                                                                                            $commentor_result = mysqli_query($conn, $commentor_query);
+                                                                                            confirm_query($commentor_result);
+                                                                                            while ($commentor = mysqli_fetch_assoc($commentor_result)) {
+                                                                                                $person = $commentor['sname']; 
+                                                                                                $answer_counter_query = "SELECT COUNT(answer_poster) FROM answers WHERE qid = {$quest_list["id"]}";
+                                                                                                $answer_counter_result = mysqli_query($conn, $answer_counter_query);
+                                                                                                confirm_query($answer_counter_result);
+                                                                                                $row_answer_counter = mysqli_fetch_array($answer_counter_result);
+                                                                                                $total_answer_count = $row_answer_counter[0];
+                                                                                                if ($quest_list["comment_counter"]>1) {
+                                                                                                    //$multi = $total_answer_count-1; 
+                                                                                                    $multi=$quest_list["comment_counter"]-1;
+                                                                                                    ?>
+                                                                                                    <strong><a href="question.php?id=<?php echo urlencode($quest_list["id"]); ?>"><?php echo $person. " and ". $multi . " others commented on your question<br />"; ?></a></strong> <?php
+                                                                                                } elseif ($quest_list["comment_counter"]==1) { ?>
+                                                                                                    <strong><a style="font-family:'Montserrat'; font-weight: 100; display: flex; justify-content: center; padding: 10px;" href="question.php?id=<?php echo urlencode($quest_list["id"]); ?>"><?php echo $person." commented on your question<br />"; ?></a></strong> <?php
+                                                                                                }
+                                                                                                break;                                                                                                                                       
+                                                                                            }
+                                                                                            break;
+                                                                                        }
+                                                                                    }
+                                                                                    }           
+                                                                                } 
+                                                                            }
+                                                                                 if($comment==0)
+                                                                                    $hide = "style= 'display: none;'"; */
                                                 ?>
                                                 </span>
                                                 
