@@ -50,7 +50,7 @@ if (logged_in()) {
                         // $message = $html. "Confirm your email by clicking the link http://cambuzz.co.in/emailconfirm.php?username=$username&code=$confirmcode";
                         $message = "Confirm your email by clicking the link http://cambuzz.co.in/emailconfirm.php?username=$username&code=$confirmcode";
                         mail($email, "Confirm your email", $message, "From: cambuzz.vitcc@gmail.com");
-                        echo "Kindly check your VIT email and confirm your registration after closing this signup form.<br /><span style='color:red;'>Your link will be erpired in 30 minutes.</span>";
+                        echo "Kindly check your VIT email and confirm your registration after closing this signup form.<br /><span style='color:red;'>Your link will be expired in 30 minutes.</span>";
                         echo "<br>"; 
                         echo"(Check your spam folder if you don't find it in your inbox.)";
                     } 
