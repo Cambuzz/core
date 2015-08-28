@@ -1272,7 +1272,7 @@ $comment=0;
                                                         for($i=0;$i<$num_found;$i++)
                                                         {
                                                             $flag=0;
-                                                            $s=strpos($str1,'https:',$start);
+                                                            $s=strpos($str1,'http:',$start);
                                                             if(!$s)
                                                             {
                                                                 $s=strpos($str1,'www',$start);
