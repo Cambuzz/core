@@ -1021,6 +1021,7 @@ $comment=0;
                                                             </div>
                                                         </div>
                                                         <div class="panel-body">
+                                                        <input type="checkbox" onClick="branch(this)" /> Select all<br/>
                                                             <div class="scrollable" data-height="200" data-scroll-position="right" data-rail-color="#333" data-rail-opacity=".9" data-rail-width="8" data-rail-radius="10" data-autohide="0">
                                                                 <ul class="icheck-list" style="text-align: left;">
                                                                     <li>
@@ -1073,6 +1074,7 @@ $comment=0;
                                                             </div>
                                                         </div>
                                                         <div class="panel-body">
+                                                            <input type="checkbox" onClick="club(this)" /> Select all<br/>
                                                             <div class="scrollable" data-height="200" data-scroll-position="right" data-rail-color="#333" data-rail-opacity=".9" data-rail-width="8" data-rail-radius="10" data-autohide="0">
                                                                 <ul class="icheck-list" style="text-align: left;">
                                                                     <li>
@@ -1614,7 +1616,21 @@ $comment=0;
     <script src="assets/js/joinable.js"></script>
     <script src="assets/js/resizeable.js"></script>
     <script src="assets/js/uiMorphingButton_fixed.js"></script>
-    
+    <script>
+        function branch(source) {
+          checkboxes = document.getElementsByName('branch[]');
+          for(var i=0, n=checkboxes.length;i<n;i++) {
+            checkboxes[i].checked = source.checked;
+          }
+        }
+
+        function club(source) {
+          checkboxes = document.getElementsByName('club[]');
+          for(var i=0, n=checkboxes.length;i<n;i++) {
+            checkboxes[i].checked = source.checked;
+          }
+        }
+    </script>
         
     <!-- Imported scripts on this page -->
     <script type="text/javascript">
