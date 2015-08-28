@@ -564,7 +564,7 @@ if (isset($_POST['submit'])) {
     <![endif]-->
 </head>
 
-<body class="page-body page-fade-only">
+<body class="page-body page-fade-only" style="font-family: 'Montserrat';">
     <div class="page-container">
         <div class="sidebar-menu">
             <div class="sidebar-menu-inner">
