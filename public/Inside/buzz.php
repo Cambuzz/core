@@ -18,57 +18,16 @@
 date_default_timezone_set('Asia/Calcutta');
 $id_time = date("Y-m-d H-i-s");
 $buzz_id = $current_user.$id_time;
+$id_year = date("Y-m-d");
+$id_hour = date("H-i-s");
+$full_time = $id_year."%".$id_hour;
+$full = $current_user.$full_time; 
 ?>
 <?php
 if (isset($_POST['submit'])) {
     if (isset($_POST['yesno'])) { $yesno = $_POST['yesno']; }
     if ($yesno=="yes") {
         if((isset($_POST['submit']))&&(isset($_FILES['uploaded_file']))&&(isset($_POST['branch']))&&(isset($_POST['club']))){
-            $flag=1;    
-            while ($slang_list = mysqli_fetch_assoc($slang_result)) {
-                $s1 = $slang_list['COL 1'];
-                $s2 = mysqli_real_escape_string($conn, htmlspecialchars($_POST['title']))." ". mysqli_real_escape_string($conn, htmlspecialchars($_POST['content']));
-                $s=$s1." ".$s2;
-                //echo $s;echo "<br>";
-                $n= strlen($s);
-                $m = strlen($s1);    
-                $Z = new SplFixedArray($n);
-                $Z[0] = $n;
-                $L = 0;
-                $R = 0;
-                for ($i= 1; $i < $n; $i++) { 
-                    if ($i> $R) {
-                        $L = $R = $i;
-                        while ($R < $n && $s[$R-$L+$i]==$s[$R-$L]) {
-                            $R++;
-                        }
-                        $Z[$i] = $R-$L;
-                        $R--;
-                    } else {
-                        $k = $i-$L;
-                        if ($Z[$k]<$R-$i+1) {
-                            $Z[$k] = $Z[$i];
-                        } else {
-                            $L = $i;
-                            while ($R < $n && $s[$R-$L+$i]==$s[$R-$L]) {
-                                $R++;
-                            }
-                            $Z[$i] = $R-$L;
-                            $R--;
-                        }
-                    }
-                } 
-                $flag=1;    
-                for ($i=1; $i < $n ; $i++) { 
-                    if ($Z[$i]>=$m) {
-                        //echo "no abuse";echo "<br>";
-                        $flag=0;
-                        break;
-                    }
-                }
-                if($flag==0)break;                               
-            }
-            if ($flag==1) {
                 $title =  mysqli_real_escape_string($conn, htmlspecialchars($_POST['title']));
                 $content =  mysqli_real_escape_string($conn, htmlspecialchars($_POST['content']));
                 $start_date_time = $_POST['start_date_time'];
@@ -79,65 +38,21 @@ if (isset($_POST['submit'])) {
                 $target_file = $target_dir . basename($_FILES["uploaded_file"]["name"]);                
                 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
                 move_uploaded_file($_FILES["uploaded_file"]["tmp_name"],"images/posters/$buzz_id.jpg");
+                $po_url = "http://cambuzz.co.in/public/Inside/images/posters/".$full.".jpg";
                 $poset = 1;
                 $buzz_username = $_SESSION['username'];
                 $app_name = $name_title['sname'];
                 date_default_timezone_set('Asia/Calcutta');
                 $buzz_time = date("Y-m-d\TH:i:s");
                 if($content !=''){
-                    $query = "INSERT INTO notify (title, content, start_date_time, end_date_time, branch, club, poset, buzz_username, buzz_time, app_name)";
-                    $query .= " VALUES ('{$title}', '{$content}', '{$start_date_time}', '{$end_date_time}', '{$branch}', '{$club}', {$poset}, '{$buzz_username}', '{$buzz_time}', '{$app_name}')";
+                    $query = "INSERT INTO notify (title, content, start_date_time, end_date_time, branch, club, poset, buzz_username, buzz_time, app_name, po_url)";
+                    $query .= " VALUES ('{$title}', '{$content}', '{$start_date_time}', '{$end_date_time}', '{$branch}', '{$club}', {$poset}, '{$buzz_username}', '{$buzz_time}', '{$app_name}', '{$po_url}')";
                     $sql = mysqli_query($conn, $query);
                 } else {
                     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
                 }
-            }                
+                            
         } elseif ((isset($_POST['submit']))&&(isset($_FILES['uploaded_file']))&&(isset($_POST['branch']))&&(empty($_POST['club']))) {
-            $flag=1;    
-            while ($slang_list = mysqli_fetch_assoc($slang_result)) {
-                $s1 = $slang_list['COL 1'];
-                $s2 = mysqli_real_escape_string($conn, htmlspecialchars($_POST['title']))." ". mysqli_real_escape_string($conn, htmlspecialchars($_POST['content']));
-                $s=$s1." ".$s2;
-                //echo $s;echo "<br>";
-                $n= strlen($s);
-                $m = strlen($s1);    
-                $Z = new SplFixedArray($n);
-                $Z[0] = $n;
-                $L = 0;
-                $R = 0;
-                for ($i= 1; $i < $n; $i++) { 
-                    if ($i> $R) {
-                        $L = $R = $i;
-                        while ($R < $n && $s[$R-$L+$i]==$s[$R-$L]) {
-                            $R++;
-                        }
-                        $Z[$i] = $R-$L;
-                        $R--;
-                    } else {
-                        $k = $i-$L;
-                        if ($Z[$k]<$R-$i+1) {
-                            $Z[$k] = $Z[$i];
-                        } else {
-                            $L = $i;
-                            while ($R < $n && $s[$R-$L+$i]==$s[$R-$L]) {
-                                $R++;
-                            }
-                            $Z[$i] = $R-$L;
-                            $R--;
-                        }
-                    }
-                } 
-                $flag=1;    
-                for ($i=1; $i < $n ; $i++) { 
-                    if ($Z[$i]>=$m) {
-                        //echo "no abuse";echo "<br>";
-                        $flag=0;
-                        break;
-                    }
-                }
-                if($flag==0)break;                               
-            }
-            if ($flag==1) {
                 $title =  mysqli_real_escape_string($conn, htmlspecialchars($_POST['title']));
                 $content =  mysqli_real_escape_string($conn, htmlspecialchars($_POST['content']));
                 $start_date_time = $_POST['start_date_time'];
@@ -148,65 +63,21 @@ if (isset($_POST['submit'])) {
                 $target_file = $target_dir . basename($_FILES["uploaded_file"]["name"]);                
                 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
                 move_uploaded_file($_FILES["uploaded_file"]["tmp_name"],"images/posters/$buzz_id.jpg");
+                $po_url = "http://cambuzz.co.in/public/Inside/images/posters/".$full.".jpg";
                 $poset = 1;
                 $buzz_username = $_SESSION['username'];
                 $app_name = $name_title['sname'];
                 date_default_timezone_set('Asia/Calcutta');
                 $buzz_time = date("Y-m-d H-i-s");
                 if($content !=''){
-                    $query = "INSERT INTO notify (title, content, start_date_time, end_date_time, branch, club, poset, buzz_username, buzz_time, app_name)";
-                    $query .= " VALUES ('{$title}', '{$content}', '{$start_date_time}', '{$end_date_time}', '{$branch}', '{$club}', {$poset}, '{$buzz_username}', '{$buzz_time}', '{$app_name}')";
+                    $query = "INSERT INTO notify (title, content, start_date_time, end_date_time, branch, club, poset, buzz_username, buzz_time, app_name, po_url)";
+                    $query .= " VALUES ('{$title}', '{$content}', '{$start_date_time}', '{$end_date_time}', '{$branch}', '{$club}', {$poset}, '{$buzz_username}', '{$buzz_time}', '{$app_name}', '{$po_url}')";
                     $sql = mysqli_query($conn, $query);
                 } else {
                     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
                 }
-            }            
+                        
         } elseif ((isset($_POST['submit']))&&(isset($_FILES['uploaded_file']))&&(empty($_POST['branch']))&&(isset($_POST['club']))) {
-            $flag=1;    
-            while ($slang_list = mysqli_fetch_assoc($slang_result)) {
-                $s1 = $slang_list['COL 1'];
-                $s2 = mysqli_real_escape_string($conn, htmlspecialchars($_POST['title']))." ". mysqli_real_escape_string($conn, htmlspecialchars($_POST['content']));
-                $s=$s1." ".$s2;
-                //echo $s;echo "<br>";
-                $n= strlen($s);
-                $m = strlen($s1);    
-                $Z = new SplFixedArray($n);
-                $Z[0] = $n;
-                $L = 0;
-                $R = 0;
-                for ($i= 1; $i < $n; $i++) { 
-                    if ($i> $R) {
-                        $L = $R = $i;
-                        while ($R < $n && $s[$R-$L+$i]==$s[$R-$L]) {
-                            $R++;
-                        }
-                        $Z[$i] = $R-$L;
-                        $R--;
-                    } else {
-                        $k = $i-$L;
-                        if ($Z[$k]<$R-$i+1) {
-                            $Z[$k] = $Z[$i];
-                        } else {
-                            $L = $i;
-                            while ($R < $n && $s[$R-$L+$i]==$s[$R-$L]) {
-                                $R++;
-                            }
-                            $Z[$i] = $R-$L;
-                            $R--;
-                        }
-                    }
-                } 
-                $flag=1;    
-                for ($i=1; $i < $n ; $i++) { 
-                    if ($Z[$i]>=$m) {
-                        //echo "no abuse";echo "<br>";
-                        $flag=0;
-                        break;
-                    }
-                }
-                if($flag==0)break;                               
-            }
-            if ($flag==1) {
                 $title =  mysqli_real_escape_string($conn, htmlspecialchars($_POST['title']));
                 $content =  mysqli_real_escape_string($conn, htmlspecialchars($_POST['content']));
                 $start_date_time = $_POST['start_date_time'];
@@ -217,65 +88,21 @@ if (isset($_POST['submit'])) {
                 $target_file = $target_dir . basename($_FILES["uploaded_file"]["name"]);                
                 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
                 move_uploaded_file($_FILES["uploaded_file"]["tmp_name"],"images/posters/$buzz_id.jpg");
+                $po_url = "http://cambuzz.co.in/public/Inside/images/posters/".$full.".jpg";
                 $poset = 1;
                 $buzz_username = $_SESSION['username'];
                 $app_name = $name_title['sname'];
                 date_default_timezone_set('Asia/Calcutta');
                 $buzz_time = date("Y-m-d H-i-s");
                 if($content !=''){
-                    $query = "INSERT INTO notify (title, content, start_date_time, end_date_time, branch, club, poset, buzz_username, buzz_time, app_name)";
-                    $query .= " VALUES ('{$title}', '{$content}', '{$start_date_time}', '{$end_date_time}', '{$branch}', '{$club}', {$poset}, '{$buzz_username}', '{$buzz_time}', '{$app_name}')";
+                    $query = "INSERT INTO notify (title, content, start_date_time, end_date_time, branch, club, poset, buzz_username, buzz_time, app_name, po_url)";
+                    $query .= " VALUES ('{$title}', '{$content}', '{$start_date_time}', '{$end_date_time}', '{$branch}', '{$club}', {$poset}, '{$buzz_username}', '{$buzz_time}', '{$app_name}', '{$po_url}')";
                     $sql = mysqli_query($conn, $query);
                 } else {
                     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
                 } 
-            }            
+                        
         } elseif ((isset($_POST['submit']))&&(isset($_FILES['uploaded_file']))&&(empty($_POST['branch']))&&(empty($_POST['club']))) {
-            $flag=1;    
-            while ($slang_list = mysqli_fetch_assoc($slang_result)) {
-                $s1 = $slang_list['COL 1'];
-                $s2 = mysqli_real_escape_string($conn, htmlspecialchars($_POST['title']))." ". mysqli_real_escape_string($conn, htmlspecialchars($_POST['content']));
-                $s=$s1." ".$s2;
-                //echo $s;echo "<br>";
-                $n= strlen($s);
-                $m = strlen($s1);    
-                $Z = new SplFixedArray($n);
-                $Z[0] = $n;
-                $L = 0;
-                $R = 0;
-                for ($i= 1; $i < $n; $i++) { 
-                    if ($i> $R) {
-                        $L = $R = $i;
-                        while ($R < $n && $s[$R-$L+$i]==$s[$R-$L]) {
-                            $R++;
-                        }
-                        $Z[$i] = $R-$L;
-                        $R--;
-                    } else {
-                        $k = $i-$L;
-                        if ($Z[$k]<$R-$i+1) {
-                            $Z[$k] = $Z[$i];
-                        } else {
-                            $L = $i;
-                            while ($R < $n && $s[$R-$L+$i]==$s[$R-$L]) {
-                                $R++;
-                            }
-                            $Z[$i] = $R-$L;
-                            $R--;
-                        }
-                    }
-                } 
-                $flag=1;    
-                for ($i=1; $i < $n ; $i++) { 
-                    if ($Z[$i]>=$m) {
-                        //echo "no abuse";echo "<br>";
-                        $flag=0;
-                        break;
-                    }
-                }
-                if($flag==0)break;                               
-            }
-            if ($flag==1) {
                 $title =  mysqli_real_escape_string($conn, htmlspecialchars($_POST['title']));
                 $content =  mysqli_real_escape_string($conn, htmlspecialchars($_POST['content']));
                 $start_date_time = $_POST['start_date_time'];
@@ -284,67 +111,23 @@ if (isset($_POST['submit'])) {
                 $target_file = $target_dir . basename($_FILES["uploaded_file"]["name"]);                
                 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
                 move_uploaded_file($_FILES["uploaded_file"]["tmp_name"],"images/posters/$buzz_id.jpg");
+                $po_url = "http://cambuzz.co.in/public/Inside/images/posters/".$full.".jpg";
                 $poset = 1;
                 $buzz_username = $_SESSION['username'];
                 $app_name = $name_title['sname'];
                 date_default_timezone_set('Asia/Calcutta');
                 $buzz_time = date("Y-m-d H-i-s");
                 if($content !=''){
-                    $query = "INSERT INTO notify (title, content, start_date_time, end_date_time, poset, buzz_username, buzz_time, app_name)";
-                    $query .= " VALUES ('{$title}', '{$content}', '{$start_date_time}', '{$end_date_time}', {$poset}, '{$buzz_username}', '{$buzz_time}', '{$app_name}')";
+                    $query = "INSERT INTO notify (title, content, start_date_time, end_date_time, poset, buzz_username, buzz_time, app_name, po_url)";
+                    $query .= " VALUES ('{$title}', '{$content}', '{$start_date_time}', '{$end_date_time}', {$poset}, '{$buzz_username}', '{$buzz_time}', '{$app_name}', '{$po_url}')";
                     $sql = mysqli_query($conn, $query);
                 } else {
                     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
                 }
-            }            
+                        
         }
     } elseif ($yesno = "no") {
         if((isset($_POST['submit']))&&(isset($_POST['branch']))&&(isset($_POST['club']))){
-            $flag=1;    
-            while ($slang_list = mysqli_fetch_assoc($slang_result)) {
-                $s1 = $slang_list['COL 1'];
-                $s2 = mysqli_real_escape_string($conn, htmlspecialchars($_POST['title']))." ". mysqli_real_escape_string($conn, htmlspecialchars($_POST['content']));
-                $s=$s1." ".$s2;
-                //echo $s;echo "<br>";
-                $n= strlen($s);
-                $m = strlen($s1);    
-                $Z = new SplFixedArray($n);
-                $Z[0] = $n;
-                $L = 0;
-                $R = 0;
-                for ($i= 1; $i < $n; $i++) { 
-                    if ($i> $R) {
-                        $L = $R = $i;
-                        while ($R < $n && $s[$R-$L+$i]==$s[$R-$L]) {
-                            $R++;
-                        }
-                        $Z[$i] = $R-$L;
-                        $R--;
-                    } else {
-                        $k = $i-$L;
-                        if ($Z[$k]<$R-$i+1) {
-                            $Z[$k] = $Z[$i];
-                        } else {
-                            $L = $i;
-                            while ($R < $n && $s[$R-$L+$i]==$s[$R-$L]) {
-                                $R++;
-                            }
-                            $Z[$i] = $R-$L;
-                            $R--;
-                        }
-                    }
-                } 
-                $flag=1;    
-                for ($i=1; $i < $n ; $i++) { 
-                    if ($Z[$i]>=$m) {
-                        //echo "no abuse";echo "<br>";
-                        $flag=0;
-                        break;
-                    }
-                }
-                if($flag==0)break;                               
-            }
-            if ($flag==1) {
                 $title =  mysqli_real_escape_string($conn, htmlspecialchars($_POST['title']));
                 $content =  mysqli_real_escape_string($conn, htmlspecialchars($_POST['content']));
                 $start_date_time = $_POST['start_date_time'];
@@ -362,53 +145,8 @@ if (isset($_POST['submit'])) {
                 } else {
                     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
                 }
-            }           
+                       
         } elseif ((isset($_POST['submit']))&&(isset($_POST['branch']))&&(empty($_POST['club']))) {
-            $flag=1;    
-            while ($slang_list = mysqli_fetch_assoc($slang_result)) {
-                $s1 = $slang_list['COL 1'];
-                $s2 = mysqli_real_escape_string($conn, htmlspecialchars($_POST['title']))." ". mysqli_real_escape_string($conn, htmlspecialchars($_POST['content']));
-                $s=$s1." ".$s2;
-                //echo $s;echo "<br>";
-                $n= strlen($s);
-                $m = strlen($s1);    
-                $Z = new SplFixedArray($n);
-                $Z[0] = $n;
-                $L = 0;
-                $R = 0;
-                for ($i= 1; $i < $n; $i++) { 
-                    if ($i> $R) {
-                        $L = $R = $i;
-                        while ($R < $n && $s[$R-$L+$i]==$s[$R-$L]) {
-                            $R++;
-                        }
-                        $Z[$i] = $R-$L;
-                        $R--;
-                    } else {
-                        $k = $i-$L;
-                        if ($Z[$k]<$R-$i+1) {
-                            $Z[$k] = $Z[$i];
-                        } else {
-                            $L = $i;
-                            while ($R < $n && $s[$R-$L+$i]==$s[$R-$L]) {
-                                $R++;
-                            }
-                            $Z[$i] = $R-$L;
-                            $R--;
-                        }
-                    }
-                } 
-                $flag=1;    
-                for ($i=1; $i < $n ; $i++) { 
-                    if ($Z[$i]>=$m) {
-                        //echo "no abuse";echo "<br>";
-                        $flag=0;
-                        break;
-                    }
-                }
-                if($flag==0)break;                               
-            }
-            if ($flag==1) {
                 $title =  mysqli_real_escape_string($conn, htmlspecialchars($_POST['title']));
                 $content =  mysqli_real_escape_string($conn, htmlspecialchars($_POST['content']));
                 $start_date_time = $_POST['start_date_time'];
@@ -426,53 +164,8 @@ if (isset($_POST['submit'])) {
                 } else {
                     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
                 }
-            }            
+                        
         } elseif ((isset($_POST['submit']))&&(empty($_POST['branch']))&&(isset($_POST['club']))) {
-            $flag=1;    
-            while ($slang_list = mysqli_fetch_assoc($slang_result)) {
-                $s1 = $slang_list['COL 1'];
-                $s2 = mysqli_real_escape_string($conn, htmlspecialchars($_POST['title']))." ". mysqli_real_escape_string($conn, htmlspecialchars($_POST['content']));
-                $s=$s1." ".$s2;
-                //echo $s;echo "<br>";
-                $n= strlen($s);
-                $m = strlen($s1);    
-                $Z = new SplFixedArray($n);
-                $Z[0] = $n;
-                $L = 0;
-                $R = 0;
-                for ($i= 1; $i < $n; $i++) { 
-                    if ($i> $R) {
-                        $L = $R = $i;
-                        while ($R < $n && $s[$R-$L+$i]==$s[$R-$L]) {
-                            $R++;
-                        }
-                        $Z[$i] = $R-$L;
-                        $R--;
-                    } else {
-                        $k = $i-$L;
-                        if ($Z[$k]<$R-$i+1) {
-                            $Z[$k] = $Z[$i];
-                        } else {
-                            $L = $i;
-                            while ($R < $n && $s[$R-$L+$i]==$s[$R-$L]) {
-                                $R++;
-                            }
-                            $Z[$i] = $R-$L;
-                            $R--;
-                        }
-                    }
-                } 
-                $flag=1;    
-                for ($i=1; $i < $n ; $i++) { 
-                    if ($Z[$i]>=$m) {
-                        //echo "no abuse";echo "<br>";
-                        $flag=0;
-                        break;
-                    }
-                }
-                if($flag==0)break;                               
-            }
-            if ($flag==1) {
                 $title =  mysqli_real_escape_string($conn, htmlspecialchars($_POST['title']));
                 $content =  mysqli_real_escape_string($conn, htmlspecialchars($_POST['content']));
                 $start_date_time = $_POST['start_date_time'];
@@ -490,53 +183,8 @@ if (isset($_POST['submit'])) {
                 } else {
                     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
                 }
-            }            
+                        
         } elseif ((isset($_POST['submit']))&&(empty($_POST['branch']))&&(empty($_POST['club']))) {
-            $flag=1;    
-            while ($slang_list = mysqli_fetch_assoc($slang_result)) {
-                $s1 = $slang_list['COL 1'];
-                $s2 = mysqli_real_escape_string($conn, htmlspecialchars($_POST['title']))." ". mysqli_real_escape_string($conn, htmlspecialchars($_POST['content']));
-                $s=$s1." ".$s2;
-                //echo $s;echo "<br>";
-                $n= strlen($s);
-                $m = strlen($s1);    
-                $Z = new SplFixedArray($n);
-                $Z[0] = $n;
-                $L = 0;
-                $R = 0;
-                for ($i= 1; $i < $n; $i++) { 
-                    if ($i> $R) {
-                        $L = $R = $i;
-                        while ($R < $n && $s[$R-$L+$i]==$s[$R-$L]) {
-                            $R++;
-                        }
-                        $Z[$i] = $R-$L;
-                        $R--;
-                    } else {
-                        $k = $i-$L;
-                        if ($Z[$k]<$R-$i+1) {
-                            $Z[$k] = $Z[$i];
-                        } else {
-                            $L = $i;
-                            while ($R < $n && $s[$R-$L+$i]==$s[$R-$L]) {
-                                $R++;
-                            }
-                            $Z[$i] = $R-$L;
-                            $R--;
-                        }
-                    }
-                } 
-                $flag=1;    
-                for ($i=1; $i < $n ; $i++) { 
-                    if ($Z[$i]>=$m) {
-                        //echo "no abuse";echo "<br>";
-                        $flag=0;
-                        break;
-                    }
-                }
-                if($flag==0)break;                               
-            }
-            if ($flag==1) {
                 $title =  mysqli_real_escape_string($conn, htmlspecialchars($_POST['title']));
                 $content =  mysqli_real_escape_string($conn, htmlspecialchars($_POST['content']));
                 $start_date_time = $_POST['start_date_time'];
@@ -552,7 +200,7 @@ if (isset($_POST['submit'])) {
                 } else {
                     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
                 }
-            }            
+                        
         }
     }         
 }   
