@@ -219,6 +219,10 @@
                                if (!$search_title['name']) {
                                    echo "Not in database";
                                } else {
+                                echo $search_title['name'];
+                                echo "<br>";
+                                echo $search_title['cabin'];
+                                echo "<br>";
                                    $outarr = $search_title['period'];
                                $out = explode(" ", $outarr);
                                $matrix = zeros(5, 13);
