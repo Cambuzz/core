@@ -20,7 +20,7 @@ $id_time = date("Y-m-d H-i-s");
 $buzz_id = $current_user.$id_time;
 $id_year = date("Y-m-d");
 $id_hour = date("H-i-s");
-$full_time = $id_year."%".$id_hour;
+$full_time = $id_year."%20".$id_hour;
 $full = $current_user.$full_time; 
 ?>
 <?php
