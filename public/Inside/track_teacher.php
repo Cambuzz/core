@@ -15,12 +15,12 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Cambuzz" />
-    <meta name="author" content="" />
-    <title>Cambuzz</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Login or Signup on Cambuzz. Buzz new events, Track your teacher or ask a question.">
+    <meta name="keywords" content="Buzz, Events, Cambuzz, Track, Teacher, Question, Campus, Centralized information system">
+    <meta name="author" content="Team Cambuzz">
+    <title>Track your Teacher</title>
     <link rel="stylesheet" href="assets/css/font-icons/entypo/css/entypo.css">
     <link rel="stylesheet" href="assets/css/bootstrap.css">
     <link rel="stylesheet" href="assets/css/style-core.css">
@@ -89,6 +89,7 @@
 </head>
 
 <body class="page-body  page-left-in"  style="font-family: 'Montserrat';">
+<?php include_once("analyticstracking.php") ?>
     <div class="page-container">
         <div class="sidebar-menu">
             <div class="sidebar-menu-inner">
@@ -128,9 +129,9 @@
                                         //echo '<img src="data:image/jpeg;base64,' . base64_encode($name_title['data_propic']) . '" class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>'; 
                                         
                                         if($dpcounter>0)
-                                        echo '<img src="images/' . $imageid."_".$dpcounter. '.jpg "class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>';
+                                        echo '<img src="images/' . $imageid."_".$dpcounter. '.jpg "class="img-circle" height="200px" width="100px"  style="border-radius: 100%;  min-height: 100px; min-width: 100px;"/>';
                                         else
-                                         echo '<img src="images/' . $imageid. '.jpg "class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>';
+                                        echo '<img src="images/' . $imageid. '.jpg "class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>';
                                 }
                             ?>
                             <span>Welcome,</span>
@@ -231,148 +232,119 @@
                                $day = date("l");
                                $hour = date("H");
                                $minute = date("i");
-                               
-                               $timarr=zeros(13,2);
-                               $timarr[0][0]=8;
-                               $timarr[0][1]=50;
-                               $timarr[1][0]=9;
-                               $timarr[1][1]=45;
-                               $timarr[2][0]=10;
-                               $timarr[2][1]=40;
-                               $timarr[3][0]=11;
-                               $timarr[3][1]=35;
-                               $timarr[4][0]=12;
-                               $timarr[4][1]=30;
-                               $timarr[5][0]=13;
-                               $timarr[5][1]=20;
-                               $timarr[6][0]=14;
-                               $timarr[6][1]=05;
-                               $timarr[7][0]=14;
-                               $timarr[7][1]=55;
-                               $timarr[8][0]=15;
-                               $timarr[8][1]=50;
-                               $timarr[9][0]=16;
-                               $timarr[9][1]=45;
-                               $timarr[10][0]=17;
-                               $timarr[10][1]=40;
-                               $timarr[11][0]=18;
-                               $timarr[11][1]=35;
-                               $timarr[12][0]=19;
-                               $timarr[12][1]=30;
-                               $r=10;
-                               if ($day=="Monday") $r=0;
-                               elseif ($day=="Tuesday") $r=1;
-                               elseif ($day=="Wednesday") $r=2;
-                               elseif ($day=="Thursday") $r=3;
-                               elseif ($day=="Friday") $r=4;
-                               if($r==10) {
-                                   echo "Today is a holiday";
-                                   echo "<br>";
-                               }
-                               elseif($hour<=6 || $hour>=22) {
-                                   echo "Your teacher is sleeping now";echo "<br>";
-                                   if($hour>=22 && $r==4) {
-                                       echo "Tommorow is a holiday";echo "<br>";
-                                       echo "Monday:";echo "<br>";
-                                       $r=0;
-                                   }
-                                   elseif($hour<24 && $hour>=22){
-                                      echo "Tommorow's schedule, " ;
-                                      $r++;
-                                    }
-                                   $flag=0;
-                                   for ($j=0; $j < 13; $j++) {
-
-                                       if($matrix[$r][$j]==0) {
-                                           if($flag==0) {
-                                               echo "You can meet your teacher between :";
-                                               echo "<br>";
-                                           }
-                                           if($j!=0) {
-                                               echo $timarr[$j-1][0].":".$timarr[$j-1][1]."-".$timarr[$j][0].":".$timarr[$j][1];
-                                               echo "<br>";
-                                           } else {
-                                               echo "8:00-".$timarr[$j][0].":".$timarr[$j][1];
-                                               echo "<br>";
-                                           }
-
-                                           $flag=1;
-                                       }
-                                   }        
-                                } elseif ($hour>19 || ($hour==19 && $minute>30)) {
-                                   echo "Its too late. Your teacher might have left the campus";
-                                   echo "<br>";
-                               } else {
-                                   $flag=0;
-                                   $ind=0;
-                                   for ($i=0; $i <13 ; $i++) { 
-                                       if($hour<=$timarr[$i][0]) {
-                                           if( $minute<=$timarr[$i][1]) {
-                                               if($matrix[$r][$i]==0) {
-                                                   echo "Free Till";
-                                                   echo "<br>";
-                                                   $k=$i;
-                                                   while ($matrix[$r][$k]==0 ) {
-                                                       $k++;
-                                                       if($k==13)break;
-                                                   }
-                                                   echo $timarr[$k-1][0].":".$timarr[$k-1][1];echo "<br>";
-                                                   if($k==13){echo "Your teacher might have left the campus";echo "<br>";}
-                                                   for ($j=$k+1; $j < 13; $j++) { 
-                                                       if($matrix[$r][$j]==0) {
-                                                           if($flag==0) {
-                                                               echo "You can also meet your teacher between : ";
-                                                               echo "<br>";
-                                                            }
-                                                           if($j!=0) {
-                                                               echo $timarr[$j-1][0].":".$timarr[$j-1][1]."-".$timarr[$j][0].":".$timarr[$j][1];
-                                                               echo "<br>";
-                                                           } else {
-                                                               echo "8:00-".$timarr[$j][0].":".$timarr[$j][1];
-                                                               echo "<br>";
-                                                           }
-                                                           $flag=1;
-                                                          
-                                                       }
-
-                                                   }
-                                                   $flag=1;
-                                               } elseif ($matrix[$r][$i]==1) {
-                                                   echo "Lecture";echo "<br>";
-                                                   for ($j=$i+1; $j < 13; $j++) {                         
-                                                       if($matrix[$r][$j]==0) {
-                                                           if($flag==0) {echo "You can meet your teacher between :";echo "<br>";}
-                                                           if($j!=0) {
-                                                               echo " ".$timarr[$j-1][0].":".$timarr[$j-1][1]."-".$timarr[$j][0].":".$timarr[$j][1];echo "<br>";
-                                                           } else {echo "8:00-".$timarr[$j][0].":".$timarr[$j][1];echo "<br>";}
-                                                           $flag=1;
-                                                       }
-                                                   }
-                                                   if($flag==0)echo "Sorry! Faculty isn't free today";
-                                               } else {
-                                                   echo "Lunch";echo "<br>";
-                                                   for ($j=$i+1; $j < 13; $j++) {                         
-                                                       if($matrix[$r][$j]==0) {
-                                                           if($flag==0) {
-                                                           echo "You can meet your teacher between : ";echo "<br>";
-                                                           if($j!=0) {
-                                                               echo $timarr[$j-1][0].":".$timarr[$j-1][1]."-".$timarr[$j][0].":".$timarr[$j][1];
-                                                               echo "<br>";
-                                                           } else {
-                                                               echo "8:00-".$timarr[$j][0].":".$timarr[$j][1];
-                                                               echo "<br>";
-                                                           }
-                                                           $flag=1;
-                                                       }
-                                                   }
-                                               }                    
-                                           }                    
-                                           if($flag==0)echo "Sorry! Faculty isn't free today";
-                                           break;
-                                       }
+                               $matrix = array();
+                               for ($rowIndx=0; $rowIndx<5; $rowIndx++){
+                                    $matrix[] = array();
+                                    for($colIndx=0; $colIndx<13; $colIndx++){
+                                             $matrix[$rowIndx][$colIndx]=0;
                                    }
                                }
-                           }
+                              $c = 0;
+                              for ($i=0; $i < 5; $i++) { 
+                                  for ($j=0; $j < 13; $j++) { 
+                                         $matrix[$i][$j] = $out[$c++];   
+                                         //echo $matrix[$i][$j];
+                                         //echo "<br>";
+                                      }                
+                              }
+                              $timarr = array();
+                              for ($rowIndx=0; $rowIndx<13; $rowIndx++){
+                                  $timarr[] = array();
+                                  for($colIndx=0; $colIndx<2; $colIndx++){
+                                  $timarr[$rowIndx][$colIndx]=0;
+                                }
+                              }
+                                   $timarr[0][0]=8;
+                                   $timarr[0][1]=50;
+                                   $timarr[1][0]=9;
+                                   $timarr[1][1]=45;
+                                   $timarr[2][0]=10;
+                                   $timarr[2][1]=40;
+                                   $timarr[3][0]=11;
+                                   $timarr[3][1]=35;
+                                   $timarr[4][0]=12;
+                                   $timarr[4][1]=30;
+                                   $timarr[5][0]=13;
+                                   $timarr[5][1]=20;
+                                   $timarr[6][0]=14; 
+                                   $timarr[6][1]=05;
+                                   $timarr[7][0]=14;
+                                   $timarr[7][1]=55;
+                                   $timarr[8][0]=15;
+                                   $timarr[8][1]=50;
+                                   $timarr[9][0]=16;
+                                   $timarr[9][1]=45;
+                                   $timarr[10][0]=17;
+                                   $timarr[10][1]=40;
+                                   $timarr[11][0]=18;
+                                   $timarr[11][1]=35;
+                                   $timarr[12][0]=19;
+                                   $timarr[12][1]=30;
+                  
+
+                                   $tim_disp=array("8:50","9:45","10:40","11:35","12:30","13:20","14:05","14:55","15:50","16:45","17:40","18:35","19:30");
+                   
+
+
+                                   $r=10;
+                                   $day_disp=array("Monday","Tuesday","Wednesday","Thursday","Friday");
+                                   if ($day=="Monday") $r=0;
+                                   elseif ($day=="Tuesday") $r=1;
+                                   elseif ($day=="Wednesday") $r=2;
+                                   elseif ($day=="Thursday") $r=3;
+                                   elseif ($day=="Friday") $r=4;
+                                   $start=0;
+                                   $end=0;
+                                   $itr=0;
+                                   //echo "LOL";
+                                   if($r>4)
+                                   {
+                                      $r=0;
+                                      $itr=0;
+                                   }
+                                   elseif(($hour>=19 && $minute>=30)||($hour>=20))
+                                   {
+                                       $r++;
+                                        //$itr=0;
+                                   }
+                                   elseif($hour>=8)
+                                   {
+                                       for($i=0;$i<13;$i++)
+                                        {
+                                            if($hour==$timarr[$i][0])
+                                            {
+                                                if($minute<=$timarr[$i][1])
+                                                {
+                                                   $itr=$i;
+                                                }
+                                                else $itr=$i+1;
+                                                break;
+                                            }
+                                        }
+                                   }
+                                   $r=$r%5;
+                                   echo $day_disp[$r];
+                                  echo "<br>";
+                                   for($i=$itr;$i<13;$i++)
+                                   {
+                                        if($matrix[$r][$i]==0)$start=$i;
+                                        else continue;
+                                        while($matrix[$r][$i]==0)
+                                        {
+                                             $end=$i;
+                                             $i++;
+                                             if($i==13)break;
+                                        }
+                                        if($start==0)
+                                        {
+                                            echo "8:00-".$tim_disp[$end];
+                                        }
+                                        else
+                                        {
+                                             echo $tim_disp[$start-1]."-".$tim_disp[$end];
+                                        }
+                                        echo "<br>";
+                                   }
                                }                            
                            }
                        ?></div>
