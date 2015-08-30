@@ -1,7 +1,7 @@
 <?php
 define("DB_SERVER","localhost");
 define("DB_USER","root");
-define("DB_PASS","25nov1992");
+define("DB_PASS","KinG82++");
 define("DB_NAME","cambuzz");
 
 // Create connection
