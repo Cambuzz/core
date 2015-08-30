@@ -90,8 +90,8 @@ if (isset($_POST['submit'])) {
                 date_default_timezone_set('Asia/Calcutta');
                 $buzz_time = date("Y-m-d H-i-s");
                 if($content !=''){
-                    $query = "INSERT INTO notify (title, content, start_date_time, end_date_time, branch, club, poset, buzz_username, buzz_time, app_name, po_url)";
-                    $query .= " VALUES ('{$title}', '{$content}', '{$start_date_time}', '{$end_date_time}', '{$branch}', '{$club}', {$poset}, '{$buzz_username}', '{$buzz_time}', '{$app_name}', '{$po_url}')";
+                    $query = "INSERT INTO notify (title, content, start_date_time, end_date_time, branch, club, poset, buzz_username, buzz_time, app_name, po_url, dp_url)";
+                    $query .= " VALUES ('{$title}', '{$content}', '{$start_date_time}', '{$end_date_time}', '{$branch}', '{$club}', {$poset}, '{$buzz_username}', '{$buzz_time}', '{$app_name}', '{$po_url}', '{$dp_url}')";
                     $sql = mysqli_query($conn, $query);
                 } else {
                     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
