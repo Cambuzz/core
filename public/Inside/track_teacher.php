@@ -291,7 +291,7 @@
 
 
                                    $r=10;
-                                   $day_disp=array("Monday","Tuesday","Wednesday","Thursday","Friday");
+                                   $day_disp=array("Monday's","Tuesday's","Wednesday's","Thursday's","Friday's");
                                    if ($day=="Monday") $r=0;
                                    elseif ($day=="Tuesday") $r=1;
                                    elseif ($day=="Wednesday") $r=2;
@@ -300,7 +300,6 @@
                                    $start=0;
                                    $end=0;
                                    $itr=0;
-                                   //echo "LOL";
                                    if($r>4)
                                    {
                                       $r=0;
@@ -328,7 +327,8 @@
                                    }
                                    $r=$r%5;
                                    echo $day_disp[$r];
-                                  echo "<br>";
+                                   echo "<br>";
+                                   echo "Free slots:<br>";
                                    for($i=$itr;$i<13;$i++)
                                    {
                                         if($matrix[$r][$i]==0)$start=$i;
