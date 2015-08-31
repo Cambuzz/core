@@ -229,7 +229,7 @@ if(($ectstamp+1800)<$time)
                 var p=$("#password").val();
                 var p1=$("#cpassword").val();
                 var username=$("#username").val();
-                alert(username);
+                
                if(p==p1)
                {
                        var msg;
@@ -240,7 +240,12 @@ if(($ectstamp+1800)<$time)
                             data: { username:username,password:p }
                             })
                             .done(function(msg) {
-                                
+
+                                if(msg="done")
+                                {
+                                    window.location.href="index.php";
+                                }
+
                             });
                 }
                 else
