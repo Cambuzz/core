@@ -35,7 +35,7 @@ if(($ectstamp+1800)<$time)
 
 
 
-if(isset($_POST['username'])&&isset($_POST['password']))
+if(isset($_POST['cpassword'])&&isset($_POST['password']))
 {
     $cpassword=$_POST['cpassword'];
     $password=$_POST['password'];
@@ -123,15 +123,15 @@ if(isset($_POST['username'])&&isset($_POST['password']))
                     <div>
                         <div class="content-style-form content-style-form-1" id="logindiv1">
                             <span class="icon icon-close">Close the dialog</span>
-                            <h2>Change Password</h2>
+                            <h2 style="font-size:20px;">Change Password</h2>
                             <form class="loginform">
                                 <p>
                                     <label>New Password</label>
-                                    <input type="password" id="password" required name="username" value="" />
+                                    <input type="password" id="password" required name="password" value="" />
                                 </p>
                                 <p>
                                     <label>Confirm Password</label>
-                                    <input type="password" id="cpassword" required name="password" value="" />
+                                    <input type="password" id="cpassword" required name="cpassword" value="" />
                                 </p>
                                 <p>
                                     <div id="tempdiv" value="<?php echo $error;?>"></div>
