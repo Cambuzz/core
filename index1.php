@@ -439,7 +439,10 @@ if (logged_in()) {
                         }
                         else
                         {
+
                              $('#tempdiv1').html(msg);
+
+
                         }
                         
                        
@@ -451,40 +454,28 @@ if (logged_in()) {
                 
             });
 
-            $('#loginatag').on('click',function()
+            $('#loginatag').click(function()
             {
 
             
                     $("#logindiv1").hide();
                     $("#logindiv2").show();
-
-                return false;
-
-                
             });
-            $('#loginatag1').on('click',function()
+
+
+            $('#loginatag1').click(function()
             {
 
             
                     $("#logindiv2").hide();
-                    $("#logindiv1").show();
-
-                return false;
-
-                
+                    $("#logindiv1").show();             
             });
 
              $('#closeforgot').click(function()
             {
-
             
-                    $("#closelogin").click();
-            
-
-                
+                    $("#closelogin").click();             
             });
-
-
 
 
             
