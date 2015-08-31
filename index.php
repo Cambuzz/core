@@ -105,6 +105,36 @@ if (logged_in()) {
                                 </p>
                             </form>
                         </div>
+
+                        
+
+
+                        <div class="content-style-form content-style-form-1" id="logindiv2" style="display:none;">
+                            <span id="closeforgot" class="icon icon-close">Close the dialog</span>
+                            <h2 style="font-size:25px;">Forgot Password?</h2>
+                            <form id="loginform1">
+                                <p>
+                                    <label>Registration Number</label>
+                                    <input type="text" id="regno1" required name="username" value="" />
+                                </p>
+                                <!-- <p>
+                                    <label>Password</label>
+                                    <input type="password" class="passwor" required name="password" value="" />
+                                </p> 
+                                 <div id="tempdiv"></div>-->
+                                 <p>
+
+                                 <div id="tempdiv1"><p><a href="#" id="loginatag1">Go Back</a></p></div>
+                                 <div id="tempdiv2"></div>
+                                 </p>
+                                
+                                <p>
+                                    <input type="submit" class="btn btn-danger" name="submit" value="Change Password" style="text-align: center;">
+                                </p>
+                            </form>
+                        </div>
+    
+
                     </div>
                 </div>
             </div>
@@ -391,6 +421,67 @@ if (logged_in()) {
                 return false;
 
                 
+            });
+
+
+            
+            $('#loginform1').on('submit',function()
+            {
+
+                var registration_no_login=$("#regno1").val();
+                var msg;
+                
+                $.ajax({
+                    method: "POST",
+                    url: "forgotpassword.php",
+                    data: {username:registration_no_login}
+                    })
+                    .done(function( msg ) {
+                        if(msg=="Registration Number Not Found")
+                        {
+                            $('#tempdiv2').html(msg);
+
+                        }
+                        else if(msg=="Account is not confirmed")
+                        {
+                            $('#tempdiv2').html(msg);
+
+                        }
+                        else
+                        {
+                          $('#tempdiv2').html(msg);
+                        }
+                        
+                       
+                    });
+                    
+
+                return false;
+
+                
+            });
+
+            $('#loginatag').click(function()
+            {
+
+            
+                    $("#logindiv1").hide();
+                    $("#logindiv2").show();
+            });
+
+
+            $('#loginatag1').click(function()
+            {
+
+            
+                    $("#logindiv2").hide();
+                    $("#logindiv1").show();             
+            });
+
+             $('#closeforgot').click(function()
+            {
+            
+                    $("#closelogin").click();             
             });
 
 
