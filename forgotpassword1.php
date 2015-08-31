@@ -35,23 +35,7 @@ if(($ectstamp+1800)<$time)
 
 
 
-if(isset($_POST['cpassword'])&&isset($_POST['password']))
-{
-    $cpassword=$_POST['cpassword'];
-    $password=$_POST['password'];
 
-    if($password==$cpassword)
-    {
-         $password1 = password_encrypt($password);
-         $query_update="UPDATE users SET ectstamp='0',confirm_code='0',hashed_password=$password1 WHERE username='{$username}'";
-         $result_update=mysqli_query($conn,$query_update);
-         redirect_to("index.php");
-    }
-    else
-    {
-        $error="Passwords do not match";
-    }
-}
 
 ?>
 
@@ -124,7 +108,8 @@ if(isset($_POST['cpassword'])&&isset($_POST['password']))
                         <div class="content-style-form content-style-form-1" id="logindiv1">
                             <span class="icon icon-close">Close the dialog</span>
                             <h2 style="font-size:20px;">Change Password</h2>
-                            <form class="loginform" method="post" action="forgotpassword1.php">
+                            <form class="loginform">
+                                <input type="text" style="display:none;" id="username" value="<?php echo $_GET['username'];?>">
                                 <p>
                                     <label>New Password</label>
                                     <input type="password" id="password" required name="password" value="" />
@@ -134,7 +119,7 @@ if(isset($_POST['cpassword'])&&isset($_POST['password']))
                                     <input type="password" id="cpassword" required name="cpassword" value="" />
                                 </p>
                                 <p>
-                                    <div id="tempdiv" value="<?php echo $error;?>"></div>
+                                    <div id="tempdiv" value=""></div>
                                 </p>
                                 <p>
                                     <input type="submit" class="btn btn-danger" name="submit" value="Change Password" style="text-align: center;">
@@ -233,6 +218,40 @@ if(isset($_POST['cpassword'])&&isset($_POST['password']))
             });
         });
     })();
+    </script>
+    <script type="text/javascript">
+         $(document).ready(function(){
+           
+            $('.loginform').on('submit',function()
+            {
+
+                var p=$("#password").val();
+                var p1=$("#cpassword").val();
+                var username=$("#username").val();
+               if(p==p1)
+               {
+                       var msg;
+                        
+                        $.ajax({
+                            method: "POST",
+                            url: "forgotpassword2.php",
+                            data: { username:username,password:p }
+                            })
+                            .done(function() {
+                                
+                            });
+                }
+                else
+                    $("#tempdiv").html("Passwords do not match");
+
+                    
+
+                return false;
+                
+
+                
+            });
+        });
     </script>
     
 </body>
