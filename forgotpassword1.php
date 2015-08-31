@@ -124,7 +124,7 @@ if(isset($_POST['cpassword'])&&isset($_POST['password']))
                         <div class="content-style-form content-style-form-1" id="logindiv1">
                             <span class="icon icon-close">Close the dialog</span>
                             <h2 style="font-size:20px;">Change Password</h2>
-                            <form class="loginform">
+                            <form class="loginform" method="post" action="forgotpassword1.php">
                                 <p>
                                     <label>New Password</label>
                                     <input type="password" id="password" required name="password" value="" />
