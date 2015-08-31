@@ -94,17 +94,7 @@ if(($ectstamp+1800)<$time)
                 <p class="animated fadeInUp"><span style="font-size: 20px;">&#35; </span>VITC Chapter</p>
             </div>
         </div>
-         <form id="confirmform">
-         <input type="text" style="display:none;" id="username" value="<?php echo $username; ?>">
-          <input type="text" style="display:none;" id="code" value="<?php echo $code; ?>">
-        <div class="mockup-content">
-            <div class="morph-button morph-button-modal morph-button-modal-2 morph-button-fixed login">
-           
-                
-                <button type="submit" style="color: white; background-color: #e75854;">Click to verify</button>
-            
-               
-            </div>
+         
 
 
 
