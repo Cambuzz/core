@@ -10,9 +10,9 @@ if(isset($_POST['username'])&&isset($_POST['password']))
 
     
          $password1 = password_encrypt($password);
-         $query_update="UPDATE users SET ectstamp='0',confirm_code='0',hashed_password=$password1 WHERE username='{$username}'";
+         $query_update="UPDATE users SET ectstamp='0',confirm_code='0',hashed_password='{$password1}' WHERE username='{$username}'";
          $result_update=mysqli_query($conn,$query_update);
          redirect_to("index.php");
-    
+    	 echo "done";
 } 
 ?>

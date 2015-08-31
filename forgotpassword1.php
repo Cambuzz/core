@@ -225,10 +225,11 @@ if(($ectstamp+1800)<$time)
             $('.loginform').on('submit',function()
             {
 
-                alert('hello');
+
                 var p=$("#password").val();
                 var p1=$("#cpassword").val();
                 var username=$("#username").val();
+                alert(username);
                if(p==p1)
                {
                        var msg;
@@ -238,7 +239,7 @@ if(($ectstamp+1800)<$time)
                             url: "forgotpassword2.php",
                             data: { username:username,password:p }
                             })
-                            .done(function() {
+                            .done(function(msg) {
                                 
                             });
                 }
