@@ -225,6 +225,7 @@ if(($ectstamp+1800)<$time)
             $('.loginform').on('submit',function()
             {
 
+                alert('hello');
                 var p=$("#password").val();
                 var p1=$("#cpassword").val();
                 var username=$("#username").val();

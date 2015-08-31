@@ -5,7 +5,7 @@
 
 if(isset($_POST['username'])&&isset($_POST['password']))
 {
-    $cpassword=$_POST['username'];
+    $username=$_POST['username'];
     $password=$_POST['password'];
 
     
