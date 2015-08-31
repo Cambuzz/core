@@ -87,8 +87,8 @@ if (logged_in()) {
                 <button type="button" style="background-color: white;">Login</button>
                 <div class="morph-content" style="background-color: white;">
                     <div>
-                        <div class="content-style-form content-style-form-1">
-                            <span class="icon icon-close">Close the dialog</span>
+                       <div class="content-style-form content-style-form-1" id="logindiv1">
+                            <span id="closelogin" class="icon icon-close">Close the dialog</span>
                             <h2>Login</h2>
                             <form class="loginform">
                                 <p>
@@ -99,13 +99,13 @@ if (logged_in()) {
                                     <label>Password</label>
                                     <input type="password" class="passwor" required name="password" value="" />
                                 </p>
-                                 <div id="tempdiv"></div>
+
+                                 <div id="tempdiv"><p><a href="#" id="loginatag">Forgot Password</a></p></div>
                                 <p>
                                     <input type="submit" class="btn btn-danger" name="submit" value="Login" style="text-align: center;">
                                 </p>
                             </form>
                         </div>
-
                         
 
 
@@ -424,7 +424,7 @@ if (logged_in()) {
             });
 
 
-            
+
             $('#loginform1').on('submit',function()
             {
 
