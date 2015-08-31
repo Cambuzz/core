@@ -33,7 +33,7 @@ if (logged_in()) {
 
                         $ectstamp=time();
                         $confirmcode = rand();
-                        $query_update="UPDATE users SET confirmcode=$confirmcode ectstamp=$ectstamp WHERE username = '{$username}'";
+                        $query_update="UPDATE users SET confirmcode=$confirmcode,ectstamp=$ectstamp WHERE username = '{$username}'";
                         $result_update=mysqli_query($conn,$query_update); 
                         $message = "Change your password by clicking the link http://cambuzz.co.in/forgotpassword1.php?username=$username&code=$confirmcode";
                         mail($email, "Change Password", $message, "From: cambuzz.vitcc@gmail.com");

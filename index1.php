@@ -120,6 +120,7 @@ if (logged_in()) {
                                  </p>
 
                                  <div id="tempdiv1"><p><a href="#" id="loginatag1">Go Back</a></p></div>
+                                 <div id="tempdiv2"></div>
                                 <p>
                                 <p>
                                     <input type="submit" class="btn btn-danger" name="submit" value="Change Password" style="text-align: center;">
@@ -429,20 +430,17 @@ if (logged_in()) {
                     .done(function( msg ) {
                         if(msg=="Registration Number Not Found")
                         {
-                            $('#tempdiv1').html(msg);
+                            $('#tempdiv2').html(msg);
 
                         }
                         else if(msg=="Account is not confirmed")
                         {
-                            $('#tempdiv1').html(msg);
+                            $('#tempdiv2').html(msg);
 
                         }
                         else
                         {
-
-                             $('#tempdiv1').html(msg);
-
-
+                          $('#tempdiv2').html(msg);
                         }
                         
                        

@@ -2,10 +2,12 @@
 <?php require_once("includes/db_connection.php");?>
 <?php require_once("includes/functions.php");?>
 <?php
-$username = $_GET['username'];
+
 $error="";
-if(isset($_GET['username']))
+if(isset($_GET['username'])&&isset($_GET['code']))
 {
+    $username = $_GET['username'];
+    $confirmcode=$_GET['code'];
 $query = "SELECT * FROM users WHERE username = '{$username}'";
 $result = mysqli_query($conn, $query);
 confirm_query($result);
@@ -18,9 +20,12 @@ while ($row = mysqli_fetch_assoc($result)) {
 $time=time();
 if(($ectstamp+1800)<$time)
 {
+    if($db_code==$confirmcode)
+    {
   
-   $query_update="UPDATE users SET ectstamp='0',confirmcode='0' WHERE username='{$username}'";
-   $result_update=mysqli_query($conn,$query_update);
+       $query_update="UPDATE users SET ectstamp='0',confirmcode='0' WHERE username='{$username}'";
+       $result_update=mysqli_query($conn,$query_update);
+   }
  
     redirect_to("linkexpire.php");
 }
@@ -30,22 +35,7 @@ if(($ectstamp+1800)<$time)
 
 
 
-if(isset($_POST['username'])&&isset($_POST['password']))
-{
-    $cpassword=$_POST['cpassword'];
-    $password=$_POST['password'];
 
-    if($password==$cpassword)
-    {
-         $password1 = password_encrypt($password);
-         $query_update="UPDATE users SET ectstamp='0',confirmcode='0',password=$password1 WHERE username='{$username}'";
-         $result_update=mysqli_query($conn,$query_update);
-    }
-    else
-    {
-        $error="Passwords do not match";
-    }
-}
 
 ?>
 
