@@ -23,7 +23,7 @@ if(($ectstamp+1800)<$time)
     if($db_code==$confirmcode)
     {
   
-       $query_update="UPDATE users SET ectstamp='0',confirmcode='0' WHERE username='{$username}'";
+       $query_update="UPDATE users SET ectstamp='0',confirm_code='0' WHERE username='{$username}'";
        $result_update=mysqli_query($conn,$query_update);
    }
  
@@ -35,7 +35,23 @@ if(($ectstamp+1800)<$time)
 
 
 
+if(isset($_POST['username'])&&isset($_POST['password']))
+{
+    $cpassword=$_POST['cpassword'];
+    $password=$_POST['password'];
 
+    if($password==$cpassword)
+    {
+         $password1 = password_encrypt($password);
+         $query_update="UPDATE users SET ectstamp='0',confirm_code='0',password=$password1 WHERE username='{$username}'";
+         $result_update=mysqli_query($conn,$query_update);
+         redirect_to("index.php");
+    }
+    else
+    {
+        $error="Passwords do not match";
+    }
+}
 
 ?>
 
