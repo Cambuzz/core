@@ -30,7 +30,7 @@ if(($ectstamp+1800)<$time)
 
 
 
-f(isset($_POST['username'])&&isset($_POST['password']))
+if(isset($_POST['username'])&&isset($_POST['password']))
 {
     $cpassword=$_POST['cpassword'];
     $password=$_POST['password'];
@@ -162,9 +162,7 @@ f(isset($_POST['username'])&&isset($_POST['password']))
     <script src="js/uiMorphingButton_fixed.js"></script>
     
     
-    <script type="text/javascript">
-       
-    </script>
+
 
     <script  src="HTTP://code.jquery.com/jquery-1.9.1.min.js"></script>
     
