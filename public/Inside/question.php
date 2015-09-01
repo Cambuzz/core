@@ -1,7 +1,6 @@
 <?php require_once("../../includes/session.php");?>
 <?php require_once("../../includes/db_connection.php");?>
 <?php require_once("../../includes/functions.php");?>
-<?php confirm_logged_in(); ?>
 <?php $answer_set = find_all_answers(); ?>
 <?php
     $current_user = $_SESSION["username"];
@@ -10,17 +9,7 @@
     confirm_query($name_result);
     $name_title = mysqli_fetch_assoc($name_result);
     $first_name = explode(" ", $name_title['sname']);
-    $current_id = $name_title['id'];
-    $slang_query = "SELECT * FROM slangs";
-    $slang_result = mysqli_query($conn, $slang_query);
-    confirm_query($slang_result);  
-?>
-<?php
-$current_user = $_SESSION["username"];
-$name_query = "SELECT * FROM users WHERE username = '{$current_user}' LIMIT 1";
-$name_result = mysqli_query($conn, $name_query);
-confirm_query($name_result);
-$name_title = mysqli_fetch_assoc($name_result);
+    $current_id = $name_title['id'];    
 ?>
 <?php
 $question = find_question_by_id($_GET["id"]);
@@ -42,74 +31,24 @@ $query_post_answer = "SELECT * FROM answers WHERE qid = {$id}";
 $result_post_answer = mysqli_query($conn, $query_post_answer); 
 ?>
 <?php   
-if ((isset($_POST['submit']))&&(isset($_POST['answer']))) {
-    $flag=1;    
-    while ($slang_list = mysqli_fetch_assoc($slang_result)) {
-        $s1 = $slang_list['COL 1'];
-        $s2 = mysqli_real_escape_string($conn, htmlspecialchars($_POST['answer']));
-        $s=$s1." ".$s2;
-        //echo $s;echo "<br>";
-        $n= strlen($s);
-        $m = strlen($s1);    
-        $Z = new SplFixedArray($n);
-        $Z[0] = $n;
-        $L = 0;
-        $R = 0;
-        for ($i= 1; $i < $n; $i++) { 
-            if ($i> $R) {
-                $L = $R = $i;
-                while ($R < $n && $s[$R-$L+$i]==$s[$R-$L]) {
-                    $R++;
-                }
-                $Z[$i] = $R-$L;
-                $R--;
-            } else {
-                $k = $i-$L;
-                if ($Z[$k]<$R-$i+1) {
-                    $Z[$k] = $Z[$i];
-                } else {
-                    $L = $i;
-                    while ($R < $n && $s[$R-$L+$i]==$s[$R-$L]) {
-                        $R++;
-                    }
-                    $Z[$i] = $R-$L;
-                    $R--;
-                }
-            }
-        } 
-        $flag=1;    
-        for ($i=1; $i < $n ; $i++) { 
-            if ($Z[$i]>=$m) {
-                //echo "no abuse";echo "<br>";
-                $flag=0;
-                break;
-            }
-        }
-        if($flag==0)break;                               
+if ((isset($_POST['submit']))&&(isset($_POST['answer']))) {    
+    $qid = $question["id"];
+    $answer = mysqli_real_escape_string($conn, htmlspecialchars($_POST['answer']));
+    $answer_poster = $current_user;
+    date_default_timezone_set('Asia/Calcutta');
+    $answer_time = date("Y-m-d\TH:i:s");
+    if($current_user!=$view_quest["quest_user"]) {
+        $counter = $view_quest['comment_counter'];
+        $comment_counter = $counter+1;    
+        $query_counter = "UPDATE quora SET comment_counter = {$comment_counter} WHERE id = {$id}";
+        $result_counter = mysqli_query($conn, $query_counter);
     }
-    if ($flag==1) {
-        $qid = $question["id"];
-        $answer = mysqli_real_escape_string($conn, htmlspecialchars($_POST['answer']));
-        $answer_poster = $current_user;
-        date_default_timezone_set('Asia/Calcutta');
-        $answer_time = date("Y-m-d\TH:i:s");
-        if($current_user!=$view_quest["quest_user"])
-        {
-            $counter = $view_quest['comment_counter'];
-            $comment_counter = $counter+1;    
-            $query_counter = "UPDATE quora SET comment_counter = {$comment_counter} WHERE id = {$id}";
-            $result_counter = mysqli_query($conn, $query_counter);
-        }
-        $query_answer = "INSERT INTO answers (qid, answer, answer_poster, answer_time) VALUES ('{$qid}', '{$answer}', '{$answer_poster}', '{$answer_time}')";
-        $result_answer = mysqli_query($conn, $query_answer);
-
-        if ($result_answer && mysqli_affected_rows($conn) == 1) {
-            redirect_to("question.php?id=$id");
-        }       
-    }
+    $query_answer = "INSERT INTO answers (qid, answer, answer_poster, answer_time) VALUES ('{$qid}', '{$answer}', '{$answer_poster}', '{$answer_time}')";
+    $result_answer = mysqli_query($conn, $query_answer);
+    if ($result_answer && mysqli_affected_rows($conn) == 1) {
+        redirect_to("question.php?id=$id");
+    }   
 }
-       
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
