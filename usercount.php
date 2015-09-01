@@ -33,7 +33,7 @@ echo $total;
 <?php
 
 
-$query1 = "SELECT COUNT(live_users) FROM live";
+$query1 = "SELECT COUNT(username) FROM users WHERE confirmed='1'";
 $result1 = mysqli_query($conn, $query1);
 confirm_query($result1);
 $row = mysqli_fetch_array($result1);
