@@ -20,7 +20,7 @@
     $picture_id = $current_user.$id_time;    
 ?>
 <?php
-if ($current_user=="cambuzz") {
+if ($current_user=="12BEC1096") {
     $view = " ";
 } else {
     $view = "style='display: none;'";
@@ -230,7 +230,7 @@ confirm_query($result);
                                         </div>
                                                                                 
                                             <?php
-                                                if (($current_user=="cambuzz")) {
+                                                if (($current_user=="12BEC1096")) {
                                                     while ($mun_list = mysqli_fetch_assoc($result)) { ?>
                                                         <article class="story">
                                                         <aside class="user-thumb">
@@ -268,16 +268,24 @@ confirm_query($result);
                                                             </header>
                                                         <div class="story-main-content">                                                            
                                                             <?php
-                                                            if ($mun_list['picset']==1) { ?>
-                                                                <a href="comment.php?id=<?php echo urlencode($mun_list["id"]); ?>"><?php echo ucfirst($mun_list['content']);echo "</a>"; ?></a>
-                                                                <?php                                                               
+                                                            if ($mun_list['picset']==1) { 
+                                                                echo ucfirst($mun_list['content']);                                                                                                                              
                                                                 $poster_time = strtotime($mun_list['post_time']);                                                    
                                                                 $posterid=$mun_list['post_user'].date("Y-m-d H-i-s", $poster_time);                                                                                                      
-                                                                echo '<img src="images/' . $posterid . '.jpg "class="img-responsive">';
-                                                                
-                                                            } else{ ?>
-                                                                <a href="comment.php?id=<?php echo urlencode($mun_list["id"]); ?>"><?php echo ucfirst($mun_list['content']);echo "</a>"; ?></a>
-                                                                <?php
+                                                                echo '<img src="images/' . $posterid . '.jpg "class="img-responsive">';                                                                
+                                                            } else{ 
+                                                                echo ucfirst($mun_list['content']); ?>                                                                
+                                                                <a href="mun_comment.php?id=<?php echo urlencode($mun_list["id"]); ?>">
+                                                                <?php                                                                
+                                                                echo "Comment (";
+                                                                    $count_query = "SELECT COUNT(*) FROM comments WHERE pid = {$mun_list["id"]}";
+                                                                    $count_result = mysqli_query($conn, $count_query);
+                                                                    confirm_query($count_result);
+                                                                    $row = mysqli_fetch_array($count_result);
+                                                                    $total = $row[0];
+                                                                    echo $total;
+                                                                    echo ")";
+                                                                echo "</a>";    
                                                             }
 
                                                             ?>
@@ -333,16 +341,36 @@ confirm_query($result);
                                                             </header>
                                                         <div class="story-main-content">
                                                             <?php
-                                                            if ($mun_list['picset']==1) { ?>
-                                                                <a href="comment.php?id=<?php echo urlencode($mun_list["id"]); ?>"><?php echo ucfirst($mun_list['content']);echo "</a>"; ?></a>
-                                                                <?php                                                               
+                                                            if ($mun_list['picset']==1) { 
+                                                                echo ucfirst($mun_list['content']);                                 
                                                                 $poster_time = strtotime($mun_list['post_time']);                                                    
                                                                 $posterid=$mun_list['post_user'].date("Y-m-d H-i-s", $poster_time);                                                                                                      
-                                                                echo '<img src="images/' . $posterid . '.jpg "class="img-responsive">';
+                                                                echo '<img src="images/' . $posterid . '.jpg "class="img-responsive">'; ?>                                                                
+                                                                <a href="mun_comment.php?id=<?php echo urlencode($mun_list["id"]); ?>">
+                                                                <?php                                     
+                                                                echo "Comment (";
+                                                                    $count_query = "SELECT COUNT(*) FROM comments WHERE pid = {$mun_list["id"]}";
+                                                                    $count_result = mysqli_query($conn, $count_query);
+                                                                    confirm_query($count_result);
+                                                                    $row = mysqli_fetch_array($count_result);
+                                                                    $total = $row[0];
+                                                                    echo $total;
+                                                                echo ")";
+                                                                echo "</a>"; 
                                                                 //echo $posterid;
-                                                            } else{ ?>
-                                                                <a href="comment.php?id=<?php echo urlencode($mun_list["id"]); ?>"><?php echo ucfirst($mun_list['content']);echo "</a>"; ?></a>
-                                                                <?php
+                                                            } else{ 
+                                                                echo ucfirst($mun_list['content']); ?>                                                                
+                                                                <a href="mun_comment.php?id=<?php echo urlencode($mun_list["id"]); ?>">
+                                                                <?php                                     
+                                                                echo "Comment (";
+                                                                    $count_query = "SELECT COUNT(*) FROM comments WHERE pid = {$mun_list["id"]}";
+                                                                    $count_result = mysqli_query($conn, $count_query);
+                                                                    confirm_query($count_result);
+                                                                    $row = mysqli_fetch_array($count_result);
+                                                                    $total = $row[0];
+                                                                    echo $total;
+                                                                echo ")";
+                                                                echo "</a>";                                                                 
                                                             }
 
                                                             ?>
