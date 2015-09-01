@@ -27,7 +27,7 @@ echo $total;
 </p>
 
 
-<h2>Live users</h2> 
+<h2>Verfied Users</h2> 
 <p></p>
 <p>
 <?php
