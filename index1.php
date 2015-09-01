@@ -16,9 +16,8 @@ if (logged_in()) {
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Login or Signup on Cambuzz. Buzz new events, Track your teacher or ask a question.">
-    <meta name="keywords" content="Buzz, Events, Cambuzz, Track, Teacher, Question, Campus, Centralized information system">
-    <meta name="author" content="Team Cambuzz">
+    <meta name="description" content="">
+    <meta name="author" content="">
     <title>Cambuzz</title>
     <!-- Favicon -->
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
@@ -39,7 +38,6 @@ if (logged_in()) {
 </head>
 
 <body id="page-top">
-<?php include_once("public/Inside/analyticstracking.php") ?>
     <ul class="cb-slideshow">
         <li><span>Image 01</span>
         </li>
@@ -87,7 +85,7 @@ if (logged_in()) {
                 <button type="button" style="background-color: white;">Login</button>
                 <div class="morph-content" style="background-color: white;">
                     <div>
-                       <div class="content-style-form content-style-form-1" id="logindiv1">
+                        <div class="content-style-form content-style-form-1" id="logindiv1">
                             <span id="closelogin" class="icon icon-close">Close the dialog</span>
                             <h2>Login</h2>
                             <form class="loginform">
@@ -106,12 +104,9 @@ if (logged_in()) {
                                 </p>
                             </form>
                         </div>
-                        
-
-
                         <div class="content-style-form content-style-form-1" id="logindiv2" style="display:none;">
                             <span id="closeforgot" class="icon icon-close">Close the dialog</span>
-                            <h2 style="font-size:25px;">Forgot Password?</h2>
+                            <h2>Forgot Password?</h2>
                             <form id="loginform1">
                                 <p>
                                     <label>Registration Number</label>
@@ -122,19 +117,16 @@ if (logged_in()) {
                                     <input type="password" class="passwor" required name="password" value="" />
                                 </p> 
                                  <div id="tempdiv"></div>-->
-                                 <p>
+                                 </p>
 
                                  <div id="tempdiv1"><p><a href="#" id="loginatag1">Go Back</a></p></div>
                                  <div id="tempdiv2"></div>
-                                 </p>
-                                
+                                <p>
                                 <p>
                                     <input type="submit" class="btn btn-danger" name="submit" value="Change Password" style="text-align: center;">
                                 </p>
                             </form>
                         </div>
-    
-
                     </div>
                 </div>
             </div>
@@ -424,7 +416,6 @@ if (logged_in()) {
             });
 
 
-
             $('#loginform1').on('submit',function()
             {
 
@@ -518,8 +509,8 @@ if (logged_in()) {
                         else
                         {
                              
-                            $('#modalcontent').html(msg);
-                            $('#modal-1').modal('show');
+                           // $('#modalcontent').html(msg);
+                            //$('#modal-1').modal('show');
                         }
                     });
                     
