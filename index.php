@@ -73,7 +73,7 @@ if (logged_in()) {
                         <a class="page-scroll" href="aboutus/index.html">About</a>
                     </li>
                     <li>
-                        <a href="aboutus/index.html" name="contact">Contact Us</a>
+                        <a href="aboutus/index.html#contact">Contact Us</a>
                     </li>
                 </ul>
             </div>
