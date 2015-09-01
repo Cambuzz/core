@@ -1,5 +1,17 @@
 <!DOCTYPE html>
-
+<?php
+if(isset($_POST['submit']))
+{
+    if((isset($_POST['name']))&&(isset($_POST['email']))&&(isset($_POST['message'])))
+    {
+         $name=$_POST['name'];
+         $email=$_POST['email'];
+         $message=$_POST['message'];
+         $email1="cambuzz.vitcc@gmail.com";
+         mail($email1,$name, $message, "From: $email ");
+    }
+}
+?>
 <head>
     <title>About Us</title>
     <link rel="stylesheet" href="css/particle.css" />
@@ -395,7 +407,7 @@
         <div id="contact" class="contact">
             <div class="contact-form-container">
                 <div class="contact-form form-container">
-                    <form action="http://wearefixel.com/mail.php" id="contact_form">
+                    <form action="index.php" method="post" id="contact_form">
                         <h3 class="form-title">Get in Touch</h3>
                         <div class="field">
                             <input type="text" placeholder="Name" name="name">
@@ -412,7 +424,7 @@
                             </label>
                         </div>
                         <div class="field">
-                            <input type="submit" value="Send it!">
+                            <input type="submit" value="Send it!" name="submit">
                         </div>
                     </form>
                 </div>
