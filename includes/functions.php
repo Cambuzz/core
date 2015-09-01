@@ -297,4 +297,14 @@ function find_answer_by_id($answer_id) {
 		return null;
 	}
 }
+function find_all_muns() {
+	global $conn;
+
+	$query = "SELECT * ";
+	$query .= "FROM mun ";
+	$query .= "ORDER BY id DESC";
+	$mun_set = mysqli_query($conn, $query);
+	confirm_query($mun_set);
+	return $mun_set;
+}
 ?>
