@@ -32,12 +32,6 @@ if (logged_in()) {
                 $query_update= "UPDATE live SET live_users='{$live}' WHERE id= '1'";
                 $result = mysqli_query($conn, $query_update);*/
 
-                $query = "INSERT INTO live (live_users)";
-                $query .= " VALUES ('{$username}')";
-                $sql = mysqli_query($conn, $query);
-
-
-
                 $_SESSION["user_id"] = $found_user["id"];
                 $_SESSION["username"] = $found_user["username"];
                 echo "loggedin";
