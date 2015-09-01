@@ -2,10 +2,12 @@
 <?php require_once("includes/db_connection.php");?>
 <?php require_once("includes/functions.php");?>
 <?php
-$username = $_GET['username'];
+
 $error="";
-if(isset($_GET['username']))
+if(isset($_GET['username'])&&isset($_GET['code']))
 {
+    $username = $_GET['username'];
+    $confirmcode=$_GET['code'];
 $query = "SELECT * FROM users WHERE username = '{$username}'";
 $result = mysqli_query($conn, $query);
 confirm_query($result);
@@ -18,9 +20,12 @@ while ($row = mysqli_fetch_assoc($result)) {
 $time=time();
 if(($ectstamp+1800)<$time)
 {
+    if($db_code==$confirmcode)
+    {
   
-   $query_update="UPDATE users SET ectstamp='0',confirmcode='0' WHERE username='{$username}'";
-   $result_update=mysqli_query($conn,$query_update);
+       $query_update="UPDATE users SET ectstamp='0',confirm_code='0' WHERE username='{$username}'";
+       $result_update=mysqli_query($conn,$query_update);
+   }
  
     redirect_to("linkexpire.php");
 }
@@ -30,22 +35,7 @@ if(($ectstamp+1800)<$time)
 
 
 
-f(isset($_POST['username'])&&isset($_POST['password']))
-{
-    $cpassword=$_POST['cpassword'];
-    $password=$_POST['password'];
 
-    if($password==$cpassword)
-    {
-         $password1 = password_encrypt($password);
-         $query_update="UPDATE users SET ectstamp='0',confirmcode='0',password=$password1 WHERE username='{$username}'";
-         $result_update=mysqli_query($conn,$query_update);
-    }
-    else
-    {
-        $error="Passwords do not match";
-    }
-}
 
 ?>
 
@@ -104,17 +94,7 @@ f(isset($_POST['username'])&&isset($_POST['password']))
                 <p class="animated fadeInUp"><span style="font-size: 20px;">&#35; </span>VITC Chapter</p>
             </div>
         </div>
-         <form id="confirmform">
-         <input type="text" style="display:none;" id="username" value="<?php echo $username; ?>">
-          <input type="text" style="display:none;" id="code" value="<?php echo $code; ?>">
-        <div class="mockup-content">
-            <div class="morph-button morph-button-modal morph-button-modal-2 morph-button-fixed login">
-           
-                
-                <button type="submit" style="color: white; background-color: #e75854;">Click to verify</button>
-            
-               
-            </div>
+         
 
 
 
@@ -127,18 +107,19 @@ f(isset($_POST['username'])&&isset($_POST['password']))
                     <div>
                         <div class="content-style-form content-style-form-1" id="logindiv1">
                             <span class="icon icon-close">Close the dialog</span>
-                            <h2>Change Password</h2>
+                            <h2 style="font-size:20px;">Change Password</h2>
                             <form class="loginform">
+                                <input type="text" style="display:none;" id="username" value="<?php echo $_GET['username'];?>">
                                 <p>
                                     <label>New Password</label>
-                                    <input type="password" id="password" required name="username" value="" />
+                                    <input type="password" id="password" required name="password" value="" />
                                 </p>
                                 <p>
                                     <label>Confirm Password</label>
-                                    <input type="password" id="cpassword" required name="password" value="" />
+                                    <input type="password" id="cpassword" required name="cpassword" value="" />
                                 </p>
                                 <p>
-                                    <div id="tempdiv" value="<?php echo $error;?>"></div>
+                                    <div id="tempdiv" value=""></div>
                                 </p>
                                 <p>
                                     <input type="submit" class="btn btn-danger" name="submit" value="Change Password" style="text-align: center;">
@@ -162,11 +143,123 @@ f(isset($_POST['username'])&&isset($_POST['password']))
     <script src="js/uiMorphingButton_fixed.js"></script>
     
     
-    <script type="text/javascript">
-       
-    </script>
+
 
     <script  src="HTTP://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script>
+    (function() {
+        var docElem = window.document.documentElement,
+            didScroll, scrollPosition;
+
+        // trick to prevent scrolling when opening/closing button
+        function noScrollFn() {
+            window.scrollTo(scrollPosition ? scrollPosition.x : 0, scrollPosition ? scrollPosition.y : 0);
+        }
+
+        function noScroll() {
+            window.removeEventListener('scroll', scrollHandler);
+            window.addEventListener('scroll', noScrollFn);
+        }
+
+        function scrollFn() {
+            window.addEventListener('scroll', scrollHandler);
+        }
+
+        function canScroll() {
+            window.removeEventListener('scroll', noScrollFn);
+            scrollFn();
+        }
+
+        function scrollHandler() {
+            if (!didScroll) {
+                didScroll = true;
+                setTimeout(function() {
+                    scrollPage();
+                }, 60);
+            }
+        };
+
+        function scrollPage() {
+            scrollPosition = {
+                x: window.pageXOffset || docElem.scrollLeft,
+                y: window.pageYOffset || docElem.scrollTop
+            };
+            didScroll = false;
+        };
+
+        scrollFn();
+
+        [].slice.call(document.querySelectorAll('.login')).forEach(function(bttn) {
+            new UIMorphingButton(bttn, {
+                closeEl: '.icon-close',
+                onBeforeOpen: function() {
+                    // don't allow to scroll
+                    noScroll();
+                },
+                onAfterOpen: function() {
+                    // can scroll again
+                    canScroll();
+                },
+                onBeforeClose: function() {
+                    // don't allow to scroll
+                    noScroll();
+                },
+                onAfterClose: function() {
+                    // can scroll again
+                    canScroll();
+                }
+            });
+        });
+
+        // for demo purposes only
+        [].slice.call(document.querySelectorAll('form button')).forEach(function(bttn) {
+            bttn.addEventListener('click', function(ev) {
+                ev.preventDefault();
+            });
+        });
+    })();
+    </script>
+    <script type="text/javascript">
+         $(document).ready(function(){
+           
+            $('.loginform').on('submit',function()
+            {
+
+
+                var p=$("#password").val();
+                var p1=$("#cpassword").val();
+                var username=$("#username").val();
+                
+               if(p==p1)
+               {
+                       var msg;
+                        
+                        $.ajax({
+                            method: "POST",
+                            url: "forgotpassword2.php",
+                            data: { username:username,password:p }
+                            })
+                            .done(function(msg) {
+
+                                if(msg="done")
+                                {
+                                    window.location.href="index.php";
+                                }
+
+                            });
+                }
+                else
+                    $("#tempdiv").html("Passwords do not match");
+
+                    
+
+                return false;
+                
+
+                
+            });
+        });
+    </script>
     
 </body>
 
