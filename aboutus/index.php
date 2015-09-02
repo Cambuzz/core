@@ -658,7 +658,7 @@
     <script src="js/lib/jquery.js"></script>
     <script src="js/plugins.js"></script>
     <script src="js/script.js"></script>
-     <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+     
 
     <script type="text/javascript">
         
