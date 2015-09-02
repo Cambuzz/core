@@ -8,7 +8,8 @@ if(isset($_POST['submit']))
          $email=$_POST['email'];
          $message=$_POST['message'];
          $email1="cambuzz.vitcc@gmail.com";
-         mail($email1,$name, $message,"From: $email ");
+         $str="From: ".$email;
+         mail($email1,$name,$message,$str);
     }
 }
 ?>
