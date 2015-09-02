@@ -20,7 +20,7 @@
     $picture_id = $current_user.$id_time;    
 ?>
 <?php
-if ($current_user=="cambuzz") {
+if ($current_user=="12BEC1096") {
     $view = " ";
 } else {
     $view = "style='display: none;'";
