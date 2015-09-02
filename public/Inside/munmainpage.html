@@ -1,0 +1,535 @@
+<html lang="en">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Login or Signup on Cambuzz. Buzz new events, Track your teacher or ask a question.">
+    <meta name="keywords" content="Buzz, Events, Cambuzz, Track, Teacher, Question, Campus, Centralized information system">
+    <meta name="author" content="Team Cambuzz">
+    <title>Ask a Question</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/style-core.css">
+    <link rel="stylesheet" href="assets/css/style-theme.css">
+    <link rel="stylesheet" href="assets/css/style-forms.css">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <!-- Buzz button -->
+    <link rel="stylesheet" type="text/css" href="assets/css/buttoncreatebuzz.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/normalize.css" />
+    <!-- Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=PlayfairDisplay:400,900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="assets/css/font-icons/entypo/css/entypo.css">
+    <script>
+    $.noConflict();
+    </script>
+    <style>
+    .nav-tabs > li,
+    .nav-pills > li {
+        float: none;
+        display: inline-block;
+        /* ie7 fix */
+        zoom: 1;
+        /* hasLayout ie7 trigger */
+    }
+    
+    .nav-tabs,
+    .nav-pills {
+        text-align: center;
+    }
+    </style>
+</head>
+
+<body class="page-body page-left-in" style="font-family: 'Montserrat';">
+    <div class="page-container">
+        <!-- add class "sidebar-collapsed" to close sidebar by default, "chat-visible" to make chat appear always -->
+        <div class="sidebar-menu">
+            <div class="sidebar-menu-inner">
+                <header class="logo-env">
+                    <!-- logo -->
+                    <div class="logo">
+                        <a href="buzz.php">
+                            <h1 style="font-family: 'Pacifico', sans-serif; font-weight: 200px; color: white; margin-top: -2px; font-size:25px;">vitcc cambuzz</h1>
+                        </a>
+                    </div>
+                    <!-- logo collapse icon -->
+                    <div class="sidebar-collapse">
+                        <a href="#" class="sidebar-collapse-icon">
+                            <!-- add class "with-animation" if you want sidebar to have animation during expanding/collapsing transition -->
+                            <i class="entypo-menu"></i>
+                        </a>
+                    </div>
+                    <!-- open/close menu icon (do not remove if you want to enable menu on mobile devices) -->
+                    <div class="sidebar-mobile-menu visible-xs">
+                        <a href="#" class="with-animation">
+                            <!-- add class "with-animation" to support animation -->
+                            <i class="entypo-menu"></i>
+                        </a>
+                    </div>
+                </header>
+                <div class="sidebar-user-info">
+                    <div class="sui-normal">
+                        <div class="user-link">
+                            <span>Welcome,</span>
+                            <strong></strong>
+                        </div>
+                    </div>
+                    <div class="sui-hover inline-links animate-in">
+                        <a href="settings.php">
+                            <i class="entypo-pencil"></i> Account Settings
+                        </a>
+                        <span class="close-sui-popup">&times;</span>
+                    </div>
+                </div>
+                <ul id="main-menu" class="main-menu">
+                    <!-- add class "multiple-expanded" to allow multiple submenus to open -->
+                    <!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
+                    <li>
+                        <a href="buzz.php">
+                            <i class="entypo-megaphone"></i>
+                            <span class="title">Buzz</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="track_teacher.php">
+                            <i class="entypo-graduation-cap"></i>
+                            <span class="title">Track Teacher</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="quora.php">
+                            <i class="entypo-publish"></i>
+                            <span class="title">Ask a question</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="row">
+                <div class="col-md-5 col-sm-4 clearfix hidden-xs" style="float: right;">
+                    <ul class="list-inline links-list pull-right">
+                        <!-- Language Selector -->
+                        <li>
+                            <a href="settings.php">
+                            Settings <i class="entypo-cog right"></i>
+                        </a>
+                        </li>
+                        <li>
+                            <a href="logout.php">
+                            Log Out <i class="entypo-logout right"></i>
+                        </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <hr />
+            <!-- main content starts here -->
+            <div class="row">
+                <div class="container">
+                    <div class="row" style="display: flex; align-items: center; justify-content: center;">
+                        <div class="col-md-6">
+                            <form method="get" class="search-bar" action="" enctype="application/x-www-form-urlencoded">
+                                <div class="input-group">
+                                    <input type="text" class="form-control input-lg" name="search" placeholder="Hashtag Search">
+                                    <div class="input-group-btn">
+                                        <button type="submit" class="btn btn-lg btn-success btn-icon">
+                                            Search
+                                            <i class="entypo-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="col-md-12">
+                        <ul class="nav nav-tabs ">
+                            <li class="active">
+                                <a href="#intra-vitcmun" data-toggle="tab">
+                                    <span class="visible-xs"><i class="entypo-home"></i></span>
+                                    <span class="hidden-xs">Intra&nbsp;VITCMUN</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#unga-ess" data-toggle="tab">
+                                    <span class="visible-xs"><i class="entypo-home"></i></span>
+                                    <span class="hidden-xs">UNGA&nbsp;ESS</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#unoosa" data-toggle="tab">
+                                    <span class="visible-xs"><i class="entypo-user"></i></span>
+                                    <span class="hidden-xs">UNOOSA</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#unhrc" data-toggle="tab">
+                                    <span class="visible-xs"><i class="entypo-mail"></i></span>
+                                    <span class="hidden-xs">UNHRC</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#arab-league" data-toggle="tab">
+                                    <span class="visible-xs"><i class="entypo-cog"></i></span>
+                                    <span class="hidden-xs">Arab&nbsp;League</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="intra-vitcmun">
+                                <div class="profile-env">
+                                    <section class="profile-feed">
+                                        <!-- profile post form -->
+                                        <form class="profile-post-form" method="post">
+                                            <textarea class="form-control autogrow" placeholder="Intra VITCMUN Post"></textarea>
+                                            <div class="form-options">
+                                                <div class="post-type">
+                                                    <a href="#" class="tooltip-primary" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Upload a Picture">
+                                                        <i class="entypo-camera"></i>
+                                                    </a>
+                                                    <a href="#" class="tooltip-primary" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Attach a file">
+                                                        <i class="entypo-attach"></i>
+                                                    </a>
+                                                </div>
+                                                <div class="post-submit">
+                                                    <button type="button" class="btn btn-success">POST</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <!-- profile stories -->
+                                        <div class="profile-stories">
+                                            <article class="story">
+                                                <aside class="user-thumb">
+                                                    <a href="#">
+                                                        <img src="assets/images/thumb-1.png" alt="" class="img-circle" />
+                                                    </a>
+                                                </aside>
+                                                <div class="story-content">
+                                                    <!-- story header -->
+                                                    <header>
+                                                        <div class="publisher">
+                                                            <a href="#">Prashant Kumar Bhardwaj</a> posted a status update
+                                                            <em>3 hours ago</em>
+                                                        </div>
+                                                    </header>
+                                                    <div class="story-main-content">
+                                                        <p>Hello </p>
+                                                    </div>
+                                                    <!-- story like and comment link -->
+                                                    <footer>
+                                                        <a href="#">
+                                                            <i class="entypo-comment"></i> Comment <span>(12)</span>
+                                                        </a>
+                                                        <!-- story comments -->
+                                                    </footer>
+                                                    <!-- separator -->
+                                                    <hr />
+                                                </div>
+                                            </article>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="unga-ess">
+                               <div class="profile-env">
+                                    <section class="profile-feed">
+                                        <!-- profile post form -->
+                                        <form class="profile-post-form" method="post">
+                                            <textarea class="form-control autogrow" placeholder="UNGA-ESS"></textarea>
+                                            <div class="form-options">
+                                                <div class="post-type">
+                                                    <a href="#" class="tooltip-primary" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Upload a Picture">
+                                                        <i class="entypo-camera"></i>
+                                                    </a>
+                                                    <a href="#" class="tooltip-primary" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Attach a file">
+                                                        <i class="entypo-attach"></i>
+                                                    </a>
+                                                </div>
+                                                <div class="post-submit">
+                                                    <button type="button" class="btn btn-success">POST</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <!-- profile stories -->
+                                        <div class="profile-stories">
+                                            <article class="story">
+                                                <aside class="user-thumb">
+                                                    <a href="#">
+                                                        <img src="assets/images/thumb-1.png" alt="" class="img-circle" />
+                                                    </a>
+                                                </aside>
+                                                <div class="story-content">
+                                                    <!-- story header -->
+                                                    <header>
+                                                        <div class="publisher">
+                                                            <a href="#">Prashant Kumar Bhardwaj</a> posted a status update
+                                                            <em>3 hours ago</em>
+                                                        </div>
+                                                    </header>
+                                                    <div class="story-main-content">
+                                                        <p>Hello </p>
+                                                    </div>
+                                                    <!-- story like and comment link -->
+                                                    <footer>
+                                                        <a href="#">
+                                                            <i class="entypo-comment"></i> Comment <span>(12)</span>
+                                                        </a>
+                                                        <!-- story comments -->
+                                                    </footer>
+                                                    <!-- separator -->
+                                                    <hr />
+                                                </div>
+                                            </article>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="unoosa">
+                                <div class="profile-env">
+                                    <section class="profile-feed">
+                                        <!-- profile post form -->
+                                        <form class="profile-post-form" method="post">
+                                            <textarea class="form-control autogrow" placeholder="UNOOSA"></textarea>
+                                            <div class="form-options">
+                                                <div class="post-type">
+                                                    <a href="#" class="tooltip-primary" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Upload a Picture">
+                                                        <i class="entypo-camera"></i>
+                                                    </a>
+                                                    <a href="#" class="tooltip-primary" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Attach a file">
+                                                        <i class="entypo-attach"></i>
+                                                    </a>
+                                                </div>
+                                                <div class="post-submit">
+                                                    <button type="button" class="btn btn-success">POST</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <!-- profile stories -->
+                                        <div class="profile-stories">
+                                            <article class="story">
+                                                <aside class="user-thumb">
+                                                    <a href="#">
+                                                        <img src="assets/images/thumb-1.png" alt="" class="img-circle" />
+                                                    </a>
+                                                </aside>
+                                                <div class="story-content">
+                                                    <!-- story header -->
+                                                    <header>
+                                                        <div class="publisher">
+                                                            <a href="#">Prashant Kumar Bhardwaj</a> posted a status update
+                                                            <em>3 hours ago</em>
+                                                        </div>
+                                                    </header>
+                                                    <div class="story-main-content">
+                                                        <p>Hello </p>
+                                                    </div>
+                                                    <!-- story like and comment link -->
+                                                    <footer>
+                                                        <a href="#">
+                                                            <i class="entypo-comment"></i> Comment <span>(12)</span>
+                                                        </a>
+                                                        <!-- story comments -->
+                                                    </footer>
+                                                    <!-- separator -->
+                                                    <hr />
+                                                </div>
+                                            </article>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="unhrc">
+                                <div class="profile-env">
+                                    <section class="profile-feed">
+                                        <!-- profile post form -->
+                                        <form class="profile-post-form" method="post">
+                                            <textarea class="form-control autogrow" placeholder="UNHRC"></textarea>
+                                            <div class="form-options">
+                                                <div class="post-type">
+                                                    <a href="#" class="tooltip-primary" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Upload a Picture">
+                                                        <i class="entypo-camera"></i>
+                                                    </a>
+                                                    <a href="#" class="tooltip-primary" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Attach a file">
+                                                        <i class="entypo-attach"></i>
+                                                    </a>
+                                                </div>
+                                                <div class="post-submit">
+                                                    <button type="button" class="btn btn-success">POST</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <!-- profile stories -->
+                                        <div class="profile-stories">
+                                            <article class="story">
+                                                <aside class="user-thumb">
+                                                    <a href="#">
+                                                        <img src="assets/images/thumb-1.png" alt="" class="img-circle" />
+                                                    </a>
+                                                </aside>
+                                                <div class="story-content">
+                                                    <!-- story header -->
+                                                    <header>
+                                                        <div class="publisher">
+                                                            <a href="#">Prashant Kumar Bhardwaj</a> posted a status update
+                                                            <em>3 hours ago</em>
+                                                        </div>
+                                                    </header>
+                                                    <div class="story-main-content">
+                                                        <p>Hello </p>
+                                                    </div>
+                                                    <!-- story like and comment link -->
+                                                    <footer>
+                                                        <a href="#">
+                                                            <i class="entypo-comment"></i> Comment <span>(12)</span>
+                                                        </a>
+                                                        <!-- story comments -->
+                                                    </footer>
+                                                    <!-- separator -->
+                                                    <hr />
+                                                </div>
+                                            </article>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="arab-league">
+                                <div class="profile-env">
+                                    <section class="profile-feed">
+                                        <!-- profile post form -->
+                                        <form class="profile-post-form" method="post">
+                                            <textarea class="form-control autogrow" placeholder="Arab League"></textarea>
+                                            <div class="form-options">
+                                                <div class="post-type">
+                                                    <a href="#" class="tooltip-primary" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Upload a Picture">
+                                                        <i class="entypo-camera"></i>
+                                                    </a>
+                                                    <a href="#" class="tooltip-primary" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Attach a file">
+                                                        <i class="entypo-attach"></i>
+                                                    </a>
+                                                </div>
+                                                <div class="post-submit">
+                                                    <button type="button" class="btn btn-success">POST</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <!-- profile stories -->
+                                        <div class="profile-stories">
+                                            <article class="story">
+                                                <aside class="user-thumb">
+                                                    <a href="#">
+                                                        <img src="assets/images/thumb-1.png" alt="" class="img-circle" />
+                                                    </a>
+                                                </aside>
+                                                <div class="story-content">
+                                                    <!-- story header -->
+                                                    <header>
+                                                        <div class="publisher">
+                                                            <a href="#">Prashant Kumar Bhardwaj</a> posted a status update
+                                                            <em>3 hours ago</em>
+                                                        </div>
+                                                    </header>
+                                                    <div class="story-main-content">
+                                                        <p>Hello </p>
+                                                    </div>
+                                                    <!-- story like and comment link -->
+                                                    <footer>
+                                                        <a href="#">
+                                                            <i class="entypo-comment"></i> Comment <span>(12)</span>
+                                                        </a>
+                                                        <!-- story comments -->
+                                                    </footer>
+                                                    <!-- separator -->
+                                                    <hr />
+                                                </div>
+                                            </article>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-env">
+                </div>
+            </div>
+            <footer>
+            </footer>
+        </div>
+    </div>
+    <script src="assets/js/modernizr.custom.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="assets/js/fileinput.js"></script>
+    <script src="assets/js/style-custom.js"></script>
+    <script src="assets/js/style-demo.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/classie/1.0.1/classie.min.js"></script>
+    <!-- Bottom scripts (common) -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/TweenMax.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="assets/js/joinable.js"></script>
+    <script src="assets/js/resizeable.js"></script>
+    <script src="assets/js/uiMorphingButton_fixed.js"></script>
+    <script src="assets/js/style-api.js"></script>
+    <div class="modal" id="modal-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Edit question</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="modalform">
+                        <textarea class="form-control autogrow" name="question" placeholder="What do you want to know today?" required style="font-size:15px;" class="questioncontent"></textarea>
+                </div>
+                <div class="modal-footer">
+                    <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+                    <button type="submit" class="btn btn-info">Save changes</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modal-2">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Search Results</h4>
+                </div>
+                <div class="modal-body">
+                    Question-1
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+    var file = document.getElementById('picture');
+
+    file.onchange = function(e) {
+        var ext = this.value.match(/\.([^\.])$/)[1];
+        switch (ext) {
+            case 'jpg':
+            case 'jpeg':
+            case 'bmp':
+            case 'png':
+            case 'tif':
+            case 'JPG':
+            case 'JPEG':
+            case 'BMP':
+            case 'PNG':
+            case 'TIF':
+
+                break;
+            default:
+                alert('File type not supported, please select an image file.');
+                this.value = '';
+        }
+    };
+    </script>
+</body>
+
+</html>
