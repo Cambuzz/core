@@ -47,9 +47,10 @@ if (isset($_POST['submit'])) {
     date_default_timezone_set('Asia/Calcutta');
     $post_time = date("Y-m-d\TH:i:s");
     $query = "INSERT INTO oosa (content, picset, post_user, post_time) VALUES ('{$content}', {$picset}, '{$post_user}', '{$post_time}')";
-    $sql = mysqli_query($conn, $query);  
-    //$main_query = "INSERT INTO app (content, picset, post_user, post_time, council) VALUES ('{$content}', {$picset}, '{$post_user}', '{$post_time}', "oosa")";      
-    //$main_sql = mysqli_query($conn, $main_query);   
+    $sql = mysqli_query($conn, $query);
+    $council = "oosa";  
+    $main_query = "INSERT INTO app (content, picset, post_user, post_time, council) VALUES ('{$content}', {$picset}, '{$post_user}', '{$post_time}', '{$council}')";      
+    $main_sql = mysqli_query($conn, $main_query);   
 }
 $query = "SELECT * FROM oosa ORDER BY id DESC";
 $result = mysqli_query($conn, $query);
