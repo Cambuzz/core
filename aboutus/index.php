@@ -157,17 +157,19 @@
                                     </section>
                                     <h1 class="cd-headline clip is-full-width">
 
-                            <span class="cd-words-wrapper" style="font-family: 'Montserrat', sans-serif !important; font-size: 35px !important;">
-                                                                 <b class="is-visible">&nbsp;&nbsp;love to code. innovate. repeat<span class="dot">.</span></b>
-                            <b>&nbsp;&nbsp;have a side business of rating EDMs<span class="dot">.</span></b>
-                            <b>&nbsp;&nbsp;love to dance (occasionaly). Now let's erase this<span class="dot">.</span></b>
-                            <b>&nbsp;&nbsp;and yes we have an anthem. Check below<span class="dot">.</span></b>
-                            </span>
-                            </h1>
-                            <div class="scroll-below-arrow" style="display: flex; align-items: center; justify-content: center; margin-top: 100px;">
-                                <div class="arrow bounce">
-                                    </div>
-                            </div>
+                                        <span class="cd-words-wrapper" style="font-family: 'Montserrat', sans-serif !important; font-size: 35px !important;">
+                                                                             <b class="is-visible">&nbsp;&nbsp;love to code. innovate. repeat<span class="dot">.</span></b>
+                                        <b>&nbsp;&nbsp;have a side business of rating EDMs<span class="dot">.</span></b>
+                                        <b>&nbsp;&nbsp;love to dance (occasionaly). Now let's erase this<span class="dot">.</span></b>
+                                        <b>&nbsp;&nbsp;and yes we have an anthem. Check below<span class="dot">.</span></b>
+                                        </span>
+                                    </h1>
+                                    <a href="#what_we_do" style="text-decoration: none;">
+                                        <div class="scroll-below-arrow" style="display: flex; align-items: center; justify-content: center; margin-top: 100px;">
+                                            <div class="arrow bounce"></div>
+                                        </div>
+                                    </a>
+                                </div>
                             </section>
                         </div>
                     </div>
@@ -302,7 +304,7 @@
                                         <p>UI/UX Designer &amp; Frontend Developer</p>
                                         <p>He has donned so many hats for the team, we sure have lost count. The team feels indebted to him for crafting the user interface for the website, as well as writing all the about us snippets, though he took a large pizza for that. :/ While not designing posters or reading books about design, he is busy trying to practise the famous step from "<em>Lean On</em>".
                                             <br>
-                                            <br> P.s.
+                                            <br> P.s. He takes care of operations i.e. handling of all the monkeys.   
                                         </p>
                                         <div class="social-icons" style="display: flex; align-items: center; justify-content: center;">
                                             <a href="https://www.facebook.com/prastut.kumar" class="social-roll-facebook" target="_blank"><img src="images/Facebook.png" height="50" width="50"></a>
