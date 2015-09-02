@@ -17,7 +17,11 @@
     }    
     date_default_timezone_set('Asia/Calcutta');
     $id_time = date("Y-m-d H-i-s");
-    $picture_id = $current_user.$id_time;    
+    $picture_id = $current_user.$id_time;
+    $id_year = date("Y-m-d");
+    $id_hour = date("H-i-s");
+    $full_time = $id_year."%20".$id_hour;
+    $full = $current_user.$full_time;     
 ?>
 <?php
 if (($current_user=="12BEC1096")||($current_user=="cambuzz")) {
@@ -39,17 +43,29 @@ if (isset($_POST['submit'])) {
         $target_dir = "images/";
         $target_file = $target_dir . basename($_FILES["picture"]["name"]);                
         $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-        move_uploaded_file($_FILES["picture"]["tmp_name"],"images/$picture_id.jpg");          
+        move_uploaded_file($_FILES["picture"]["tmp_name"],"images/$picture_id.jpg"); 
+        $po_url = "http://cambuzz.co.in/public/Inside/images/posters/".$full.".jpg";         
     } else {
         $picset = 0;
-    }            
+        $po_url = "";
+    }
+    if ($name_title["proset"]==0) { 
+        $dp_url = "http://cambuzz.co.in/public/Inside/assets/images/nopic.png";
+    } elseif ($name_title["proset"]==1) {
+        $imageid=$name_title['id'];
+        $dpcounter=$name_title['dpcounter'];
+        if($dpcounter>0)
+            $dp_url = "http://cambuzz.co.in/public/Inside/images/".$imageid."_".$dpcounter.".jpg";
+        else
+            $dp_url = "http://cambuzz.co.in/public/Inside/images/".$imageid.".jpg";
+        }            
     $post_user = $current_user;
     date_default_timezone_set('Asia/Calcutta');
     $post_time = date("Y-m-d\TH:i:s");
     $query = "INSERT INTO arab (content, picset, post_user, post_time) VALUES ('{$content}', {$picset}, '{$post_user}', '{$post_time}')";
     $sql = mysqli_query($conn, $query);
     $council = "arab";
-    $main_query = "INSERT INTO app (content, picset, post_user, post_time, council) VALUES ('{$content}', {$picset}, '{$post_user}', '{$post_time}', '{$council}')";      
+    $main_query = "INSERT INTO app (content, picset, post_user, post_time, council, po_url, dp_url) VALUES ('{$content}', {$picset}, '{$post_user}', '{$post_time}', '{$council}', '{$po_url}', '{$dp_url}')";      
     $main_sql = mysqli_query($conn, $main_query);
 }
 $query = "SELECT * FROM arab ORDER BY id DESC";
