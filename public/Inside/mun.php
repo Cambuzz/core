@@ -20,7 +20,7 @@
     $picture_id = $current_user.$id_time;    
 ?>
 <?php
-if ($current_user=="12BEC1096") {
+if ($current_user=="cambuzz") {
     $view = " ";
 } else {
     $view = "style='display: none;'";
@@ -36,7 +36,7 @@ if (isset($_POST['submit'])) {
     //$pix = $_FILES['picture']['name'];       
     if (!empty($_FILES['picture']['name'])) {  
         $picset=1;      
-        $target_dir = "images";
+        $target_dir = "images/";
         $target_file = $target_dir . basename($_FILES["picture"]["name"]);                
         $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
         move_uploaded_file($_FILES["picture"]["tmp_name"],"images/$picture_id.jpg");          
@@ -320,7 +320,7 @@ confirm_query($result);
                                                                 if ($mun_list['picset']==1) {                                                                                                                             
                                                                     $poster_time = strtotime($mun_list['post_time']);                                                    
                                                                     $posterid=$mun_list['post_user'].date("Y-m-d H-i-s", $poster_time);                                                                                                      
-                                                                    echo '<img src="images' . $posterid . '.jpg "class="img-responsive">';                                                                
+                                                                    echo '<img src="images/' . $posterid . '.jpg "class="img-responsive">';                                                                
                                                                 } 
                                                             ?>
                                                         </p>
@@ -349,8 +349,234 @@ confirm_query($result);
                                         </div>
                                     </section>
                                 </div>
-                            </div>                                                  
-                            
+                            </div>                                                    
+                            <div class="tab-pane" id="unga-ess">
+                               <div class="profile-env">
+                                    <section class="profile-feed">
+                                        <!-- profile post form -->
+                                        <div <?php echo $view; ?> >
+                                        <form class="profile-post-form" method="post">
+                                            <textarea class="form-control autogrow" placeholder="UNGA-ESS"></textarea>
+                                            <div class="form-options">
+                                                <div class="post-type">
+                                                    <a href="#" class="tooltip-primary" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Upload a Picture">
+                                                        <i class="entypo-camera"></i>
+                                                    </a>
+                                                    <a href="#" class="tooltip-primary" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Attach a file">
+                                                        <i class="entypo-attach"></i>
+                                                    </a>
+                                                </div>
+                                                <div class="post-submit">
+                                                    <button type="button" class="btn btn-success">POST</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                        <!-- profile stories -->
+                                        <div class="profile-stories">
+                                            <article class="story">
+                                                <aside class="user-thumb">
+                                                    <a href="#">
+                                                        <img src="assets/images/thumb-1.png" alt="" class="img-circle" />
+                                                    </a>
+                                                </aside>
+                                                <div class="story-content">
+                                                    <!-- story header -->
+                                                    <header>
+                                                        <div class="publisher">
+                                                            <a href="#">Prashant Kumar Bhardwaj</a> posted a status update
+                                                            <em>3 hours ago</em>
+                                                        </div>
+                                                    </header>
+                                                    <div class="story-main-content">
+                                                        <p>Hello </p>
+                                                    </div>
+                                                    <!-- story like and comment link -->
+                                                    <footer>
+                                                        <a href="#">
+                                                            <i class="entypo-comment"></i> Comment <span>(12)</span>
+                                                        </a>
+                                                        <!-- story comments -->
+                                                    </footer>
+                                                    <!-- separator -->
+                                                    <hr />
+                                                </div>
+                                            </article>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="unoosa">
+                                <div class="profile-env">
+                                    <section class="profile-feed">
+                                        <!-- profile post form -->
+                                        <div <?php echo $view; ?> >
+                                        <form class="profile-post-form" method="post">
+                                            <textarea class="form-control autogrow" placeholder="UNOOSA"></textarea>
+                                            <div class="form-options">
+                                                <div class="post-type">
+                                                    <a href="#" class="tooltip-primary" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Upload a Picture">
+                                                        <i class="entypo-camera"></i>
+                                                    </a>
+                                                    <a href="#" class="tooltip-primary" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Attach a file">
+                                                        <i class="entypo-attach"></i>
+                                                    </a>
+                                                </div>
+                                                <div class="post-submit">
+                                                    <button type="button" class="btn btn-success">POST</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                        <!-- profile stories -->
+                                        <div class="profile-stories">
+                                            <article class="story">
+                                                <aside class="user-thumb">
+                                                    <a href="#">
+                                                        <img src="assets/images/thumb-1.png" alt="" class="img-circle" />
+                                                    </a>
+                                                </aside>
+                                                <div class="story-content">
+                                                    <!-- story header -->
+                                                    <header>
+                                                        <div class="publisher">
+                                                            <a href="#">Prashant Kumar Bhardwaj</a> posted a status update
+                                                            <em>3 hours ago</em>
+                                                        </div>
+                                                    </header>
+                                                    <div class="story-main-content">
+                                                        <p>Hello </p>
+                                                    </div>
+                                                    <!-- story like and comment link -->
+                                                    <footer>
+                                                        <a href="#">
+                                                            <i class="entypo-comment"></i> Comment <span>(12)</span>
+                                                        </a>
+                                                        <!-- story comments -->
+                                                    </footer>
+                                                    <!-- separator -->
+                                                    <hr />
+                                                </div>
+                                            </article>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="unhrc">
+                                <div class="profile-env">
+                                    <section class="profile-feed">
+                                        <!-- profile post form -->
+                                        <div <?php echo $view; ?> >
+                                        <form class="profile-post-form" method="post">
+                                            <textarea class="form-control autogrow" placeholder="UNHRC"></textarea>
+                                            <div class="form-options">
+                                                <div class="post-type">
+                                                    <a href="#" class="tooltip-primary" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Upload a Picture">
+                                                        <i class="entypo-camera"></i>
+                                                    </a>
+                                                    <a href="#" class="tooltip-primary" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Attach a file">
+                                                        <i class="entypo-attach"></i>
+                                                    </a>
+                                                </div>
+                                                <div class="post-submit">
+                                                    <button type="button" class="btn btn-success">POST</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                        <!-- profile stories -->
+                                        <div class="profile-stories">
+                                            <article class="story">
+                                                <aside class="user-thumb">
+                                                    <a href="#">
+                                                        <img src="assets/images/thumb-1.png" alt="" class="img-circle" />
+                                                    </a>
+                                                </aside>
+                                                <div class="story-content">
+                                                    <!-- story header -->
+                                                    <header>
+                                                        <div class="publisher">
+                                                            <a href="#">Prashant Kumar Bhardwaj</a> posted a status update
+                                                            <em>3 hours ago</em>
+                                                        </div>
+                                                    </header>
+                                                    <div class="story-main-content">
+                                                        <p>Hello </p>
+                                                    </div>
+                                                    <!-- story like and comment link -->
+                                                    <footer>
+                                                        <a href="#">
+                                                            <i class="entypo-comment"></i> Comment <span>(12)</span>
+                                                        </a>
+                                                        <!-- story comments -->
+                                                    </footer>
+                                                    <!-- separator -->
+                                                    <hr />
+                                                </div>
+                                            </article>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="arab-league">
+                                <div class="profile-env">
+                                    <section class="profile-feed">
+                                        <!-- profile post form -->
+                                        <div <?php echo $view; ?> >
+                                        <form class="profile-post-form" method="post">
+                                            <textarea class="form-control autogrow" placeholder="Arab League"></textarea>
+                                            <div class="form-options">
+                                                <div class="post-type">
+                                                    <a href="#" class="tooltip-primary" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Upload a Picture">
+                                                        <i class="entypo-camera"></i>
+                                                    </a>
+                                                    <a href="#" class="tooltip-primary" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Attach a file">
+                                                        <i class="entypo-attach"></i>
+                                                    </a>
+                                                </div>
+                                                <div class="post-submit">
+                                                    <button type="button" class="btn btn-success">POST</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                        <!-- profile stories -->
+                                        <div class="profile-stories">
+                                            <article class="story">
+                                                <aside class="user-thumb">
+                                                    <a href="#">
+                                                        <img src="assets/images/thumb-1.png" alt="" class="img-circle" />
+                                                    </a>
+                                                </aside>
+                                                <div class="story-content">
+                                                    <!-- story header -->
+                                                    <header>
+                                                        <div class="publisher">
+                                                            <a href="#">Prashant Kumar Bhardwaj</a> posted a status update
+                                                            <em>3 hours ago</em>
+                                                        </div>
+                                                    </header>
+                                                    <div class="story-main-content">
+                                                        <p>Hello </p>
+                                                    </div>
+                                                    <!-- story like and comment link -->
+                                                    <footer>
+                                                        <a href="#">
+                                                            <i class="entypo-comment"></i> Comment <span>(12)</span>
+                                                        </a>
+                                                        <!-- story comments -->
+                                                    </footer>
+                                                    <!-- separator -->
+                                                    <hr />
+                                                </div>
+                                            </article>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="profile-env">
                 </div>
             </div>
