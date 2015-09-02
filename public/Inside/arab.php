@@ -206,31 +206,31 @@ confirm_query($result);
                             <li class="active">
                                 <a href="#intra-vitcmun" data-toggle="tab">
                                     <span class="visible-xs"><i class="entypo-home"></i></span>
-                                    <span class="hidden-xs">Intra&nbsp;VITCMUN</span>
+                                    <a href="mun.php"><span class="hidden-xs">Intra&nbsp;VITCMUN</span></a>
                                 </a>
                             </li>
                             <li>
                                 <a href="#unga-ess" data-toggle="tab">
                                     <span class="visible-xs"><i class="entypo-home"></i></span>
-                                    <span class="hidden-xs">UNGA&nbsp;ESS</span>
+                                    <a href="ess.php"><span class="hidden-xs">UNGA&nbsp;ESS</span></a>
                                 </a>
                             </li>
                             <li>
                                 <a href="#unoosa" data-toggle="tab">
                                     <span class="visible-xs"><i class="entypo-user"></i></span>
-                                    <span class="hidden-xs">UNOOSA</span>
+                                    <a href="oosa.php"><span class="hidden-xs">UNOOSA</span></a>
                                 </a>
                             </li>
                             <li>
                                 <a href="#unhrc" data-toggle="tab">
                                     <span class="visible-xs"><i class="entypo-mail"></i></span>
-                                    <span class="hidden-xs">UNHRC</span>
+                                    <a href="hrc.php"><span class="hidden-xs">UNHRC</span></a>
                                 </a>
                             </li>
                             <li>
                                 <a href="#arab-league" data-toggle="tab">
                                     <span class="visible-xs"><i class="entypo-cog"></i></span>
-                                    <span class="hidden-xs">Arab&nbsp;League</span>
+                                    <a href="arab.php"><span class="hidden-xs">Arab&nbsp;League</span></a>
                                 </a>
                             </li>
                         </ul>
