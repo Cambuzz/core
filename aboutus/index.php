@@ -255,7 +255,7 @@
                                                     <div class="col-sm-9">
                                                         <h3 class="h3-process">Ask Questions</h3>
                                                         <p class="p-process">
-                                                            Solve your problems. Get answers right away. Need More?
+                                                            Solve your problems. Get answers right away.<br>Need More?
                                                         </p>
                                                     </div>
                                                 </div>
