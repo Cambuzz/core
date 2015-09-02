@@ -183,7 +183,7 @@ confirm_query($result);
             <hr />
             <!-- main content starts here -->
             <div class="row">
-                <div class="container">
+                <div class="container" style="width: 970px !important;">
                     <div class="row" style="display: flex; align-items: center; justify-content: center;">
                         <div class="col-md-6">
                             <form method="get" class="search-bar" action="" enctype="application/x-www-form-urlencoded">
@@ -200,7 +200,7 @@ confirm_query($result);
                         </div>
                     </div>
                 </div>
-                <div class="container">
+                <div class="container" style="width: 970px !important;"> 
                     <div class="col-md-12">
                         <ul class="nav nav-tabs ">
                             <li class="active">
