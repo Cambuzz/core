@@ -1,13 +1,21 @@
 <!DOCTYPE html>
 
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Login or Signup on Cambuzz. Buzz new events, Track your teacher or ask a question.">
+    <meta name="keywords" content="Buzz, Events, Cambuzz, Track, Teacher, Question, Campus, Centralized information system">
+    <meta name="author" content="Team Cambuzz">
+
     <title>About Us</title>
+
     <link rel="stylesheet" href="css/particle.css" />
     <link rel="stylesheet" type="text/css" href="css/default.css" />
     <!-- intro text -->
     <link rel="stylesheet" href="css/style1.css" />
     <link rel="stylesheet" href="css/font.css" />
     <script src="js/jquery.min.js"></script>
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <!-- team bootstrapped -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <!-- send mail -->
