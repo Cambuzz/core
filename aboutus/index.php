@@ -218,7 +218,7 @@
                                         </p>
                                         <div class="social-icons" style="display: flex; align-items: center; justify-content: center;">
                                             <a href="https://www.facebook.com/prashantkb2" class="social-roll-facebook" target="_blank"><img src="images/Facebook.png" height="50" width="50"></a>
-                                            <a href="https://instagram.com/prashantkbhardwaj/" class="social-roll-facebook" target="_blank"><img src="images/Linked-in.png" height="50" width="50"></a>
+                                            <a href="https://in.linkedin.com/pub/prashant-bhardwaj/104/22a/b3b" class="social-roll-facebook" target="_blank"><img src="images/Linked-in.png" height="50" width="50"></a>
                                             <a href="https://instagram.com/prashantkbhardwaj/" target="_blank" class="social-roll-facebook"><img src="images/Instgram.png" height="50" width="50"></a>
                                         </div>
                                     </div>
