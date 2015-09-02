@@ -94,6 +94,10 @@ confirm_query($result);
     .nav-pills {
         text-align: center;
     }
+     html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+    }
     </style>
 </head>
 
@@ -204,7 +208,7 @@ confirm_query($result);
                     <div class="col-md-12">
                         <ul class="nav nav-tabs ">
                             <li class="active">
-                                <a href="#intra-vitcmun" data-toggle="tab">
+                                <a href="#intra-vitcmun" data-toggle="tab" style="display: none;">
                                     <span class="visible-xs"><i class="entypo-home"></i></span>
                                     <a href="mun.php"><span class="hidden-xs">Intra&nbsp;VITCMUN</span></a>
                                 </a>

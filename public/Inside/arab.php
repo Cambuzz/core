@@ -94,6 +94,11 @@ confirm_query($result);
     .nav-pills {
         text-align: center;
     }
+         html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+    }
+
     </style>
 </head>
 
@@ -183,7 +188,7 @@ confirm_query($result);
             <hr />
             <!-- main content starts here -->
             <div class="row">
-                <div class="container">
+                <div class="container" style="width: 970px !important;">
                     <div class="row" style="display: flex; align-items: center; justify-content: center;">
                         <div class="col-md-6">
                             <form method="get" class="search-bar" action="" enctype="application/x-www-form-urlencoded">
@@ -200,7 +205,7 @@ confirm_query($result);
                         </div>
                     </div>
                 </div>
-                <div class="container">
+                <div class="container" style="width: 970px !important;">
                     <div class="col-md-12">
                         <ul class="nav nav-tabs ">
                             <li >
@@ -228,7 +233,7 @@ confirm_query($result);
                                 </a>
                             </li>
                             <li class="active">
-                                <a href="#arab-league" data-toggle="tab">
+                                <a href="#arab-league" data-toggle="tab" style="display: none;">
                                     <span class="visible-xs"><i class="entypo-cog"></i></span>
                                     <a href="arab.php"><span class="hidden-xs">Arab&nbsp;League</span></a>
                                 </a>
