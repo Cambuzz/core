@@ -204,7 +204,11 @@
                                 <div class="teamgeneralcontent" style="padding: 10px; ">
                                     <h1 style="color:white; padding-top: 20px;"></h1>
                                     <div class="content" style="font-family: 'Montserrat'; color: white;">
-                                        <p>Click on anybody to show content</p>
+                                        <div style="display: flex; align-items: center; justify-content: center;">
+                                            <p style="font-family: 'Josefin Slab, sans-serif;'">"We work in a safe environment. There is absolutely no kicking, biting and rapid punches."</p>
+                                            <p>Though the person who is wrote this, probably can't see right now. </p>
+                                            <p>Check us out by clicking on any of our lovely faces. ;)</p>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="teamcontent1" style="padding: 10px; ">
@@ -258,7 +262,7 @@
                                     <h1 style="color:white; padding-top: 20px;">Shantanu Tripathi</h1>
                                     <div class="content" style="font-family: 'Montserrat'; color: white;">
                                         <p>Algorithmic Head</p>
-                                        <p>He has probably spent more nights than any of us hacking at code. A passionate dramatist by nature, you can usually find him antagonizing the mirror by practising for the next role. He is known around the campus as "Baba" for topping in everyting possible, but there is never a dull moment when he is in the house.
+                                        <p>He has probably spent more nights than any of us hacking at code. A passionate dramatist by nature, you can usually find him antagonizing the mirror by practising for the next role. He is known around the campus as "Baba" for topping in everything possible, but there is never a dull moment when he is in the house.
                                             <br>
                                             <br>P.s. He loves green ticks.
                                         </p>
@@ -287,7 +291,7 @@
                                     <h1 style="color:white; padding-top: 20px;">Divyang Duhan</h1>
                                     <div class="content" style="font-family: 'Montserrat'; color: white;">
                                         <p>Android App Developer</p>
-                                        <p>Do you feel you know about cricket? Shoot! Pizza on the house if you can beat him (Though you wont. B). You can find him petting every animal in the campus (and we have a lot of variety!). In the meantime, he is busy coding android bots to solve the biggest problem for the team: to find the best pizzas in the town.
+                                        <p>Do you feel you know about cricket? Shoot! Pizza on the house if you can beat him (Though you won't. B). You can find him petting every animal in the campus (and we have a lot of variety!). In the meantime, he is busy coding android bots to solve the biggest problem for the team: to find the best pizzas in the town.
                                             <br>
                                             <br> P.s. He loves to sing in a high pitched voice and regularly takes breaks to record a punk rock album.
                                         </p>
@@ -301,7 +305,7 @@
                                     <h1 style="color:white; padding-top: 20px;">Inderpratap Singh Cheema</h1>
                                     <div class="content" style="font-family: 'Montserrat'; color: white;">
                                         <p>Frontend Developer</p>
-                                        <p>Fondly called as IPS, he is an artist by nature but took frontend developement to mix art with code. Most of his time is spent creating impressive landing pages while in the meantime he loves reading novels &amp; sketching. Probably the biggest fan of Minions from the "Despicable me" fame, he wishes to have his own minions to twirl his famous moustache.
+                                        <p>Fondly called as IPS, he is an artist by nature but took frontend development to mix art with code. Most of his time is spent creating impressive landing pages while in the meantime he loves reading novels &amp; sketching. Probably the biggest fan of Minions from the "Despicable me" fame, he wishes to have his own minions to twirl his famous moustache.
                                             <br>
                                             <br> P.s. He really really loves to sleep.
                                             <div class="social-icons" style="display: flex; align-items: center; justify-content: center;">
@@ -317,7 +321,7 @@
                                     <div class="content" style="font-family: 'Montserrat'; color: white;">
                                         <p><em>"Foo"</em></p>
                                         <p>
-                                            The speaker is an integral part of the lab. He likes to 10001110100101101 (Oopps! its binary, but thats how he gets it going). The best thing he does is play our team anthem. Once he gets free from his job, you'll find him ... what would you expect from a speaker?. He is good at the base-ics of EDMs.
+                                            The speaker is an integral part of the lab. He likes to 10001110100101101 (Oopss! it's binary, but that's how he gets it going). The best thing he does is play our team anthem. Once he gets free from his job, you'll find him ... what would you expect from a speaker? He is good at the base-ics of EDMs.
                                             <br>
                                             <br> P.s. Our team anthem: <a href="https://www.youtube.com/watch?v=xGiBiHocSZM" target="_blank" style="color: white;"><em><u>Redfoo</u>: New Thang</em></a>
                                         </p>
@@ -327,20 +331,26 @@
                                     <h1 style="color:white; padding-top: 250px;">Angad Sachdave</h1>
                                     <div class="content" style="font-family: 'Montserrat'; color: white;">
                                         <p>Marketing Head</p>
-                                        <p>He's the guy who knows 'stuff'. Usually found sleeping peacefully on his bed,desk,bathroom and every other place you can possibly think of, he can turn into a raging green monster when hungry. What he lacks in normal 'human' attributes, he more than makes up in his marketing and social skills.
+                                        <p>He's the guy who knows 'stuff'. Usually found sleeping peacefully on his bed, desk, bathroom and every other place you can possibly think of, he can turn into a raging green monster when hungry. What he lacks in normal 'human' attributes, he more than makes up in his marketing and social skills.
                                             <br>
-                                            <br>P.s. His biggest achievement has been keeping his attendence above 75%
+                                            <br>P.s. His biggest achievement has been keeping his attendance above 75%.
                                         </p>
-                                        <a href="https://www.facebook.com/Angad29081994?fref=ts" class="social-roll-facebook" target="_blank"><img src="images/Facebook.png" height="50" width="50"></a>
+                                        <div class="social-icons" style="display: flex; align-items: center; justify-content: center;">                         
+                                            <a href="https://www.facebook.com/Angad29081994?fref=ts" class="social-roll-facebook" target="_blank"><img src="images/Facebook.png" height="50" width="50"></a>
+                                         </div>
                                     </div>
                                 </div>
                                 <div class="teamcontent10" style="padding: 10px;">
                                     <h1 style="color:white; padding-top: 250px;">Ankita Negi</h1>
                                     <div class="content" style="font-family: 'Montserrat'; color: white;">
                                         <p>Marketing</p>
-                                        <p>Whilst thinking new marketing strategies for the team, she is busy talking about clothes. When it comes to bargaining, she feels she is the jordan belfort of our generation. A true foodie by nature, she is carefree and a melodramatic person.
+                                        <p>Whilst thinking new marketing strategies for the team, she is busy talking about clothes. When it comes to bargaining, she feels she is the Jordan Belfort of our generation. A true foodie by nature, she is carefree and a melodramatic person.
                                             <br>
                                             <br> P.s. She loves to sing but you probably wouldn't want to hear her.
+                                        <div class="social-icons" style="display: flex; align-items: center; justify-content: center;">
+                                            <a href="https://www.facebook.com/ankita.negi.1654?fref=ts" class="social-roll-facebook" target="_blank"><img src="images/Facebook.png" height="50" width="50"></a>
+                                            <a href="https://instagram.com/negiankita/" target="_blank" class="social-roll-facebook"><img src="images/Instgram.png" height="50" width="50"></a>
+                                        </div>
                                         </p>
                                     </div>
                                 </div>
