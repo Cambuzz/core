@@ -253,6 +253,16 @@ function find_all_events() {
 	confirm_query($event_set);
 	return $event_set;
 }
+function find_all_app_muns() {
+	global $conn;
+
+	$query = "SELECT * ";
+	$query .= "FROM app ";
+	//$query .= "ORDER BY username ASC";
+	$app_mun_set = mysqli_query($conn, $query);
+	confirm_query($app_mun_set);
+	return $app_mun_set;
+}
 function find_event_by_id($event_id) {
 	global $conn;
 
