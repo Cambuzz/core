@@ -1,5 +1,60 @@
+<?php require_once("../../includes/session.php");?>
+<?php require_once("../../includes/db_connection.php");?>
+<?php require_once("../../includes/functions.php");?>
+<?php $post_set = find_all_posts(); ?>
+<?php
+    if (isset($_SESSION["username"])) {
+        $current_user = $_SESSION["username"];
+        $name_query = "SELECT * FROM users WHERE username = '{$current_user}' LIMIT 1";
+        $name_result = mysqli_query($conn, $name_query);
+        confirm_query($name_result);
+        $name_title = mysqli_fetch_assoc($name_result);
+        $first_name = explode(" ", $name_title['sname']);
+        $current_id = $name_title['id']; 
+    } else {
+        $current_user = "";
+        $current_id = "";
+    }    
+    date_default_timezone_set('Asia/Calcutta');
+    $id_time = date("Y-m-d H-i-s");
+    $picture_id = $current_user.$id_time;    
+?>
+<?php
+if ($current_user=="12BEC1096") {
+    $view = " ";
+} else {
+    $view = "style='display: none;'";
+}
+?>
+<?php
+if (isset($_POST['submit'])) {
+    if (isset($_POST['content'])) {
+        $content = $_POST['content'];
+    } else {
+        $content = "";
+    }
+    //$pix = $_FILES['picture']['name'];       
+    if (!empty($_FILES['picture']['name'])) {  
+        $picset=1;      
+        $target_dir = "images/";
+        $target_file = $target_dir . basename($_FILES["picture"]["name"]);                
+        $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+        move_uploaded_file($_FILES["picture"]["tmp_name"],"images/$picture_id.jpg");          
+    } else {
+        $picset = 0;
+    }            
+    $post_user = $current_user;
+    date_default_timezone_set('Asia/Calcutta');
+    $post_time = date("Y-m-d\TH:i:s");
+    $query = "INSERT INTO mun (content, picset, post_user, post_time) VALUES ('{$content}', {$picset}, '{$post_user}', '{$post_time}')";
+    $sql = mysqli_query($conn, $query);     
+}
+$query = "SELECT * FROM mun ORDER BY id DESC";
+$result = mysqli_query($conn, $query);
+confirm_query($result);
+?>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -72,7 +127,7 @@
                 <div class="sidebar-user-info">
                     <div class="sui-normal">
                         <div class="user-link">
-                            <span>Welcome,</span>
+                            <span>Welcome</span>
                             <strong></strong>
                         </div>
                     </div>
@@ -184,11 +239,13 @@
                                 <div class="profile-env">
                                     <section class="profile-feed">
                                         <!-- profile post form -->
-                                        <form class="profile-post-form" method="post">
-                                            <textarea class="form-control autogrow" placeholder="Intra VITCMUN Post"></textarea>
+                                        <div <?php echo $view; ?> >
+                                        <form class="profile-post-form" method="post" action="mun.php">
+                                            <textarea class="form-control autogrow" name="content" placeholder="Intra VITCMUN Post"></textarea>
                                             <div class="form-options">
                                                 <div class="post-type">
                                                     <a href="#" class="tooltip-primary" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Upload a Picture">
+                                                    <input type="file" name="picture" accept=".jpeg, .jpg, .bmp, .png" id="picture" >
                                                         <i class="entypo-camera"></i>
                                                     </a>
                                                     <a href="#" class="tooltip-primary" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Attach a file">
@@ -196,10 +253,11 @@
                                                     </a>
                                                 </div>
                                                 <div class="post-submit">
-                                                    <button type="button" class="btn btn-success">POST</button>
+                                                    <input type="submit" name="submit" value="Post" class="btn btn-success">
                                                 </div>
                                             </div>
                                         </form>
+                                    </div>
                                         <!-- profile stories -->
                                         <div class="profile-stories">
                                             <article class="story">
@@ -210,6 +268,10 @@
                                                 </aside>
                                                 <div class="story-content">
                                                     <!-- story header -->
+
+
+                                                
+
                                                     <header>
                                                         <div class="publisher">
                                                             <a href="#">Prashant Kumar Bhardwaj</a> posted a status update
@@ -238,6 +300,7 @@
                                <div class="profile-env">
                                     <section class="profile-feed">
                                         <!-- profile post form -->
+                                        <div <?php echo $view; ?> >
                                         <form class="profile-post-form" method="post">
                                             <textarea class="form-control autogrow" placeholder="UNGA-ESS"></textarea>
                                             <div class="form-options">
@@ -254,6 +317,7 @@
                                                 </div>
                                             </div>
                                         </form>
+                                    </div>
                                         <!-- profile stories -->
                                         <div class="profile-stories">
                                             <article class="story">
@@ -292,6 +356,7 @@
                                 <div class="profile-env">
                                     <section class="profile-feed">
                                         <!-- profile post form -->
+                                        <div <?php echo $view; ?> >
                                         <form class="profile-post-form" method="post">
                                             <textarea class="form-control autogrow" placeholder="UNOOSA"></textarea>
                                             <div class="form-options">
@@ -308,6 +373,7 @@
                                                 </div>
                                             </div>
                                         </form>
+                                    </div>
                                         <!-- profile stories -->
                                         <div class="profile-stories">
                                             <article class="story">
@@ -346,6 +412,7 @@
                                 <div class="profile-env">
                                     <section class="profile-feed">
                                         <!-- profile post form -->
+                                        <div <?php echo $view; ?> >
                                         <form class="profile-post-form" method="post">
                                             <textarea class="form-control autogrow" placeholder="UNHRC"></textarea>
                                             <div class="form-options">
@@ -362,6 +429,7 @@
                                                 </div>
                                             </div>
                                         </form>
+                                    </div>
                                         <!-- profile stories -->
                                         <div class="profile-stories">
                                             <article class="story">
@@ -400,6 +468,7 @@
                                 <div class="profile-env">
                                     <section class="profile-feed">
                                         <!-- profile post form -->
+                                        <div <?php echo $view; ?> >
                                         <form class="profile-post-form" method="post">
                                             <textarea class="form-control autogrow" placeholder="Arab League"></textarea>
                                             <div class="form-options">
@@ -416,6 +485,7 @@
                                                 </div>
                                             </div>
                                         </form>
+                                    </div>
                                         <!-- profile stories -->
                                         <div class="profile-stories">
                                             <article class="story">
@@ -509,9 +579,10 @@
     <script type="text/javascript">
     var file = document.getElementById('picture');
 
-    file.onchange = function(e) {
+    file.onchange = function(e){
         var ext = this.value.match(/\.([^\.]+)$/)[1];
-        switch (ext) {
+        switch(ext)
+        {
             case 'jpg':
             case 'jpeg':
             case 'bmp':
@@ -522,14 +593,19 @@
             case 'BMP':
             case 'PNG':
             case 'TIF':
-
-                break;
+            
+            break;
             default:
-                alert('File type not supported, please select an image file.');
-                this.value = '';
+            alert('File type not supported, please select an image file.');
+            this.value='';
         }
     };
     </script>
 </body>
-
 </html>
+<?php
+    //mysqli_free_result($name_result);
+    if (isset ($conn)){
+        mysqli_close($conn);
+    }
+?>

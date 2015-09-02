@@ -1,7 +1,7 @@
 <?php require_once("../../includes/session.php");?>
 <?php require_once("../../includes/db_connection.php");?>
 <?php require_once("../../includes/functions.php");?>
-<?php $mun_set = find_all_muns(); ?>
+<?php $post_set = find_all_posts(); ?>
 <?php
     if (isset($_SESSION["username"])) {
         $current_user = $_SESSION["username"];
@@ -20,7 +20,7 @@
     $picture_id = $current_user.$id_time;    
 ?>
 <?php
-if ($current_user=="cambuzz") {
+if ($current_user=="12BEC1096") {
     $view = " ";
 } else {
     $view = "style='display: none;'";
@@ -96,6 +96,7 @@ confirm_query($result);
     }
     </style>
 </head>
+
 <body class="page-body page-left-in" style="font-family: 'Montserrat';">
     <div class="page-container">
         <!-- add class "sidebar-collapsed" to close sidebar by default, "chat-visible" to make chat appear always -->
@@ -126,7 +127,7 @@ confirm_query($result);
                 <div class="sidebar-user-info">
                     <div class="sui-normal">
                         <div class="user-link">
-                            <span>Welcome,</span>
+                            <span>Welcome</span>
                             <strong></strong>
                         </div>
                     </div>
@@ -183,6 +184,23 @@ confirm_query($result);
             <!-- main content starts here -->
             <div class="row">
                 <div class="container">
+                    <div class="row" style="display: flex; align-items: center; justify-content: center;">
+                        <div class="col-md-6">
+                            <form method="get" class="search-bar" action="" enctype="application/x-www-form-urlencoded">
+                                <div class="input-group">
+                                    <input type="text" class="form-control input-lg" name="search" placeholder="Hashtag Search">
+                                    <div class="input-group-btn">
+                                        <button type="submit" class="btn btn-lg btn-success btn-icon">
+                                            Search
+                                            <i class="entypo-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
                     <div class="col-md-12">
                         <ul class="nav nav-tabs ">
                             <li class="active">
@@ -220,17 +238,33 @@ confirm_query($result);
                             <div class="tab-pane active" id="intra-vitcmun">
                                 <div class="profile-env">
                                     <section class="profile-feed">
-                                        <div>
+                                        <!-- profile post form -->
                                         <div <?php echo $view; ?> >
-                                            <form action="mun.php" method="post" enctype="multipart/form-data">
-                                            <textarea class="form-control autogrow"   name="content" required placeholder="What do you want to know today?"  style="font-size:15px;"  class="questioncontent" ></textarea>
-                                            <input type="file" name="picture" accept=".jpeg, .jpg, .bmp, .png" id="picture" >
-                                            <input type="submit" name="submit" value="Submit">
+                                        <form class="profile-post-form" method="post" action="mun.php" enctype="multipart/form-data">
+                                            <textarea class="form-control autogrow" name="content" placeholder="Intra VITCMUN Post"></textarea>
+                                            <div class="form-options">
+                                                <div class="post-type">
+                                                    <a href="#" class="tooltip-primary" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Upload a Picture">
+                                                    <input type="file" name="picture" accept=".jpeg, .jpg, .bmp, .png" id="picture" >
+                                                        <i class="entypo-camera"></i>
+                                                    </a>
+                                                    <a href="#" class="tooltip-primary" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Attach a file">
+                                                        <i class="entypo-attach"></i>
+                                                    </a>
+                                                </div>
+                                                <div class="post-submit">
+                                                    <input type="submit" name="submit" value="Post" class="btn btn-success">
+                                                </div>
+                                            </div>
                                         </form>
-                                        </div>
-                                                                                
-                                            <?php
-                                                if (($current_user=="cambuzz")) {
+                                    </div>
+                                        <!-- profile stories -->
+                                        <div class="profile-stories">
+                                            <article class="story">                                                
+                                                <div class="story-content">
+                                                    <!-- story header -->
+
+                                                <?php                                                
                                                     while ($mun_list = mysqli_fetch_assoc($result)) { ?>
                                                         <article class="story">
                                                         <aside class="user-thumb">
@@ -265,32 +299,8 @@ confirm_query($result);
                                                                         ?>
                                                                     </em>
                                                                 </div>
-                                                            </header>
-                                                        <div class="story-main-content">                                                            
-                                                            <?php
-                                                            if ($mun_list['picset']==1) { 
-                                                                echo ucfirst($mun_list['content']);                                                                                                                              
-                                                                $poster_time = strtotime($mun_list['post_time']);                                                    
-                                                                $posterid=$mun_list['post_user'].date("Y-m-d H-i-s", $poster_time);                                                                                                      
-                                                                echo '<img src="images/' . $posterid . '.jpg "class="img-responsive">';                                                                
-                                                            } else{ 
-                                                                echo ucfirst($mun_list['content']); ?>                                                                
-                                                                <a href="mun_comment.php?id=<?php echo urlencode($mun_list["id"]); ?>">
-                                                                <?php                                                                
-                                                                echo "Comment (";
-                                                                    $count_query = "SELECT COUNT(*) FROM comments WHERE pid = {$mun_list["id"]}";
-                                                                    $count_result = mysqli_query($conn, $count_query);
-                                                                    confirm_query($count_result);
-                                                                    $row = mysqli_fetch_array($count_result);
-                                                                    $total = $row[0];
-                                                                    echo $total;
-                                                                    echo ")";
-                                                                echo "</a>";    
-                                                            }
-
-                                                            ?>
-                                                        </div>
-                                                        <div class="dropdown" style="float: right;">
+                                                                <div <?php echo $view; ?> >
+                                                            <div class="dropdown" style="float: right;">
                                                             <i class="entypo-pencil"id="dLabel" data-target="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                                             <!-- <span class="caret"></span> -->
                                                           </i>
@@ -300,109 +310,269 @@ confirm_query($result);
                                                                 </li>
                                                             </ul>
                                                         </div>
-                                                        <footer>
-                                                        <?php
-                                                    }
-                                                } else {
-                                                    while ($mun_list = mysqli_fetch_assoc($result)) { ?>
-                                                        <article class="story">
-                                                        <aside class="user-thumb">
-                                                        <a href="#">
-                                                        <?php 
-                                                        $pic_query = "SELECT * FROM users WHERE username = '{$mun_list['post_user']}' LIMIT 1";
-                                                        $pic_result = mysqli_query($conn, $pic_query);
-                                                        confirm_query($pic_result);
-                                                        $pic = mysqli_fetch_assoc($pic_result); 
-                                                        if ($pic["proset"]==0) { ?>
-                                                            <img src="assets/images/nopic.png" height="44px" width="44px" alt="" class="img-circle" />
-                                                        <?php
-                                                        } elseif ($pic["proset"]==1) {
-                                                            $imageid=$pic['id'];
-                                                            $dpcounter=$pic['dpcounter'];                                         
-                                                            if($dpcounter>0)
-                                                                echo '<img src="images/' . $imageid."_".$dpcounter . '.jpg "height="44px" width="44px" alt="" class="img-circle">';
-                                                            else
-                                                                echo '<img src="images/' . $imageid. '.jpg "height="44px" width="44px" alt="" class="img-circle">';
-                                                        } ?>
-                                                        </a>
-                                                        </aside>
-                                                        <div class="story-content">
-                                        <!-- story header -->
-                                                            <header>
-                                                                <div class="publisher">
-                                                                    <a href="#"><?php echo ucfirst(ucfirst($pic['sname']));  ?></a> posted a buzz
-                                                                    <em>
-                                                                        <?php 
-                                                                            $post_time = strtotime($mun_list['post_time']);
-                                                                            echo date("d M, y | h:i a", $post_time);
-                                                                        ?>
-                                                                    </em>
-                                                                </div>
+                                                    </div>
                                                             </header>
-                                                        <div class="story-main-content">
-                                                            <?php
-                                                            if ($mun_list['picset']==1) { 
-                                                                echo ucfirst($mun_list['content']);                                 
-                                                                $poster_time = strtotime($mun_list['post_time']);                                                    
-                                                                $posterid=$mun_list['post_user'].date("Y-m-d H-i-s", $poster_time);                                                                                                      
-                                                                echo '<img src="images/' . $posterid . '.jpg "class="img-responsive">'; ?>                                                                
-                                                                <a href="mun_comment.php?id=<?php echo urlencode($mun_list["id"]); ?>">
-                                                                <?php                                     
-                                                                echo "Comment (";
-                                                                    $count_query = "SELECT COUNT(*) FROM comments WHERE pid = {$mun_list["id"]}";
-                                                                    $count_result = mysqli_query($conn, $count_query);
-                                                                    confirm_query($count_result);
-                                                                    $row = mysqli_fetch_array($count_result);
-                                                                    $total = $row[0];
-                                                                    echo $total;
-                                                                echo ")";
-                                                                echo "</a>"; 
-                                                                //echo $posterid;
-                                                            } else{ 
-                                                                echo ucfirst($mun_list['content']); ?>                                                                
-                                                                <a href="mun_comment.php?id=<?php echo urlencode($mun_list["id"]); ?>">
-                                                                <?php                                     
-                                                                echo "Comment (";
-                                                                    $count_query = "SELECT COUNT(*) FROM comments WHERE pid = {$mun_list["id"]}";
-                                                                    $count_result = mysqli_query($conn, $count_query);
-                                                                    confirm_query($count_result);
-                                                                    $row = mysqli_fetch_array($count_result);
-                                                                    $total = $row[0];
-                                                                    echo $total;
-                                                                echo ")";
-                                                                echo "</a>";                                                                 
-                                                            }
 
+                                                        <div class="story-main-content">
+                                                        <p>                                                            
+                                                            <?php                                                            
+                                                                echo ucfirst($mun_list['content']);  
+                                                                if ($mun_list['picset']==1) {                                                                                                                             
+                                                                    $poster_time = strtotime($mun_list['post_time']);                                                    
+                                                                    $posterid=$mun_list['post_user'].date("Y-m-d H-i-s", $poster_time);                                                                                                      
+                                                                    echo '<img src="images/' . $posterid . '.jpg "class="img-responsive">';                                                                
+                                                                } 
                                                             ?>
+                                                        </p>
                                                         </div>                                                        
                                                         <footer>
-                                                        <?php
-                                                    }
+                                                        <a href="mun_comment.php?id=<?php echo urlencode($mun_list["id"]); ?>">
+                                                        <i class="entypo-comment"></i>
+                                                        <?php                                                                
+                                                            echo "Comment <span> (";
+                                                            $count_query = "SELECT COUNT(*) FROM comments WHERE pid = {$mun_list["id"]}";
+                                                            $count_result = mysqli_query($conn, $count_query);
+                                                            confirm_query($count_result);
+                                                            $row = mysqli_fetch_array($count_result);
+                                                            $total = $row[0];
+                                                            echo $total;
+                                                            echo ")</span>";
+                                                            echo "</a>";
+                                                        ?>
+                                                    </footer>                                                    
+                                                    <hr/>                                                    
+                                                    </div>                                                    
+                                            </article>
+                                            <?php                                                
                                                 }
-                                            ?>
+                                            ?>                                                           
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>                                                    
+                            <div class="tab-pane" id="unga-ess">
+                               <div class="profile-env">
+                                    <section class="profile-feed">
+                                        <!-- profile post form -->
+                                        <div <?php echo $view; ?> >
+                                        <form class="profile-post-form" method="post">
+                                            <textarea class="form-control autogrow" placeholder="UNGA-ESS"></textarea>
+                                            <div class="form-options">
+                                                <div class="post-type">
+                                                    <a href="#" class="tooltip-primary" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Upload a Picture">
+                                                        <i class="entypo-camera"></i>
+                                                    </a>
+                                                    <a href="#" class="tooltip-primary" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Attach a file">
+                                                        <i class="entypo-attach"></i>
+                                                    </a>
+                                                </div>
+                                                <div class="post-submit">
+                                                    <button type="button" class="btn btn-success">POST</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                        <!-- profile stories -->
+                                        <div class="profile-stories">
+                                            <article class="story">
+                                                <aside class="user-thumb">
+                                                    <a href="#">
+                                                        <img src="assets/images/thumb-1.png" alt="" class="img-circle" />
+                                                    </a>
+                                                </aside>
+                                                <div class="story-content">
+                                                    <!-- story header -->
+                                                    <header>
+                                                        <div class="publisher">
+                                                            <a href="#">Prashant Kumar Bhardwaj</a> posted a status update
+                                                            <em>3 hours ago</em>
+                                                        </div>
+                                                    </header>
+                                                    <div class="story-main-content">
+                                                        <p>Hello </p>
+                                                    </div>
+                                                    <!-- story like and comment link -->
+                                                    <footer>
+                                                        <a href="#">
+                                                            <i class="entypo-comment"></i> Comment <span>(12)</span>
+                                                        </a>
+                                                        <!-- story comments -->
+                                                    </footer>
+                                                    <!-- separator -->
+                                                    <hr />
+                                                </div>
+                                            </article>
                                         </div>
                                     </section>
                                 </div>
                             </div>
-                            <div class="tab-pane" id="unga-ess">
-                                <section class="profile-feed">
-                                    <h1>Hello1</h1>
-                                </section>
-                            </div>
                             <div class="tab-pane" id="unoosa">
-                                <section class="profile-feed">
-                                    <h1>Hello2</h1>
-                                </section>
+                                <div class="profile-env">
+                                    <section class="profile-feed">
+                                        <!-- profile post form -->
+                                        <div <?php echo $view; ?> >
+                                        <form class="profile-post-form" method="post">
+                                            <textarea class="form-control autogrow" placeholder="UNOOSA"></textarea>
+                                            <div class="form-options">
+                                                <div class="post-type">
+                                                    <a href="#" class="tooltip-primary" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Upload a Picture">
+                                                        <i class="entypo-camera"></i>
+                                                    </a>
+                                                    <a href="#" class="tooltip-primary" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Attach a file">
+                                                        <i class="entypo-attach"></i>
+                                                    </a>
+                                                </div>
+                                                <div class="post-submit">
+                                                    <button type="button" class="btn btn-success">POST</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                        <!-- profile stories -->
+                                        <div class="profile-stories">
+                                            <article class="story">
+                                                <aside class="user-thumb">
+                                                    <a href="#">
+                                                        <img src="assets/images/thumb-1.png" alt="" class="img-circle" />
+                                                    </a>
+                                                </aside>
+                                                <div class="story-content">
+                                                    <!-- story header -->
+                                                    <header>
+                                                        <div class="publisher">
+                                                            <a href="#">Prashant Kumar Bhardwaj</a> posted a status update
+                                                            <em>3 hours ago</em>
+                                                        </div>
+                                                    </header>
+                                                    <div class="story-main-content">
+                                                        <p>Hello </p>
+                                                    </div>
+                                                    <!-- story like and comment link -->
+                                                    <footer>
+                                                        <a href="#">
+                                                            <i class="entypo-comment"></i> Comment <span>(12)</span>
+                                                        </a>
+                                                        <!-- story comments -->
+                                                    </footer>
+                                                    <!-- separator -->
+                                                    <hr />
+                                                </div>
+                                            </article>
+                                        </div>
+                                    </section>
+                                </div>
                             </div>
                             <div class="tab-pane" id="unhrc">
-                                <section class="profile-feed">
-                                    <h1>Hello3</h1>
-                                </section>
+                                <div class="profile-env">
+                                    <section class="profile-feed">
+                                        <!-- profile post form -->
+                                        <div <?php echo $view; ?> >
+                                        <form class="profile-post-form" method="post">
+                                            <textarea class="form-control autogrow" placeholder="UNHRC"></textarea>
+                                            <div class="form-options">
+                                                <div class="post-type">
+                                                    <a href="#" class="tooltip-primary" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Upload a Picture">
+                                                        <i class="entypo-camera"></i>
+                                                    </a>
+                                                    <a href="#" class="tooltip-primary" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Attach a file">
+                                                        <i class="entypo-attach"></i>
+                                                    </a>
+                                                </div>
+                                                <div class="post-submit">
+                                                    <button type="button" class="btn btn-success">POST</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                        <!-- profile stories -->
+                                        <div class="profile-stories">
+                                            <article class="story">
+                                                <aside class="user-thumb">
+                                                    <a href="#">
+                                                        <img src="assets/images/thumb-1.png" alt="" class="img-circle" />
+                                                    </a>
+                                                </aside>
+                                                <div class="story-content">
+                                                    <!-- story header -->
+                                                    <header>
+                                                        <div class="publisher">
+                                                            <a href="#">Prashant Kumar Bhardwaj</a> posted a status update
+                                                            <em>3 hours ago</em>
+                                                        </div>
+                                                    </header>
+                                                    <div class="story-main-content">
+                                                        <p>Hello </p>
+                                                    </div>
+                                                    <!-- story like and comment link -->
+                                                    <footer>
+                                                        <a href="#">
+                                                            <i class="entypo-comment"></i> Comment <span>(12)</span>
+                                                        </a>
+                                                        <!-- story comments -->
+                                                    </footer>
+                                                    <!-- separator -->
+                                                    <hr />
+                                                </div>
+                                            </article>
+                                        </div>
+                                    </section>
+                                </div>
                             </div>
                             <div class="tab-pane" id="arab-league">
-                                <section class="profile-feed">
-                                    <h1>Hello4</h1>
-                                </section>
+                                <div class="profile-env">
+                                    <section class="profile-feed">
+                                        <!-- profile post form -->
+                                        <div <?php echo $view; ?> >
+                                        <form class="profile-post-form" method="post">
+                                            <textarea class="form-control autogrow" placeholder="Arab League"></textarea>
+                                            <div class="form-options">
+                                                <div class="post-type">
+                                                    <a href="#" class="tooltip-primary" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Upload a Picture">
+                                                        <i class="entypo-camera"></i>
+                                                    </a>
+                                                    <a href="#" class="tooltip-primary" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Attach a file">
+                                                        <i class="entypo-attach"></i>
+                                                    </a>
+                                                </div>
+                                                <div class="post-submit">
+                                                    <button type="button" class="btn btn-success">POST</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                        <!-- profile stories -->
+                                        <div class="profile-stories">
+                                            <article class="story">
+                                                <aside class="user-thumb">
+                                                    <a href="#">
+                                                        <img src="assets/images/thumb-1.png" alt="" class="img-circle" />
+                                                    </a>
+                                                </aside>
+                                                <div class="story-content">
+                                                    <!-- story header -->
+                                                    <header>
+                                                        <div class="publisher">
+                                                            <a href="#">Prashant Kumar Bhardwaj</a> posted a status update
+                                                            <em>3 hours ago</em>
+                                                        </div>
+                                                    </header>
+                                                    <div class="story-main-content">
+                                                        <p>Hello </p>
+                                                    </div>
+                                                    <!-- story like and comment link -->
+                                                    <footer>
+                                                        <a href="#">
+                                                            <i class="entypo-comment"></i> Comment <span>(12)</span>
+                                                        </a>
+                                                        <!-- story comments -->
+                                                    </footer>
+                                                    <!-- separator -->
+                                                    <hr />
+                                                </div>
+                                            </article>
+                                        </div>
+                                    </section>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -428,7 +598,6 @@ confirm_query($result);
     <script src="assets/js/resizeable.js"></script>
     <script src="assets/js/uiMorphingButton_fixed.js"></script>
     <script src="assets/js/style-api.js"></script>
-    </script>
     <div class="modal" id="modal-1">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -460,8 +629,6 @@ confirm_query($result);
                 </div>
             </div>
         </div>
-    </div>
-    </script>
     </div>
     <script type="text/javascript">
     var file = document.getElementById('picture');

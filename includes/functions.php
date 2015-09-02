@@ -297,14 +297,68 @@ function find_answer_by_id($answer_id) {
 		return null;
 	}
 }
-function find_all_muns() {
+function find_all_posts() {
 	global $conn;
 
 	$query = "SELECT * ";
 	$query .= "FROM mun ";
 	$query .= "ORDER BY id DESC";
-	$mun_set = mysqli_query($conn, $query);
-	confirm_query($mun_set);
-	return $mun_set;
+	$post_set = mysqli_query($conn, $query);
+	confirm_query($post_set);
+	return $post_set;
+}
+function find_post_by_id($post_id) {
+	global $conn;
+
+	$safe_post_id = mysqli_real_escape_string($conn, $post_id);
+
+	$query = "SELECT * ";
+	$query .= "FROM mun ";
+	$query .= "WHERE id = {$safe_post_id} ";
+	$query .= "LIMIT 1";
+	$post_set = mysqli_query($conn, $query);
+	confirm_query($post_set);
+	if ($post = mysqli_fetch_assoc($post_set)) {
+		return $post;
+	} else {
+		return null;
+	}
+}
+function find_all_comments() {
+	global $conn;
+
+	$query = "SELECT * ";
+	$query .= "FROM comments ";
+	//$query .= "ORDER BY username ASC";
+	$comment_set = mysqli_query($conn, $query);
+	confirm_query($comment_set);
+	return $comment_set;
+}
+function find_comment_by_id($comment_id) {
+	global $conn;
+
+	$safe_comment_id = mysqli_real_escape_string($conn, $comment_id);
+
+	$query = "SELECT * ";
+	$query .= "FROM comments ";
+	$query .= "WHERE id = {$safe_comment_id} ";
+	$query .= "LIMIT 1";
+	$comment_set = mysqli_query($conn, $query);
+	confirm_query($comment_set);
+	if ($comment = mysqli_fetch_assoc($comment_set)) {
+		return $comment;
+	} else {
+		return null;
+	}
+}
+function find_all_esss() {
+	global $conn;
+
+	$query = "SELECT * ";
+	$query .= "FROM ess ";
+	$query .= "ORDER BY id DESC";
+	$ess_set = mysqli_query($conn, $query);
+	confirm_query($ess_set);
+	return $ess_set;
 }
 ?>
