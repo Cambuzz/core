@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <?php
 
     if((isset($_POST['name']))&&(isset($_POST['email']))&&(isset($_POST['message'])))
@@ -8,7 +7,7 @@
          $message=$_POST['message'];
          $email1="cambuzz.vitcc@gmail.com";
          $str="From: ".$email;
-         mail($email1,$name,$message,$str);
+         mail($email1, $name, $message, $str);
          echo "done";
     }
 
