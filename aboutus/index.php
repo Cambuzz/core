@@ -205,7 +205,7 @@
                                     <h1 style="color:white; padding-top: 20px;"></h1>
                                     <div class="content" style="font-family: 'Montserrat'; color: white;">
                                         <div style="display: flex; align-items: center; justify-content: center;">
-                                            <p style="font-family: 'Josefin Slab', sans-serif;">"We work in a safe environment. There is absolutely no kicking, biting and rapid punches."
+                                            <p ><span style="font-family: 'Josefin Slab', sans-serif; font-size: 20px;">"We work in a safe environment. There is absolutely no kicking, biting and rapid punches."</span>
                                             <br>
                                             Though the person who wrote this, probably can't see right now.
                                             <br> 
