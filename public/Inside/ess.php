@@ -36,7 +36,7 @@ if (isset($_POST['submit'])) {
     //$pix = $_FILES['picture']['name'];       
     if (!empty($_FILES['picture']['name'])) {  
         $picset=1;      
-        $target_dir = "images";
+        $target_dir = "images/";
         $target_file = $target_dir . basename($_FILES["picture"]["name"]);                
         $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
         move_uploaded_file($_FILES["picture"]["tmp_name"],"images/$picture_id.jpg");          
@@ -203,13 +203,13 @@ confirm_query($result);
                 <div class="container">
                     <div class="col-md-12">
                         <ul class="nav nav-tabs ">
-                            <li class="active">
+                            <li >
                                 <a href="#intra-vitcmun" data-toggle="tab">
                                     <span class="visible-xs"><i class="entypo-home"></i></span>
                                     <a href="mun.php"><span class="hidden-xs">Intra&nbsp;VITCMUN</span></a>
                                 </a>
                             </li>
-                            <li>
+                            <li class="active">
                                 <a href="#unga-ess" data-toggle="tab">
                                     <span class="visible-xs"><i class="entypo-home"></i></span>
                                     <a href="ess.php"><span class="hidden-xs">UNGA&nbsp;ESS</span></a>
@@ -320,7 +320,7 @@ confirm_query($result);
                                                                 if ($mun_list['picset']==1) {                                                                                                                             
                                                                     $poster_time = strtotime($mun_list['post_time']);                                                    
                                                                     $posterid=$mun_list['post_user'].date("Y-m-d H-i-s", $poster_time);                                                                                                      
-                                                                    echo '<img src="images' . $posterid . '.jpg "class="img-responsive">';                                                                
+                                                                    echo '<img src="images/' . $posterid . '.jpg "class="img-responsive">';                                                                
                                                                 } 
                                                             ?>
                                                         </p>
