@@ -70,10 +70,10 @@ if (logged_in()) {
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a class="page-scroll" href="aboutus/index.html">About</a>
+                        <a class="page-scroll" href="aboutus/index.php">About</a>
                     </li>
                     <li>
-                        <a href="aboutus/index.html#contact">Contact Us</a>
+                        <a href="aboutus/index.php#contact">Contact Us</a>
                     </li>
                 </ul>
             </div>
