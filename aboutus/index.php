@@ -8,7 +8,8 @@ if(isset($_POST['submit']))
          $email=$_POST['email'];
          $message=$_POST['message'];
          $email1="cambuzz.vitcc@gmail.com";
-         mail($email1,$name, $message, "From: $email ");
+         $str="From: ".$email;
+         mail($email1,$name,$message,$str);
     }
 }
 ?>
@@ -418,11 +419,7 @@ if(isset($_POST['submit']))
                         <div class="field">
                             <textarea placeholder="Message" name="message"></textarea>
                         </div>
-                        <div class="field checkbox_field">
-                            <label for="dont_send_email">
-                                <input type="checkbox" name="dont_send_email" id="dont_send_email" value="true"> I just want to see if this letter slides into the box!
-                            </label>
-                        </div>
+                        
                         <div class="field">
                             <input type="submit" value="Send it!" name="submit">
                         </div>
