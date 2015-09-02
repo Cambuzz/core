@@ -326,7 +326,7 @@ confirm_query($result);
                                                         </p>
                                                         </div>                                                        
                                                         <footer>
-                                                        <a href="ossa_comments.php?id=<?php echo urlencode($mun_list["id"]); ?>">
+                                                        <a href="oosa_comments.php?id=<?php echo urlencode($mun_list["id"]); ?>">
                                                         <i class="entypo-comment"></i>
                                                         <?php                                                                
                                                             echo "Comment <span> (";
