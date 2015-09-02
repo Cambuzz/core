@@ -9,6 +9,7 @@
          $email1="cambuzz.vitcc@gmail.com";
          $str="From: ".$email;
          mail($email1,$name,$message,$str);
+         echo "done";
     }
 
 ?>

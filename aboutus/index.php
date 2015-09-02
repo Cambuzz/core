@@ -406,7 +406,7 @@
                         <div class="field">
                             <textarea placeholder="Message" name="message" id="message"></textarea>
                         </div>
-                        
+                        <div id="tempdiv"></div>
                         <div class="field">
                             <input type="submit" value="Send it!" name="submit">
                         </div>
@@ -658,7 +658,7 @@
     <script src="js/lib/jquery.js"></script>
     <script src="js/plugins.js"></script>
     <script src="js/script.js"></script>
-     
+     <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
 
     <script type="text/javascript">
         
@@ -681,6 +681,11 @@
                     data: {name:name,email:email,message,message}
                     })
                     .done(function() {
+
+                        if(mag=="done")
+                        {
+                            $("#tempdiv").html("The email has been successfully sent.");
+                        }
                         
                     });
                     
