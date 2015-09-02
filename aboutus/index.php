@@ -95,8 +95,8 @@
                             <span class="cd-words-wrapper" style="font-family: 'Montserrat', sans-serif !important; font-size: 35px !important;">
                                                                  <b class="is-visible">&nbsp;&nbsp;love to code. innovate. repeat. <span class="dot">.</span></b>
                             <b>&nbsp;&nbsp;have a side business of rating EDMs<span class="dot">.</span></b>
-                            <b>&nbsp;&nbsp;two<span class="dot">.</span></b>
-                            <b>&nbsp;&nbsp;three<span class="dot">.</span></b>
+                            <b>&nbsp;&nbsp;love to dance (occasionaly). Now let's erase this.<span class="dot">.</span></b>
+                            <b>&nbsp;&nbsp;and yes we have an anthem. Check below.<span class="dot">.</span></b>
                             </span>
                             </h1>
                                 </div>
