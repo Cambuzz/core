@@ -1,7 +1,7 @@
 <?php require_once("../../includes/session.php");?>
 <?php require_once("../../includes/db_connection.php");?>
 <?php require_once("../../includes/functions.php");?>
-<?php $post_set = find_all_posts(); ?>
+<?php $hrc = find_all_hrcs(); ?>
 <?php
     if (isset($_SESSION["username"])) {
         $current_user = $_SESSION["username"];
@@ -46,10 +46,10 @@ if (isset($_POST['submit'])) {
     $post_user = $current_user;
     date_default_timezone_set('Asia/Calcutta');
     $post_time = date("Y-m-d\TH:i:s");
-    $query = "INSERT INTO mun (content, picset, post_user, post_time) VALUES ('{$content}', {$picset}, '{$post_user}', '{$post_time}')";
+    $query = "INSERT INTO hrc (content, picset, post_user, post_time) VALUES ('{$content}', {$picset}, '{$post_user}', '{$post_time}')";
     $sql = mysqli_query($conn, $query);     
 }
-$query = "SELECT * FROM mun ORDER BY id DESC";
+$query = "SELECT * FROM hrc ORDER BY id DESC";
 $result = mysqli_query($conn, $query);
 confirm_query($result);
 ?>
@@ -235,12 +235,12 @@ confirm_query($result);
                             </li>
                         </ul>
                         <div class="tab-content">
-                            <div class="tab-pane active" id="intra-vitcmun">
+                            <div class="tab-pane active" id="unhrc">
                                 <div class="profile-env">
                                     <section class="profile-feed">
                                         <!-- profile post form -->
                                         <div <?php echo $view; ?> >
-                                        <form class="profile-post-form" method="post" action="mun.php" enctype="multipart/form-data">
+                                        <form class="profile-post-form" method="post" action="hrc.php" enctype="multipart/form-data">
                                             <textarea class="form-control autogrow" name="content" placeholder="Intra VITCMUN Post"></textarea>
                                             <div class="form-options">
                                                 <div class="post-type">
@@ -330,7 +330,7 @@ confirm_query($result);
                                                         <i class="entypo-comment"></i>
                                                         <?php                                                                
                                                             echo "Comment <span> (";
-                                                            $count_query = "SELECT COUNT(*) FROM comments WHERE pid = {$mun_list["id"]}";
+                                                            $count_query = "SELECT COUNT(*) FROM hrccomments WHERE pid = {$mun_list["id"]}";
                                                             $count_result = mysqli_query($conn, $count_query);
                                                             confirm_query($count_result);
                                                             $row = mysqli_fetch_array($count_result);

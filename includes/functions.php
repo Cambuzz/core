@@ -361,4 +361,102 @@ function find_all_esss() {
 	confirm_query($ess_set);
 	return $ess_set;
 }
+function find_all_oosas() {
+	global $conn;
+
+	$query = "SELECT * ";
+	$query .= "FROM oosa ";
+	$query .= "ORDER BY id DESC";
+	$oosa_set = mysqli_query($conn, $query);
+	confirm_query($oosa_set);
+	return $oosa_set;
+}
+function find_all_hrcs() {
+	global $conn;
+
+	$query = "SELECT * ";
+	$query .= "FROM hrc ";
+	$query .= "ORDER BY id DESC";
+	$hrc_set = mysqli_query($conn, $query);
+	confirm_query($hrc_set);
+	return $hrc_set;
+}
+function find_all_arabs() {
+	global $conn;
+
+	$query = "SELECT * ";
+	$query .= "FROM arab ";
+	$query .= "ORDER BY id DESC";
+	$arab_set = mysqli_query($conn, $query);
+	confirm_query($arab_set);
+	return $arab_set;
+}
+function find_ess_by_id($ess_id) {
+	global $conn;
+
+	$safe_ess_id = mysqli_real_escape_string($conn, $ess_id);
+
+	$query = "SELECT * ";
+	$query .= "FROM ess ";
+	$query .= "WHERE id = {$safe_ess_id} ";
+	$query .= "LIMIT 1";
+	$ess_set = mysqli_query($conn, $query);
+	confirm_query($ess_set);
+	if ($ess = mysqli_fetch_assoc($ess_set)) {
+		return $ess;
+	} else {
+		return null;
+	}
+}
+function find_oosa_by_id($oosa_id) {
+	global $conn;
+
+	$safe_oosa_id = mysqli_real_escape_string($conn, $oosa_id);
+
+	$query = "SELECT * ";
+	$query .= "FROM oosa ";
+	$query .= "WHERE id = {$safe_oosa_id} ";
+	$query .= "LIMIT 1";
+	$oosa_set = mysqli_query($conn, $query);
+	confirm_query($oosa_set);
+	if ($oosa = mysqli_fetch_assoc($oosa_set)) {
+		return $oosa;
+	} else {
+		return null;
+	}
+}
+function find_hrc_by_id($hrc_id) {
+	global $conn;
+
+	$safe_hrc_id = mysqli_real_escape_string($conn, $hrc_id);
+
+	$query = "SELECT * ";
+	$query .= "FROM hrc ";
+	$query .= "WHERE id = {$safe_hrc_id} ";
+	$query .= "LIMIT 1";
+	$hrc_set = mysqli_query($conn, $query);
+	confirm_query($hrc_set);
+	if ($hrc = mysqli_fetch_assoc($hrc_set)) {
+		return $hrc;
+	} else {
+		return null;
+	}
+}
+function find_arab_by_id($arab_id) {
+	global $conn;
+
+	$safe_arab_id = mysqli_real_escape_string($conn, $arab_id);
+
+	$query = "SELECT * ";
+	$query .= "FROM arab ";
+	$query .= "WHERE id = {$safe_arab_id} ";
+	$query .= "LIMIT 1";
+	$arab_set = mysqli_query($conn, $query);
+	confirm_query($arab_set);
+	if ($arab = mysqli_fetch_assoc($arab_set)) {
+		return $arab;
+	} else {
+		return null;
+	}
+}
 ?>
