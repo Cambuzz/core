@@ -164,7 +164,7 @@
                             <b>&nbsp;&nbsp;and yes we have an anthem. Check below<span class="dot">.</span></b>
                             </span>
                             </h1>
-                            <div class="scroll-below-arrow" style="display: flex; align-items: center; justify-content: center;">
+                            <div class="scroll-below-arrow" style="display: flex; align-items: center; justify-content: center; margin-top: 200px;">
                                 <div class="arrow bounce">
                                     </div>
                             </div>
