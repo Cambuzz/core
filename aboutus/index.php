@@ -79,7 +79,6 @@
     }
 
     .arrow {
-      position: fixed;
       bottom: 0;
       left: 50%;
       margin-left: -20px;
@@ -165,8 +164,10 @@
                             <b>&nbsp;&nbsp;and yes we have an anthem. Check below<span class="dot">.</span></b>
                             </span>
                             </h1>
-                            <div class="arrow bounce">
-                                </div>
+                            <div class="scroll-below-arrow" style="display: flex; align-items: center; justify-content: center;">
+                                <div class="arrow bounce">
+                                    </div>
+                            </div>
                             </section>
                         </div>
                     </div>
