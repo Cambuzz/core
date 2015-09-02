@@ -149,7 +149,7 @@
                             <section class="cd-intro">
                                 <div class="container">
                                     <section class="intro1" id="intro1" style="margin-top: 50px;">
-                                        <p style="line-height: 0.7;"> <span class="design" style="font-family: 'Montserrat', sans-serif !important; font-size: 40px; margin-right: 200px;">we at</span>
+                                        <p style="line-height: 0.7;"> <span class="design" style="font-family: 'Montserrat', sans-serif !important; font-size: 40px; margin-right: 100px;">we at</span>
                                             <br>
                                             <a href="http://cambuzz.co.in/" style="text-decoration: none"><span class="design" style="font-family: 'Pacifico', sans-serif !important;font-size: 120px !important; color: white;">cambuzz</span></a>
                                             <br>
