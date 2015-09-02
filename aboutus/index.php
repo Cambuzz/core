@@ -285,7 +285,7 @@
                                         <div style="display: flex; align-items: center; justify-content: center; text">
                                             <p ><span style="font-size: 22px;">"We work in a safe environment. There is absolutely no kicking, biting and rapid punches."</span>
                                             <br>
-                                            Though the person who wrote this, probably can't see right now.
+                                            Though thee person who wrote this, probably can't see right now.
                                             Check us out by clicking on any of our lovely faces. :D</p>
                                         </div>
                                     </div>
