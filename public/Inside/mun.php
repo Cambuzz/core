@@ -48,8 +48,9 @@ if (isset($_POST['submit'])) {
     $post_time = date("Y-m-d\TH:i:s");
     $query = "INSERT INTO mun (content, picset, post_user, post_time) VALUES ('{$content}', {$picset}, '{$post_user}', '{$post_time}')";
     $sql = mysqli_query($conn, $query);
-    //$main_query = "INSERT INTO app (content, picset, post_user, post_time, council) VALUES ('{$content}', {$picset}, '{$post_user}', '{$post_time}', "mun")";      
-    //$main_sql = mysqli_query($conn, $main_query);     
+    $council = "mun";
+    $main_query = "INSERT INTO app (content, picset, post_user, post_time, council) VALUES ('{$content}', {$picset}, '{$post_user}', '{$post_time}', '{$council}')";      
+    $main_sql = mysqli_query($conn, $main_query);     
 }
 $query = "SELECT * FROM mun ORDER BY id DESC";
 $result = mysqli_query($conn, $query);
