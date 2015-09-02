@@ -241,7 +241,7 @@ confirm_query($result);
                                         <!-- profile post form -->
                                         <div <?php echo $view; ?> >
                                         <form class="profile-post-form" method="post" action="ess.php" enctype="multipart/form-data">
-                                            <textarea class="form-control autogrow" name="content" placeholder="Intra VITCMUN Post"></textarea>
+                                            <textarea class="form-control autogrow" name="content" placeholder="UNGA-ESS Post"></textarea>
                                             <div class="form-options">
                                                 <div class="post-type">
                                                     <a href="#" class="tooltip-primary" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Upload a Picture">
@@ -326,7 +326,7 @@ confirm_query($result);
                                                         </p>
                                                         </div>                                                        
                                                         <footer>
-                                                        <a href="mun_comment.php?id=<?php echo urlencode($mun_list["id"]); ?>">
+                                                        <a href="ess_comments.php?id=<?php echo urlencode($mun_list["id"]); ?>">
                                                         <i class="entypo-comment"></i>
                                                         <?php                                                                
                                                             echo "Comment <span> (";
