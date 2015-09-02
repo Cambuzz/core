@@ -1,18 +1,5 @@
 <!DOCTYPE html>
-<?php
-if(isset($_POST['submit']))
-{
-    if((isset($_POST['name']))&&(isset($_POST['email']))&&(isset($_POST['message'])))
-    {
-         $name=$_POST['name'];
-         $email=$_POST['email'];
-         $message=$_POST['message'];
-         $email1="cambuzz.vitcc@gmail.com";
-         $str="From: ".$email;
-         mail($email1,$name,$message,$str);
-    }
-}
-?>
+
 <head>
     <title>About Us</title>
     <link rel="stylesheet" href="css/particle.css" />
@@ -408,16 +395,16 @@ if(isset($_POST['submit']))
         <div id="contact" class="contact">
             <div class="contact-form-container">
                 <div class="contact-form form-container">
-                    <form action="index.php" method="post" id="contact_form">
+                    <form  id="contactform">
                         <h3 class="form-title">Get in Touch</h3>
                         <div class="field">
-                            <input type="text" placeholder="Name" name="name">
+                            <input type="text" placeholder="Name" name="name" id="name">
                         </div>
                         <div class="field">
-                            <input type="text" placeholder="Email" name="email">
+                            <input type="text" placeholder="Email" name="email" id="email">
                         </div>
                         <div class="field">
-                            <textarea placeholder="Message" name="message"></textarea>
+                            <textarea placeholder="Message" name="message" id="message"></textarea>
                         </div>
                         
                         <div class="field">
@@ -671,6 +658,40 @@ if(isset($_POST['submit']))
     <script src="js/lib/jquery.js"></script>
     <script src="js/plugins.js"></script>
     <script src="js/script.js"></script>
+     <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+
+    <script type="text/javascript">
+        
+        
+        $(document).ready(function(){
+           
+            $('#contactform').on('submit',function()
+            {
+
+                var name=$("#name").val();
+                 var email=$("#email").val();
+                  var message=$("#message").val();
+                
+               
+               var msg;
+                
+                $.ajax({
+                    method: "POST",
+                    url: "sendmail.php",
+                    data: {name:name,email:email,message,message}
+                    })
+                    .done(function() {
+                        
+                    });
+                    
+
+                return false;
+
+                
+            });
+        });
+        </script>
+
 </body>
 
 </html>
