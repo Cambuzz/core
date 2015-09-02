@@ -181,7 +181,7 @@
 														                                            
                                                         while ($mun_list = mysqli_fetch_assoc($search_result)) 
                                                         { 
-                                                        	$v=stristr($get_comment['content'],$tag);
+                                                        	$v=stristr($mun_list['content'],$tag);
 															if($v!=FALSE)
 															{
                                                         	?>
@@ -365,7 +365,7 @@
 														                                              
                                                         while ($mun_list = mysqli_fetch_assoc($search_result)) 
                                                         { 
-                                                        	$v=stristr($get_comment['content'],$tag);
+                                                        	$v=stristr($mun_list['content'],$tag);
 															if($v!=FALSE)
 															{
                                                         	?>
@@ -549,7 +549,7 @@
 														                                            
                                                         while ($mun_list = mysqli_fetch_assoc($search_result)) 
                                                         { 
-                                                        	$v=stristr($get_comment['content'],$tag);
+                                                        	$v=stristr($mun_list['content'],$tag);
 															if($v!=FALSE)
 															{
                                                         	?>
@@ -734,7 +734,7 @@
 														                                           
                                                         while ($mun_list = mysqli_fetch_assoc($search_result)) 
                                                         { 
-                                                        	$v=stristr($get_comment['content'],$tag);
+                                                        	$v=stristr($mun_list['content'],$tag);
 															if($v!=FALSE)
 															{
                                                         	?>
@@ -920,7 +920,7 @@
 														                                             
                                                         while ($mun_list = mysqli_fetch_assoc($search_result)) 
                                                         { 
-                                                        	$v=stristr($get_comment['content'],$tag);
+                                                        	$v=stristr($mun_list['content'],$tag);
 															if($v!=FALSE)
 															{
                                                         	?>
