@@ -1160,6 +1160,8 @@
         }
     };
     </script>
+	</div>
+	
 </body>
 </html>
 <?php
