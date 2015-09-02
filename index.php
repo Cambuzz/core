@@ -54,7 +54,7 @@ if (logged_in()) {
         <li><span>Image 06</span>
         </li>
     </ul>
-    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-inverse" style="background-color: black; opacity: .4;">
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-inverse" style="background-color: rgba(0,0,0,0.6); border-color: rgba(0,0,0,0) !important;  ">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -68,7 +68,7 @@ if (logged_in()) {
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
+                <ul class="nav navbar-nav navbar-right" style="font-family: 'Montserrat', sans-serif;">
                     <li>
                         <a class="page-scroll" href="aboutus/index.php">About</a>
                     </li>
