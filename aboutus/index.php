@@ -1,5 +1,18 @@
 <!DOCTYPE html>
-
+<?php
+if(isset($_POST['submit']))
+{
+    if((isset($_POST['name']))&&(isset($_POST['email']))&&(isset($_POST['message'])))
+    {
+         $name=$_POST['name'];
+         $email=$_POST['email'];
+         $message=$_POST['message'];
+         $email1="cambuzz.vitcc@gmail.com";
+         $str="From: ".$email;
+         mail($email1,$name,$message,$str);
+    }
+}
+?>
 <head>
     <title>About Us</title>
     <link rel="stylesheet" href="css/particle.css" />
@@ -286,7 +299,7 @@
                                 <div class="teamcontent6" style="padding: 10px;">
                                     <h1 style="color:white; padding-top: 20px;">Divyang Duhan</h1>
                                     <div class="content" style="font-family: 'Montserrat'; color: white;">
-                                        <p>App Developer</p>
+                                        <p>Android App Developer</p>
                                         <p>Do you feel you know about cricket? Shoot! Pizza on the house if you can beat him (Though you wont. B). You can find him petting every animal in the campus (and we have a lot of variety!). In the meantime, he is busy coding android bots to solve the biggest problem for the team: to find the best pizzas in the town.
                                             <br>
                                             <br> P.s. He loves to sing in a high pitched voice and regularly takes breaks to record a punk rock album.
@@ -301,7 +314,7 @@
                                     <h1 style="color:white; padding-top: 20px;">Inderpratap Singh Cheema</h1>
                                     <div class="content" style="font-family: 'Montserrat'; color: white;">
                                         <p>Frontend Developer</p>
-                                        <p>Fondly called as IPS, he is an artist by nature but took frontend developement to mix art with code. Most of his time is spent creating impressive landing pages while in the meantimehe he loves reading novels &amp; sketching. Probably the biggest fan of Minions from the "Despicable me" fame, he wishes to have his own minions to twirl his famous moustache.
+                                        <p>Fondly called as IPS, he is an artist by nature but took frontend developement to mix art with code. Most of his time is spent creating impressive landing pages while in the meantime he loves reading novels &amp; sketching. Probably the biggest fan of Minions from the "Despicable me" fame, he wishes to have his own minions to twirl his famous moustache.
                                             <br>
                                             <br> P.s. He really really loves to sleep.
                                             <div class="social-icons" style="display: flex; align-items: center; justify-content: center;">
@@ -395,7 +408,7 @@
         <div id="contact" class="contact">
             <div class="contact-form-container">
                 <div class="contact-form form-container">
-                    <form action="http://wearefixel.com/mail.php" id="contact_form">
+                    <form action="index.php" method="post" id="contact_form">
                         <h3 class="form-title">Get in Touch</h3>
                         <div class="field">
                             <input type="text" placeholder="Name" name="name">
@@ -406,13 +419,9 @@
                         <div class="field">
                             <textarea placeholder="Message" name="message"></textarea>
                         </div>
-                        <div class="field checkbox_field">
-                            <label for="dont_send_email">
-                                <input type="checkbox" name="dont_send_email" id="dont_send_email" value="true"> I just want to see if this letter slides into the box!
-                            </label>
-                        </div>
+                        
                         <div class="field">
-                            <input type="submit" value="Send it!">
+                            <input type="submit" value="Send it!" name="submit">
                         </div>
                     </form>
                 </div>
