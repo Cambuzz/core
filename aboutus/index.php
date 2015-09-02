@@ -93,8 +93,8 @@
                                     <h1 class="cd-headline clip is-full-width">
 
                             <span class="cd-words-wrapper" style="font-family: 'Montserrat', sans-serif !important; font-size: 35px !important;">
-                                                                 <b class="is-visible">&nbsp;&nbsp;and this is our site<span class="dot">.</span></b>
-                            <b>&nbsp;&nbsp;one<span class="dot">.</span></b>
+                                                                 <b class="is-visible">&nbsp;&nbsp;love to code. innovate. repeat. <span class="dot">.</span></b>
+                            <b>&nbsp;&nbsp;have a side business of rating EDMs<span class="dot">.</span></b>
                             <b>&nbsp;&nbsp;two<span class="dot">.</span></b>
                             <b>&nbsp;&nbsp;three<span class="dot">.</span></b>
                             </span>
