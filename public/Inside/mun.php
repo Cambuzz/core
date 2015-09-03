@@ -259,7 +259,7 @@ confirm_query($result);
                 <div class="container"> 
                     <div class="col-md-12">
                          <ul class="nav nav-tabs ">
-                            <li >
+                            <li class="active">
                                 <a href="#intra-vitcmun" data-toggle="tab" style="display: none;">
                                     <a href="mun.php"><span>Intra&nbsp;VITCMUN</span></a>
                                 </a>
@@ -274,7 +274,7 @@ confirm_query($result);
                                     <a href="oosa.php"><span>UNOOSA</span></a>
                                 </a>
                             </li>
-                            <li class="active">
+                            <li >
                                 <a href="#unhrc" data-toggle="tab">
                                     <a href="hrc.php"><span>UNHRC</span></a>
                                 </a>
