@@ -715,8 +715,15 @@ $comment=0;
                     </ul>
                 </div>
 
-                <div class="col-md-6 col-sm-4 clearfix hidden-xs" style="float: right;">
-                    <ul class="list-inline links-list pull-right">
+                <div class="col-md-6 col-sm-4 clearfix hidden-xs" >
+                    <ul class="list-inline links-list pull-left" style="float: left;">
+                        <!-- Language Selector -->
+                        <li>
+                         <a href="public/Inside/mun.php" style="color: white; background-color: black; font-family: 'Montserrat', sans-serif;" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-comment"></span> VITC Intra MUN</a>
+
+                        </li>
+                    </ul>
+                    <ul class="list-inline links-list pull-right" style="float: right;">
                         <!-- Language Selector -->
                         <li>
                             <a href="settings.php">
