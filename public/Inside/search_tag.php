@@ -48,6 +48,13 @@
     max-width: 100%;
     overflow-x: hidden;
     }
+    @media (max-width: 767px){
+        #phone-logout{
+            display: block !important;
+        }
+
+    }
+
     </style>
 </head>
 
@@ -113,6 +120,13 @@
                             <span class="title">Ask a question</span>
                         </a>
                     </li>
+                    <li>
+                            <a href="logout.php" style="display: none;" id="phone-logout">
+                                <i class="entypo-logout"></i>
+                                <span class="title">Logout</span>
+                            </a>
+                    </li>
+
                 </ul>
             </div>
         </div>

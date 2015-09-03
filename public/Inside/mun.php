@@ -193,6 +193,12 @@ confirm_query($result);
                             <span class="title">Ask a question</span>
                         </a>
                     </li>
+                    <li>
+                            <a href="logout.php" style="display: none;" id="phone-logout">
+                                <i class="entypo-logout"></i>
+                                <span class="title">Logout</span>
+                            </a>
+                    </li>
                 </ul>
             </div>
         </div>

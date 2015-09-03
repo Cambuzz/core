@@ -201,7 +201,8 @@ confirm_query($result);
                     </li>
                     <li>
                             <a href="logout.php" style="display: none;" id="phone-logout">
-                                Log Out <i class="entypo-logout right"></i>
+                                <i class="entypo-logout"></i>
+                                <span class="title">Logout</span>
                             </a>
                     </li>
                 </ul>
