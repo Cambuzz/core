@@ -170,7 +170,7 @@
                     <ul class="list-inline links-list pull-right" <?php echo $view1;?>>
                         <!-- Language Selector -->
                         <li>
-                            <a href="index.php">
+                            <a href="../../index.php">
                             Login <i class="entypo-logout right"></i>
                         </a>
                         </li>
