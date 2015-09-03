@@ -185,14 +185,10 @@
                                 <div class="col-md-12">
                                      <ul class="nav nav-tabs ">
                                         <li >
-                                            <a href="#intra-vitcmun" data-toggle="tab">
                                                 <a href="mun.php"><span>Intra&nbsp;VITCMUN</span></a>
-                                            </a>
                                         </li>
                                         <li>
-                                            <a href="#unga-ess" data-toggle="tab">
                                                 <a href="ess.php"><span>UNGA&nbsp;ESS</span></a>
-                                            </a>
                                         </li>
                                         <li>
                                             <a href="#unoosa" data-toggle="tab">
