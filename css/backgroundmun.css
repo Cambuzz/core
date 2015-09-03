@@ -111,7 +111,102 @@ ul {
 }
 
 
-/
+
+
+
+/* Animation for the title */
+
+@-webkit-keyframes titleAnimation {
+    0% {
+        opacity: 0
+    }
+    8% {
+        opacity: 1
+    }
+    17% {
+        opacity: 1
+    }
+    19% {
+        opacity: 0
+    }
+    100% {
+        opacity: 0
+    }
+}
+
+@-moz-keyframes titleAnimation {
+    0% {
+        opacity: 0
+    }
+    8% {
+        opacity: 1
+    }
+    17% {
+        opacity: 1
+    }
+    19% {
+        opacity: 0
+    }
+    100% {
+        opacity: 0
+    }
+}
+
+@-o-keyframes titleAnimation {
+    0% {
+        opacity: 0
+    }
+    8% {
+        opacity: 1
+    }
+    17% {
+        opacity: 1
+    }
+    19% {
+        opacity: 0
+    }
+    100% {
+        opacity: 0
+    }
+}
+
+@-ms-keyframes titleAnimation {
+    0% {
+        opacity: 0
+    }
+    8% {
+        opacity: 1
+    }
+    17% {
+        opacity: 1
+    }
+    19% {
+        opacity: 0
+    }
+    100% {
+        opacity: 0
+    }
+}
+
+@keyframes titleAnimation {
+    0% {
+        opacity: 0
+    }
+    8% {
+        opacity: 1
+    }
+    17% {
+        opacity: 1
+    }
+    19% {
+        opacity: 0
+    }
+    100% {
+        opacity: 0
+    }
+}
+
+
 /* Show at least something when animations not supported */
 
 .no-cssanimations .cb-slideshow li span {
