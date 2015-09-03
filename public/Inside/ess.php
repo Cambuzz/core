@@ -3,7 +3,7 @@
 <?php require_once("../../includes/functions.php");?>
 <?php $ess = find_all_esss(); ?>
 <?php
-    if (isset($_SESSION["username"])) {
+   if (isset($_SESSION["username"])) {
         $current_user = $_SESSION["username"];
         $name_query = "SELECT * FROM users WHERE username = '{$current_user}' LIMIT 1";
         $name_result = mysqli_query($conn, $name_query);
@@ -11,9 +11,11 @@
         $name_title = mysqli_fetch_assoc($name_result);
         $first_name = explode(" ", $name_title['sname']);
         $current_id = $name_title['id']; 
+        $viewlog = " ";
     } else {
         $current_user = "";
         $current_id = "";
+        $viewlog = "style='display:none;'";
     }    
     date_default_timezone_set('Asia/Calcutta');
     $id_time = date("Y-m-d H-i-s");
@@ -190,17 +192,18 @@ confirm_query($result);
                 <div class="col-md-5 col-sm-4 clearfix hidden-xs" style="float: right;">
                     <ul class="list-inline links-list pull-right">
                         <!-- Language Selector -->
-                        <li>
-                            <a href="settings.php">
-                            Settings <i class="entypo-cog right"></i>
-                        </a>
-                        </li>
-                        <li>
-                            <a href="logout.php">
-                            Log Out <i class="entypo-logout right"></i>
-                        </a>
-                        </li>
-                    </ul>
+                        <div <?php echo $viewlog; ?> >
+                            <li>
+                                <a href="settings.php">
+                                Settings <i class="entypo-cog right"></i>
+                            </a>
+                            </li>
+                            <li>
+                                <a href="logout.php">
+                                Log Out <i class="entypo-logout right"></i>
+                            </a>
+                            </li>
+                        </div>                                        </ul>
                 </div>
             </div>
             <hr />
@@ -268,12 +271,8 @@ confirm_query($result);
                                             <div class="form-options">
                                                 <div class="post-type">
                                                     <a href="#" class="tooltip-primary" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Upload a Picture">
-                                                    <input type="file" name="picture" accept=".jpeg, .jpg, .bmp, .png" id="picture" >
-                                                        <i class="entypo-camera"></i>
-                                                    </a>
-                                                    <a href="#" class="tooltip-primary" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Attach a file">
-                                                        <i class="entypo-attach"></i>
-                                                    </a>
+                                                    <input type="file" class="upload-picture"name="picture" accept=".jpeg, .jpg, .bmp, .png" id="picture"  style="display: none;">
+                                                        <i class="entypo-camera" style="font-size: 20px;"></i>
                                                 </div>
                                                 <div class="post-submit">
                                                     <input type="submit" name="submit" value="Post" class="btn btn-success">
@@ -488,6 +487,15 @@ confirm_query($result);
             </div>
         </div>
     </div>
+        <script>
+                     $('.entypo-camera').click(function()
+            {
+            
+                    $(".upload-picture").click();             
+            });
+
+    </script>
+
     <script type="text/javascript">
     var file = document.getElementById('picture');
 
