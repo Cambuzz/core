@@ -267,7 +267,7 @@ confirm_query($result);
                         <ul class="nav nav-tabs ">
                             <li >
                                 <a href="#intra-vitcmun" data-toggle="tab">
-                                    <span class="visible-xs"><i class="entypo-home"></i></span>
+                                    <span class="visible-xs"><i class="entypo-home" ></i></span>
                                     <a href="mun.php"><span class="hidden-xs">Intra&nbsp;VITCMUN</span></a>
                                 </a>
                             </li>
