@@ -84,6 +84,21 @@ if ((isset($_POST['submit']))&&(isset($_POST['comment']))) {
     <script>
     $.noConflict();
     </script>
+    <style>
+    .nav-tabs > li,
+    .nav-pills > li {
+        float: none;
+        display: inline-block;
+        /* ie7 fix */
+        zoom: 1;
+        /* hasLayout ie7 trigger */
+    }
+    
+    .nav-tabs,
+    .nav-pills {
+        text-align: center;
+    }
+    </style>
     
 </head>
 
@@ -201,6 +216,39 @@ if ((isset($_POST['submit']))&&(isset($_POST['comment']))) {
             <hr />
             <!-- main content starts here -->
             <div class="row">
+              <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                 <ul class="nav nav-tabs ">
+                                    <li class="active">
+                                        <a href="#intra-vitcmun" data-toggle="tab">
+                                            <a href="mun.php"><span>Intra&nbsp;VITCMUN</span></a>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#unga-ess" data-toggle="tab">
+                                            <a href="ess.php"><span>UNGA&nbsp;ESS</span></a>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#unoosa" data-toggle="tab">
+                                            <a href="oosa.php"><span>UNOOSA</span></a>
+                                        </a>
+                                    </li>
+                                    <li >
+                                        <a href="#unhrc" data-toggle="tab">
+                                            <a href="hrc.php"><span>UNHRC</span></a>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#arab-league" data-toggle="tab" style="display: none;">
+                                            <a href="arab.php"><span>Arab&nbsp;League</span></a>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 <div class="profile-env">
                     <section class="profile-feed">
                         <!-- ask question -->
