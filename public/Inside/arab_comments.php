@@ -82,6 +82,21 @@ if ((isset($_POST['submit']))&&(isset($_POST['comment']))) {
     <script>
     $.noConflict();
     </script>
+    <style>
+    .nav-tabs > li,
+    .nav-pills > li {
+        float: none;
+        display: inline-block;
+        /* ie7 fix */
+        zoom: 1;
+        /* hasLayout ie7 trigger */
+    }
+    
+    .nav-tabs,
+    .nav-pills {
+        text-align: center;
+    }
+    </style>
     
 </head>
 
@@ -192,7 +207,7 @@ if ((isset($_POST['submit']))&&(isset($_POST['comment']))) {
             <div class="row">
                     <div class="container">
                         <div class="row">
-                            <div class="col-md-6" style="display: flex; align-items: center; justify-content: center;">
+                            <div class="col-md-6">
                                  <ul class="nav nav-tabs ">
                                     <li >
                                         <a href="#intra-vitcmun" data-toggle="tab">
