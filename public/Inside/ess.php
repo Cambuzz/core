@@ -229,7 +229,7 @@ confirm_query($result);
             <hr />
             <!-- main content starts here -->
             <div class="row">
-                <div class="container" style="width: 970px !important;">
+                <div class="container">
                     <div class="row" style="display: flex; align-items: center; justify-content: center;">
                         <div class="col-md-6">
                             <form method="post" class="search-bar" action="ess.php" enctype="application/x-www-form-urlencoded">
@@ -246,7 +246,7 @@ confirm_query($result);
                         </div>
                     </div>
                 </div>
-                <div class="container" style="width: 970px !important;">
+                <div class="container">
                     <div class="col-md-12">
                         <ul class="nav nav-tabs ">
                             <li >
