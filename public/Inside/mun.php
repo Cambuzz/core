@@ -75,7 +75,7 @@ if (isset($_POST['submit'])) {
 
 if((isset($_POST['searchsubmit']))&&(isset($_POST['search'])))
 {
-    $str1=mysqli_real_escape_string(htmlspecialchars($_POST['search']));
+    $str1=mysqli_real_escape_string($conn,htmlspecialchars($_POST['search']));
     $str="search_tag.php?word=".urlencode($str1)."";
     redirect_to($str);
 }
