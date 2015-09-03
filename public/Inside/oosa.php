@@ -90,7 +90,7 @@ confirm_query($result);
     <meta name="description" content="Login or Signup on Cambuzz. Buzz new events, Track your teacher or ask a question.">
     <meta name="keywords" content="Buzz, Events, Cambuzz, Track, Teacher, Question, Campus, Centralized information system">
     <meta name="author" content="Team Cambuzz">
-    <title>Ask a Question</title>
+    <title>UNOOSA | Intra MUN</title>
     <link rel="stylesheet" href="assets/css/bootstrap.css">
     <link rel="stylesheet" href="assets/css/style-core.css">
     <link rel="stylesheet" href="assets/css/style-theme.css">
@@ -290,7 +290,7 @@ confirm_query($result);
                                             <div class="form-options">
                                                 <div class="post-type">
                                                     <a href="#" class="tooltip-primary" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Upload a Picture">
-                                                    <input type="file" class="upload-picture"name="picture" accept=".jpeg, .jpg, .bmp, .png" id="picture"  style="display: none;">
+                                                    <input type="file" class="upload-picture"name="picture" accept=".jpeg, .jpg, .bmp, .png, .gif" id="picture"  style="display: none;">
                                                         <i class="entypo-camera" style="font-size: 20px;"></i>
                                                     </a>                                                    <a href="#" class="tooltip-primary" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Attach a file">
                                                 </div>

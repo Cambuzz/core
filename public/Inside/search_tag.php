@@ -172,6 +172,7 @@
                                                         {
                                                             $tag="#".$tag;
                                                         }
+                                                        echo "<p style='font-size:25px; display: flex; align-items: center; justify-content: center;'>".$tag."</p>";
                                                         $count=0;
 														$search_query="SELECT * FROM mun";
 														$search_result=mysqli_query($conn,$search_query);
