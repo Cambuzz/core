@@ -252,11 +252,8 @@ confirm_query($result);
                                             <div class="form-options">
                                                 <div class="post-type">
                                                     <a href="#" class="tooltip-primary" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Upload a Picture">
-                                                    <input type="file" name="picture" accept=".jpeg, .jpg, .bmp, .png" id="picture" >
+                                                    <input type="file" class="upload-picture"name="picture" accept=".jpeg, .jpg, .bmp, .png" id="picture"  style="display: none;">
                                                         <i class="entypo-camera"></i>
-                                                    </a>
-                                                    <a href="#" class="tooltip-primary" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Attach a file">
-                                                        <i class="entypo-attach"></i>
                                                     </a>
                                                 </div>
                                                 <div class="post-submit">
@@ -637,6 +634,14 @@ confirm_query($result);
             </div>
         </div>
     </div>
+    <script>
+                     $('.entypo-camera').click(function()
+            {
+            
+                    $(".upload-picture").click();             
+            });
+
+    </script>
     <script type="text/javascript">
     var file = document.getElementById('picture');
 
