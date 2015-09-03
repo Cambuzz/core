@@ -73,9 +73,9 @@ if (isset($_POST['submit'])) {
     $main_sql = mysqli_query($conn, $main_query);     
 }
 
-if(isset($_POST['searchsubmit']))
+if((isset($_POST['searchsubmit']))&&(isset($_POST['search'])))
 {
-    $str="search_tag.php?word=".urlencode($_POST['searchsubmit']);
+    $str="search_tag.php?word=".urlencode($_POST['search'])."";
     redirect_to($str);
 }
 
