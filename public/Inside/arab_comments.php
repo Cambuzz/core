@@ -237,9 +237,75 @@ if ((isset($_POST['submit']))&&(isset($_POST['comment']))) {
                                     <div class="story-main-content">
                                         <p style="font-size: 20px; line-height: 1.3; sans-serif; font-weight:bold; color: black;">
                                         <?php 
+
+
+
+                                                               $str=$view_post['content'];
+                                                                $comment = $str;
+                                                                $st=$comment;
+                                                                $sz=strlen($st);
+                                                                $disp="";
+                                                                $store="";
+                                                                $flag=0;
+                                                                for($i=0; $i<$sz; $i++)
+                                                                {
+                                                                    if($st[$i]=='#')
+                                                                    {
+                                                                        $ind=$i;
+                                                                        while($st[$ind]=='#')
+                                                                        {
+                                                                            if($ind+1<$sz)
+                                                                            {
+                                                                                if($st[$ind+1]!='#' && $st[$ind+1]!=' ')
+                                                                                {
+                                                                                    $c=$ind+1;
+                                                                                    $var="#";
+                                                                                    while($st[$c]!='#' && $st[$c]!=' ')
+                                                                                    {
+                                                                                        $var=$var.$st[$c];
+                                                                                        $c++;
+                                                                                        if($c>=$sz)break;
+                                                                                    }
+                                                                                    //echo $var."<br>";
+                                                                                    $disp=$disp."<a href='search_tag.php?word=".urlencode($var)."'>";
+
+                                                                                }
+                                                                            }
+                                                                            $disp=$disp.$st[$ind];
+                                                                            $ind++;
+                                                                            if($ind>=$sz)break;
+                                                                        }
+                                                                        if($ind>=$sz)break;
+                                                                        if($st[$ind]==' ')
+                                                                        {
+                                                                            $i=$ind;
+                                                                            $disp=$disp.$st[$ind];
+                                                                            continue;
+                                                                        }
+                                                                        while($st[$ind]!=' '&& $st[$ind]!='#')
+                                                                        {
+                                                                            $disp=$disp.$st[$ind];
+                                                                            $ind++;
+                                                                            if($ind>=$sz)
+                                                                                {
+                                                                                    $disp=$disp."</a>";
+                                                                                    break;
+                                                                                }
+                                                                        }
+                                                                        if($ind<$sz)
+                                                                        {
+                                                                            $disp=$disp."</a>";
+                                                                        }
+                                                                        $i=$ind-1;
+                                                                    }
+                                                                    else $disp=$disp.$st[$i];
+                                                                }
+
+
+
                                             //echo ucfirst($view_post['postion']);
                                             $pattern = '#[-a-zA-Z0-9@:%_\+.~\#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~\#?&//=]*)?#si';
-                                                        $str =ucfirst(ucfirst($view_post['content']));
+                                                        $str =ucfirst(ucfirst($disp));
                                                         $num_found = preg_match_all($pattern, $str, $out);
                                                         $str1=serialize($out);
                                                         $start=0;
