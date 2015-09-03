@@ -263,29 +263,19 @@ confirm_query($result);
                     <div class="col-md-12">
                         <ul class="nav nav-tabs ">
                             <li >
-                                <a href="#intra-vitcmun" data-toggle="tab">
                                     <a href="mun.php"><span>Intra&nbsp;VITCMUN</span></a>
-                                </a>
                             </li>
                             <li>
-                                <a href="#unga-ess" data-toggle="tab">
                                     <a href="ess.php"><span>UNGA&nbsp;ESS</span></a>
-                                </a>
                             </li>
                             <li class="active">
-                                <a href="#unoosa" data-toggle="tab" style="display: none;"> 
                                     <a href="oosa.php"><span>UNOOSA</span></a>
-                                </a>
                             </li>
                             <li >
-                                <a href="#unhrc" data-toggle="tab">
                                     <a href="hrc.php"><span>UNHRC</span></a>
-                                </a>
                             </li>
                             <li>
-                                <a href="#arab-league" data-toggle="tab">
                                     <a href="arab.php"><span>Arab&nbsp;League</span></a>
-                                </a>
                             </li>
                         </ul>
                         <div class="tab-content">
