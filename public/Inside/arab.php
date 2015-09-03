@@ -72,6 +72,13 @@ if (isset($_POST['submit'])) {
     $main_query = "INSERT INTO app (content, picset, post_user, post_time, council, po_url, dp_url) VALUES ('{$content}', {$picset}, '{$post_user}', '{$post_time}', '{$council}', '{$po_url}', '{$dp_url}')";      
     $main_sql = mysqli_query($conn, $main_query);
 }
+
+if((isset($_POST['searchsubmit']))&&(isset($_POST['search'])))
+{
+    $str="search_tag.php?word=".urlencode($_POST['search'])."";
+    redirect_to($str);
+}
+
 $query = "SELECT * FROM arab ORDER BY id DESC";
 $result = mysqli_query($conn, $query);
 confirm_query($result);
@@ -225,11 +232,11 @@ confirm_query($result);
                 <div class="container" style="width: 970px !important;">
                     <div class="row" style="display: flex; align-items: center; justify-content: center;">
                         <div class="col-md-6">
-                            <form method="get" class="search-bar" action="" enctype="application/x-www-form-urlencoded">
+                            <form method="post" class="search-bar" action="arab.php" enctype="application/x-www-form-urlencoded">
                                 <div class="input-group">
                                     <input type="text" class="form-control input-lg" name="search" placeholder="Hashtag Search">
                                     <div class="input-group-btn">
-                                        <button type="submit" class="btn btn-lg btn-success btn-icon">
+                                        <button type="submit" class="btn btn-lg btn-success btn-icon" name="searchsubmit">
                                             Search
                                             <i class="entypo-search"></i>
                                         </button>

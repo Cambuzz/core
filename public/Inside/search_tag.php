@@ -140,9 +140,9 @@
                 <div class="container" style="width: 970px !important;">
                     <div class="row" style="display: flex; align-items: center; justify-content: center;">
                         <div class="col-md-6">
-                            <form method="get" class="search-bar" action="" enctype="application/x-www-form-urlencoded">
+                            <form method="get" class="search-bar" action="search_tag.php" enctype="application/x-www-form-urlencoded">
                                 <div class="input-group">
-                                    <input type="text" class="form-control input-lg" name="search" placeholder="Hashtag Search">
+                                    <input type="text" class="form-control input-lg" name="word" placeholder="Hashtag Search">
                                     <div class="input-group-btn">
                                         <button type="submit" class="btn btn-lg btn-success btn-icon">
                                             Search
@@ -169,7 +169,7 @@
                                                 <?php 
 
                                                 	    $tag = $_GET["word"];
-
+                                                        $count=0;
 														$search_query="SELECT * FROM mun";
 														$search_result=mysqli_query($conn,$search_query);
 														confirm_query($search_result);
@@ -180,6 +180,7 @@
                                                         	$v=stristr($mun_list['content'],$tag);
 															if($v!=FALSE)
 															{
+                                                                $count++;
                                                         	?>
                                                         <article class="story">
                                                         <aside class="user-thumb">
@@ -364,6 +365,7 @@
                                                         	$v=stristr($mun_list['content'],$tag);
 															if($v!=FALSE)
 															{
+                                                                $count++;
                                                         	?>
                                                         <article class="story">
                                                         <aside class="user-thumb">
@@ -548,6 +550,7 @@
                                                         	$v=stristr($mun_list['content'],$tag);
 															if($v!=FALSE)
 															{
+                                                                $count++;
                                                         	?>
                                                         <article class="story">
                                                         <aside class="user-thumb">
@@ -733,6 +736,7 @@
                                                         	$v=stristr($mun_list['content'],$tag);
 															if($v!=FALSE)
 															{
+                                                                $count++;
                                                         	?>
                                                         <article class="story">
                                                         <aside class="user-thumb">
@@ -919,6 +923,7 @@
                                                         	$v=stristr($mun_list['content'],$tag);
 															if($v!=FALSE)
 															{
+                                                                $count++;
                                                         	?>
                                                         <article class="story">
                                                         <aside class="user-thumb">
@@ -1061,10 +1066,13 @@
                                             <?php  
                                                  }                                              
                                                 }
+
+                                                if($count==0)
+                                                    echo "<p style='font-size:25px;'>No Results Found.</p>";
                                             ?>                                                           
                                         </div>
                                     </section>
-                              
+
                                         <!-- profile stories -->
                                        
                                   
