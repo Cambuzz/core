@@ -11,9 +11,11 @@
         $name_title = mysqli_fetch_assoc($name_result);
         $first_name = explode(" ", $name_title['sname']);
         $current_id = $name_title['id']; 
+        $viewlog = " ";
     } else {
         $current_user = "";
         $current_id = "";
+        $viewlog = "style='display:none;'";
     }    
     date_default_timezone_set('Asia/Calcutta');
     $id_time = date("Y-m-d H-i-s");
@@ -190,16 +192,18 @@ confirm_query($result);
                 <div class="col-md-5 col-sm-4 clearfix hidden-xs" style="float: right;">
                     <ul class="list-inline links-list pull-right">
                         <!-- Language Selector -->
-                        <li>
-                            <a href="settings.php">
-                            Settings <i class="entypo-cog right"></i>
-                        </a>
-                        </li>
-                        <li>
-                            <a href="logout.php">
-                            Log Out <i class="entypo-logout right"></i>
-                        </a>
-                        </li>
+                        <div <?php echo $viewlog; ?> >
+                            <li>
+                                <a href="settings.php">
+                                Settings <i class="entypo-cog right"></i>
+                            </a>
+                            </li>
+                            <li>
+                                <a href="logout.php">
+                                Log Out <i class="entypo-logout right"></i>
+                            </a>
+                            </li>
+                        </div>                    
                     </ul>
                 </div>
             </div>
