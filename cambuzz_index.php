@@ -33,7 +33,7 @@ if (logged_in()) {
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/creative.css" type="text/css">
     <link rel="stylesheet" src="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" />
-    <link rel="stylesheet" type="text/css" href="css/backgroundmun.css" />
+    <link rel="stylesheet" type="text/css" href="css/background.css" />
     <link rel="stylesheet" type="text/css" href="css/buttoncreatebuzz.css">
     
 </head>
@@ -42,6 +42,16 @@ if (logged_in()) {
 <?php include_once("public/Inside/analyticstracking.php") ?>
     <ul class="cb-slideshow">
         <li><span>Image 01</span>
+        </li>
+        <li><span>Image 02</span>
+        </li>
+        <li><span>Image 03</span>
+        </li>
+        <li><span>Image 04</span>
+        </li>
+        <li><span>Image 05</span>
+        </li>
+        <li><span>Image 06</span>
         </li>
     </ul>
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-inverse" style="background-color: rgba(0,0,0,0.6); border-color: rgba(0,0,0,0) !important;  ">
@@ -75,7 +85,7 @@ if (logged_in()) {
         <div class="header-content">
             <div class="header-content-inner">
                 <div class="heading-text animated fadeInUp">cambu<span class="animated tada">zz</span></div>
-            <a href="public/Inside/mun.php" style="color: white; background-color: black; font-family: 'Montserrat', sans-serif;" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-comment"></span> VITC Intra MUN</a>
+                <p class="animated fadeInUp"><span style="font-size: 20px;">&#35; </span>VITC Chapter</p>
             </div>
         </div>
         <div class="mockup-content">
@@ -102,6 +112,9 @@ if (logged_in()) {
                                 </p>
                             </form>
                         </div>
+                        
+
+
                         <div class="content-style-form content-style-form-1" id="logindiv2" style="display:none;">
                             <span id="closeforgot" class="icon icon-close">Close the dialog</span>
                             <h2 style="font-size:25px;">Forgot Password?</h2>
