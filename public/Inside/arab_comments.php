@@ -22,10 +22,10 @@
     }   
 ?>
 <?php
-$arab_id=mysqli_real_escape_string($_GET['id']);
-$query_arab="SELECT * FROM arab WHERE id='{$arab_id}'";
-$result_arab=mysql_query($conn,$query_arab);
-$arab = mysqli_fetch_assoc($result_arab);
+$arab = find_arab_by_id($_GET["id"]);
+if (!$arab) {
+    redirect_to("arab.php");
+}
 
 $id = $arab["id"];
 $query = "SELECT * FROM arab WHERE id = {$id}";
