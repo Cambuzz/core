@@ -37,7 +37,7 @@ if (($current_user=="12BEC1096")||($current_user=="cambuzz")||($current_user=="V
 <?php
 if (isset($_POST['submit'])) {
     if (isset($_POST['content'])) {
-        $content = $_POST['content'];
+        $content = mysqli_real_escape_string($conn,htmlspecialchars($_POST['content']));
     } else {
         $content = "";
     }
@@ -195,7 +195,7 @@ confirm_query($result);
                         </a>
                     </li>
                     <li>
-                            <a href="logout.php" class="visible-xs" id="phone-logout">
+                            <a href="logout.php" style="display: none;" id="phone-logout">
                                 <i class="entypo-logout"></i>
                                 <span class="title">Logout</span>
                             </a>
