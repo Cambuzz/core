@@ -480,29 +480,34 @@
         <section class="contact group" style: "display: none;">
         </section>
     </main>
-    <div class="ips home">
+    <div class="contactus home">
         <div id="contact" class="contact">
             <div class="contact-form-container">
                 <div class="contact-form form-container">
-                    <form  id="contactform">
+                    <form action="http://cambuzz.co.in/sendmail.php" method="post" id="contact_form">
                         <h3 class="form-title">Get in Touch</h3>
                         <div class="field">
-                            <input type="text" placeholder="Name" name="name" id="name">
+                            <input type="text" placeholder="Name" name="name">
                         </div>
                         <div class="field">
-                            <input type="text" placeholder="Email" name="email" id="email">
+                            <input type="text" placeholder="Email" name="email">
                         </div>
                         <div class="field">
-                            <textarea placeholder="Message" name="message" id="message"></textarea>
+                            <textarea placeholder="Message" name="message"></textarea>
                         </div>
-                        <div id="tempdiv"></div>
+                        <div class="field checkbox_field">
+                            <label for="dont_send_email">
+                                <input type="checkbox" name="dont_send_email" id="dont_send_email" value="true">
+                                I just want to see if this letter slides into the box!
+                            </label>
+                        </div>
                         <div class="field">
-                            <input type="submit" value="Send it!" name="submit">
+                            <input type="submit" value="Send it!">
                         </div>
                     </form>
                 </div>
                 <div id="thanks" class="thanks">
-                    <h3>Thanks! </h3>
+                    <h3>Thanks!</h3>
                     <p>We&rsquo;ll get back to you soon!</p>
                 </div>
             </div>
