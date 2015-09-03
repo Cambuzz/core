@@ -152,6 +152,39 @@
             <!-- main content starts here -->
             <div class="row">
                 <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                     <ul class="nav nav-tabs ">
+                                        <li >
+                                            <a href="#intra-vitcmun" data-toggle="tab">
+                                                <a href="mun.php"><span>Intra&nbsp;VITCMUN</span></a>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#unga-ess" data-toggle="tab">
+                                                <a href="ess.php"><span>UNGA&nbsp;ESS</span></a>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#unoosa" data-toggle="tab">
+                                                <a href="oosa.php"><span>UNOOSA</span></a>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#unhrc" data-toggle="tab">
+                                                <a href="hrc.php"><span>UNHRC</span></a>
+                                            </a>
+                                        </li>
+                                        <li >
+                                            <a href="#arab-league" data-toggle="tab" style="display: none;">
+                                                <a href="arab.php"><span>Arab&nbsp;League</span></a>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                <div class="container">
                     <div class="row" style="display: flex; align-items: center; justify-content: center;">
                         <div class="col-md-6">
                             <form method="get" class="search-bar" action="search_tag.php" enctype="application/x-www-form-urlencoded">
