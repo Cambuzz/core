@@ -127,6 +127,13 @@ confirm_query($result);
     max-width: 100%;
     overflow-x: hidden;
     }
+
+    @media (max-width: 767px){
+        #phone-logout{
+            display: block !important;
+        }
+
+    }
     </style>
 </head>
 
@@ -191,6 +198,11 @@ confirm_query($result);
                             <i class="entypo-publish"></i>
                             <span class="title">Ask a question</span>
                         </a>
+                    </li>
+                    <li>
+                            <a href="logout.php" style="display: none;" id="phone-logout">
+                                Log Out <i class="entypo-logout right"></i>
+                            </a>
                     </li>
                 </ul>
             </div>
