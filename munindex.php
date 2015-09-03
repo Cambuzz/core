@@ -33,7 +33,7 @@ if (logged_in()) {
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/creative.css" type="text/css">
     <link rel="stylesheet" src="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" />
-    <link rel="stylesheet" type="text/css" href="css/background.css" />
+    <link rel="stylesheet" type="text/css" href="css/backgroundmun.css" />
     <link rel="stylesheet" type="text/css" href="css/buttoncreatebuzz.css">
     
 </head>
@@ -42,16 +42,6 @@ if (logged_in()) {
 <?php include_once("public/Inside/analyticstracking.php") ?>
     <ul class="cb-slideshow">
         <li><span>Image 01</span>
-        </li>
-        <li><span>Image 02</span>
-        </li>
-        <li><span>Image 03</span>
-        </li>
-        <li><span>Image 04</span>
-        </li>
-        <li><span>Image 05</span>
-        </li>
-        <li><span>Image 06</span>
         </li>
     </ul>
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-inverse" style="background-color: rgba(0,0,0,0.6); border-color: rgba(0,0,0,0) !important;  ">
