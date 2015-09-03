@@ -347,17 +347,13 @@ confirm_query($result);
                                                                     </em>
                                                                 </div>
                                                                 <div <?php echo $view; ?> >
-                                                            <div class="dropdown" style="float: right;">
-                                                            <i class="entypo-pencil"id="dLabel" data-target="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                                            <!-- <span class="caret"></span> -->
-                                                          </i>
-                                                            <ul class="dropdown-menu" aria-labelledby="dLabel">
-                                                                <li><a href="javascript:;" onclick="modalshow(<?php echo $mun_list['id'];?>);">Edit</a></li>
-                                                                <li><a href="delete_content.php?id=<?php echo urlencode($mun_list["id"]); ?>" onclick="return confirm('Are you sure?');">Delete</a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
+
+                                                                    <div style="float: right; margin-top: 2px;">
+
+                                                                       <a style="font-size: 14px;" class="entypo-trash" href="deletemunpost.php?id=<?php echo urlencode($mun_list["id"]); ?>&council='mun'" onclick="return confirm('Are you sure?');"></a>
+                                                           
+                                                                    </div>
+                                                                </div>
                                                             </header>
 
                                                         <div class="story-main-content">
