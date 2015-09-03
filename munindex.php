@@ -43,16 +43,6 @@ if (logged_in()) {
     <ul class="cb-slideshow">
         <li><span>Image 01</span>
         </li>
-        <li><span>Image 02</span>
-        </li>
-        <li><span>Image 03</span>
-        </li>
-        <li><span>Image 04</span>
-        </li>
-        <li><span>Image 05</span>
-        </li>
-        <li><span>Image 06</span>
-        </li>
     </ul>
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-inverse" style="background-color: rgba(0,0,0,0.6); border-color: rgba(0,0,0,0) !important;  ">
         <div class="container-fluid">
