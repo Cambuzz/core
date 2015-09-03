@@ -358,7 +358,11 @@
 
                                                 <?php 
 
-                                                	    $tag = $_GET["word"];
+                                                	     $tag = $_GET["word"];
+                                                        if($tag[0]!="#")
+                                                        {
+                                                            $tag="#".$tag;
+                                                        }
 
 														$search_query="SELECT * FROM ess";
 														$search_result=mysqli_query($conn,$search_query);
@@ -544,6 +548,10 @@
                                                 <?php 
 
                                                 	    $tag = $_GET["word"];
+                                                        if($tag[0]!="#")
+                                                        {
+                                                            $tag="#".$tag;
+                                                        }
 
 														$search_query="SELECT * FROM oosa";
 														$search_result=mysqli_query($conn,$search_query);
@@ -729,7 +737,11 @@
 
                                                 <?php 
 
-                                                	    $tag = $_GET["word"];
+                                                	     $tag = $_GET["word"];
+                                                        if($tag[0]!="#")
+                                                        {
+                                                            $tag="#".$tag;
+                                                        }
 
 														$search_query="SELECT * FROM hrc";
 														$search_result=mysqli_query($conn,$search_query);
@@ -916,7 +928,11 @@
 
                                                 <?php 
 
-                                                	    $tag = $_GET["word"];
+                                                	     $tag = $_GET["word"];
+                                                        if($tag[0]!="#")
+                                                        {
+                                                            $tag="#".$tag;
+                                                        }
 
 														$search_query="SELECT * FROM arab";
 														$search_result=mysqli_query($conn,$search_query);
