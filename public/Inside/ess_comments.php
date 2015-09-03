@@ -11,7 +11,8 @@
         $name_title = mysqli_fetch_assoc($name_result);
         $first_name = explode(" ", $name_title['sname']);
         $current_id = $name_title['id'];
-        $view = " "; 
+        $view = " ";
+        $view1 = "style='display: none;'"; 
     } else {
         $current_user = "";
         $current_id = "";
@@ -19,6 +20,7 @@
         $first_name = "";
         $name_title = "";
         $view = "style='display: none;'";
+        $view1 = " ";
     }   
 ?>
 <?php
@@ -186,8 +188,8 @@ if ((isset($_POST['submit']))&&(isset($_POST['comment']))) {
         <div class="main-content">
             <div class="row">
                 <!-- Raw Links -->
-                <div class="col-md-6 col-sm-4 clearfix hidden-xs" style="float: right;">
-                    <ul class="list-inline links-list pull-right">
+                 <div class="col-md-6 col-sm-4 clearfix hidden-xs" style="float: right;">
+                    <ul class="list-inline links-list pull-right" <?php echo $view;?>>
                         <!-- Language Selector -->
                         <li>
                             <a href="settings.php">
@@ -197,6 +199,15 @@ if ((isset($_POST['submit']))&&(isset($_POST['comment']))) {
                         <li>
                             <a href="logout.php">
                             Log Out <i class="entypo-logout right"></i>
+                        </a>
+                        </li>
+                    </ul>
+
+                    <ul class="list-inline links-list pull-right" <?php echo $view1;?>>
+                        <!-- Language Selector -->
+                        <li>
+                            <a href="index.php">
+                            Login <i class="entypo-logout right"></i>
                         </a>
                         </li>
                     </ul>
