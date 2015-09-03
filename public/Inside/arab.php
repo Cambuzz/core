@@ -12,10 +12,12 @@
         $first_name = explode(" ", $name_title['sname']);
         $current_id = $name_title['id']; 
         $viewlog = " ";
+        $viewlog1 = "style='display:none;'";
     } else {
         $current_user = "";
         $current_id = "";
         $viewlog = "style='display:none;'";
+        $viewlog1 = " ";
     }    
     date_default_timezone_set('Asia/Calcutta');
     $id_time = date("Y-m-d H-i-s");
@@ -204,7 +206,17 @@ confirm_query($result);
                                 Log Out <i class="entypo-logout right"></i>
                             </a>
                             </li>
-                        </div>                                        </ul>
+                        </div>        
+
+                        <div <?php echo $viewlog1; ?> >
+                            <li>
+                                <a href="index.php">
+                                Login <i class="entypo-cog right"></i>
+                            </a>
+                            </li>
+                            
+                        </div>                                    
+                    </ul>
                 </div>
             </div>
             <hr />
