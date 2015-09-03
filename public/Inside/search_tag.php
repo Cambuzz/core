@@ -219,18 +219,7 @@
                                                                         ?>
                                                                     </em>
                                                                 </div>
-                                                                <div <?php echo $view; ?> >
-                                                            <div class="dropdown" style="float: right;">
-                                                            <i class="entypo-pencil"id="dLabel" data-target="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                                            <!-- <span class="caret"></span> -->
-                                                          </i>
-                                                            <ul class="dropdown-menu" aria-labelledby="dLabel">
-                                                                <li><a href="javascript:;" onclick="modalshow(<?php echo $mun_list['id'];?>);">Edit</a></li>
-                                                                <li><a href="delete_content.php?id=<?php echo urlencode($mun_list["id"]); ?>" onclick="return confirm('Are you sure?');">Delete</a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
+                                                                
                                                             </header>
 
                                                         <div class="story-main-content">
@@ -387,18 +376,6 @@
                                                                         ?>
                                                                     </em>
                                                                 </div>
-                                                                <div <?php echo $view; ?> >
-                                                            <div class="dropdown" style="float: right;">
-                                                            <i class="entypo-pencil"id="dLabel" data-target="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                                            <!-- <span class="caret"></span> -->
-                                                          </i>
-                                                            <ul class="dropdown-menu" aria-labelledby="dLabel">
-                                                                <li><a href="javascript:;" onclick="modalshow(<?php echo $mun_list['id'];?>);">Edit</a></li>
-                                                                <li><a href="delete_content.php?id=<?php echo urlencode($mun_list["id"]); ?>" onclick="return confirm('Are you sure?');">Delete</a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
                                                             </header>
 
                                                         <div class="story-main-content">
@@ -556,17 +533,6 @@
                                                                     </em>
                                                                 </div>
                                                                 <div <?php echo $view; ?> >
-                                                            <div class="dropdown" style="float: right;">
-                                                            <i class="entypo-pencil"id="dLabel" data-target="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                                            <!-- <span class="caret"></span> -->
-                                                          </i>
-                                                            <ul class="dropdown-menu" aria-labelledby="dLabel">
-                                                                <li><a href="javascript:;" onclick="modalshow(<?php echo $mun_list['id'];?>);">Edit</a></li>
-                                                                <li><a href="delete_content.php?id=<?php echo urlencode($mun_list["id"]); ?>" onclick="return confirm('Are you sure?');">Delete</a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
                                                             </header>
 
                                                         <div class="story-main-content">
@@ -723,20 +689,7 @@
                                                                         ?>
                                                                     </em>
                                                                 </div>
-                                                                <div <?php echo $view; ?> >
-                                                            <div class="dropdown" style="float: right;">
-                                                            <i class="entypo-pencil"id="dLabel" data-target="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                                            <!-- <span class="caret"></span> -->
-                                                          </i>
-                                                            <ul class="dropdown-menu" aria-labelledby="dLabel">
-                                                                <li><a href="javascript:;" onclick="modalshow(<?php echo $mun_list['id'];?>);">Edit</a></li>
-                                                                <li><a href="delete_content.php?id=<?php echo urlencode($mun_list["id"]); ?>" onclick="return confirm('Are you sure?');">Delete</a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
                                                             </header>
-
                                                         <div class="story-main-content">
                                                         <p>                                                            
                                                             <?php           
@@ -891,20 +844,7 @@
                                                                         ?>
                                                                     </em>
                                                                 </div>
-                                                                <div <?php echo $view; ?> >
-                                                            <div class="dropdown" style="float: right;">
-                                                            <i class="entypo-pencil"id="dLabel" data-target="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                                            <!-- <span class="caret"></span> -->
-                                                          </i>
-                                                            <ul class="dropdown-menu" aria-labelledby="dLabel">
-                                                                <li><a href="javascript:;" onclick="modalshow(<?php echo $mun_list['id'];?>);">Edit</a></li>
-                                                                <li><a href="delete_content.php?id=<?php echo urlencode($mun_list["id"]); ?>" onclick="return confirm('Are you sure?');">Delete</a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
                                                             </header>
-
                                                         <div class="story-main-content">
                                                         <p>                                                            
                                                             <?php           
@@ -1001,7 +941,7 @@
                                                 }
 
                                                 if($count==0)
-                                                    echo "<p style='font-size:25px;'>No Results Found.</p>";
+                                                    echo "<p style='font-size:25px; display: flex; align-items: center; justify-content: center;'>No Results Found.</p>";
                                             ?>                                                           
                                         </div>
                                     </section>
