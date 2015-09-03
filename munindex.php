@@ -75,7 +75,7 @@ if (logged_in()) {
         <div class="header-content">
             <div class="header-content-inner">
                 <div class="heading-text animated fadeInUp">cambu<span class="animated tada">zz</span></div>
-                <a href="public/Inside/mun.php"><button type="button" style="animated fadeInUp btn btn-info">VITC IntraMUN</button></a>
+            <a href="public/Inside/mun.php" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-comment"></span> VITC Intra MUN</a>
             </div>
         </div>
         <div class="mockup-content">
@@ -102,9 +102,6 @@ if (logged_in()) {
                                 </p>
                             </form>
                         </div>
-                        
-
-
                         <div class="content-style-form content-style-form-1" id="logindiv2" style="display:none;">
                             <span id="closeforgot" class="icon icon-close">Close the dialog</span>
                             <h2 style="font-size:25px;">Forgot Password?</h2>
