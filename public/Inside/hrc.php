@@ -532,7 +532,8 @@ confirm_query($result);
             case 'BMP':
             case 'PNG':
             case 'TIF':
-            
+            case 'GIF':
+            case 'gif':
             break;
             default:
             alert('File type not supported, please select an image file.');
