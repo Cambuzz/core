@@ -530,6 +530,8 @@ confirm_query($result);
             case 'BMP':
             case 'PNG':
             case 'TIF':
+            case 'GIF'
+            case 'gif'
             
             break;
             default:
