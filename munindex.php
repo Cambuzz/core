@@ -75,8 +75,7 @@ if (logged_in()) {
         <div class="header-content">
             <div class="header-content-inner">
                 <div class="heading-text animated fadeInUp">cambu<span class="animated tada">zz</span></div>
-                <p class="animated fadeInUp"><span style="font-size: 20px;">&#35; </span>VITC Chapter</p>
-                <button style="btn btn-success" href="public/Inside/mun.php">Mun Feeds</button>
+                <button type="button" style="animated fadeInUp btn btn-info" href="public/Inside/mun.php">VITC IntraMUN</button>
             </div>
         </div>
         <div class="mockup-content">
