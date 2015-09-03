@@ -207,7 +207,7 @@ if ((isset($_POST['submit']))&&(isset($_POST['comment']))) {
             <div class="row">
                     <div class="container">
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                  <ul class="nav nav-tabs ">
                                     <li >
                                         <a href="#intra-vitcmun" data-toggle="tab">
