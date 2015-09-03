@@ -719,7 +719,7 @@ $comment=0;
                     <ul class="list-inline links-list pull-left" style="float: left;">
                         <!-- Language Selector -->
                         <li>
-                         <a href="public/Inside/mun.php" style="color: white; background-color: black; font-family: 'Montserrat', sans-serif;" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-comment"></span> VITC Intra MUN</a>
+                         <a href="mun.php" style="color: white; background-color: black; font-family: 'Montserrat', sans-serif;" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-comment"></span> VITC Intra MUN</a>
 
                         </li>
                     </ul>
