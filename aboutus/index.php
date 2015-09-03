@@ -752,45 +752,9 @@
     <script src="js/lib/jquery.js"></script>
     <script src="js/plugins.js"></script>
     <script src="js/script.js"></script>
-     <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+     
 
-    <script type="text/javascript">
-        
-        
-        $(document).ready(function(){
-           
-            $('#contactform').on('submit',function()
-            {
-
-                var name=$("#name").val();
-                 var email=$("#email").val();
-                  var message=$("#message").val();
-                
-               
-               var msg;
-                
-                $.ajax({
-                    method: "POST",
-                    url: "sendmail.php",
-                    data: {name:name,email:email,message,message}
-                    })
-                    .done(function() {
-
-                        if(mag=="done")
-                        {
-                            $("#tempdiv").html("The email has been successfully sent.");
-                        }
-                        
-                    });
-                    
-
-                return false;
-
-                
-            });
-        });
-        </script>
-
+    
 </body>
 
 </html>
