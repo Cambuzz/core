@@ -195,7 +195,7 @@ confirm_query($result);
                         </a>
                     </li>
                     <li>
-                            <a href="logout.php" style="display: none;" id="phone-logout">
+                            <a href="logout.php" class="visible-xs" id="phone-logout">
                                 <i class="entypo-logout"></i>
                                 <span class="title">Logout</span>
                             </a>
