@@ -73,7 +73,7 @@ ul {
     background-size: cover;
     background-position: 50% 50%;
     background-repeat: none;
-    opacity: 0;
+    opacity: 1;
     z-index: 0;
 
 }
@@ -85,7 +85,7 @@ ul {
     left: 0px;
     width: 100%;
     text-align: center;
-    opacity: 0;
+    opacity: 1;
     color: #fff;
 }
 
