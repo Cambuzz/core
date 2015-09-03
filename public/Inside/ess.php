@@ -211,18 +211,18 @@ confirm_query($result);
                                 Log Out <i class="entypo-logout right"></i>
                             </a>
                             </li>
-                        </div>   
-
-                            <div <?php echo $viewlog1; ?> >
+                        </div>                      
+                    </ul>
+                    <ul class="list-inline links-list pull-right">
+                        <div <?php echo $viewlog1; ?> >
                             <li>
                                 <a href="../../index.php">
                                 Login <i class="entypo-cog right"></i>
                             </a>
                             </li>
-                            
+                           
                         </div> 
-
-                        </ul>
+                    </ul>
                 </div>
             </div>
             <hr />
