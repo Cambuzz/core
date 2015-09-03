@@ -28,7 +28,7 @@
     $full = $current_user.$full_time;     
 ?>
 <?php
-if (($current_user=="12BEC1096")||($current_user=="cambuzz")||($current_user=="VITCMUN")||($current_user=="UNGAESS")||($current_user=="UNOOSA")||($current_user=="UNHRC")||($current_user=="ARABLEAGUE")||($current_user=="EB-VITCMUN")||($current_user=="EB-UNGAESS")||($current_user=="EB-UNOOSA")||($current_user=="EB-UNHRC")||($current_user=="EB-ARABLEAGUE")||($current_user=="13BEE1163")||($current_user=="12BME1039")) {
+if (($current_user=="12BEC1096")||($current_user=="cambuzz")||($current_user=="VITCMUN")||($current_user=="UNGAESS")||($current_user=="UNOOSA")||($current_user=="UNHRC")||($current_user=="ARABLEAGUE")||($current_user=="EB-VITCMUN")||($current_user=="EB-UNGAESS")||($current_user=="EB-UNOOSA")||($current_user=="EB-UNHRC")||($current_user=="EB-ARABLEAGUE")||($current_user=="13BEE1163")||($current_user=="13BEC1028")) {
     $view = " ";
 } else {
     $view = "style='display: none;'";
