@@ -13,6 +13,8 @@ $query = "DELETE FROM arab WHERE id = {$id} LIMIT 1";
 $result = mysqli_query($conn, $query);
 $query_answer = "DELETE FROM arabcomments WHERE pid = {$id}";
 $result_answer = mysqli_query($conn, $query_answer);
+//$query_app = "DELETE FROM app WHERE id = {$id} LIMIT 1";
+//$result_app = mysqli_query($conn, $query_app);
 
 if ($result && $result_answer && mysqli_affected_rows($conn) == 1) {
 
