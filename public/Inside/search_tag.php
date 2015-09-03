@@ -155,6 +155,7 @@
                     </div>
                 </div>
                 <div class="container" style="width: 970px !important;"> 
+                
                     <div class="col-md-12">
                                 <div class="profile-env">
                                     <section class="profile-feed">
@@ -169,6 +170,10 @@
                                                 <?php 
 
                                                 	    $tag = $_GET["word"];
+                                                        if($tag[0]!="#")
+                                                        {
+                                                            $tag="#".$tag;
+                                                        }
                                                         $count=0;
 														$search_query="SELECT * FROM mun";
 														$search_result=mysqli_query($conn,$search_query);
