@@ -98,6 +98,10 @@ if ((isset($_POST['submit']))&&(isset($_POST['comment']))) {
     .nav-pills {
         text-align: center;
     }
+     html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+    }
     </style>
     
 </head>
