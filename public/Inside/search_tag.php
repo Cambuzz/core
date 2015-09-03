@@ -328,19 +328,6 @@
                                                 }
                                             ?>                                                           
                                         </div>
-                                   
-                              
-                                        <!-- profile stories -->
-                                       
-                                    </section>
-                                </div>
-                            </div>
-                    <div class="col-md-12">
-                                <div class="profile-env">
-                                    <section class="profile-feed">
-                                        <!-- profile post form -->
-                                        
-                                        <!-- profile stories -->
                                         <div class="profile-stories">
                                             <article class="story">                                                
                                                 <div class="story-content">
@@ -509,18 +496,6 @@
                                                 }
                                             ?>                                                           
                                         </div>
-                                   
-                                        <!-- profile stories -->
-                                       
-                                    </section>
-                                </div>
-                            </div>
-                    <div class="col-md-12">
-                                <div class="profile-env">
-                                    <section class="profile-feed">
-                                        <!-- profile post form -->
-                                        
-                                        <!-- profile stories -->
                                         <div class="profile-stories">
                                             <article class="story">                                                
                                                 <div class="story-content">
@@ -689,19 +664,6 @@
                                                 }
                                             ?>                                                           
                                         </div>
-                                    
-                              
-                                        <!-- profile stories -->
-                                       
-                                    </section>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="profile-env">
-                                    <section class="profile-feed">
-                                        <!-- profile post form -->
-                                        
-                                        <!-- profile stories -->
                                         <div class="profile-stories">
                                             <article class="story">                                                
                                                 <div class="story-content">
@@ -870,15 +832,6 @@
                                                 }
                                             ?>                                                           
                                         </div>
-                                    </section>
-                                </div>
-                            </div>
-                    <div class="col-md-12">
-                                <div class="profile-env">
-                                    <section class="profile-feed">
-                                        <!-- profile post form -->
-                                        
-                                        <!-- profile stories -->
                                         <div class="profile-stories">
                                             <article class="story">                                                
                                                 <div class="story-content">
@@ -1053,9 +1006,8 @@
                                     </section>
                                 </div>
                             </div>
-                </div>
-                <div class="profile-env">
-                </div>
+                                    
+                
             </div>
             <footer>
             </footer>
