@@ -547,8 +547,8 @@ if ((isset($_POST['submit']))&&(isset($_POST['comment']))) {
                                                 <div class="user-comment-content" style="color: black;">
                                                 <form method="post" action="hrc_comments.php?id=<?php echo urlencode($_GET["id"]); ?>">
                                                     <textarea style="padding-right: 70px;" class="form-control autogrow" name="comment" value="" required placeholder="Write a comment..."></textarea>
-                                                    <input type="submit" name="submit" class="btn btn-info" style="background-color: #333; color: white; margin-top: 2px;"> 
-                                                </div> </div>
+                                                    <input type="submit" name="submit" value="Submit" class="btn btn-info" style="background-color: #333; color: white; margin-top: 2px;"> 
+                                                </form></div> </div>
                                             </li>
                                         </ul>
                                     </footer>

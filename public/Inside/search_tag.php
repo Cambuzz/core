@@ -181,7 +181,8 @@
 
                                                 <?php 
 
-                                                	    $tag = $_GET["word"];
+                                                	    
+                                                         $tag = mysqli_real_escape_string($conn, htmlspecialchars($_GET["word"]));
                                                         if($tag[0]!="#")
                                                         {
                                                             $tag="#".$tag;
@@ -339,7 +340,7 @@
 
                                                 <?php 
 
-                                                	     $tag = $_GET["word"];
+                                                	     $tag = mysqli_real_escape_string($conn, htmlspecialchars($_GET["word"]));
                                                         if($tag[0]!="#")
                                                         {
                                                             $tag="#".$tag;
@@ -495,7 +496,7 @@
 
                                                 <?php 
 
-                                                	    $tag = $_GET["word"];
+                                                	    $tag = mysqli_real_escape_string($conn, htmlspecialchars($_GET["word"]));
                                                         if($tag[0]!="#")
                                                         {
                                                             $tag="#".$tag;
@@ -652,7 +653,7 @@
 
                                                 <?php 
 
-                                                	     $tag = $_GET["word"];
+                                                	      $tag = mysqli_real_escape_string($conn, htmlspecialchars($_GET["word"]));
                                                         if($tag[0]!="#")
                                                         {
                                                             $tag="#".$tag;
@@ -807,7 +808,7 @@
 
                                                 <?php 
 
-                                                	     $tag = $_GET["word"];
+                                                	      $tag = mysqli_real_escape_string($conn, htmlspecialchars($_GET["word"]));
                                                         if($tag[0]!="#")
                                                         {
                                                             $tag="#".$tag;
