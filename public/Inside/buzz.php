@@ -708,7 +708,12 @@ $comment=0;
                                         </li>
                                     </ul>
                                 </li>
-                                
+                        <!-- Language Selector -->
+                        <li>
+                         <a href="mun.php" style="color: white; background-color: black; font-family: 'Montserrat', sans-serif;" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-comment"></span> VITC Intra MUN</a>
+
+                        </li>
+                    
                             </ul>
             
                         </li>       
@@ -716,13 +721,6 @@ $comment=0;
                 </div>
 
                 <div class="col-md-6 col-sm-4 clearfix hidden-xs" >
-                    <ul class="list-inline links-list pull-left" style="float: left;">
-                        <!-- Language Selector -->
-                        <li>
-                         <a href="mun.php" style="color: white; background-color: black; font-family: 'Montserrat', sans-serif;" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-comment"></span> VITC Intra MUN</a>
-
-                        </li>
-                    </ul>
                     <ul class="list-inline links-list pull-right" style="float: right;">
                         <!-- Language Selector -->
                         <li>
