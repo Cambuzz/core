@@ -709,13 +709,14 @@ $comment=0;
                                     </ul>
                                 </li>
                         <!-- Language Selector -->
-                        <li>
-                         <a href="mun.php" style="color: white; background-color: black; font-family: 'Montserrat', sans-serif;" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-comment"></span> VITC Intra MUN</a>
-
-                        </li>
+                        
                     
                             </ul>
             
+                        </li>
+                        <li>
+                         <a href="mun.php" style="color: white; background-color: black; font-family: 'Montserrat', sans-serif;" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-comment"></span> VITC Intra MUN</a>
+
                         </li>       
                     </ul>
                 </div>
