@@ -269,7 +269,7 @@ confirm_query($result);
                                                 <div class="post-type">
                                                     <a href="#" class="tooltip-primary" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Upload a Picture">
                                                     <input type="file" class="upload-picture"name="picture" accept=".jpeg, .jpg, .bmp, .png" id="picture"  style="display: none;">
-                                                        <i class="entypo-camera"></i>
+                                                        <i class="entypo-camera" style="font-size: 20px;"></i>
                                                     </a>
                                                 </div>
                                                 <div class="post-submit">
