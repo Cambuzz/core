@@ -76,11 +76,11 @@ ul {
     opacity: 0;
     z-index: 0;
     -webkit-backface-visibility: hidden;
-    -webkit-animation: imageAnimation 36s linear infinite 0s;
-    -moz-animation: imageAnimation 36s linear infinite 0s;
-    -o-animation: imageAnimation 36s linear infinite 0s;
-    -ms-animation: imageAnimation 36s linear infinite 0s;
-    animation: imageAnimation 36s linear infinite 0s;
+    -webkit-animation: imageAnimation 240s linear infinite 2s;
+    -moz-animation: imageAnimation 240s linear infinite 2s;
+    -o-animation: imageAnimation 240s linear infinite 2s;
+    -ms-animation: imageAnimation 240s linear infinite 2s;
+    animation: imageAnimation 240s linear infinite 2s;
 }
 
 .cb-slideshow li div {
@@ -92,11 +92,11 @@ ul {
     text-align: center;
     opacity: 0;
     color: #fff;
-    -webkit-animation: titleAnimation 36s linear infinite 0s;
-    -moz-animation: titleAnimation 36s linear infinite 0s;
-    -o-animation: titleAnimation 36s linear infinite 0s;
-    -ms-animation: titleAnimation 36s linear infinite 0s;
-    animation: titleAnimation 36s linear infinite 0s;
+    -webkit-animation: titleAnimation 90s linear infinite 15s;
+    -moz-animation: titleAnimation 90s linear infinite 15s;
+    -o-animation: titleAnimation 90s linear infinite 15s;
+    -ms-animation: titleAnimation 90s linear infinite 15s;
+    animation: titleAnimation 90s linear infinite 15s;
 }
 
 .cb-slideshow li div h3 {
