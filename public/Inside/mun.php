@@ -208,7 +208,7 @@ confirm_query($result);
                         </div>
                         <div <?php echo $viewlog1; ?> >
                             <li>
-                                <a href="index.php">
+                                <a href="../../index.php">
                                 Login <i class="entypo-cog right"></i>
                             </a>
                             </li>
