@@ -160,7 +160,7 @@ if ((isset($_POST['submit']))&&(isset($_POST['comment']))) {
                         </a>
                     </li>
                     <li>
-                        <a href="mun.php">
+                        <a href="quora.php">
                             <i class="entypo-publish"></i>
                             <span class="title">Ask a question</span>
                         </a>

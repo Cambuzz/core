@@ -17,7 +17,11 @@
     }    
     date_default_timezone_set('Asia/Calcutta');
     $id_time = date("Y-m-d H-i-s");
-    $picture_id = $current_user.$id_time;    
+    $picture_id = $current_user.$id_time;
+    $id_year = date("Y-m-d");
+    $id_hour = date("H-i-s");
+    $full_time = $id_year."%20".$id_hour;
+    $full = $current_user.$full_time;     
 ?>
 <?php
 if (($current_user=="12BEC1096")||($current_user=="cambuzz")) {
@@ -39,17 +43,29 @@ if (isset($_POST['submit'])) {
         $target_dir = "images/";
         $target_file = $target_dir . basename($_FILES["picture"]["name"]);                
         $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-        move_uploaded_file($_FILES["picture"]["tmp_name"],"images/$picture_id.jpg");          
+        move_uploaded_file($_FILES["picture"]["tmp_name"],"images/$picture_id.jpg");
+        $po_url = "http://cambuzz.co.in/public/Inside/images/posters/".$full.".jpg";         
     } else {
         $picset = 0;
+        $po_url = "";
+    }
+    if ($name_title["proset"]==0) { 
+        $dp_url = "http://cambuzz.co.in/public/Inside/assets/images/nopic.png";
+    } elseif ($name_title["proset"]==1) {
+        $imageid=$name_title['id'];
+        $dpcounter=$name_title['dpcounter'];
+        if($dpcounter>0)
+            $dp_url = "http://cambuzz.co.in/public/Inside/images/".$imageid."_".$dpcounter.".jpg";
+        else
+            $dp_url = "http://cambuzz.co.in/public/Inside/images/".$imageid.".jpg";
     }            
     $post_user = $current_user;
     date_default_timezone_set('Asia/Calcutta');
     $post_time = date("Y-m-d\TH:i:s");
     $query = "INSERT INTO mun (content, picset, post_user, post_time) VALUES ('{$content}', {$picset}, '{$post_user}', '{$post_time}')";
     $sql = mysqli_query($conn, $query);
-    $council = "mun";
-    $main_query = "INSERT INTO app (content, picset, post_user, post_time, council) VALUES ('{$content}', {$picset}, '{$post_user}', '{$post_time}', '{$council}')";      
+    $council = "VITC INTRA MUN";
+    $main_query = "INSERT INTO app (content, picset, post_user, post_time, council, po_url, dp_url) VALUES ('{$content}', {$picset}, '{$post_user}', '{$post_time}', '{$council}', '{$po_url}', '{$dp_url}')";      
     $main_sql = mysqli_query($conn, $main_query);     
 }
 $query = "SELECT * FROM mun ORDER BY id DESC";
@@ -319,8 +335,69 @@ confirm_query($result);
 
                                                         <div class="story-main-content">
                                                         <p>                                                            
-                                                            <?php                                                            
-                                                                echo ucfirst($mun_list['content']);  
+                                                            <?php           
+                                                                $str=$mun_list['content'];
+                                                                $comment = $str;
+                                                                $st=$comment;
+                                                                $sz=strlen($st);
+                                                                $disp="";
+                                                                $store="";
+                                                                $flag=0;
+                                                                for($i=0; $i<$sz; $i++)
+                                                                {
+                                                                    if($st[$i]=='#')
+                                                                    {
+                                                                        $ind=$i;
+                                                                        while($st[$ind]=='#')
+                                                                        {
+                                                                            if($ind+1<$sz)
+                                                                            {
+                                                                                if($st[$ind+1]!='#' && $st[$ind+1]!=' ')
+                                                                                {
+                                                                                    $c=$ind+1;
+                                                                                    $var="#";
+                                                                                    while($st[$c]!='#' && $st[$c]!=' ')
+                                                                                    {
+                                                                                        $var=$var.$st[$c];
+                                                                                        $c++;
+                                                                                        if($c>=$sz)break;
+                                                                                    }
+                                                                                    //echo $var."<br>";
+                                                                                    $disp=$disp."<a href='search_tag.php?word=".urlencode($var)."'>";
+
+                                                                                }
+                                                                            }
+                                                                            $disp=$disp.$st[$ind];
+                                                                            $ind++;
+                                                                            if($ind>=$sz)break;
+                                                                        }
+                                                                        if($ind>=$sz)break;
+                                                                        if($st[$ind]==' ')
+                                                                        {
+                                                                            $i=$ind;
+                                                                            $disp=$disp.$st[$ind];
+                                                                            continue;
+                                                                        }
+                                                                        while($st[$ind]!=' '&& $st[$ind]!='#')
+                                                                        {
+                                                                            $disp=$disp.$st[$ind];
+                                                                            $ind++;
+                                                                            if($ind>=$sz)
+                                                                                {
+                                                                                    $disp=$disp."</a>";
+                                                                                    break;
+                                                                                }
+                                                                        }
+                                                                        if($ind<$sz)
+                                                                        {
+                                                                            $disp=$disp."</a>";
+                                                                        }
+                                                                        $i=$ind-1;
+                                                                    }
+                                                                    else $disp=$disp.$st[$i];
+                                                                }
+                                                                                                                 
+                                                                echo ucfirst($disp);  
                                                                 if ($mun_list['picset']==1) {                                                                                                                             
                                                                     $poster_time = strtotime($mun_list['post_time']);                                                    
                                                                     $posterid=$mun_list['post_user'].date("Y-m-d H-i-s", $poster_time);                                                                                                      
