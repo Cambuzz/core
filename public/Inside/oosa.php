@@ -44,7 +44,7 @@ if (isset($_POST['submit'])) {
         $target_file = $target_dir . basename($_FILES["picture"]["name"]);                
         $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
         move_uploaded_file($_FILES["picture"]["tmp_name"],"images/$picture_id.jpg");
-        $po_url = "http://cambuzz.co.in/public/Inside/images/posters/".$full.".jpg";         
+        $po_url = "http://cambuzz.co.in/public/Inside/images/".$full.".jpg";         
     } else {
         $picset = 0;
         $po_url = "";
