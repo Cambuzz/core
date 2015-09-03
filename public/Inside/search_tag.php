@@ -1,7 +1,27 @@
 <?php require_once("../../includes/session.php");?>
 <?php require_once("../../includes/db_connection.php");?>
 <?php require_once("../../includes/functions.php");?>
-
+<?php
+    if (isset($_SESSION["username"])) {
+        $current_user = $_SESSION["username"];
+        $name_query = "SELECT * FROM users WHERE username = '{$current_user}' LIMIT 1";
+        $name_result = mysqli_query($conn, $name_query);
+        confirm_query($name_result);
+        $name_title = mysqli_fetch_assoc($name_result);
+        $first_name = explode(" ", $name_title['sname']);
+        $current_id = $name_title['id'];
+        $view = " "; 
+        $view1 = "style='display: none;'";
+    } else {
+        $current_user = "";
+        $current_id = "";
+        $name_title['id'] = "";
+        $first_name = "";
+        $name_title = "";
+        $view = "style='display: none;'";
+        $view1 = " ";
+    }   
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -132,8 +152,8 @@
         </div>
         <div class="main-content">
             <div class="row">
-                <div class="col-md-5 col-sm-4 clearfix hidden-xs" style="float: right;">
-                    <ul class="list-inline links-list pull-right">
+               <div class="col-md-6 col-sm-4 clearfix hidden-xs" style="float: right;">
+                    <ul class="list-inline links-list pull-right" <?php echo $view;?>>
                         <!-- Language Selector -->
                         <li>
                             <a href="settings.php">
@@ -143,6 +163,15 @@
                         <li>
                             <a href="logout.php">
                             Log Out <i class="entypo-logout right"></i>
+                        </a>
+                        </li>
+                    </ul>
+
+                    <ul class="list-inline links-list pull-right" <?php echo $view1;?>>
+                        <!-- Language Selector -->
+                        <li>
+                            <a href="index.php">
+                            Login <i class="entypo-logout right"></i>
                         </a>
                         </li>
                     </ul>
