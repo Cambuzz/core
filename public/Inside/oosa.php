@@ -263,32 +263,27 @@ confirm_query($result);
                         <ul class="nav nav-tabs ">
                             <li >
                                 <a href="#intra-vitcmun" data-toggle="tab">
-                                    <span class="visible-xs"><i class="entypo-home"></i></span>
-                                    <a href="mun.php"><span class="hidden-xs">Intra&nbsp;VITCMUN</span></a>
+                                    <a href="mun.php"><span>Intra&nbsp;VITCMUN</span></a>
                                 </a>
                             </li>
                             <li>
                                 <a href="#unga-ess" data-toggle="tab">
-                                    <span class="visible-xs"><i class="entypo-home"></i></span>
-                                    <a href="ess.php"><span class="hidden-xs">UNGA&nbsp;ESS</span></a>
+                                    <a href="ess.php"><span>UNGA&nbsp;ESS</span></a>
                                 </a>
                             </li>
                             <li class="active">
-                                <a href="#unoosa" data-toggle="tab" style="display: none;">
-                                    <span class="visible-xs"><i class="entypo-user"></i></span>
-                                    <a href="oosa.php"><span class="hidden-xs">UNOOSA</span></a>
+                                <a href="#unoosa" data-toggle="tab" style="display: none;"> 
+                                    <a href="oosa.php"><span>UNOOSA</span></a>
                                 </a>
                             </li>
-                            <li>
+                            <li >
                                 <a href="#unhrc" data-toggle="tab">
-                                    <span class="visible-xs"><i class="entypo-mail"></i></span>
-                                    <a href="hrc.php"><span class="hidden-xs">UNHRC</span></a>
+                                    <a href="hrc.php"><span>UNHRC</span></a>
                                 </a>
                             </li>
                             <li>
                                 <a href="#arab-league" data-toggle="tab">
-                                    <span class="visible-xs"><i class="entypo-cog"></i></span>
-                                    <a href="arab.php"><span class="hidden-xs">Arab&nbsp;League</span></a>
+                                    <a href="arab.php"><span>Arab&nbsp;League</span></a>
                                 </a>
                             </li>
                         </ul>
