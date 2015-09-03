@@ -480,29 +480,34 @@
         <section class="contact group" style: "display: none;">
         </section>
     </main>
-    <div class="ips home">
+    <div class="contactus home">
         <div id="contact" class="contact">
             <div class="contact-form-container">
                 <div class="contact-form form-container">
-                    <form  id="contactform">
+                    <form action="http://cambuzz.co.in/sendmail.php" method="post" id="contact_form">
                         <h3 class="form-title">Get in Touch</h3>
                         <div class="field">
-                            <input type="text" placeholder="Name" name="name" id="name">
+                            <input type="text" placeholder="Name" name="name">
                         </div>
                         <div class="field">
-                            <input type="text" placeholder="Email" name="email" id="email">
+                            <input type="text" placeholder="Email" name="email">
                         </div>
                         <div class="field">
-                            <textarea placeholder="Message" name="message" id="message"></textarea>
+                            <textarea placeholder="Message" name="message"></textarea>
                         </div>
-                        <div id="tempdiv"></div>
+                        <div class="field checkbox_field">
+                            <label for="dont_send_email">
+                                <input type="checkbox" name="dont_send_email" id="dont_send_email" value="true">
+                                I just want to see if this letter slides into the box!
+                            </label>
+                        </div>
                         <div class="field">
-                            <input type="submit" value="Send it!" name="submit">
+                            <input type="submit" value="Send it!">
                         </div>
                     </form>
                 </div>
                 <div id="thanks" class="thanks">
-                    <h3>Thanks! </h3>
+                    <h3>Thanks!</h3>
                     <p>We&rsquo;ll get back to you soon!</p>
                 </div>
             </div>
@@ -747,45 +752,9 @@
     <script src="js/lib/jquery.js"></script>
     <script src="js/plugins.js"></script>
     <script src="js/script.js"></script>
-     <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+     
 
-    <script type="text/javascript">
-        
-        
-        $(document).ready(function(){
-           
-            $('#contactform').on('submit',function()
-            {
-
-                var name=$("#name").val();
-                 var email=$("#email").val();
-                  var message=$("#message").val();
-                
-               
-               var msg;
-                
-                $.ajax({
-                    method: "POST",
-                    url: "sendmail.php",
-                    data: {name:name,email:email,message,message}
-                    })
-                    .done(function() {
-
-                        if(mag=="done")
-                        {
-                            $("#tempdiv").html("The email has been successfully sent.");
-                        }
-                        
-                    });
-                    
-
-                return false;
-
-                
-            });
-        });
-        </script>
-
+    
 </body>
 
 </html>
