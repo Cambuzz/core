@@ -202,9 +202,9 @@ confirm_query($result);
                 <div class="col-md-5 col-sm-4 clearfix hidden-xs" style="float: right;">
                     <ul class="list-inline links-list pull-right">
                         <!-- Language Selector -->
-                        <div <?php echo $viewlog; ?> >
+                        <div <?php echo $viewlog; ?> style="display: flex;">
                             <li>
-                                <a href="settings.php">
+                                <a href="settings.php" style="margin: 10px;">
                                 Settings <i class="entypo-cog right"></i>
                             </a>
                             </li>
@@ -219,12 +219,13 @@ confirm_query($result);
                         <div <?php echo $viewlog1; ?> >
                             <li>
                                 <a href="../../index.php">
-                                Login <i class="entypo-cog right"></i>
+                                Login <i class="entypo-login right"></i>
                             </a>
                             </li>
                            
                         </div> 
                     </ul>
+
                 </div>
             </div>
             <hr />
