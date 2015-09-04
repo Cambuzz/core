@@ -217,7 +217,7 @@ confirm_query($result);
                         </div >
                             
                         <div <?php echo $viewlog1; ?>>
-                            <a href="index.php" class="visible-xs" id="phone-login">
+                            <a href="../../index.php" class="visible-xs" id="phone-login">
                                 <i class="entypo-login"></i>
                                 <span class="title">Login</span>
                             </a>
