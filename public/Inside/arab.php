@@ -33,6 +33,16 @@ if (($current_user=="12BEC1096")||($current_user=="cambuzz")||($current_user=="V
 } else {
     $view = "style='display: none;'";
 }
+
+
+if(($current_user=="cambuzz")||($current_user=="VITCMUN")||($current_user=="ARABLEAGUE"))
+{
+    $view1=" ";
+}
+else
+{
+    $view1 = "style='display: none;'";
+}
 ?>
 <?php
 if (isset($_POST['submit'])) {
@@ -342,6 +352,14 @@ confirm_query($result);
                                                                             echo date("d M, y | h:i a", $post_time);
                                                                         ?>
                                                                     </em>
+                                                                </div>
+
+                                                                <div <?php echo $view1; ?> >                                                            
+
+                                                                   <div style="float: right; margin-top: 2px;">
+                                                                        <a style="font-size: 14px;" class="entypo-trash" href="deletemunpost.php?id=<?php echo urlencode($mun_list["id"]); ?>&council=arab" onclick="return confirm('Are you sure?');"></a>
+                                                                   </div>
+
                                                                 </div>
                                                             </header>
 
