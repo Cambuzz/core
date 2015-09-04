@@ -537,6 +537,12 @@ $comment=0;
                             <span class="title">Ask a question</span>
                         </a>
                     </li>
+                    <li class="visible-xs">
+                            <a href="logout.php" id="phone-logout">
+                                <i class="entypo-logout"></i>
+                                <span class="title">Logout</span>
+                            </a>
+                    </li>
                 </ul>
             </div>
         </div>
