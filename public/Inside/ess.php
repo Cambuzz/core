@@ -352,7 +352,7 @@ confirm_query($result);
 
                                                                     <div <?php echo $view1; ?> >                                                            
 
-                                                                   <div style="float: right; margin-top: 2px;">
+                                                                   <div class="hidden-xs" style="float: right; margin-top: 2px;">
                                                                         <a style="font-size: 14px;" class="entypo-trash" href="deletemunpost.php?id=<?php echo urlencode($mun_list["id"]); ?>&council=ess" onclick="return confirm('Are you sure?');"></a>
                                                                    </div>
 
