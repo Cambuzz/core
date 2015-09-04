@@ -33,6 +33,14 @@ if (($current_user=="12BEC1096")||($current_user=="cambuzz")||($current_user=="V
 } else {
     $view = "style='display: none;'";
 }
+if(($current_user=="cambuzz")||($current_user=="VITCMUN")||($current_user=="UNOOSA"))
+{
+    $view1=" ";
+}
+else
+{
+    $view1 = "style='display: none;'";
+}
 ?>
 <?php
 if (isset($_POST['submit'])) {
@@ -201,10 +209,19 @@ confirm_query($result);
                         </a>
                     </li>
                     <li>
-                            <a href="logout.php" style="display: none;" id="phone-logout">
+                            <div <?php echo $viewlog; ?>>
+                            <a href="logout.php" class="visible-xs" id="phone-logout">
                                 <i class="entypo-logout"></i>
                                 <span class="title">Logout</span>
                             </a>
+                        </div >
+                            
+                        <div <?php echo $viewlog1; ?>>
+                            <a href="../../index.php" class="visible-xs" id="phone-login">
+                                <i class="entypo-login"></i>
+                                <span class="title">Login</span>
+                            </a>
+                        </div>
                     </li>
                 </ul>
             </div>
@@ -339,6 +356,13 @@ confirm_query($result);
                                                                             echo date("d M, y | h:i a", $post_time);
                                                                         ?>
                                                                     </em>
+                                                                </div>
+                                                                <div <?php echo $view1; ?> >                                                            
+
+                                                                   <div class="hidden-xs" style="float: right; margin-top: 2px;">
+                                                                        <a style="font-size: 14px;" class="entypo-trash" href="deletemunpost.php?id=<?php echo urlencode($mun_list["id"]); ?>&council=oosa" onclick="return confirm('Are you sure?');"></a>
+                                                                   </div>
+
                                                                 </div>
                                                             </header>
 
