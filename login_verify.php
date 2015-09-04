@@ -39,7 +39,7 @@ if (logged_in()) {
                 echo "Account not confirmed";
             }
         } else {
-            echo "Invalid Username or Password.";            
+            echo "Invalid Username or Password. Please check if CAPS is not pressed";            
         }
            
 ?>
