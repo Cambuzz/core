@@ -136,12 +136,7 @@ confirm_query($result);
     max-width: 100%;
     overflow-x: hidden;
     }
-    @media (max-width: 767px){
-        #phone-logout{
-            display: block !important;
-        }
 
-    }
 
     </style>
 </head>
@@ -209,10 +204,19 @@ confirm_query($result);
                         </a>
                     </li>
                     <li>
-                            <a href="logout.php" style="display: none;" id="phone-logout">
+                        <div <?php echo $viewlog; ?>>
+                            <a href="logout.php" class="visible-xs" id="phone-logout">
                                 <i class="entypo-logout"></i>
                                 <span class="title">Logout</span>
                             </a>
+                        </div >
+                            
+                        <div <?php echo $viewlog1; ?>>
+                            <a href="index.php" class="visible-xs" id="phone-login">
+                                <i class="entypo-login"></i>
+                                <span class="title">Login</span>
+                            </a>
+                        </div>
                     </li>
 
                 </ul>

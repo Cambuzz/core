@@ -203,10 +203,19 @@ confirm_query($result);
                         </a>
                     </li>
                     <li class="visible-xs">
-                            <a href="logout.php" id="phone-logout">
-                                <i class="entypo-logout"></i>
-                                <span class="title">Logout</span>
-                            </a>
+                            <div <?php echo $viewlog; ?>>
+                                <a href="logout.php" class="visible-xs" id="phone-logout">
+                                    <i class="entypo-logout"></i>
+                                    <span class="title">Logout</span>
+                                </a>
+                            </div >
+                            
+                            <div <?php echo $viewlog1; ?>>
+                                <a href="index.php" class="visible-xs" id="phone-login">
+                                    <i class="entypo-login"></i>
+                                    <span class="title">Login</span>
+                                </a>
+                            </div>
                     </li>
                 </ul>
             </div>
