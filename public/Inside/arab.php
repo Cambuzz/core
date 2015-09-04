@@ -343,14 +343,6 @@ confirm_query($result);
                                                                         ?>
                                                                     </em>
                                                                 </div>
-                                                                <div <?php echo $view; ?> >                                                            
-                                                                    <div style="float: right; margin-top: 2px;">
-
-                                                                       <a style="font-size: 14px;" class="entypo-trash" href="deletemunpost.php?id=<?php echo urlencode($mun_list["id"]); ?>&council=arab" onclick="return confirm('Are you sure?');"></a>
-                                                           
-                                                                    </div>
-                                                                
-                                                                </div>
                                                             </header>
 
                                                         <div class="story-main-content">
