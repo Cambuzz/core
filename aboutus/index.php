@@ -285,7 +285,7 @@
                                         <div style="display: flex; align-items: center; justify-content: center; text">
                                             <p ><span style="font-size: 22px;">"We work in a safe environment. There is absolutely no kicking, biting and rapid punches."</span>
                                             <br>
-                                            Though thee person who wrote this, probably can't see right now.
+                                            Though the person who wrote this, probably can't see right now.
                                             Check us out by clicking on any of our lovely faces. :D</p>
                                         </div>
                                     </div>
@@ -294,7 +294,7 @@
                                     <h1 style="color:white; padding-top: 20px;">Prashant Bhardwaj</h1>
                                     <div class="content" style="font-family: 'Montserrat'; color: white;">
                                         <p>Backend Developer</p>
-                                        <p>He is the one who made this team come around. A highly ambitious person, he makes sure that he sleeps the last and wakes up the first. You can find him either thinking of new ideas for starting up or singing along our team's anthem (*cringe*) And oh! Ask him to play Sardar Khan from the Wasseypur fame.
+                                        <p>He is the one who the biggest chutiya. He loves Pragya Gupta i.e the Big Data. He is the biggest tharki of the team. 
                                             <br><em>"Goongi ho kya"</em> xD
                                             <br>
                                             <br> P.s. He gets down in one shot. Period.

@@ -50,10 +50,10 @@ if (isset($_POST['submit'])) {
         $content = "";
     }
     //$pix = $_FILES['picture']['name'];       
-    if (!empty($_FILES['picture']['name'])) {  
+    if (!empty($_FILES['picture']['tmp_name'])) {  
         $picset=1;      
         $target_dir = "images/";
-        $target_file = $target_dir . basename($_FILES["picture"]["name"]);                
+        $target_file = $target_dir . basename($_FILES["picture"]["tmp_name"]);                
         $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
         move_uploaded_file($_FILES["picture"]["tmp_name"],"images/$picture_id.jpg");
         $po_url = "http://cambuzz.co.in/public/Inside/images/".$full.".jpg";         
