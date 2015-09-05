@@ -301,20 +301,15 @@ confirm_query($result);
                                     <section class="profile-feed">
                                         <!-- profile post form -->
                                         <div <?php echo $view; ?> >
-                                        <form class="profile-post-form dropzone" id="dropzone_example" method="post" action="oosatest.php" enctype="multipart/form-data">
+                                        <form class="profile-post-form" method="post" action="oosatest.php" enctype="multipart/form-data">
                                             <textarea class="form-control autogrow" name="content" placeholder="UNOOSA POST"></textarea>
                                             <div class="form-options">
                                                 <div class="post-type">
-<!--                                                     <a href="#" class="tooltip-primary" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Upload a Picture">
+                                                    <a href="#" class="tooltip-primary" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Upload a Picture">
                                                     <input type="file" class="upload-picture"name="picture" accept=".jpeg, .jpg, .bmp, .png, .gif" id="picture"  style="display: none;">
                                                         <i class="entypo-camera" style="font-size: 20px;"></i>
-                                                    </a>                                                    <a href="#" class="tooltip-primary" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Attach a file">
- -->                                            
-                                                    <div class="fallback">
-                                                        <input name="file" type="file" name="picture" multiple />
-                                                    </div>    
-
-                                                </div>
+                                                    </a>               
+;                                                </div>
                                                 <div class="post-submit">
                                                     <input type="submit" name="submit" value="Post" class="btn btn-success">
                                                 </div>
