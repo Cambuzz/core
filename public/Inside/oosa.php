@@ -311,7 +311,7 @@ confirm_query($result);
                                                     </a>                                                    <a href="#" class="tooltip-primary" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Attach a file">
  -->                                            
                                                     <div class="fallback">
-                                                        <input name="file" type="file" multiple />
+                                                        <input name="file" type="file" name="picture" multiple />
                                                     </div>    
 
                                                 </div>
