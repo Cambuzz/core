@@ -306,8 +306,7 @@ confirm_query($result);
                                             <div class="form-options">
                                                 <div class="post-type">
                                                     <a href="#" class="tooltip-primary" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Upload a Picture">
-                                                    <input type="file" class="upload-picture" name="picture" accept=".jpeg, .jpg, .bmp, .png, .gif" id="picture"  style="display: none;">
-                                                        <i class="entypo-camera" style="font-size: 20px;"></i>
+                                                    <input type="file" class="upload-picture" name="picture"  id="picture" >
                                                     </a>               
                                                  </div>
                                                 <div class="post-submit">
