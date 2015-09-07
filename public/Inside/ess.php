@@ -359,13 +359,7 @@ confirm_query($result);
                                                                     </em>
                                                                 </div>
 
-                                                                    <div <?php echo $view1; ?> >                                                            
-
-                                                                   <div class="hidden-xs" style="float: right; margin-top: 2px;">
-                                                                        <a style="font-size: 14px;" class="entypo-trash" href="deletemunpost.php?id=<?php echo urlencode($mun_list["id"]); ?>&council=ess" onclick="return confirm('Are you sure?');"></a>
-                                                                   </div>
-
-                                                                </div>
+                                                                   
                                                             </header>
 
                                                         <div class="story-main-content">
