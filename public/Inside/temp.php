@@ -2,13 +2,13 @@
 <?php require_once("../../includes/db_connection.php");?>
 <?php require_once("../../includes/functions.php");?>
 <?php
-
-$query="SELECT * FROM app ORDER BY id ASC";
+$council="VITC INTRA MUN";
+$query="SELECT * FROM app WHERE council='{$council}' ORDER BY id ASC";
 $result=mysqli_query($conn,$query);
 while($row=mysqli_fetch_assoc($result))
 {
-	if($row['council']=="VITC INTRA MUN")
-	{
+	//if($row['council']=="VITC INTRA MUN")
+	//{
 		$content=$row['content'];
 		$picset=$row['picset'];
 		$post_user=$row['post_user'];
@@ -17,7 +17,8 @@ while($row=mysqli_fetch_assoc($result))
 	    $sql = mysqli_query($conn, $query1);
 	    if(!$sql)
 	    	echo "done";
-    }
+    //}
+    /*
     else if($row['council']=="UNGA-ESS")
 	{
 		$content=$row['content'];
@@ -66,7 +67,7 @@ while($row=mysqli_fetch_assoc($result))
     {
     	echo "failed";
     }
-
+   */
 	
 } 
 ?>
