@@ -9,7 +9,7 @@
                     "username" => $current_user,                       
                     ); 
 
-        $output[]=$data_array;
+        $output=$data_array;
         print(json_encode($output));
     ?>                   
 
