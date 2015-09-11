@@ -4,7 +4,12 @@
 <?php confirm_logged_in(); ?>
 
     <?php
-        $output[]=$_SESSION['username'];
+        $current_user = $_SESSION['username'];
+        $data_array = array( 
+                    "username" => $current_user,                       
+                    ); 
+
+        $output[]=$data_array;
         print(json_encode($output));
     ?>                   
 
