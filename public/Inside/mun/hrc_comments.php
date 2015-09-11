@@ -1,6 +1,6 @@
-<?php require_once("../../includes/session.php");?>
-<?php require_once("../../includes/db_connection.php");?>
-<?php require_once("../../includes/functions.php");?>
+<?php require_once("../../../includes/session.php");?>
+<?php require_once("../../../includes/db_connection.php");?>
+<?php require_once("../../../includes/functions.php");?>
 <?php $comment_set = find_all_comments(); ?>
 <?php
     if (isset($_SESSION["username"])) {
@@ -12,7 +12,7 @@
         $first_name = explode(" ", $name_title['sname']);
         $current_id = $name_title['id'];
         $view = " ";
-         $view1 = "style='display:none;'"; 
+        $view1 = "style='display: none;'"; 
     } else {
         $current_user = "";
         $current_id = "";
@@ -20,25 +20,25 @@
         $first_name = "";
         $name_title = "";
         $view = "style='display: none;'";
-        $view1=" ";
+        $view1 = " ";
     }   
 ?>
 <?php
-$arab = find_arab_by_id($_GET["id"]);
-if (!$arab) {
-    redirect_to("arab.php");
+$hrc = find_hrc_by_id($_GET["id"]);
+if (!$hrc) {
+    redirect_to("hrc.php");
 }
 
-$id = $arab["id"];
-$query = "SELECT * FROM arab WHERE id = {$id}";
+$id = $hrc["id"];
+$query = "SELECT * FROM hrc WHERE id = {$id}";
 $result = mysqli_query($conn, $query);
 $view_post = mysqli_fetch_assoc($result);
-$query_post_comment = "SELECT * FROM arabcomments WHERE pid = {$id}";
+$query_post_comment = "SELECT * FROM hrccomments WHERE pid = {$id}";
 $result_post_comment = mysqli_query($conn, $query_post_comment); 
 ?>
 <?php   
 if ((isset($_POST['submit']))&&(isset($_POST['comment']))) {    
-    $pid = $arab["id"];
+    $pid = $hrc["id"];
     $comment = mysqli_real_escape_string($conn, htmlspecialchars($_POST['comment']));
     $commentor = $current_user;
     date_default_timezone_set('Asia/Calcutta');
@@ -46,13 +46,13 @@ if ((isset($_POST['submit']))&&(isset($_POST['comment']))) {
     if($current_user!=$view_post["post_user"]) {
         $counter = $view_post['comment_counter'];
         $comment_counter = $counter+1;    
-        $query_counter = "UPDATE arab SET comment_counter = {$comment_counter} WHERE id = {$id}";
+        $query_counter = "UPDATE hrc SET comment_counter = {$comment_counter} WHERE id = {$id}";
         $result_counter = mysqli_query($conn, $query_counter);
     }
-    $query_comment = "INSERT INTO arabcomments (pid, comment, commentor, comment_time) VALUES ({$pid}, '{$comment}', '{$commentor}', '{$comment_time}')";
+    $query_comment = "INSERT INTO hrccomments (pid, comment, commentor, comment_time) VALUES ({$pid}, '{$comment}', '{$commentor}', '{$comment_time}')";
     $result_comment = mysqli_query($conn, $query_comment);
     if ($result_comment && mysqli_affected_rows($conn) == 1) {
-        redirect_to("arab_comments.php?id=$id");
+        redirect_to("hrc_comments.php?id=$id");
     }   
 }
 ?>
@@ -67,18 +67,18 @@ if ((isset($_POST['submit']))&&(isset($_POST['comment']))) {
     <meta name="keywords" content="Buzz, Events, Cambuzz, Track, Teacher, question, Campus, Centralized information system">
     <meta name="author" content="Team Cambuzz">
     <title>Comments</title>
-    <link rel="stylesheet" href="assets/css/font-icons/entypo/css/entypo.css">
+    <link rel="stylesheet" href="../assets/css/font-icons/entypo/css/entypo.css">
     <link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,900' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
      <!-- Favicon -->
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
     
-    <link rel="stylesheet" type="text/css" href="assets/css/buttoncreatebuzz.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/buttoncreatebuzz.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/style-core.css">
-    <link rel="stylesheet" href="assets/css/style-theme.css">
-    <link rel="stylesheet" href="assets/css/style-forms.css">
+    <link rel="stylesheet" href="../assets/css/style-core.css">
+    <link rel="stylesheet" href="../assets/css/style-theme.css">
+    <link rel="stylesheet" href="../assets/css/style-forms.css">
     <link rel="stylesheet" src="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" />
     <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
     <script>
@@ -115,7 +115,7 @@ if ((isset($_POST['submit']))&&(isset($_POST['comment']))) {
                 <header class="logo-env">
                     <!-- logo -->
                     <div class="logo">
-                        <a href="buzz.php">
+                        <a href="../buzz.php">
                             <h1 style="font-family: 'Pacifico', sans-serif; font-weight: 200px; color: white; margin-top: -2px; font-size:25px;">vitcc cambuzz</h1>
                         </a>
                     </div>
@@ -158,7 +158,7 @@ if ((isset($_POST['submit']))&&(isset($_POST['comment']))) {
                         </div>
                     </div> 
                     <div class="sui-hover inline-links animate-in">
-                        <a href="settings.php">
+                        <a href="../settings.php">
                             <i class="entypo-pencil"></i> Account Settings
                         </a>
                         <span class="close-sui-popup">&times;</span>
@@ -169,19 +169,19 @@ if ((isset($_POST['submit']))&&(isset($_POST['comment']))) {
                     <!-- add class "multiple-expanded" to allow multiple submenus to open -->
                     <!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
                     <li>
-                        <a href="buzz.php">
+                        <a href="../buzz.php">
                             <i class="entypo-megaphone"></i>
                             <span class="title">Buzz</span>
                         </a>
                     </li>
                     <li>
-                        <a href="track_teacher.php">
+                        <a href="../track_teacher.php">
                             <i class="entypo-graduation-cap"></i>
                             <span class="title">Track Teacher</span>
                         </a>
                     </li>
                     <li>
-                        <a href="quora.php">
+                        <a href="../quora.php">
                             <i class="entypo-publish"></i>
                             <span class="title">Ask a question</span>
                         </a>
@@ -192,16 +192,16 @@ if ((isset($_POST['submit']))&&(isset($_POST['comment']))) {
         <div class="main-content">
             <div class="row">
                 <!-- Raw Links -->
-                <div class="col-md-6 col-sm-4 clearfix hidden-xs" style="float: right;">
+                 <div class="col-md-6 col-sm-4 clearfix hidden-xs" style="float: right;">
                     <ul class="list-inline links-list pull-right" <?php echo $view;?>>
                         <!-- Language Selector -->
                         <li>
-                            <a href="settings.php">
+                            <a href="../settings.php">
                             Settings <i class="entypo-cog right"></i>
                         </a>
                         </li>
                         <li>
-                            <a href="logout.php">
+                            <a href="../logout.php">
                             Log Out <i class="entypo-logout right"></i>
                         </a>
                         </li>
@@ -210,7 +210,7 @@ if ((isset($_POST['submit']))&&(isset($_POST['comment']))) {
                     <ul class="list-inline links-list pull-right" <?php echo $view1;?>>
                         <!-- Language Selector -->
                         <li>
-                            <a href="../../index.php">
+                            <a href="../../../index.php">
                             Login <i class="entypo-logout right"></i>
                         </a>
                         </li>
@@ -220,7 +220,7 @@ if ((isset($_POST['submit']))&&(isset($_POST['comment']))) {
             <hr />
             <!-- main content starts here -->
             <div class="row">
-                        <div class="container">
+                              <div class="container">
                             <div class="row">
                                 <div class="col-md-12">
                                      <ul class="nav nav-tabs ">
@@ -233,10 +233,10 @@ if ((isset($_POST['submit']))&&(isset($_POST['comment']))) {
                                         <li>
                                                 <a href="oosa.php"><span>UNOOSA</span></a>
                                         </li>
-                                        <li>
+                                        <li class="active">
                                                 <a href="hrc.php"><span>UNHRC</span></a>
                                         </li>
-                                        <li class="active">
+                                        <li >
                                                 <a href="arab.php"><span>Arab&nbsp;League</span></a>
                                         </li>
                                     </ul>
@@ -260,16 +260,16 @@ if ((isset($_POST['submit']))&&(isset($_POST['comment']))) {
                                
                                 if ($pic["proset"]==0) { 
                             ?>
-                                    <img src="assets/images/nopic.png" height="44px" width="44px" alt="" class="img-circle" />
+                                    <img src="../assets/images/nopic.png" height="44px" width="44px" alt="" class="img-circle" />
                             <?php
                                 } elseif ($pic["proset"]==1) {
                                         $imageid=$pic['id'];
                                         $dpcounter=$pic['dpcounter'];
                                         //echo '<img src="data:image/jpeg;base64,' . base64_encode($name_title['data_propic']) . '" class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>'; 
                                         if($dpcounter>0)
-                                        echo '<img src="images/' . $imageid."_".$dpcounter . '.jpg "height="44px" width="44px" alt="" class="img-circle">';
+                                        echo '<img src="../images/' . $imageid."_".$dpcounter . '.jpg "height="44px" width="44px" alt="" class="img-circle">';
                                         else
-                                        echo '<img src="images/' . $imageid. '.jpg "height="44px" width="44px" alt="" class="img-circle">';
+                                        echo '<img src="../images/' . $imageid. '.jpg "height="44px" width="44px" alt="" class="img-circle">';
                                 }
                             ?>
                                     </a>
@@ -394,7 +394,7 @@ if ((isset($_POST['submit']))&&(isset($_POST['comment']))) {
                                     if ($view_post['picset']==1) {
                                         $poster_time = strtotime($view_post['post_time']);
                                         $posterid=$view_post['post_user'].date("Y-m-d H-i-s", $poster_time);
-                                        echo '<img src="images/' . $posterid . '.jpg "class="img-responsive">';
+                                        echo '<img src="../images/' . $posterid . '.jpg "class="img-responsive">';
                                     }
                                     ?>
                                     <h1></h1>
@@ -406,7 +406,7 @@ if ((isset($_POST['submit']))&&(isset($_POST['comment']))) {
                                         
                                             <i class="entypo-comment"></i> Comment <span>(
                                             <?php
-                                            $count_query = "SELECT COUNT(*) FROM arabcomments WHERE pid = {$id}";
+                                            $count_query = "SELECT COUNT(*) FROM hrccomments WHERE pid = {$id}";
                                             $count_result = mysqli_query($conn, $count_query);
                                             confirm_query($count_result);
                                             $row = mysqli_fetch_array($count_result);
@@ -431,16 +431,16 @@ if ((isset($_POST['submit']))&&(isset($_POST['comment']))) {
                                 
                                 if ($poster_pic["proset"]==0) { 
                             ?>
-                                    <img src="assets/images/nopic.png" height="44px" width="44px" alt="" class="img-circle" />
+                                    <img src="../assets/images/nopic.png" height="44px" width="44px" alt="" class="img-circle" />
                             <?php
                                 } elseif ($poster_pic["proset"]==1) {
                                        $imageid=$poster_pic['id'];
                                         $dpcounter=$poster_pic['dpcounter'];
                                         //echo '<img src="data:image/jpeg;base64,' . base64_encode($name_title['data_propic']) . '" class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>'; 
                                         if($dpcounter>0)
-                                             echo '<img src="images/' . $imageid."_".$dpcounter . '.jpg "height="44px" width="44px" alt="" class="img-circle">';
+                                             echo '<img src="../images/' . $imageid."_".$dpcounter . '.jpg "height="44px" width="44px" alt="" class="img-circle">';
                                          else   
-                                            echo '<img src="images/' . $imageid . '.jpg "height="44px" width="44px" alt="" class="img-circle">';
+                                            echo '<img src="../images/' . $imageid . '.jpg "height="44px" width="44px" alt="" class="img-circle">';
                                 }
                             ?>
                                                 </div>
@@ -509,16 +509,16 @@ if ((isset($_POST['submit']))&&(isset($_POST['comment']))) {
                                                     
                                 if ($poster_pic["proset"]==0) { 
                             ?>
-                                    <img src="assets/images/nopic.png" height="44px" width="44px" alt="" class="img-circle" />
+                                    <img src="../assets/images/nopic.png" height="44px" width="44px" alt="" class="img-circle" />
                             <?php
                                 } elseif ($poster_pic["proset"]==1) {
                                          $imageid=$poster_pic['id'];
                                         $dpcounter=$poster_pic['dpcounter'];
                                         //echo '<img src="data:image/jpeg;base64,' . base64_encode($name_title['data_propic']) . '" class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>'; 
                                         if($dpcounter>0)
-                                             echo '<img src="images/' . $imageid."_".$dpcounter . '.jpg "height="44px" width="44px" alt="" class="img-circle">';
+                                             echo '<img src="../images/' . $imageid."_".$dpcounter . '.jpg "height="44px" width="44px" alt="" class="img-circle">';
                                          else   
-                                            echo '<img src="images/' . $imageid . '.jpg "height="44px" width="44px" alt="" class="img-circle">';
+                                            echo '<img src="../images/' . $imageid . '.jpg "height="44px" width="44px" alt="" class="img-circle">';
                                 }
                             ?>
                                                 </div>
@@ -585,25 +585,24 @@ if ((isset($_POST['submit']))&&(isset($_POST['comment']))) {
                                                     <?php
                                 if ($name_title["proset"]==0) { 
                             ?>
-                                    <img src="assets/images/nopic.png" height="44px" width="44px" alt="" class="img-circle" />
+                                    <img src="../assets/images/nopic.png" height="44px" width="44px" alt="" class="img-circle" />
                             <?php
                                 } elseif ($name_title["proset"]==1) {
                                        $imageid=$name_title['id'];
                                         $dpcounter=$name_title['dpcounter'];
                                         //echo '<img src="data:image/jpeg;base64,' . base64_encode($name_title['data_propic']) . '" class="img-circle" height="200px" width="100px"  style="border-radius: 100%;"/>'; 
                                           if($dpcounter>0)
-                                        echo '<img src="images/' . $imageid."_".$dpcounter . '.jpg "height="44px" width="44px" alt="" class="img-circle">';
+                                        echo '<img src="../images/' . $imageid."_".$dpcounter . '.jpg "height="44px" width="44px" alt="" class="img-circle">';
                                         else
-                                        echo '<img src="images/' . $imageid. '.jpg "height="44px" width="44px" alt="" class="img-circle">';
+                                        echo '<img src="../images/' . $imageid. '.jpg "height="44px" width="44px" alt="" class="img-circle">';
                                 }
                             ?>
                                                 </div>
                                                 <div class="user-comment-content" style="color: black;">
-                                                <form method="post" action="arab_comments.php?id=<?php echo urlencode($_GET["id"]); ?>">
+                                                <form method="post" action="hrc_comments.php?id=<?php echo urlencode($_GET["id"]); ?>">
                                                     <textarea style="padding-right: 70px;" class="form-control autogrow" name="comment" value="" required placeholder="Write a comment..."></textarea>
                                                     <input type="submit" name="submit" value="Submit" class="btn btn-info" style="background-color: #333; color: white; margin-top: 2px;"> 
-                                                </form>
-                                                </div> </div>
+                                                </form></div> </div>
                                             </li>
                                         </ul>
                                     </footer>
@@ -619,16 +618,16 @@ if ((isset($_POST['submit']))&&(isset($_POST['comment']))) {
             </footer>
         </div>
     </div>
-    <script src="assets/js/modernizr.custom.js"></script>
+   <script src="../assets/js/modernizr.custom.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/TweenMax.min.js"></script>
-    <script src="assets/js/style-demo.js"></script>
-    <script src="assets/js/style-custom.js"></script>
-    <script src="assets/js/style-api.js"></script>    
-    <script src="assets/js/joinable.js"></script>
-    <script src="assets/js/resizeable.js"></script>
+    <script src="../assets/js/style-demo.js"></script>
+    <script src="../assets/js/style-custom.js"></script>
+    <script src="../assets/js/style-api.js"></script>    
+    <script src="../assets/js/joinable.js"></script>
+    <script src="../assets/js/resizeable.js"></script>
     
 
      <script type="text/javascript">

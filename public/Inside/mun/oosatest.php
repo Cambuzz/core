@@ -1,6 +1,6 @@
-<?php require_once("../../includes/session.php");?>
-<?php require_once("../../includes/db_connection.php");?>
-<?php require_once("../../includes/functions.php");?>
+<?php require_once("../../../includes/session.php");?>
+<?php require_once("../../../includes/db_connection.php");?>
+<?php require_once("../../../includes/functions.php");?>
 <?php $ossa = find_all_oosas(); ?>
 <?php
     if (isset($_SESSION["username"])) {
@@ -100,21 +100,21 @@ confirm_query($result);
     <meta name="keywords" content="Buzz, Events, Cambuzz, Track, Teacher, Question, Campus, Centralized information system">
     <meta name="author" content="Team Cambuzz">
     <title>UNOOSA | Intra MUN</title>
-    <link rel="stylesheet" href="assets/css/bootstrap.css">
-    <link rel="stylesheet" href="assets/css/style-core.css">
-    <link rel="stylesheet" href="assets/css/style-theme.css">
-    <link rel="stylesheet" href="assets/css/style-forms.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap.css">
+    <link rel="stylesheet" href="../assets/css/style-core.css">
+    <link rel="stylesheet" href="../assets/css/style-theme.css">
+    <link rel="stylesheet" href="../assets/css/style-forms.css">
     <!-- Favicon -->
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
     <!-- Buzz button -->
-    <link rel="stylesheet" type="text/css" href="assets/css/buttoncreatebuzz.css" />
-    <link rel="stylesheet" type="text/css" href="assets/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/buttoncreatebuzz.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/normalize.css" />
     <!-- Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,900' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="assets/css/font-icons/entypo/css/entypo.css">
+    <link rel="stylesheet" href="../assets/css/font-icons/entypo/css/entypo.css">
     <script>
     $.noConflict();
     </script>
@@ -154,7 +154,7 @@ confirm_query($result);
                 <header class="logo-env">
                     <!-- logo -->
                     <div class="logo">
-                        <a href="buzz.php">
+                        <a href="../buzz.php">
                             <h1 style="font-family: 'Pacifico', sans-serif; font-weight: 200px; color: white; margin-top: -2px; font-size:25px;">vitcc cambuzz</h1>
                         </a>
                     </div>
@@ -181,7 +181,7 @@ confirm_query($result);
                         </div>
                     </div>
                     <div class="sui-hover inline-links animate-in">
-                        <a href="settings.php">
+                        <a href="../settings.php">
                             <i class="entypo-pencil"></i> Account Settings
                         </a>
                         <span class="close-sui-popup">&times;</span>
@@ -191,33 +191,33 @@ confirm_query($result);
                     <!-- add class "multiple-expanded" to allow multiple submenus to open -->
                     <!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
                     <li>
-                        <a href="buzz.php">
+                        <a href="../buzz.php">
                             <i class="entypo-megaphone"></i>
                             <span class="title">Buzz</span>
                         </a>
                     </li>
                     <li>
-                        <a href="track_teacher.php">
+                        <a href="../track_teacher.php">
                             <i class="entypo-graduation-cap"></i>
                             <span class="title">Track Teacher</span>
                         </a>
                     </li>
                     <li>
-                        <a href="quora.php">
+                        <a href="../quora.php">
                             <i class="entypo-publish"></i>
                             <span class="title">Ask a question</span>
                         </a>
                     </li>
                     <li>
                             <div <?php echo $viewlog; ?>>
-                            <a href="logout.php" class="visible-xs" id="phone-logout">
+                            <a href="../logout.php" class="visible-xs" id="phone-logout">
                                 <i class="entypo-logout"></i>
                                 <span class="title">Logout</span>
                             </a>
                         </div >
                             
                         <div <?php echo $viewlog1; ?>>
-                            <a href="../../index.php" class="visible-xs" id="phone-login">
+                            <a href="../../../index.php" class="visible-xs" id="phone-login">
                                 <i class="entypo-login"></i>
                                 <span class="title">Login</span>
                             </a>
@@ -233,12 +233,12 @@ confirm_query($result);
                         <!-- Language Selector -->
                       <div <?php echo $viewlog; ?> style="display: flex;">
                             <li>
-                                <a href="settings.php" style="margin: 10px;">
+                                <a href="../settings.php" style="margin: 10px;">
                                 Settings <i class="entypo-cog right"></i>
                             </a>
                             </li>
                             <li>
-                                <a href="logout.php">
+                                <a href="../logout.php">
                                 Log Out <i class="entypo-logout right"></i>
                             </a>
                             </li>
@@ -247,7 +247,7 @@ confirm_query($result);
                     <ul class="list-inline links-list pull-right">
                         <div <?php echo $viewlog1; ?> >
                             <li>
-                                <a href="../../index.php">
+                                <a href="../../../index.php">
                                 Login <i class="entypo-login right"></i>
                             </a>
                             </li>
@@ -332,15 +332,15 @@ confirm_query($result);
                                                         confirm_query($pic_result);
                                                         $pic = mysqli_fetch_assoc($pic_result); 
                                                         if ($pic["proset"]==0) { ?>
-                                                            <img src="assets/images/nopic.png" height="44px" width="44px" alt="" class="img-circle" />
+                                                            <img src="../assets/images/nopic.png" height="44px" width="44px" alt="" class="img-circle" />
                                                         <?php
                                                         } elseif ($pic["proset"]==1) {
                                                             $imageid=$pic['id'];
                                                             $dpcounter=$pic['dpcounter'];                                         
                                                             if($dpcounter>0)
-                                                                echo '<img src="images/' . $imageid."_".$dpcounter . '.jpg "height="44px" width="44px" alt="" class="img-circle">';
+                                                                echo '<img src="../images/' . $imageid."_".$dpcounter . '.jpg "height="44px" width="44px" alt="" class="img-circle">';
                                                             else
-                                                                echo '<img src="images/' . $imageid. '.jpg "height="44px" width="44px" alt="" class="img-circle">';
+                                                                echo '<img src="../images/' . $imageid. '.jpg "height="44px" width="44px" alt="" class="img-circle">';
                                                         } ?>
                                                         </a>
                                                         </aside>
@@ -433,7 +433,7 @@ confirm_query($result);
                                                                 if ($mun_list['picset']==1) {                                                                                                                             
                                                                     $poster_time = strtotime($mun_list['post_time']);                                                    
                                                                     $posterid=$mun_list['post_user'].date("Y-m-d H-i-s", $poster_time);                                                                                                      
-                                                                    echo '<img src="images/' . $posterid . '.jpg "class="img-responsive">';                                                                
+                                                                    echo '<img src="../images/' . $posterid . '.jpg "class="img-responsive">';                                                                
                                                                 } 
                                                             ?>
                                                         </p>
@@ -471,21 +471,21 @@ confirm_query($result);
             </footer>
         </div>
     </div>
-     <link rel="stylesheet" href="assets/js/dropzone/dropzone.css">
-    <script src="assets/js/modernizr.custom.js"></script>
+     <link rel="stylesheet" href="../assets/js/dropzone/dropzone.css">
+    <script src="../assets/js/modernizr.custom.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="assets/js/fileinput.js"></script>
-    <script src="assets/js/style-custom.js"></script>
-    <script src="assets/js/style-demo.js"></script>
+    <script src="../assets/js/fileinput.js"></script>
+    <script src="../assets/js/style-custom.js"></script>
+    <script src="../assets/js/style-demo.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/classie/1.0.1/classie.min.js"></script>
     <!-- Bottom scripts (common) -->
     <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/TweenMax.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="assets/js/joinable.js"></script>
-    <script src="assets/js/resizeable.js"></script>
-    <script src="assets/js/uiMorphingButton_fixed.js"></script>
-    <script src="assets/js/style-api.js"></script>
+    <script src="../assets/js/joinable.js"></script>
+    <script src="../assets/js/resizeable.js"></script>
+    <script src="../assets/js/uiMorphingButton_fixed.js"></script>
+    <script src="../assets/js/style-api.js"></script>
 
 
     <script src="assets/js/dropzone/dropzone.js"></script>
