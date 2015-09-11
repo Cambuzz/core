@@ -721,7 +721,7 @@ $comment=0;
             
                         </li>
                         <li>
-                         <a href="mun.php" style="color: white; background-color: #00a651; font-family: 'Montserrat', sans-serif;" class="btn btn-success btn-lg">VITC Intra MUN</a>
+                         <a href="mun/mun.php" style="color: white; background-color: #00a651; font-family: 'Montserrat', sans-serif;" class="btn btn-success btn-lg">VITC Intra MUN</a>
 
                         </li>       
                     </ul>

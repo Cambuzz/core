@@ -1,9 +1,9 @@
-<?php require_once("../../includes/session.php");?>
-<?php require_once("../../includes/db_connection.php");?>
-<?php require_once("../../includes/functions.php");?>
-<?php $arab = find_all_arabs(); ?>
+<?php require_once("../../../includes/session.php");?>
+<?php require_once("../../../includes/db_connection.php");?>
+<?php require_once("../../../includes/functions.php");?>
+<?php $ess = find_all_esss(); ?>
 <?php
-    if (isset($_SESSION["username"])) {
+   if (isset($_SESSION["username"])) {
         $current_user = $_SESSION["username"];
         $name_query = "SELECT * FROM users WHERE username = '{$current_user}' LIMIT 1";
         $name_result = mysqli_query($conn, $name_query);
@@ -33,9 +33,7 @@ if (($current_user=="12BEC1096")||($current_user=="cambuzz")||($current_user=="V
 } else {
     $view = "style='display: none;'";
 }
-
-
-if(($current_user=="cambuzz")||($current_user=="VITCMUN")||($current_user=="ARABLEAGUE"))
+if(($current_user=="cambuzz")||($current_user=="VITCMUN")||($current_user=="UNGAESS"))
 {
     $view1=" ";
 }
@@ -54,10 +52,10 @@ if (isset($_POST['submit'])) {
     //$pix = $_FILES['picture']['name'];       
     if (!empty($_FILES['picture']['name'])) {  
         $picset=1;      
-        $target_dir = "images/";
+        $target_dir = "../images/";
         $target_file = $target_dir . basename($_FILES["picture"]["name"]);                
         $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-        move_uploaded_file($_FILES["picture"]["tmp_name"],"images/$picture_id.jpg"); 
+        move_uploaded_file($_FILES["picture"]["tmp_name"],"../images/$picture_id.jpg");
         $po_url = "http://cambuzz.co.in/public/Inside/images/".$full.".jpg";         
     } else {
         $picset = 0;
@@ -72,25 +70,24 @@ if (isset($_POST['submit'])) {
             $dp_url = "http://cambuzz.co.in/public/Inside/images/".$imageid."_".$dpcounter.".jpg";
         else
             $dp_url = "http://cambuzz.co.in/public/Inside/images/".$imageid.".jpg";
-        }            
+    }            
     $post_user = $current_user;
     date_default_timezone_set('Asia/Calcutta');
     $post_time = date("Y-m-d\TH:i:s");
-    $query = "INSERT INTO arab (content, picset, post_user, post_time) VALUES ('{$content}', {$picset}, '{$post_user}', '{$post_time}')";
+    $query = "INSERT INTO ess (content, picset, post_user, post_time) VALUES ('{$content}', {$picset}, '{$post_user}', '{$post_time}')";
     $sql = mysqli_query($conn, $query);
-    $council = "Arab League";
+    $council = "UNGA-ESS";
     $main_query = "INSERT INTO app (content, picset, post_user, post_time, council, po_url, dp_url) VALUES ('{$content}', {$picset}, '{$post_user}', '{$post_time}', '{$council}', '{$po_url}', '{$dp_url}')";      
-    $main_sql = mysqli_query($conn, $main_query);
+    $main_sql = mysqli_query($conn, $main_query);     
 }
-
 if((isset($_POST['searchsubmit']))&&(isset($_POST['search'])))
 {
-    $str1=mysqli_real_escape_string($conn,htmlspecialchars($_POST['search']));
+   $str1=mysqli_real_escape_string($conn,htmlspecialchars($_POST['search']));
     $str="search_tag.php?word=".urlencode($str1)."";
     redirect_to($str);
 }
 
-$query = "SELECT * FROM arab ORDER BY id DESC";
+$query = "SELECT * FROM ess ORDER BY id DESC";
 $result = mysqli_query($conn, $query);
 confirm_query($result);
 ?>
@@ -102,22 +99,22 @@ confirm_query($result);
     <meta name="description" content="Login or Signup on Cambuzz. Buzz new events, Track your teacher or ask a question.">
     <meta name="keywords" content="Buzz, Events, Cambuzz, Track, Teacher, Question, Campus, Centralized information system">
     <meta name="author" content="Team Cambuzz">
-    <title>Arab League | Intra MUN</title>
-    <link rel="stylesheet" href="assets/css/bootstrap.css">
-    <link rel="stylesheet" href="assets/css/style-core.css">
-    <link rel="stylesheet" href="assets/css/style-theme.css">
-    <link rel="stylesheet" href="assets/css/style-forms.css">
+    <title>UNGA-ESS | Intra MUN</title>
+    <link rel="stylesheet" href="../assets/css/bootstrap.css">
+    <link rel="stylesheet" href="../assets/css/style-core.css">
+    <link rel="stylesheet" href="../assets/css/style-theme.css">
+    <link rel="stylesheet" href="../assets/css/style-forms.css">
     <!-- Favicon -->
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
     <!-- Buzz button -->
-    <link rel="stylesheet" type="text/css" href="assets/css/buttoncreatebuzz.css" />
-    <link rel="stylesheet" type="text/css" href="assets/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/buttoncreatebuzz.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/normalize.css" />
     <!-- Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,900' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="assets/css/font-icons/entypo/css/entypo.css">
+    <link rel="stylesheet" href="../assets/css/font-icons/entypo/css/entypo.css">
     <script>
     $.noConflict();
     </script>
@@ -135,7 +132,7 @@ confirm_query($result);
     .nav-pills {
         text-align: center;
     }
-         html, body {
+     html, body {
     max-width: 100%;
     overflow-x: hidden;
     }
@@ -145,7 +142,6 @@ confirm_query($result);
         }
 
     }
-
 
     </style>
 </head>
@@ -158,7 +154,7 @@ confirm_query($result);
                 <header class="logo-env">
                     <!-- logo -->
                     <div class="logo">
-                        <a href="buzz.php">
+                        <a href="../buzz.php">
                             <h1 style="font-family: 'Pacifico', sans-serif; font-weight: 200px; color: white; margin-top: -2px; font-size:25px;">vitcc cambuzz</h1>
                         </a>
                     </div>
@@ -185,7 +181,7 @@ confirm_query($result);
                         </div>
                     </div>
                     <div class="sui-hover inline-links animate-in">
-                        <a href="settings.php">
+                        <a href="../settings.php">
                             <i class="entypo-pencil"></i> Account Settings
                         </a>
                         <span class="close-sui-popup">&times;</span>
@@ -195,33 +191,33 @@ confirm_query($result);
                     <!-- add class "multiple-expanded" to allow multiple submenus to open -->
                     <!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
                     <li>
-                        <a href="buzz.php">
+                        <a href="../buzz.php">
                             <i class="entypo-megaphone"></i>
                             <span class="title">Buzz</span>
                         </a>
                     </li>
                     <li>
-                        <a href="track_teacher.php">
+                        <a href="../track_teacher.php">
                             <i class="entypo-graduation-cap"></i>
                             <span class="title">Track Teacher</span>
                         </a>
                     </li>
                     <li>
-                        <a href="quora.php">
+                        <a href="../quora.php">
                             <i class="entypo-publish"></i>
                             <span class="title">Ask a question</span>
                         </a>
                     </li>
                     <li>
                             <div <?php echo $viewlog; ?>>
-                                <a href="logout.php" class="visible-xs" id="phone-logout">
+                                <a href="../logout.php" class="visible-xs" id="phone-logout">
                                     <i class="entypo-logout"></i>
                                     <span class="title">Logout</span>
                                 </a>
                             </div >
                             
                             <div <?php echo $viewlog1; ?>>
-                                <a href="../../index.php" class="visible-xs" id="phone-login">
+                                <a href="../../../index.php" class="visible-xs" id="phone-login">
                                     <i class="entypo-login"></i>
                                     <span class="title">Login</span>
                                 </a>
@@ -238,12 +234,12 @@ confirm_query($result);
                         <!-- Language Selector -->
                         <div <?php echo $viewlog; ?> style="display: flex;">
                             <li>
-                                <a href="settings.php" style="margin: 10px;">
+                                <a href="../settings.php" style="margin: 10px;">
                                 Settings <i class="entypo-cog right"></i>
                             </a>
                             </li>
                             <li>
-                                <a href="logout.php">
+                                <a href="../logout.php">
                                 Log Out <i class="entypo-logout right"></i>
                             </a>
                             </li>
@@ -252,7 +248,7 @@ confirm_query($result);
                     <ul class="list-inline links-list pull-right">
                         <div <?php echo $viewlog1; ?> >
                             <li>
-                                <a href="../../index.php">
+                                <a href="../../../index.php">
                                 Login <i class="entypo-login right"></i>
                             </a>
                             </li>
@@ -268,7 +264,7 @@ confirm_query($result);
                 <div class="container">
                     <div class="row" style="display: flex; align-items: center; justify-content: center;">
                         <div class="col-md-6">
-                            <form method="post" class="search-bar" action="arab.php" enctype="application/x-www-form-urlencoded">
+                            <form method="post" class="search-bar" action="ess.php" enctype="application/x-www-form-urlencoded">
                                 <div class="input-group">
                                     <input type="text" class="form-control input-lg" name="search" placeholder="Hashtag Search">
                                     <div class="input-group-btn">
@@ -284,31 +280,31 @@ confirm_query($result);
                 </div>
                 <div class="container">
                     <div class="col-md-12">
-                         <ul class="nav nav-tabs ">
+                        <ul class="nav nav-tabs ">
                             <li >
                                     <a href="mun.php"><span>Intra&nbsp;VITCMUN</span></a>
                             </li>
-                            <li>
+                            <li class="active">
                                     <a href="ess.php"><span>UNGA&nbsp;ESS</span></a>
                             </li>
                             <li>
                                     <a href="oosa.php"><span>UNOOSA</span></a>
                             </li>
-                            <li >
+                            <li>
                                     <a href="hrc.php"><span>UNHRC</span></a>
                             </li>
-                            <li class="active">
+                            <li>
                                     <a href="arab.php"><span>Arab&nbsp;League</span></a>
                             </li>
                         </ul>
                         <div class="tab-content">
-                            <div class="tab-pane active" id="arab-league">
+                            <div class="tab-pane active" id="unga-ess">
                                 <div class="profile-env">
                                     <section class="profile-feed">
                                         <!-- profile post form -->
                                         <div <?php echo $view; ?> >
-                                        <form class="profile-post-form" method="post" action="arab.php" enctype="multipart/form-data">
-                                            <textarea class="form-control autogrow" name="content" placeholder="Arab League Post"></textarea>
+                                        <form class="profile-post-form" method="post" action="ess.php" enctype="multipart/form-data">
+                                            <textarea class="form-control autogrow" name="content" placeholder="UNGA-ESS Post"></textarea>
                                             <div class="form-options">
                                                 <div class="post-type">
                                                     <a href="#" class="tooltip-primary" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Upload a Picture">
@@ -338,15 +334,15 @@ confirm_query($result);
                                                         confirm_query($pic_result);
                                                         $pic = mysqli_fetch_assoc($pic_result); 
                                                         if ($pic["proset"]==0) { ?>
-                                                            <img src="assets/images/nopic.png" height="44px" width="44px" alt="" class="img-circle" />
+                                                            <img src="../assets/images/nopic.png" height="44px" width="44px" alt="" class="img-circle" />
                                                         <?php
                                                         } elseif ($pic["proset"]==1) {
                                                             $imageid=$pic['id'];
                                                             $dpcounter=$pic['dpcounter'];                                         
                                                             if($dpcounter>0)
-                                                                echo '<img src="images/' . $imageid."_".$dpcounter . '.jpg "height="44px" width="44px" alt="" class="img-circle">';
+                                                                echo '<img src="../images/' . $imageid."_".$dpcounter . '.jpg "height="44px" width="44px" alt="" class="img-circle">';
                                                             else
-                                                                echo '<img src="images/' . $imageid. '.jpg "height="44px" width="44px" alt="" class="img-circle">';
+                                                                echo '<img src="../images/' . $imageid. '.jpg "height="44px" width="44px" alt="" class="img-circle">';
                                                         } ?>
                                                         </a>
                                                         </aside>
@@ -363,13 +359,12 @@ confirm_query($result);
                                                                     </em>
                                                                 </div>
 
-                                                                
+                                                                   
                                                             </header>
 
                                                         <div class="story-main-content">
                                                         <p>                                                            
                                                             <?php                                                            
-                                                                          
                                                                 $str=$mun_list['content'];
                                                                 $comment = $str;
                                                                 $st=$comment;
@@ -431,21 +426,21 @@ confirm_query($result);
                                                                     else $disp=$disp.$st[$i];
                                                                 }
                                                                                                                  
-                                                                echo ucfirst($disp);    
+                                                                echo ucfirst($disp);  
                                                                 if ($mun_list['picset']==1) {                                                                                                                             
                                                                     $poster_time = strtotime($mun_list['post_time']);                                                    
                                                                     $posterid=$mun_list['post_user'].date("Y-m-d H-i-s", $poster_time);                                                                                                      
-                                                                    echo '<img src="images/' . $posterid . '.jpg "class="img-responsive">';                                                                
+                                                                    echo '<img src="../images/' . $posterid . '.jpg "class="img-responsive">';                                                                
                                                                 } 
                                                             ?>
                                                         </p>
                                                         </div>                                                        
                                                         <footer>
-                                                        <a href="arab_comments.php?id=<?php echo urlencode($mun_list["id"]); ?>">
+                                                        <a href="ess_comments.php?id=<?php echo urlencode($mun_list["id"]); ?>">
                                                         <i class="entypo-comment"></i>
                                                         <?php                                                                
                                                             echo "Comment <span> (";
-                                                            $count_query = "SELECT COUNT(*) FROM arabcomments WHERE pid = {$mun_list["id"]}";
+                                                            $count_query = "SELECT COUNT(*) FROM esscomments WHERE pid = {$mun_list["id"]}";
                                                             $count_result = mysqli_query($conn, $count_query);
                                                             confirm_query($count_result);
                                                             $row = mysqli_fetch_array($count_result);
@@ -473,20 +468,20 @@ confirm_query($result);
             </footer>
         </div>
     </div>
-    <script src="assets/js/modernizr.custom.js"></script>
+     <script src="../assets/js/modernizr.custom.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="assets/js/fileinput.js"></script>
-    <script src="assets/js/style-custom.js"></script>
-    <script src="assets/js/style-demo.js"></script>
+    <script src="../assets/js/fileinput.js"></script>
+    <script src="../assets/js/style-custom.js"></script>
+    <script src="../assets/js/style-demo.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/classie/1.0.1/classie.min.js"></script>
     <!-- Bottom scripts (common) -->
     <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/TweenMax.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="assets/js/joinable.js"></script>
-    <script src="assets/js/resizeable.js"></script>
-    <script src="assets/js/uiMorphingButton_fixed.js"></script>
-    <script src="assets/js/style-api.js"></script>
+    <script src="../assets/js/joinable.js"></script>
+    <script src="../assets/js/resizeable.js"></script>
+    <script src="../assets/js/uiMorphingButton_fixed.js"></script>
+    <script src="../assets/js/style-api.js"></script>
     <div class="modal" id="modal-1">
         <div class="modal-dialog">
             <div class="modal-content">
