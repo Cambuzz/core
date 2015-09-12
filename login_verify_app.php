@@ -3,8 +3,13 @@
 <?php require_once("includes/functions.php");?>
 <?php 
 
-        $username = $_POST["username"];
-        $password = $_POST["password"];
+if(isset($_POST["username"])&&isset($_POST["password"]))
+{
+        $username ="14BCE1088";
+
+        $password ="Prasang7881";
+
+
         
         $query_email = "SELECT * FROM users WHERE username = '{$username}'";
         $result_email = mysqli_query($conn, $query_email);
@@ -42,5 +47,16 @@
                 $output=json_encode($data_array);
                 print($output);           
         }
+    }
+    else
+    {
+               $q="fail";
+                $data_array = array( 
+                    "success" => $q,                       
+                    ); 
+
+                $output=json_encode($data_array);
+                print($output); 
+    }
            
 ?>
