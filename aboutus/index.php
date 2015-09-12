@@ -755,7 +755,7 @@
             <div style="background-color: #3A3A3A">
                 <div id="form-main">
                     <div id="form-div">
-                        <form action="http://cambuzz.co.in/sendmail.php" method="post" class="form" id="form1">
+                        <form action="sendmail.php" method="post" class="form" id="form1">
                             <p class="name">
                                 <input name="name" type="text" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" placeholder="Name" id="name" />
                             </p>
