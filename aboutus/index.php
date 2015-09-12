@@ -1,6 +1,20 @@
 
 <?php require_once("../includes/db_connection.php");?>
 <?php require_once("../includes/functions.php");?>
+<?php
+
+    if(isset($_POST['submit']))
+    {
+         $name=$_POST['name'];
+         $email=$_POST['email'];
+         $message=$_POST['text'];
+         $email1="cambuzz.vitcc@gmail.com";
+         $str="From: ".$email;
+         mail($email1, $name, $message, $str);
+         //echo "done";
+    }
+
+?>
 <!DOCTYPE html>
 <html>
 
@@ -755,7 +769,7 @@
             <div style="background-color: #3A3A3A">
                 <div id="form-main">
                     <div id="form-div">
-                        <form action="sendmail.php" method="post" class="form" id="form1">
+                        <form action="index.php" method="post" class="form" id="form1">
                             <p class="name">
                                 <input name="name" type="text" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" placeholder="Name" id="name" />
                             </p>
