@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html>
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Login or Signup on Cambuzz. Buzz new events, Track your teacher or ask a question.">
     <meta name="keywords" content="Buzz, Events, Cambuzz, Track, Teacher, Question, Campus, Centralized information system">
     <meta name="author" content="Team Cambuzz">
+
     <title>About Us</title>
+
     <link rel="stylesheet" href="css/particle.css" />
     <link rel="stylesheet" type="text/css" href="css/default.css" />
     <!-- intro text -->
@@ -17,10 +18,13 @@
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <!-- team bootstrapped -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- send mail -->
+    <link rel="stylesheet" type="text/css" href="css/fixel.css">
     <script>
     var randoms = ['Internet/Cabin'];
     </script>
     <script src="js/jquery.min.js"></script>
+    <script src="js/fixel.min.js"></script>
     <!-- fonts -->
     <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
@@ -33,94 +37,71 @@
     }
     </script>
     <style>
-    @-moz-keyframes bounce {
-        0%,
-        20%,
-        50%,
-        80%,
-        100% {
-            -moz-transform: translateY(0);
-            transform: translateY(0);
-        }
-        40% {
-            -moz-transform: translateY(-30px);
-            transform: translateY(-30px);
-        }
-        60% {
-            -moz-transform: translateY(-15px);
-            transform: translateY(-15px);
-        }
+     @-moz-keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        -moz-transform: translateY(0);
+        transform: translateY(0);
+      }
+      40% {
+        -moz-transform: translateY(-30px);
+        transform: translateY(-30px);
+      }
+      60% {
+        -moz-transform: translateY(-15px);
+        transform: translateY(-15px);
+      }
     }
-    
     @-webkit-keyframes bounce {
-        0%,
-        20%,
-        50%,
-        80%,
-        100% {
-            -webkit-transform: translateY(0);
-            transform: translateY(0);
-        }
-        40% {
-            -webkit-transform: translateY(-30px);
-            transform: translateY(-30px);
-        }
-        60% {
-            -webkit-transform: translateY(-15px);
-            transform: translateY(-15px);
-        }
+      0%, 20%, 50%, 80%, 100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+      }
+      40% {
+        -webkit-transform: translateY(-30px);
+        transform: translateY(-30px);
+      }
+      60% {
+        -webkit-transform: translateY(-15px);
+        transform: translateY(-15px);
+      }
     }
-    
     @keyframes bounce {
-        0%,
-        20%,
-        50%,
-        80%,
-        100% {
-            -moz-transform: translateY(0);
-            -ms-transform: translateY(0);
-            -webkit-transform: translateY(0);
-            transform: translateY(0);
-        }
-        40% {
-            -moz-transform: translateY(-30px);
-            -ms-transform: translateY(-30px);
-            -webkit-transform: translateY(-30px);
-            transform: translateY(-30px);
-        }
-        60% {
-            -moz-transform: translateY(-15px);
-            -ms-transform: translateY(-15px);
-            -webkit-transform: translateY(-15px);
-            transform: translateY(-15px);
-        }
+      0%, 20%, 50%, 80%, 100% {
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+      }
+      40% {
+        -moz-transform: translateY(-30px);
+        -ms-transform: translateY(-30px);
+        -webkit-transform: translateY(-30px);
+        transform: translateY(-30px);
+      }
+      60% {
+        -moz-transform: translateY(-15px);
+        -ms-transform: translateY(-15px);
+        -webkit-transform: translateY(-15px);
+        transform: translateY(-15px);
+      }
     }
-    
-    html {
-        background-color: #3A3A3A !important;
-    }
-    
-    html,
-    body {
-        max-width: 100%;
-    }
-    
+
     .arrow {
-        bottom: 0;
-        left: 50%;
-        margin-left: -20px;
-        width: 40px;
-        height: 40px;
-        background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNi4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iNTEycHgiIGhlaWdodD0iNTEycHgiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1MTIgNTEyIiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxwYXRoIGZpbGw9IiNGRkZGRkYiIGQ9Ik0yOTMuNzUxLDQ1NS44NjhjLTIwLjE4MSwyMC4xNzktNTMuMTY1LDE5LjkxMy03My42NzMtMC41OTVsMCwwYy0yMC41MDgtMjAuNTA4LTIwLjc3My01My40OTMtMC41OTQtNzMuNjcyICBsMTg5Ljk5OS0xOTBjMjAuMTc4LTIwLjE3OCw1My4xNjQtMTkuOTEzLDczLjY3MiwwLjU5NWwwLDBjMjAuNTA4LDIwLjUwOSwyMC43NzIsNTMuNDkyLDAuNTk1LDczLjY3MUwyOTMuNzUxLDQ1NS44Njh6Ii8+DQo8cGF0aCBmaWxsPSIjRkZGRkZGIiBkPSJNMjIwLjI0OSw0NTUuODY4YzIwLjE4LDIwLjE3OSw1My4xNjQsMTkuOTEzLDczLjY3Mi0wLjU5NWwwLDBjMjAuNTA5LTIwLjUwOCwyMC43NzQtNTMuNDkzLDAuNTk2LTczLjY3MiAgbC0xOTAtMTkwYy0yMC4xNzgtMjAuMTc4LTUzLjE2NC0xOS45MTMtNzMuNjcxLDAuNTk1bDAsMGMtMjAuNTA4LDIwLjUwOS0yMC43NzIsNTMuNDkyLTAuNTk1LDczLjY3MUwyMjAuMjQ5LDQ1NS44Njh6Ii8+DQo8L3N2Zz4=);
-        background-size: contain;
+      bottom: 0;
+      left: 50%;
+      margin-left: -20px;
+      width: 40px;
+      height: 40px;
+      background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNi4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iNTEycHgiIGhlaWdodD0iNTEycHgiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1MTIgNTEyIiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxwYXRoIGZpbGw9IiNGRkZGRkYiIGQ9Ik0yOTMuNzUxLDQ1NS44NjhjLTIwLjE4MSwyMC4xNzktNTMuMTY1LDE5LjkxMy03My42NzMtMC41OTVsMCwwYy0yMC41MDgtMjAuNTA4LTIwLjc3My01My40OTMtMC41OTQtNzMuNjcyICBsMTg5Ljk5OS0xOTBjMjAuMTc4LTIwLjE3OCw1My4xNjQtMTkuOTEzLDczLjY3MiwwLjU5NWwwLDBjMjAuNTA4LDIwLjUwOSwyMC43NzIsNTMuNDkyLDAuNTk1LDczLjY3MUwyOTMuNzUxLDQ1NS44Njh6Ii8+DQo8cGF0aCBmaWxsPSIjRkZGRkZGIiBkPSJNMjIwLjI0OSw0NTUuODY4YzIwLjE4LDIwLjE3OSw1My4xNjQsMTkuOTEzLDczLjY3Mi0wLjU5NWwwLDBjMjAuNTA5LTIwLjUwOCwyMC43NzQtNTMuNDkzLDAuNTk2LTczLjY3MiAgbC0xOTAtMTkwYy0yMC4xNzgtMjAuMTc4LTUzLjE2NC0xOS45MTMtNzMuNjcxLDAuNTk1bDAsMGMtMjAuNTA4LDIwLjUwOS0yMC43NzIsNTMuNDkyLTAuNTk1LDczLjY3MUwyMjAuMjQ5LDQ1NS44Njh6Ii8+DQo8L3N2Zz4=);
+      background-size: contain;
     }
-    
+
     .bounce {
-        -moz-animation: bounce 2s infinite;
-        -webkit-animation: bounce 2s infinite;
-        animation: bounce 2s infinite;
+      -moz-animation: bounce 2s infinite;
+      -webkit-animation: bounce 2s infinite;
+      animation: bounce 2s infinite;
     }
-    
+
     .social-roll-facebook {
         background-image: url('images/fb.png');
         height: 48px;
@@ -159,209 +140,6 @@
     #teamcontainer {
         transform: skewY(10deg);
     }
-    
-    @media only screen and (max-width: 768px) {
-        .our-idea {
-            margin-top: 110px;
-            color: white;
-            display: inline-block;
-            text-align: center;
-            align-items: center;
-            justify-content: center;
-        }
-        .teamcontent {
-            display: none !important;
-        }
-        .team {
-            transform: skewY(0deg);
-        }
-        #teamcontainer {
-            transform: skewY(0deg);
-        }
-        #teamphone {
-            display: inline-flex !important;
-        }
-        #teamphone .phone-content {
-            display: block !important;
-        }
-        body {
-            line-height: 1;
-        }
-        .team10 img {
-            margin-top: 0 !important;
-        }
-    }
-    </style>
-    <style>
-    @import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
-    html {
-        background: url(http://thekitemap.com/images/feedback-img.jpg) no-repeat;
-        background-size: cover;
-        height: 100%;
-    }
-    
-    #feedback-page {
-        text-align: center;
-    }
-    
-    #form-main {
-        width: 100%;
-        float: left;
-        padding-top: 0px;
-    }
-    
-    #form-div {
-        background-color: rgba(72, 72, 72, 0.4);
-        padding-left: 35px;
-        padding-right: 35px;
-        padding-top: 35px;
-        padding-bottom: 50px;
-        width: 450px;
-        float: left;
-        left: 50%;
-        position: absolute;
-        margin-top: 30px;
-        margin-left: -260px;
-        -moz-border-radius: 7px;
-        -webkit-border-radius: 7px;
-    }
-    
-    .feedback-input {
-        color: #3c3c3c;
-        font-family: Helvetica, Arial, sans-serif;
-        font-weight: 500;
-        font-size: 18px;
-        border-radius: 0;
-        line-height: 22px;
-        background-color: #fbfbfb;
-        padding: 13px 13px 13px 54px;
-        margin-bottom: 10px;
-        width: 100%;
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        -ms-box-sizing: border-box;
-        box-sizing: border-box;
-        border: 3px solid rgba(0, 0, 0, 0);
-    }
-    
-    .feedback-input:focus {
-        background: #fff;
-        box-shadow: 0;
-        border: 3px solid #3498db;
-        color: #3498db;
-        outline: none;
-        padding: 13px 13px 13px 54px;
-    }
-    
-    .focused {
-        color: #30aed6;
-        border: #30aed6 solid 3px;
-    }
-    /* Icons ---------------------------------- */
-    
-    #name {
-        background-image: url(http://rexkirby.com/kirbyandson/images/name.svg);
-        background-size: 30px 30px;
-        background-position: 11px 8px;
-        background-repeat: no-repeat;
-    }
-    
-    #name:focus {
-        background-image: url(http://rexkirby.com/kirbyandson/images/name.svg);
-        background-size: 30px 30px;
-        background-position: 8px 5px;
-        background-position: 11px 8px;
-        background-repeat: no-repeat;
-    }
-    
-    #email {
-        background-image: url(http://rexkirby.com/kirbyandson/images/email.svg);
-        background-size: 30px 30px;
-        background-position: 11px 8px;
-        background-repeat: no-repeat;
-    }
-    
-    #email:focus {
-        background-image: url(http://rexkirby.com/kirbyandson/images/email.svg);
-        background-size: 30px 30px;
-        background-position: 11px 8px;
-        background-repeat: no-repeat;
-    }
-    
-    #comment {
-        background-image: url(http://rexkirby.com/kirbyandson/images/comment.svg);
-        background-size: 30px 30px;
-        background-position: 11px 8px;
-        background-repeat: no-repeat;
-    }
-    
-    textarea {
-        width: 100%;
-        height: 150px;
-        line-height: 150%;
-        resize: vertical;
-    }
-    
-    input:hover,
-    textarea:hover,
-    input:focus,
-    textarea:focus {
-        background-color: white;
-    }
-    
-    #button-blue {
-        font-family: 'Montserrat', Arial, Helvetica, sans-serif;
-        float: left;
-        width: 100%;
-        border: #fbfbfb solid 4px;
-        cursor: pointer;
-        background-color: #3498db;
-        color: white;
-        font-size: 24px;
-        padding-top: 22px;
-        padding-bottom: 22px;
-        -webkit-transition: all 0.3s;
-        -moz-transition: all 0.3s;
-        transition: all 0.3s;
-        margin-top: -4px;
-        font-weight: 700;
-    }
-    
-    #button-blue:hover {
-        background-color: rgba(0, 0, 0, 0);
-        color: #0493bd;
-    }
-    
-    .submit:hover {
-        color: #3498db;
-    }
-    
-    .ease {
-        width: 0px;
-        height: 74px;
-        background-color: #fbfbfb;
-        -webkit-transition: .3s ease;
-        -moz-transition: .3s ease;
-        -o-transition: .3s ease;
-        -ms-transition: .3s ease;
-        transition: .3s ease;
-    }
-    
-    .submit:hover .ease {
-        width: 100%;
-        background-color: white;
-    }
-    
-    @media only screen and (max-width: 580px) {
-        #form-div {
-            left: 3%;
-            margin-right: 3%;
-            width: 88%;
-            margin-left: 0;
-            padding-left: 3%;
-            padding-right: 3%;
-        }
-    }
     </style>
 </head>
 
@@ -374,11 +152,11 @@
         <section class="whatwedoSimple">
             <div class="pad">
                 <section class="intro" id="intro">
-                    <div class="row" id="middle_row" style="max-width: 100%; overflow-x: hidden;">
+                    <div class="row" id="middle_row">
                         <div class="medium-6 columns">
                             <section class="cd-intro">
                                 <div class="container">
-                                    <section class="intro1" id="intro1" style="margin-top: 55px;">
+                                    <section class="intro1" id="intro1" style="margin-top: 50px;">
                                         <p style="line-height: 0.7;"> <span class="design" style="font-family: 'Montserrat', sans-serif !important; font-size: 40px; margin-right: 200px;">we at</span>
                                             <br>
                                             <a href="http://cambuzz.co.in/" style="text-decoration: none"><span class="design" style="font-family: 'Pacifico', sans-serif !important;font-size: 120px !important; color: white;">cambuzz</span></a>
@@ -440,7 +218,7 @@
                                     <p class="p-intro" style="font-size: 30px; color: #e85657; font-family: 'Open Sans', sans-serif; font-weight: 300;">Amidst late night maggi sessions, the idea of Cambuzz was born.
                                         <br/>Headquartered in VIT Chennai, <span style="font-family: 'Pacifico', cursive;">cambuzz</span> began as a side project and is now a tiny, bootstrapped idea helping the VIT Chennai family to share their events and is trying to become a go-to resource for discovering and connecting with everyone in the campus.</p>
                                 </div>
-                                <div class="col-sm-6 col-xs-12 our-idea" style="color: white;">
+                                <div class="col-sm-6" style="margin-top: 100px; color:white;">
                                     <div style="font-family: 'Montserrat', sans-serif !important;">
                                         <div class="row">
                                             <div class="col-sm-12">
@@ -477,8 +255,7 @@
                                                     <div class="col-sm-9">
                                                         <h3 class="h3-process">Ask Questions</h3>
                                                         <p class="p-process">
-                                                            Solve your problems. Get answers right away.
-                                                            <br>Need More?
+                                                            Solve your problems. Get answers right away.<br>Need More?
                                                         </p>
                                                     </div>
                                                 </div>
@@ -506,8 +283,10 @@
                                     <h1 style="color:white; padding-top: 20px;"></h1>
                                     <div class="content" style="font-family: 'Montserrat'; color: white;">
                                         <div style="display: flex; align-items: center; justify-content: center; text">
-                                            <p><span style="font-size: 22px;">"We work in a safe environment. There is absolutely no kicking, biting and rapid punches."</span>
-                                                <br> Though the person who wrote this, probably can't see right now. Check us out by clicking on any of our lovely faces. :D</p>
+                                            <p ><span style="font-size: 22px;">"We work in a safe environment. There is absolutely no kicking, biting and rapid punches."</span>
+                                            <br>
+                                            Though the person who wrote this, probably can't see right now.
+                                            Check us out by clicking on any of our lovely faces. :D</p>
                                         </div>
                                     </div>
                                 </div>
@@ -533,7 +312,7 @@
                                         <p>UI/UX Designer &amp; Frontend Developer</p>
                                         <p>He has donned so many hats for the team, we sure have lost count. The team feels indebted to him for crafting the user interface for the website, as well as writing all the about us snippets, though he took a large pizza for that. :/ While not designing posters or reading books about design, he is busy trying to practise the famous step from "<em>Lean On</em>".
                                             <br>
-                                            <br> P.s. He takes care of operations i.e. handling of all the monkeys.
+                                            <br> P.s. He takes care of operations i.e. handling of all the monkeys.   
                                         </p>
                                         <div class="social-icons" style="display: flex; align-items: center; justify-content: center;">
                                             <a href="https://www.facebook.com/prastut.kumar" class="social-roll-facebook" target="_blank"><img src="images/Facebook.png" height="50" width="50"></a>
@@ -635,9 +414,9 @@
                                             <br>
                                             <br>P.s. His biggest achievement has been keeping his attendance above 75%.
                                         </p>
-                                        <div class="social-icons" style="display: flex; align-items: center; justify-content: center;">
+                                        <div class="social-icons" style="display: flex; align-items: center; justify-content: center;">                         
                                             <a href="https://www.facebook.com/Angad29081994?fref=ts" class="social-roll-facebook" target="_blank"><img src="images/Facebook.png" height="50" width="50"></a>
-                                        </div>
+                                         </div>
                                     </div>
                                 </div>
                                 <div class="teamcontent10" style="padding: 10px;">
@@ -647,10 +426,10 @@
                                         <p>Whilst thinking new marketing strategies for the team, she is busy talking about clothes. When it comes to bargaining, she feels she is the Jordan Belfort of our generation. A true foodie by nature, she is carefree and a melodramatic person.
                                             <br>
                                             <br> P.s. She loves to sing but you probably wouldn't want to hear her.
-                                            <div class="social-icons" style="display: flex; align-items: center; justify-content: center;">
-                                                <a href="https://www.facebook.com/ankita.negi.1654?fref=ts" class="social-roll-facebook" target="_blank"><img src="images/Facebook.png" height="50" width="50"></a>
-                                                <a href="https://instagram.com/negiankita/" target="_blank" class="social-roll-facebook"><img src="images/Instgram.png" height="50" width="50"></a>
-                                            </div>
+                                        <div class="social-icons" style="display: flex; align-items: center; justify-content: center;">
+                                            <a href="https://www.facebook.com/ankita.negi.1654?fref=ts" class="social-roll-facebook" target="_blank"><img src="images/Facebook.png" height="50" width="50"></a>
+                                            <a href="https://instagram.com/negiankita/" target="_blank" class="social-roll-facebook"><img src="images/Instgram.png" height="50" width="50"></a>
+                                        </div>
                                         </p>
                                     </div>
                                 </div>
@@ -658,86 +437,36 @@
                             <div class="col-sm-8 ">
                                 <h2 class="h2-process" style="font-size: 100px; font-weight: 800; color: white; text-align: right">The Team</h2>
                                 <div class="row" style="color: white">
-                                    <div class="col-sm-3 team1" id="teamphone">
-                                        <img class="img-process" src="images/pkb.jpg" width="200" height="200" style="border: 5px solid white;">
-                                        <div class="phone-content" style="margin-left: 20px; margin-top: 50px; font-size: 20px; display: none;">
-                                            <strong>Prashant Kumar Bhardwaj</strong>
-                                            <br>
-                                            <span>Backend Developer</span>
-                                        </div>
+                                    <div class="col-sm-3 team1">
+                                        <img class="img-process" src="images/pkb.jpg" width="200" height="200" style="border-width:5px; border-style: solid; border-color: white">
                                     </div>
-                                    <div class="col-sm-3 team2" id="teamphone">
+                                    <div class="col-sm-3 team2">
                                         <img class="img-process" src="images/prastut.jpg" width="200" height="200" style="border: 5px solid white;">
-                                        <div class="phone-content" style="margin-left: 20px; margin-top: 50px; font-size: 20px; display: none;">
-                                            <strong>Prastut Kumar</strong>
-                                            <br>
-                                            <span>UI/UX Designer + Frontend Developer</span>
-                                        </div>
                                     </div>
-                                    <div class="col-sm-3 team3" id="teamphone">
+                                    <div class="col-sm-3 team3">
                                         <img class="img-process" src="images/fenil.jpg" width="200" height="200" style="border: 5px solid white;">
-                                        <div class="phone-content" style="margin-left: 20px; margin-top: 50px; font-size: 20px; display: none;">
-                                            <strong>Fenil Patel</strong>
-                                            <br>
-                                            <span>Backend Developer</span>
-                                        </div>
                                     </div>
-                                    <div class="col-sm-3 team4" id="teamphone">
+                                    <div class="col-sm-3 team4">
                                         <img class="img-process" src="images/Shantanu.jpg" width="200" height="200" style="border: 5px solid white;">
-                                        <div class="phone-content" style="margin-left: 20px; margin-top: 50px; font-size: 20px; display: none;">
-                                            <strong>Shantanu Tripathi</strong>
-                                            <br>
-                                            <span>Algorithmic Head</span>
-                                        </div>
                                     </div>
-                                    <div class="col-sm-3 team5" id="teamphone">
+                                    <div class="col-sm-3 team5">
                                         <img class="img-process" src="images/prasang.jpg" width="200" height="200" style="border-bottom-style: solid; border-left-style: solid; border-right-style: solid;border-width: 5px;">
-                                        <div class="phone-content" style="margin-left: 20px; margin-top: 50px; font-size: 20px; display: none;">
-                                            <strong>Prasang Sharma</strong>
-                                            <br>
-                                            <span>Android App Developer</span>
-                                        </div>
                                     </div>
-                                    <div class="col-sm-3 team6" id="teamphone">
+                                    <div class="col-sm-3 team6">
                                         <img class="img-process" src="images/divyang.jpg" width="200" height="200" style="border-bottom-style: solid; border-left-style: solid; border-right-style: solid;border-width: 5px;">
-                                        <div class="phone-content" style="margin-left: 20px; margin-top: 50px; font-size: 20px; display: none;">
-                                            <strong>Divyang Duhan</strong>
-                                            <br>
-                                            <span>Android App Developer</span>
-                                        </div>
                                     </div>
-                                    <div class="col-sm-3 team7" id="teamphone">
+                                    <div class="col-sm-3 team7">
                                         <img class="img-process" src="images/ip.png" width="200" height="200" style="border-bottom-style: solid; border-left-style: solid; border-right-style: solid;border-width: 5px;">
-                                        <div class="phone-content" style="margin-left: 20px; margin-top: 50px; font-size: 20px; display: none;">
-                                            <strong>Inderpartap Singh Cheema</strong>
-                                            <br>
-                                            <span>Frontend Developer</span>
-                                        </div>
                                     </div>
-                                    <div class="col-sm-3 team8" id="teamphone">
+                                    <div class="col-sm-3 team8">
                                         <img class="img-process" src="images/speaker.jpg" width="200" height="200" style="border-bottom-style: solid; border-left-style: solid; border-right-style: solid;border-width: 5px;">
-                                        <div class="phone-content" style="margin-left: 20px; margin-top: 50px; font-size: 20px; display: none;">
-                                            <strong>Speaker</strong>
-                                            <br>
-                                            <span>He speaks Binary</span>
-                                        </div>
                                     </div>
                                     <div class="marketing">
-                                        <div class="col-sm-3 col-md-offset-3 team9" id="teamphone">
+                                        <div class="col-sm-3 col-md-offset-3 team9">
                                             <img class="img-process" src="images/angad.jpg" width="200" height="200" style="border-width:5px; border-style: solid; border-color: white; margin-top: 40px;">
-                                            <div class="phone-content" style="margin-left: 20px; margin-top: 50px; font-size: 20px; display: none;">
-                                                <strong>Angad Sachdave</strong>
-                                                <br>
-                                                <span>Marketing Head</span>
-                                            </div>
                                         </div>
-                                        <div class="col-sm-6 team10" id="teamphone">
+                                        <div class="col-sm-6 team10">
                                             <img class="img-process" src="images/ankita.PNG" width="200" height="200" style="border-width:5px; border-style: solid; border-color: white; margin-top: 40px;">
-                                            <div class="phone-content" style="margin-left: 20px; margin-top: 50px; font-size: 20px; display: none;">
-                                                <strong>Ankita Negi</strong>
-                                                <br>
-                                                <span>Marketing</span>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -748,30 +477,42 @@
             </div>
         </section>
         <!--section: contact -->
-        <section class="contact group" style="margin-top: 30px;">
-            <div style="background-color: #3A3A3A">
-                <div id="form-main">
-                    <div id="form-div">
-                        <form class="form" id="form1">
-                            <p class="name">
-                                <input name="name" type="text" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" placeholder="Name" id="name" />
-                            </p>
-                            <p class="email">
-                                <input name="email" type="text" class="validate[required,custom[email]] feedback-input" id="email" placeholder="Email" />
-                            </p>
-                            <p class="text">
-                                <textarea name="text" class="validate[required,length[6,300]] feedback-input" id="comment" placeholder="Comment"></textarea>
-                            </p>
-                            <div class="submit">
-                                <input type="submit" value="SEND" id="button-blue" />
-                                <div class="ease"></div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
+        <section class="contact group" style: "display: none;">
         </section>
     </main>
+    <div class="contactus home">
+        <div id="contact" class="contact">
+            <div class="contact-form-container">
+                <div class="contact-form form-container">
+                    <form action="http://cambuzz.co.in/sendmail.php" method="post" id="contact_form">
+                        <h3 class="form-title">Get in Touch</h3>
+                        <div class="field">
+                            <input type="text" placeholder="Name" name="name">
+                        </div>
+                        <div class="field">
+                            <input type="text" placeholder="Email" name="email">
+                        </div>
+                        <div class="field">
+                            <textarea placeholder="Message" name="message"></textarea>
+                        </div>
+                        <div class="field checkbox_field">
+                            <label for="dont_send_email">
+                                <input type="checkbox" name="dont_send_email" id="dont_send_email" value="true">
+                                I just want to see if this letter slides into the box!
+                            </label>
+                        </div>
+                        <div class="field">
+                            <input type="submit" value="Send it!">
+                        </div>
+                    </form>
+                </div>
+                <div id="thanks" class="thanks">
+                    <h3>Thanks!</h3>
+                    <p>We&rsquo;ll get back to you soon!</p>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="js/textRotate.js"></script>
     <script>
     (function() {
@@ -994,18 +735,6 @@
 
     });
     </script>
-    <script>
-    var docWidth = document.documentElement.offsetWidth;
-
-    [].forEach.call(
-        document.querySelectorAll('*'),
-        function(el) {
-            if (el.offsetWidth > docWidth) {
-                console.log(el);
-            }
-        }
-    );
-    </script>
     <div class="md-overlay"></div>
     <!-- the overlay element -->
     <!-- classie.js by @desandro: https://github.com/desandro/classie -->
@@ -1023,6 +752,9 @@
     <script src="js/lib/jquery.js"></script>
     <script src="js/plugins.js"></script>
     <script src="js/script.js"></script>
+     
+
+    
 </body>
 
 </html>
