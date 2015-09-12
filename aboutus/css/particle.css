@@ -85,7 +85,7 @@ input::-moz-focus-inner {
 /* Remove default vertical scrollbar in IE6/7/8/9 and allow vertical only resinig */
 textarea {
   resize: vertical;
-  overflow: auto;
+  /*overflow: auto;*/
   vertical-align: top;
 }
 /* Consistent box sizing and appearance */
