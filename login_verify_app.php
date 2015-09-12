@@ -26,7 +26,7 @@
                     "success" => $q,                       
                     ); 
 
-                $output="[".json_encode($data_array)."]";
+                $output=json_encode($data_array);
                 print($output);
                 
             } 
@@ -39,7 +39,7 @@
                     "success" => $q,                       
                     ); 
 
-                $output="[".json_encode($data_array)."]";
+                $output=json_encode($data_array);
                 print($output);           
         }
            
