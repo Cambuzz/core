@@ -1,11 +1,6 @@
 <?php require_once("includes/session.php");?>
 <?php require_once("includes/db_connection.php");?>
 <?php require_once("includes/functions.php");?>
-<?php
-if (logged_in()) {
-    redirect_to ("public/Inside/buzz.php");
-}
-?>
 <?php 
 
         $username = $_POST["username"];
@@ -18,18 +13,34 @@ if (logged_in()) {
         }
         $found_user = attempt_login($username, $password);
 
-        if ($found_user) {
+        if ($found_user) 
+        {
 
-            if ($db_confirmed==1) {               
+            if ($db_confirmed==1) 
+            {               
 
                 $_SESSION["user_id"] = $found_user["id"];
                 $_SESSION["username"] = $found_user["username"];
-                echo "loggedin";
-            } else {
-                echo "Account not confirmed";
-            }
-        } else {
-            echo "Invalid Username or Password. Please check if CAPS is not pressed";            
+                $q="true";
+                $data_array = array( 
+                    "success" => $q,                       
+                    ); 
+
+                $output="[".json_encode($data_array)."]";
+                print($output);
+                
+            } 
+           
+        }
+        else 
+        {
+               $q="false";
+                $data_array = array( 
+                    "success" => $q,                       
+                    ); 
+
+                $output="[".json_encode($data_array)."]";
+                print($output);           
         }
            
 ?>
