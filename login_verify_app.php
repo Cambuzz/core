@@ -5,9 +5,9 @@
 
 if(isset($_POST["username"])&&isset($_POST["password"]))
 {
-        $username ="14BCE1088";
+        $username =$_POST["username"];
 
-        $password ="Prasang7881";
+        $password =$_POST["password"];
 
 
         
@@ -24,8 +24,7 @@ if(isset($_POST["username"])&&isset($_POST["password"]))
             if ($db_confirmed==1) 
             {               
 
-                $_SESSION["user_id"] = $found_user["id"];
-                $_SESSION["username"] = $found_user["username"];
+               
                 $q="true";
                 $data_array = array( 
                     "success" => $q,                       
