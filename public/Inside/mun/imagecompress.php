@@ -10,18 +10,16 @@ while ($mun_list = mysqli_fetch_assoc($result))
 	if ($mun_list['picset']==1)
     {                                                                                                                             
         $poster_time = strtotime($mun_list['post_time']);                                                    
-        $posterid=$mun_list['post_user'].date("Y-m-d H-i-s", $poster_time);
-        $height=1;
-        $width=1;                                                                                                      
+        $posterid=$mun_list['post_user'].date("Y-m-d H-i-s", $poster_time);  
+        $path="../images/". $posterid .".jpg ";                                                                                                    
         //echo '<img src="../images/' . $posterid . '.jpg "class="img-responsive">';
-        list($width, $height) = getimagesize("../images/".$posterid.".jpg ");
-		//echo $width." ".$height;
-		$h=(500*$height)/$width;
+        list($width, $height) = getimagesize($path);
+		$h=500*$height/$width;
 		$w=500;
-		$image = new Imagick("../images/".$posterid.".jpg ");
+		
+		$image = new Imagick($path);
 		$image->resizeImage( $w, $h , Imagick::FILTER_LANCZOS, 1, TRUE);
-		$image->writeImage("..images/newimages/".$posterid.".jpg ");   
-		echo "done";                                                             
+		$image->writeImage("..images/newimages/". $posterid .".jpg ");                                                                
     } 
 }
 ?>
