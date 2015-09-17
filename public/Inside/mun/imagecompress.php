@@ -14,12 +14,12 @@ while ($mun_list = mysqli_fetch_assoc($result))
         //echo '<img src="../images/' . $posterid . '.jpg "class="img-responsive">';
         list($width, $height) = getimagesize("../images/". $posterid .".jpg ");
 		//echo $width." ".$height;
-		$h=500*$height/$width;
+		$h=(500*$height)/$width;
 		$w=500;
-		echo $w." ".$h."<br />";
 		$image = new Imagick("../images/". $posterid .".jpg ");
 		$image->resizeImage( $w, $h , Imagick::FILTER_LANCZOS, 1, TRUE);
-		$image->writeImage("..images/newimages/". $posterid .".jpg ");                                                                
+		$image->writeImage("..images/newimages/". $posterid .".jpg ");   
+		echo "done";                                                             
     } 
 }
 ?>
