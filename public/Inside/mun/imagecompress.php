@@ -13,13 +13,18 @@ while ($mun_list = mysqli_fetch_assoc($result))
         $posterid=$mun_list['post_user'].date("Y-m-d H-i-s", $poster_time);  
         $path="../images/". $posterid .".jpg ";                                                                                                    
         //echo '<img src="../images/' . $posterid . '.jpg "class="img-responsive">';
-        list($width, $height) = getimagesize($path);
-		$h=500*$height/$width;
-		$w=500;
+        //list($width, $height) = getimagesize($path);
+		
 		
 		$image = new Imagick($path);
+		$geo=$image->getImageGeometry(); 
+		$width=$geo['width']; 
+		$height=$geo['height'];
+		$h=500*$height/$width;
+		$w=500;
 		$image->resizeImage( $w, $h , Imagick::FILTER_LANCZOS, 1, TRUE);
-		$image->writeImage("..images/newimages/". $posterid .".jpg ");                                                                
+		$image->writeImage("..images/newimages/". $posterid .".jpg "); 
+		echo "done";                                                               
     } 
 }
 ?>
