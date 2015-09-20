@@ -4,15 +4,26 @@
 <?php
 	if(isset($_POST["username"])&&isset($_POST["name"])&&isset($_POST["email"])&&isset($_POST["password"]))
 	{
+    $count_query="SELECT count FROM live WHERE id = '1'";
+    $result_countquery=mysqli_query($conn,$count_query);
+    $cr=mysqli_fetch_assoc($result_countquery);
+    $ucr=$cr['count']+1;
+
+    $updatec_query="UPDATE live SET count='{$ucr}' WHERE id = '1'";
+    $result_ucountquery=mysqli_query($conn,$updatec_query);
+
 		$sname=$_POST['name'];
 		$username=$_POST['username'];
 		$email=$_POST['email'];
 		$password=$_POST['password'];
 		$query_ucheck = "SELECT username FROM users WHERE username = '{$username}'";
-        $result_ucheck = mysqli_query($conn, $query_ucheck);
-        $query_echeck = "SELECT email FROM users WHERE email = '{$email}'";
+    $result_ucheck = mysqli_query($conn, $query_ucheck);
+    $query_echeck = "SELECT email FROM users WHERE email = '{$email}'";
 	    $result_echeck = mysqli_query($conn, $query_echeck);
-	    if (mysqli_num_rows($result_ucheck) !=0) {
+
+	    if (mysqli_num_rows($result_ucheck) !=0) 
+      {
+
 	    	 $q="username_exists";
              $data_array = array( 
                     "success" => $q,                       
@@ -32,7 +43,9 @@
              $output=json_encode($data_array);
              print($output);
 	        //echo "Email already exists";
-	    } else {
+	    } 
+      else 
+      {
 
         
             
@@ -60,13 +73,14 @@
                         // $message = $html. "Confirm your email by clicking the link http://cambuzz.co.in/emailconfirm.php?username=$username&code=$confirmcode";
                         $message = "Confirm your email by clicking the link http://cambuzz.co.in/emailconfirm.php?username=$username&code=$confirmcode";
                         mail($email, "Confirm your email", $message, "From: cambuzz.vitcc@gmail.com");
-                         $q="true";
-			             $data_array = array( 
-			                    "success" => $q,                       
+
+                        $q="true";
+			                  $data_array = array( 
+			                  "success" => $q,                       
 			                    ); 
 
-			             $output=json_encode($data_array);
-			             print($output);
+    			             $output=json_encode($data_array);
+    			             print($output);
                         // echo "Kindly check your VIT email and confirm your registration after closing this signup form.<br /><span style='color:red;'>Your link will be expired in 30 minutes.</span>";
                         // echo "<br>"; 
                         // echo"(Check your spam folder if you don't find it in your inbox.)";
