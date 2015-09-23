@@ -2,6 +2,7 @@
 <?php require_once("includes/db_connection.php");?>
 <?php require_once("includes/functions.php");?>
 <?php
+
 	if(isset($_POST["username"])&&isset($_POST["name"])&&isset($_POST["email"])&&isset($_POST["password"]))
 	{
     $count_query="SELECT count FROM live WHERE id = '1'";
