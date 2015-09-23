@@ -603,7 +603,7 @@ if ((isset($_POST['submit']))&&(isset($_POST['comment']))) {
                             ?>
                                                 </div>
                                                 <div class="user-comment-content" style="color: black;">
-                                                <form method="post" action="comments.php?id=<?php echo urlencode($_GET["id"]); ?>&school=<?php echo urlencode($_GET["school"]); ?>">
+                                                <form method="post" action="comments.php?id=<?php echo urlencode($_GET["id"]); ?>&amp;school=<?php echo urlencode($_GET["school"]); ?>">
                                                     <textarea style="padding-right: 70px;" class="form-control autogrow" name="comment" value="" required placeholder="Write a comment..."></textarea>
                                                     <input type="submit" name="submit" value="Submit" class="btn btn-info" style="background-color: #333; color: white; margin-top: 2px;"> 
                                                 </form>

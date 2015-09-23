@@ -444,7 +444,7 @@ confirm_query($result);
                                                         </p>
                                                         </div>                                                        
                                                         <footer>
-                                                        <a href="comments.php?id=<?php echo urlencode($technovit_list["id"]); ?>&school='connectivitieee'">
+                                                        <a href="comments.php?id=<?php echo urlencode($technovit_list["id"]); ?>&amp;school='connectivitieee'">
                                                         <i class="entypo-comment"></i>
                                                         <?php                                                                
                                                             echo "Comment <span> (";
