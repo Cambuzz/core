@@ -34,7 +34,7 @@ $school=$_GET["school"];
 $query = "SELECT * FROM technovit WHERE id = {$id} AND school='{$school}'";
 $result = mysqli_query($conn, $query);
 $view_post = mysqli_fetch_assoc($result);
-$query_post_comment = "SELECT * FROM technovitcomments WHERE pid = {$id} AND school='{$school}";
+$query_post_comment = "SELECT * FROM technovitcomments WHERE pid = {$id} AND school='{$school}'";
 $result_post_comment = mysqli_query($conn, $query_post_comment); 
 ?>
 <?php   
@@ -47,7 +47,7 @@ if ((isset($_POST['submit']))&&(isset($_POST['comment']))) {
     if($current_user!=$view_post["post_user"]) {
         $counter = $view_post['comment_counter'];
         $comment_counter = $counter+1;    
-        $query_counter = "UPDATE technovit SET comment_counter = {$comment_counter} WHERE id = {$id} AND school='{$school}";
+        $query_counter = "UPDATE technovit SET comment_counter = {$comment_counter} WHERE id = {$id} AND school='{$school}'";
         $result_counter = mysqli_query($conn, $query_counter);
     }
     $query_comment = "INSERT INTO technovitcomments (pid, comment, commentor, comment_time , school) VALUES ({$pid}, '{$comment}', '{$commentor}', '{$comment_time}' ,'{$school}')";
