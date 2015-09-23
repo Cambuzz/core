@@ -371,9 +371,70 @@ confirm_query($result);
 
                                                         <div class="story-main-content">
                                                         <p>                                                            
-                                                            <?php                                                           
+                                                            <?php                                                            
+                                                                          
+                                                                $str=$technovit_list['content'];
+                                                                $comment = $str;
+                                                                $st=$comment;
+                                                                $sz=strlen($st);
+                                                                $disp="";
+                                                                $store="";
+                                                                $flag=0;
+                                                                for($i=0; $i<$sz; $i++)
+                                                                {
+                                                                    if($st[$i]=='#')
+                                                                    {
+                                                                        $ind=$i;
+                                                                        while($st[$ind]=='#')
+                                                                        {
+                                                                            if($ind+1<$sz)
+                                                                            {
+                                                                                if($st[$ind+1]!='#' && $st[$ind+1]!=' ')
+                                                                                {
+                                                                                    $c=$ind+1;
+                                                                                    $var="#";
+                                                                                    while($st[$c]!='#' && $st[$c]!=' ')
+                                                                                    {
+                                                                                        $var=$var.$st[$c];
+                                                                                        $c++;
+                                                                                        if($c>=$sz)break;
+                                                                                    }
+                                                                                    //echo $var."<br>";
+                                                                                    $disp=$disp."<a href='search_tag.php?word=".urlencode($var)."'>";
+
+                                                                                }
+                                                                            }
+                                                                            $disp=$disp.$st[$ind];
+                                                                            $ind++;
+                                                                            if($ind>=$sz)break;
+                                                                        }
+                                                                        if($ind>=$sz)break;
+                                                                        if($st[$ind]==' ')
+                                                                        {
+                                                                            $i=$ind;
+                                                                            $disp=$disp.$st[$ind];
+                                                                            continue;
+                                                                        }
+                                                                        while($st[$ind]!=' '&& $st[$ind]!='#')
+                                                                        {
+                                                                            $disp=$disp.$st[$ind];
+                                                                            $ind++;
+                                                                            if($ind>=$sz)
+                                                                                {
+                                                                                    $disp=$disp."</a>";
+                                                                                    break;
+                                                                                }
+                                                                        }
+                                                                        if($ind<$sz)
+                                                                        {
+                                                                            $disp=$disp."</a>";
+                                                                        }
+                                                                        $i=$ind-1;
+                                                                    }
+                                                                    else $disp=$disp.$st[$i];
+                                                                }
                                                                                                                  
-                                                                echo ucfirst($technovit_list['content']);    
+                                                                echo ucfirst($disp);    
                                                                 if ($technovit_list['picset']==1) {                                                                                                                             
                                                                     $poster_time = strtotime($technovit_list['post_time']);                                                    
                                                                     $posterid=$technovit_list['post_user'].date("Y-m-d H-i-s", $poster_time);                                                                                                      

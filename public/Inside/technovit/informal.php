@@ -448,7 +448,7 @@ confirm_query($result);
                                                         <i class="entypo-comment"></i>
                                                         <?php                                                                
                                                             echo "Comment <span> (";
-                                                            $count_query = "SELECT COUNT(*) FROM technovitcomments WHERE pid = {$technovit_list["id"]} , school='informal' ";
+                                                            $count_query = "SELECT COUNT(*) FROM technovitcomments WHERE pid = {$technovit_list["id"]} AND school='informal' ";
                                                             $count_result = mysqli_query($conn, $count_query);
                                                             confirm_query($count_result);
                                                             $row = mysqli_fetch_array($count_result);
