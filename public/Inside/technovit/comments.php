@@ -24,11 +24,15 @@
     }   
 ?>
 <?php
-$technovit = find_technovit_by_id($_GET["id"],$_GET["school"]);
-if (!$technovit) {
+$id=$_GET['id'];
+$t_query="SELECT * FROM technovit WHERE id='{$id}'";
+$t_r=mysqli_query($conn,$t_query);
+
+if (!$t_r) 
+{
     redirect_to($school.".php");
 }
-
+$technovit=mysqli_fetch_assoc($t_r);
 $id = $technovit["id"];
 $school=$_GET["school"];
 $query = "SELECT * FROM technovit WHERE id = {$id} AND school='{$school}'";
