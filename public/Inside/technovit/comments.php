@@ -229,7 +229,7 @@ if ((isset($_POST['submit']))&&(isset($_POST['comment']))) {
                             <div class="row">
                                 <div class="col-md-12">
                                      <ul class="nav nav-tabs ">
-                                       <li class="active">
+                                       <li >
                                                 <a href="qubit.php"><span>Qubit</span></a>
                                         </li>
                                         <li>

@@ -78,8 +78,8 @@ if (isset($_POST['submit'])) {
     $school="qubit";
     $query = "INSERT INTO technovit (content, picset, post_user, post_time , school) VALUES ('{$content}', {$picset}, '{$post_user}', '{$post_time}', '{$school}')";
     $sql = mysqli_query($conn, $query);
-    $council = "qubit";
-    $main_query = "INSERT INTO app (content, picset, post_user, post_time, council, po_url, dp_url) VALUES ('{$content}', {$picset}, '{$post_user}', '{$post_time}', '{$council}', '{$po_url}', '{$dp_url}')";      
+    $school = "qubit";
+    $main_query = "INSERT INTO app_technovit (content, picset, post_user, post_time, school, po_url, dp_url) VALUES ('{$content}', {$picset}, '{$post_user}', '{$post_time}', '{$school}', '{$po_url}', '{$dp_url}')";      
     $main_sql = mysqli_query($conn, $main_query);
 }
 
