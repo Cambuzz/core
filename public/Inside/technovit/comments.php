@@ -410,7 +410,7 @@ if ((isset($_POST['submit']))&&(isset($_POST['comment']))) {
                                         
                                             <i class="entypo-comment"></i> Comment <span>(
                                             <?php
-                                            $count_query = "SELECT COUNT(*) FROM technovitcomments WHERE pid = {$id} , school='{$school}";
+                                            $count_query = "SELECT COUNT(*) FROM technovitcomments WHERE pid = {$id} AND school='{$school}";
                                             $count_result = mysqli_query($conn, $count_query);
                                             confirm_query($count_result);
                                             $row = mysqli_fetch_array($count_result);
