@@ -427,7 +427,7 @@ confirm_query($result);
                                                                     $poster_time = strtotime($mun_list['post_time']);                                                    
                                                                     $posterid=$mun_list['post_user'].date("Y-m-d H-i-s", $poster_time); 
                                                                     $posterid=str_replace(" ","%20",$posterid);                                                                                                     
-                                                                    echo '<img src="../images/newimages/' . $posterid . '.jpg" class="img-responsive">';                                                                
+                                                                    echo '<img src="../images/newimages/c' . $posterid . '.jpg" class="img-responsive">';                                                                
                                                                 } 
                                                             ?>
                                                         </p>
