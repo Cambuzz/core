@@ -425,8 +425,9 @@ confirm_query($result);
                                                                 echo ucfirst($disp);  
                                                                 if ($mun_list['picset']==1) {                                                                                                                             
                                                                     $poster_time = strtotime($mun_list['post_time']);                                                    
-                                                                    $posterid=$mun_list['post_user'].date("Y-m-d H-i-s", $poster_time);                                                                                                      
-                                                                    echo '<img src="http://cambuzz.co.in/public/Inside/images/newimages/' . $posterid . '.jpg" class="img-responsive">';                                                                
+                                                                    $posterid=$mun_list['post_user'].date("Y-m-d H-i-s", $poster_time); 
+                                                                    $posterid=str_replace(" ","%20",$posterid);                                                                                                     
+                                                                    echo '<img src="../images/newimages/' . $posterid . '.jpg" class="img-responsive">';                                                                
                                                                 } 
                                                             ?>
                                                         </p>
