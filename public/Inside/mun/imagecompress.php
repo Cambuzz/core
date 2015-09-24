@@ -16,14 +16,36 @@ while ($mun_list = mysqli_fetch_assoc($result))
         //list($width, $height) = getimagesize($path);
 		
 		
-		$image = new Imagick($path);
-		$geo=$image->getImageGeometry(); 
-		$width=$geo['width']; 
-		$height=$geo['height'];
-		$h=500*$height/$width;
-		$w=500;
-		$image->resizeImage( $w, $h , Imagick::FILTER_LANCZOS, 1, TRUE);
-		$image->writeImage("..images/newimages/". $posterid .".jpg "); 
+        ini_set('memory_limit', '400M');
+		$filename = $path;
+		list($width, $height) = getimagesize($filename);
+		if($width>500)
+		{
+		 $newwidth =500;
+		 $newheight = ($height * 500)/$width;
+	    }
+	    else
+	    {
+	    	$newwidth = $width;
+		    $newheight = $height;
+	    }
+		$thumb = imagecreatetruecolor($newwidth, $newheight);
+		$source = imagecreatefromjpeg($filename);
+		imagecopyresized($thumb, $source, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
+	 	imagejpeg($thumb,"..images/newimages/". $posterid .".jpg ",100);
+		//return destination file
+		imagedestroy($source);
+		imagedestroy($thumb);
+
+
+		// $image = new Imagick($path);
+		// $geo=$image->getImageGeometry(); 
+		// $width=$geo['width']; 
+		// $height=$geo['height'];
+		// $h=500*$height/$width;
+		// $w=500;
+		// $image->resizeImage( $w, $h , Imagick::FILTER_LANCZOS, 1, TRUE);
+		// $image->writeImage("..images/newimages/". $posterid .".jpg "); 
 		echo "done";                                                               
     } 
 }
