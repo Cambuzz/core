@@ -11,7 +11,7 @@ while ($mun_list = mysqli_fetch_assoc($result))
     {                                                                                                                             
         $poster_time = strtotime($mun_list['post_time']);                                                    
         $posterid=$mun_list['post_user'].date("Y-m-d H-i-s", $poster_time);  
-        $path="../images/". $posterid .".jpg ";                                                                                                    
+        $path="../images/". $posterid .".jpg";                                                                                                    
         //echo '<img src="../images/' . $posterid . '.jpg "class="img-responsive">';
         //list($width, $height) = getimagesize($path);
 		
@@ -32,7 +32,7 @@ while ($mun_list = mysqli_fetch_assoc($result))
 		$thumb = imagecreatetruecolor($newwidth, $newheight);
 		$source = imagecreatefromjpeg($filename);
 		imagecopyresized($thumb, $source, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
-	 	imagejpeg($thumb,"..images/newimages/". $posterid .".jpg ",100);
+	 	imagejpeg($thumb,"../images/newimages/". $posterid .".jpg ",100);
 		//return destination file
 		imagedestroy($source);
 		imagedestroy($thumb);
