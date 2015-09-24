@@ -90,7 +90,7 @@ if((isset($_POST['searchsubmit']))&&(isset($_POST['search'])))
     redirect_to($str);
 }
 
-$query = "SELECT * FROM technovit WHERE school='diesno' ORDER BY id DESC";
+$query = "SELECT * FROM technovit WHERE school='diseno' ORDER BY id DESC";
 $result = mysqli_query($conn, $query);
 confirm_query($result);
 ?>
