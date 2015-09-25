@@ -26,7 +26,7 @@ while ($mun_list = mysqli_fetch_assoc($result))
 		$minw=450;
 		$or1=$height/$width;
 		$minr=$minh/$minw;
-		if(($height>$maxh)||($width>$maxw))
+		if($height>$maxh)
 		{
 				if($or1==$minr)
 				{
