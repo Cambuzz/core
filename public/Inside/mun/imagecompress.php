@@ -28,36 +28,47 @@ while ($mun_list = mysqli_fetch_assoc($result))
 		$minr=$minh/$minw;
 		if($height>$maxh)
 		{
-				if($or1==$minr)
-				{
-					$thumb = imagecreatetruecolor($minw, $minh);
-				    $source = imagecreatefromjpeg($filename);
-				    //unlink("../images/newimages/". $posterid .".jpg");
-				    //$posterid="d".$posterid;
-					imagecopyresized($thumb, $source, 0, 0, 0, 0, $minw, $minh, $width, $height);
-					imagejpeg($thumb,"../images/newimages/". $posterid .".jpg",100);
-				}
-				else
-				{
-					$nh=$minh;
-					$nw=$nh/$or1;
 
-					if($nw>$maxw)
-					{
-						$nw=$minw;
-						$nh=$nw/$or1;
-					}
+			$nh=475;
+			$nw=($width*475)/$height;
+			$thumb = imagecreatetruecolor($nw, $nh);
+			$source = imagecreatefromjpeg($filename);
+			//unlink("../images/newimages/". $posterid .".jpg");
+			//$posterid="d".$posterid;
+			imagecopyresized($thumb, $source, 0, 0, 0, 0, $nw, $nh, $width, $height);
+			imagejpeg($thumb,"../images/newimages/". $posterid .".jpg",100);
+				// if($or1==$minr)
+				// {
+				// 	$thumb = imagecreatetruecolor($minw, $minh);
+				//     $source = imagecreatefromjpeg($filename);
+				//     //unlink("../images/newimages/". $posterid .".jpg");
+				//     //$posterid="d".$posterid;
+				// 	imagecopyresized($thumb, $source, 0, 0, 0, 0, $minw, $minh, $width, $height);
+				// 	imagejpeg($thumb,"../images/newimages/". $posterid .".jpg",100);
+				// }
+				// else
+				// {
+				// 	$nh=$minh;
+				// 	$nw=$nh/$or1;
 
-					$thumb = imagecreatetruecolor($nw, $nh);
-				    $source = imagecreatefromjpeg($filename);
-				    //unlink("../images/newimages/". $posterid .".jpg");
-				    //$posterid="d".$posterid;
-					imagecopyresized($thumb, $source, 0, 0, 0, 0, $nw, $nh, $width, $height);
-					imagejpeg($thumb,"../images/newimages/". $posterid .".jpg",100);
-				}
+				// 	if($nw>$maxw)
+				// 	{
+				// 		$nw=$minw;
+				// 		$nh=$nw/$or1;
+				// 	}
+
+				// 	$thumb = imagecreatetruecolor($nw, $nh);
+				//     $source = imagecreatefromjpeg($filename);
+				//     //unlink("../images/newimages/". $posterid .".jpg");
+				//     //$posterid="d".$posterid;
+				// 	imagecopyresized($thumb, $source, 0, 0, 0, 0, $nw, $nh, $width, $height);
+				// 	imagejpeg($thumb,"../images/newimages/". $posterid .".jpg",100);
+				// }
 		}
 		else
 		{
+			$thumb = imagecreatetruecolor($nw, $nh);
+			$source = imagecreatefromjpeg($filename);
 			$thumb = imagecreatetruecolor($width, $height);
 				    $source = imagecreatefromjpeg($filename);
 				    //unlink("../images/newimages/". $posterid .".jpg");
