@@ -26,11 +26,10 @@ while ($mun_list = mysqli_fetch_assoc($result))
 		$minw=350;
 		$or=$hieght/$width;
 		$minr=$minh/$minw;
-		if($or=$minr)
+		if($or==$minr)
 		{
 			$thumb = imagecreatetruecolor($newwidth, $newheight);
 		    $source = imagecreatefromjpeg($filename);
-		    unlink("../images/newimages/". $posterid .".jpg");
 		    $posterid="c".$posterid;
 			imagecopyresized($thumb, $source, 0, 0, 0, 0, $minh, $minw, $width, $height);
 			imagejpeg($thumb,"../images/newimages/". $posterid .".jpg",100);
@@ -48,9 +47,8 @@ while ($mun_list = mysqli_fetch_assoc($result))
 
 			$thumb = imagecreatetruecolor($newwidth, $newheight);
 		    $source = imagecreatefromjpeg($filename);
-		    unlink("../images/newimages/". $posterid .".jpg");
 		    $posterid="c".$posterid;
-			imagecopyresized($thumb, $source, 0, 0, 0, 0, $minh, $minw, $width, $height);
+			imagecopyresized($thumb, $source, 0, 0, 0, 0, $nh, $nw, $width, $height);
 			imagejpeg($thumb,"../images/newimages/". $posterid .".jpg",100);
 		}
 		// if($width>500)
