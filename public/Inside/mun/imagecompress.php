@@ -28,7 +28,7 @@ while ($mun_list = mysqli_fetch_assoc($result))
 		$minr=$minh/$minw;
 		if($or==$minr)
 		{
-			$thumb = imagecreatetruecolor($newwidth, $newheight);
+			$thumb = imagecreatetruecolor($minw, $minh);
 		    $source = imagecreatefromjpeg($filename);
 		    $posterid="c".$posterid;
 			imagecopyresized($thumb, $source, 0, 0, 0, 0, $minh, $minw, $width, $height);
@@ -45,7 +45,7 @@ while ($mun_list = mysqli_fetch_assoc($result))
 				$nh=$nw/$or;
 			}
 
-			$thumb = imagecreatetruecolor($newwidth, $newheight);
+			$thumb = imagecreatetruecolor($nw, $nh);
 		    $source = imagecreatefromjpeg($filename);
 		    $posterid="c".$posterid;
 			imagecopyresized($thumb, $source, 0, 0, 0, 0, $nh, $nw, $width, $height);
