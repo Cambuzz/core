@@ -5,6 +5,7 @@
 $query = "SELECT * FROM mun ORDER BY id DESC";
 $result = mysqli_query($conn, $query);
 confirm_query($result);
+$flag=0;
 while ($mun_list = mysqli_fetch_assoc($result)) 
 {
 	if ($mun_list['picset']==1)
@@ -32,10 +33,7 @@ while ($mun_list = mysqli_fetch_assoc($result))
 		$thumb = imagecreatetruecolor($newwidth, $newheight);
 		$source = imagecreatefromjpeg($filename);
 		imagecopyresized($thumb, $source, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
-		$posterid="cp".$posterid;
-		$p1="c".$posterid;
 	 	imagejpeg($thumb,"../images/". $posterid .".jpg",100);
-	 	unlink($p1);
 	 	//$thumb->writeImage("..images/newimages/". $posterid .".jpg"); 
 		//return destination file
 		imagedestroy($source);
@@ -49,7 +47,7 @@ while ($mun_list = mysqli_fetch_assoc($result))
 		// $h=500*$height/$width;
 		// $w=500;
 		// $image->resizeImage( $w, $h , Imagick::FILTER_LANCZOS, 1, TRUE);
-		 $image->writeImage("..images/newimages/". $posterid .".jpg "); 
+		 //$image->writeImage("..images/newimages/". $posterid .".jpg "); 
 		echo "done";                                                               
     } 
 }
