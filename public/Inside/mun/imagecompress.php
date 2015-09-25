@@ -2,7 +2,7 @@
 <?php require_once("../../../includes/db_connection.php");?>
 <?php require_once("../../../includes/functions.php");?>
 <?php
-$query = "SELECT * FROM mun ORDER BY id DESC";
+$query = "SELECT * FROM ess ORDER BY id DESC";
 $result = mysqli_query($conn, $query);
 confirm_query($result);
 $flag=0;
@@ -32,8 +32,8 @@ while ($mun_list = mysqli_fetch_assoc($result))
 				{
 					$thumb = imagecreatetruecolor($minw, $minh);
 				    $source = imagecreatefromjpeg($filename);
-				    unlink("../images/newimages/". $posterid .".jpg");
-				    $posterid="d".$posterid;
+				    //unlink("../images/newimages/". $posterid .".jpg");
+				    //$posterid="d".$posterid;
 					imagecopyresized($thumb, $source, 0, 0, 0, 0, $minw, $minh, $width, $height);
 					imagejpeg($thumb,"../images/newimages/". $posterid .".jpg",100);
 				}
@@ -50,8 +50,8 @@ while ($mun_list = mysqli_fetch_assoc($result))
 
 					$thumb = imagecreatetruecolor($nw, $nh);
 				    $source = imagecreatefromjpeg($filename);
-				    unlink("../images/newimages/". $posterid .".jpg");
-				    $posterid="d".$posterid;
+				    //unlink("../images/newimages/". $posterid .".jpg");
+				    //$posterid="d".$posterid;
 					imagecopyresized($thumb, $source, 0, 0, 0, 0, $nw, $nh, $width, $height);
 					imagejpeg($thumb,"../images/newimages/". $posterid .".jpg",100);
 				}
@@ -60,8 +60,8 @@ while ($mun_list = mysqli_fetch_assoc($result))
 		{
 			$thumb = imagecreatetruecolor($width, $height);
 				    $source = imagecreatefromjpeg($filename);
-				    unlink("../images/newimages/". $posterid .".jpg");
-				    $posterid="d".$posterid;
+				    //unlink("../images/newimages/". $posterid .".jpg");
+				    //$posterid="d".$posterid;
 					imagecopyresized($thumb, $source, 0, 0, 0, 0, $width, $height, $width, $height);
 					imagejpeg($thumb,"../images/newimages/". $posterid .".jpg",100);
 		}

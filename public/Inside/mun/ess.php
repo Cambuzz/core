@@ -430,7 +430,7 @@ confirm_query($result);
                                                                 if ($mun_list['picset']==1) {                                                                                                                             
                                                                     $poster_time = strtotime($mun_list['post_time']);                                                    
                                                                     $posterid=$mun_list['post_user'].date("Y-m-d H-i-s", $poster_time);                                                                                                      
-                                                                    echo '<img src="../images/' . $posterid . '.jpg "class="img-responsive">';                                                                
+                                                                    echo '<img src="../images/newimages/' . $posterid . '.jpg"class="img-responsive">';                                                                
                                                                 } 
                                                             ?>
                                                         </p>
