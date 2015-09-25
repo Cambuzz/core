@@ -19,37 +19,40 @@ while ($mun_list = mysqli_fetch_assoc($result))
 		
         ini_set('memory_limit', '400M');
 		$filename = $path;
-		list($width, $height) = getimagesize($filename);
+		list($width,$height) = getimagesize($filename);
 		$maxh=550;
 		$minh=300;
 		$maxw=450;
 		$minw=350;
 		$or=$hieght/$width;
 		$minr=$minh/$minw;
-		if($or==$minr)
+		if(($height>$maxh)||($width>$maxw))
 		{
-			$thumb = imagecreatetruecolor($minw, $minh);
-		    $source = imagecreatefromjpeg($filename);
-		    $posterid="c".$posterid;
-			imagecopyresized($thumb, $source, 0, 0, 0, 0, $minh, $minw, $width, $height);
-			imagejpeg($thumb,"../images/newimages/". $posterid .".jpg",100);
-		}
-		else
-		{
-			$nh=$minh;
-			$nw=$nh/$or;
+				if($or==$minr)
+				{
+					$thumb = imagecreatetruecolor($minw, $minh);
+				    $source = imagecreatefromjpeg($filename);
+				    $posterid="c".$posterid;
+					imagecopyresized($thumb, $source, 0, 0, 0, 0, $minh, $minw, $width, $height);
+					imagejpeg($thumb,"../images/newimages/". $posterid .".jpg",100);
+				}
+				else
+				{
+					$nh=$minh;
+					$nw=$nh/$or;
 
-			if($nw>$maxw)
-			{
-				$nw=$minw;
-				$nh=$nw/$or;
-			}
+					if($nw>$maxw)
+					{
+						$nw=$minw;
+						$nh=$nw/$or;
+					}
 
-			$thumb = imagecreatetruecolor($nw, $nh);
-		    $source = imagecreatefromjpeg($filename);
-		    $posterid="c".$posterid;
-			imagecopyresized($thumb, $source, 0, 0, 0, 0, $nh, $nw, $width, $height);
-			imagejpeg($thumb,"../images/newimages/". $posterid .".jpg",100);
+					$thumb = imagecreatetruecolor($nw, $nh);
+				    $source = imagecreatefromjpeg($filename);
+				    $posterid="c".$posterid;
+					imagecopyresized($thumb, $source, 0, 0, 0, 0, $nh, $nw, $width, $height);
+					imagejpeg($thumb,"../images/newimages/". $posterid .".jpg",100);
+				}
 		}
 		// if($width>500)
 		// {
