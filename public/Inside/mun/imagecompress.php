@@ -20,23 +20,56 @@ while ($mun_list = mysqli_fetch_assoc($result))
         ini_set('memory_limit', '400M');
 		$filename = $path;
 		list($width, $height) = getimagesize($filename);
-		if($width>500)
+		$maxh=550;
+		$minh=300;
+		$maxw=450;
+		$minw=350;
+		$or=$hieght/$width;
+		$minr=$minh/$minw;
+		if($or=$minr)
 		{
-		 $newwidth =500;
-		 $newheight = ($height * 500)/$width;
-	    }
-	    else
-	    {
-	    	$newwidth = $width;
-		    $newheight = $height;
-	    }
-		$thumb = imagecreatetruecolor($newwidth, $newheight);
-		$source = imagecreatefromjpeg($filename);
-		imagecopyresized($thumb, $source, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
-	 	imagejpeg($thumb,"../images/newimages/". $posterid .".jpg",100);
+			$thumb = imagecreatetruecolor($newwidth, $newheight);
+		    $source = imagecreatefromjpeg($filename);
+		    unlink("../images/newimages/". $posterid .".jpg");
+		    $posterid="c".$posterid;
+			imagecopyresized($thumb, $source, 0, 0, 0, 0, $minh, $minw, $width, $height);
+			imagejpeg($thumb,"../images/newimages/". $posterid .".jpg",100);
+		}
+		else
+		{
+			$nh=$minh;
+			$nw=$nh/$or;
+
+			if($nw>$maxw)
+			{
+				$nw=$minw;
+				$nh=$nw/$or;
+			}
+
+			$thumb = imagecreatetruecolor($newwidth, $newheight);
+		    $source = imagecreatefromjpeg($filename);
+		    unlink("../images/newimages/". $posterid .".jpg");
+		    $posterid="c".$posterid;
+			imagecopyresized($thumb, $source, 0, 0, 0, 0, $minh, $minw, $width, $height);
+			imagejpeg($thumb,"../images/newimages/". $posterid .".jpg",100);
+		}
+		// if($width>500)
+		// {
+		//  $newwidth =500;
+		//  $newheight = ($height * 500)/$width;
+	 //    }
+	 //    else
+	 //    {
+	 //    	$newwidth = $width;
+		//     $newheight = $height;
+	 //    }
+		// $thumb = imagecreatetruecolor($newwidth, $newheight);
+		// $source = imagecreatefromjpeg($filename);
+		// imagecopyresized($thumb, $source, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
+	 // 	imagejpeg($thumb,"../images/newimages/". $posterid .".jpg",100);
 	 	//$thumb->writeImage("..images/newimages/". $posterid .".jpg"); 
 		//return destination file
-		unlink("../images/newimages". $posterid .".jpg");
+		//unlink("../images/newimages". $posterid .".jpg");
 		imagedestroy($source);
 		imagedestroy($thumb);
 
