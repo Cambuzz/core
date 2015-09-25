@@ -33,7 +33,7 @@ while ($mun_list = mysqli_fetch_assoc($result))
 		$thumb = imagecreatetruecolor($newwidth, $newheight);
 		$source = imagecreatefromjpeg($filename);
 		imagecopyresized($thumb, $source, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
-	 	imagejpeg($thumb,"../images/". $posterid .".jpg",100);
+	 	imagejpeg($thumb,"../images/newimages". $posterid .".jpg",100);
 	 	//$thumb->writeImage("..images/newimages/". $posterid .".jpg"); 
 		//return destination file
 		imagedestroy($source);
