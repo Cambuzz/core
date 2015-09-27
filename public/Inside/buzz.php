@@ -24,271 +24,68 @@ $full_time = $id_year."%20".$id_hour;
 $full = $current_user.$full_time; 
 ?>
 <?php
-if (isset($_POST['submit'])) {
-    if (isset($_POST['yesno'])) { $yesno = $_POST['yesno']; }
-    if ($yesno=="yes") {
-        if((isset($_POST['submit']))&&(isset($_FILES['uploaded_file']))&&(isset($_POST['branch']))&&(isset($_POST['club']))){
+if (isset($_POST['submit'])) 
+{
+   
                 $title =  mysqli_real_escape_string($conn, htmlspecialchars($_POST['title']));
-                $content =  mysqli_real_escape_string($conn, htmlspecialchars($_POST['content']));
+                $content ="";
                 $start_date_time = $_POST['start_date_time'];
                 $end_date_time = $_POST['end_date_time'];
-                $branch = implode(" ",$_POST['branch']);
-                $club = implode(" ", $_POST['club']);
-                $target_dir = "images/posters/";
-                $target_file = $target_dir . basename($_FILES["uploaded_file"]["name"]);                
-                $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-                move_uploaded_file($_FILES["uploaded_file"]["tmp_name"],"images/posters/$buzz_id.jpg");
-                $po_url = "http://cambuzz.co.in/public/Inside/images/posters/".$full.".jpg";
-                $poset = 1;
-                if ($name_title["proset"]==0) { 
-                    $dp_url = "http://cambuzz.co.in/public/Inside/assets/images/nopic.png";
-                } elseif ($name_title["proset"]==1) {
-                    $imageid=$name_title['id'];
-                    $dpcounter=$name_title['dpcounter'];
-                    if($dpcounter>0)
-                        $dp_url = "http://cambuzz.co.in/public/Inside/images/".$imageid."_".$dpcounter.".jpg";
-                    else
-                        $dp_url = "http://cambuzz.co.in/public/Inside/images/".$imageid.".jpg";
-                }
                 $buzz_username = $_SESSION['username'];
                 $app_name = $name_title['sname'];
                 date_default_timezone_set('Asia/Calcutta');
                 $buzz_time = date("Y-m-d\TH:i:s");
-                if($content !=''){
-                    $query = "INSERT INTO notify (title, content, start_date_time, end_date_time, branch, club, poset, buzz_username, buzz_time, app_name, po_url, dp_url)";
-                    $query .= " VALUES ('{$title}', '{$content}', '{$start_date_time}', '{$end_date_time}', '{$branch}', '{$club}', {$poset}, '{$buzz_username}', '{$buzz_time}', '{$app_name}', '{$po_url}', '{$dp_url}')";
-                    $sql = mysqli_query($conn, $query);
-                } else {
-                    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                $club="CSE ECE ME EEE CIVIL MBA MCA MS LAW";
+                $branch="LUG NSS Dance Music Sports DebSoc Automotive Dramatic Health Arts English Android Code Event Robotics Woman Entrepreneurship VITeach Quiz NCC";
+                $poset=0;
+                if(isset($_POST['content']))
+                {
+                     $content =  mysqli_real_escape_string($conn, htmlspecialchars($_POST['content']));
                 }
-                            
-        } elseif ((isset($_POST['submit']))&&(isset($_FILES['uploaded_file']))&&(isset($_POST['branch']))&&(empty($_POST['club']))) {
-                $title =  mysqli_real_escape_string($conn, htmlspecialchars($_POST['title']));
-                $content =  mysqli_real_escape_string($conn, htmlspecialchars($_POST['content']));
-                $start_date_time = $_POST['start_date_time'];
-                $end_date_time = $_POST['end_date_time'];
-                $branch = implode(" ",$_POST['branch']);
-                $club = "xyz";
-                $target_dir = "images/posters/";
-                $target_file = $target_dir . basename($_FILES["uploaded_file"]["name"]);                
-                $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-                move_uploaded_file($_FILES["uploaded_file"]["tmp_name"],"images/posters/$buzz_id.jpg");
-                $po_url = "http://cambuzz.co.in/public/Inside/images/posters/".$full.".jpg";
-                $poset = 1;
-                if ($name_title["proset"]==0) { 
-                    $dp_url = "http://cambuzz.co.in/public/Inside/assets/images/nopic.png";
-                } elseif ($name_title["proset"]==1) {
-                    $imageid=$name_title['id'];
-                    $dpcounter=$name_title['dpcounter'];
-                    if($dpcounter>0)
-                        $dp_url = "http://cambuzz.co.in/public/Inside/images/".$imageid."_".$dpcounter.".jpg";
-                    else
-                        $dp_url = "http://cambuzz.co.in/public/Inside/images/".$imageid.".jpg";
+                if(!isset($_POST['branchselectall']))
+                {
+                    if(isset($_POST['branch']))
+                    {
+                        $branch = implode(" ",$_POST['branch']);
+                    }
                 }
-                $buzz_username = $_SESSION['username'];
-                $app_name = $name_title['sname'];
-                date_default_timezone_set('Asia/Calcutta');
-                $buzz_time = date("Y-m-d H-i-s");
-                if($content !=''){
-                    $query = "INSERT INTO notify (title, content, start_date_time, end_date_time, branch, club, poset, buzz_username, buzz_time, app_name, po_url, dp_url)";
-                    $query .= " VALUES ('{$title}', '{$content}', '{$start_date_time}', '{$end_date_time}', '{$branch}', '{$club}', {$poset}, '{$buzz_username}', '{$buzz_time}', '{$app_name}', '{$po_url}', '{$dp_url}')";
-                    $sql = mysqli_query($conn, $query);
-                } else {
-                    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+
+                if(!isset($_POST['clubselectall']))
+                {
+                    if(isset($_POST['club']))
+                    {
+                        $club = implode(" ", $_POST['club']);
+                    }
                 }
-                        
-        } elseif ((isset($_POST['submit']))&&(isset($_FILES['uploaded_file']))&&(empty($_POST['branch']))&&(isset($_POST['club']))) {
-                $title =  mysqli_real_escape_string($conn, htmlspecialchars($_POST['title']));
-                $content =  mysqli_real_escape_string($conn, htmlspecialchars($_POST['content']));
-                $start_date_time = $_POST['start_date_time'];
-                $end_date_time = $_POST['end_date_time'];
-                $branch = "xyz";
-                $club = implode(" ", $_POST['club']);
-                $target_dir = "images/posters/";
-                $target_file = $target_dir . basename($_FILES["uploaded_file"]["name"]);                
-                $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-                move_uploaded_file($_FILES["uploaded_file"]["tmp_name"],"images/posters/$buzz_id.jpg");
-                $po_url = "http://cambuzz.co.in/public/Inside/images/posters/".$full.".jpg";
-                $poset = 1;
-                if ($name_title["proset"]==0) { 
-                    $dp_url = "http://cambuzz.co.in/public/Inside/assets/images/nopic.png";
-                } elseif ($name_title["proset"]==1) {
-                    $imageid=$name_title['id'];
-                    $dpcounter=$name_title['dpcounter'];
-                    if($dpcounter>0)
-                        $dp_url = "http://cambuzz.co.in/public/Inside/images/".$imageid."_".$dpcounter.".jpg";
-                    else
-                        $dp_url = "http://cambuzz.co.in/public/Inside/images/".$imageid.".jpg";
+
+                
+                if(isset($_POST['yesno'])&&($_POST['yesno']=="yes"))
+                {
+                    if(isset($_FILES['uploaded_file']))
+                    {
+                        $target_dir = "images/posters/";
+                        $target_file = $target_dir . basename($_FILES["uploaded_file"]["name"]);                
+                        $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+                        move_uploaded_file($_FILES["uploaded_file"]["tmp_name"],"images/posters/$buzz_id.jpg");
+                        $poset = 1;
+                    }
                 }
-                $buzz_username = $_SESSION['username'];
-                $app_name = $name_title['sname'];
-                date_default_timezone_set('Asia/Calcutta');
-                $buzz_time = date("Y-m-d H-i-s");
-                if($content !=''){
-                    $query = "INSERT INTO notify (title, content, start_date_time, end_date_time, branch, club, poset, buzz_username, buzz_time, app_name, po_url, dp_url)";
-                    $query .= " VALUES ('{$title}', '{$content}', '{$start_date_time}', '{$end_date_time}', '{$branch}', '{$club}', {$poset}, '{$buzz_username}', '{$buzz_time}', '{$app_name}', '{$po_url}', '{$dp_url}')";
-                    $sql = mysqli_query($conn, $query);
-                } else {
-                    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-                } 
-                        
-        } elseif ((isset($_POST['submit']))&&(isset($_FILES['uploaded_file']))&&(empty($_POST['branch']))&&(empty($_POST['club']))) {
-                $title =  mysqli_real_escape_string($conn, htmlspecialchars($_POST['title']));
-                $content =  mysqli_real_escape_string($conn, htmlspecialchars($_POST['content']));
-                $start_date_time = $_POST['start_date_time'];
-                $end_date_time = $_POST['end_date_time'];               
-                $target_dir = "images/posters/";
-                $target_file = $target_dir . basename($_FILES["uploaded_file"]["name"]);                
-                $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-                move_uploaded_file($_FILES["uploaded_file"]["tmp_name"],"images/posters/$buzz_id.jpg");
-                $po_url = "http://cambuzz.co.in/public/Inside/images/posters/".$full.".jpg";
-                $poset = 1;
-                if ($name_title["proset"]==0) { 
-                    $dp_url = "http://cambuzz.co.in/public/Inside/assets/images/nopic.png";
-                } elseif ($name_title["proset"]==1) {
-                    $imageid=$name_title['id'];
-                    $dpcounter=$name_title['dpcounter'];
-                    if($dpcounter>0)
-                        $dp_url = "http://cambuzz.co.in/public/Inside/images/".$imageid."_".$dpcounter.".jpg";
-                    else
-                        $dp_url = "http://cambuzz.co.in/public/Inside/images/".$imageid.".jpg";
-                }
-                $buzz_username = $_SESSION['username'];
-                $app_name = $name_title['sname'];
-                date_default_timezone_set('Asia/Calcutta');
-                $buzz_time = date("Y-m-d H-i-s");
-                if($content !=''){
-                    $query = "INSERT INTO notify (title, content, start_date_time, end_date_time, poset, buzz_username, buzz_time, app_name, po_url, dp_url)";
-                    $query .= " VALUES ('{$title}', '{$content}', '{$start_date_time}', '{$end_date_time}', {$poset}, '{$buzz_username}', '{$buzz_time}', '{$app_name}', '{$po_url}', '{$dp_url}')";
-                    $sql = mysqli_query($conn, $query);
-                } else {
-                    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-                }
-                        
-        }
-    } elseif ($yesno = "no") {
-        if((isset($_POST['submit']))&&(isset($_POST['branch']))&&(isset($_POST['club']))){
-                $title =  mysqli_real_escape_string($conn, htmlspecialchars($_POST['title']));
-                $content =  mysqli_real_escape_string($conn, htmlspecialchars($_POST['content']));
-                $start_date_time = $_POST['start_date_time'];
-                $end_date_time = $_POST['end_date_time'];
-                $branch = implode(" ", $_POST['branch']);
-                $club = implode(" ", $_POST['club']);
-                $buzz_username = $_SESSION['username'];
-                $app_name = $name_title['sname'];
-                date_default_timezone_set('Asia/Calcutta');
-                $buzz_time = date("Y-m-d H-i-s");
-                if ($name_title["proset"]==0) { 
-                    $dp_url = "http://cambuzz.co.in/public/Inside/assets/images/nopic.png";
-                } elseif ($name_title["proset"]==1) {
-                    $imageid=$name_title['id'];
-                    $dpcounter=$name_title['dpcounter'];
-                    if($dpcounter>0)
-                        $dp_url = "http://cambuzz.co.in/public/Inside/images/".$imageid."_".$dpcounter.".jpg";
-                    else
-                        $dp_url = "http://cambuzz.co.in/public/Inside/images/".$imageid.".jpg";
-                }
-                if($content !=''){
-                    $query = "INSERT INTO notify (title, content, start_date_time, end_date_time, branch, club, buzz_username, buzz_time, app_name, dp_url)"; 
-                    $query .=" VALUES ('{$title}', '{$content}', '{$start_date_time}', '{$end_date_time}', '{$branch}', '{$club}', '{$buzz_username}', '{$buzz_time}', '{$app_name}', '{$dp_url}')";
-                    $sql = mysqli_query($conn, $query);
-                } else {
-                    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-                }
-                       
-        } elseif ((isset($_POST['submit']))&&(isset($_POST['branch']))&&(empty($_POST['club']))) {
-                $title =  mysqli_real_escape_string($conn, htmlspecialchars($_POST['title']));
-                $content =  mysqli_real_escape_string($conn, htmlspecialchars($_POST['content']));
-                $start_date_time = $_POST['start_date_time'];
-                $end_date_time = $_POST['end_date_time'];
-                $branch = implode(" ", $_POST['branch']);
-                $club = "xyz";
-                $buzz_username = $_SESSION['username'];
-                $app_name = $name_title['sname'];
-                date_default_timezone_set('Asia/Calcutta');
-                $buzz_time = date("Y-m-d H-i-s");
-                if ($name_title["proset"]==0) { 
-                    $dp_url = "http://cambuzz.co.in/public/Inside/assets/images/nopic.png";
-                } elseif ($name_title["proset"]==1) {
-                    $imageid=$name_title['id'];
-                    $dpcounter=$name_title['dpcounter'];
-                    if($dpcounter>0)
-                        $dp_url = "http://cambuzz.co.in/public/Inside/images/".$imageid."_".$dpcounter.".jpg";
-                    else
-                        $dp_url = "http://cambuzz.co.in/public/Inside/images/".$imageid.".jpg";
-                }
-                if($content !=''){
-                    $query = "INSERT INTO notify (title, content, start_date_time, end_date_time, branch, club, buzz_username, buzz_time, app_name, dp_url)"; 
-                    $query .=" VALUES ('{$title}', '{$content}', '{$start_date_time}', '{$end_date_time}', '{$branch}', '{$club}', '{$buzz_username}', '{$buzz_time}', '{$app_name}', '{$dp_url}')";
-                    $sql = mysqli_query($conn, $query);
-                } else {
-                    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-                }
-                        
-        } elseif ((isset($_POST['submit']))&&(empty($_POST['branch']))&&(isset($_POST['club']))) {
-                $title =  mysqli_real_escape_string($conn, htmlspecialchars($_POST['title']));
-                $content =  mysqli_real_escape_string($conn, htmlspecialchars($_POST['content']));
-                $start_date_time = $_POST['start_date_time'];
-                $end_date_time = $_POST['end_date_time'];
-                $branch = "xyz";
-                $club = implode(" ", $_POST['club']);
-                $buzz_username = $_SESSION['username'];
-                $app_name = $name_title['sname'];
-                date_default_timezone_set('Asia/Calcutta');
-                $buzz_time = date("Y-m-d H-i-s");
-                if ($name_title["proset"]==0) { 
-                    $dp_url = "http://cambuzz.co.in/public/Inside/assets/images/nopic.png";
-                } elseif ($name_title["proset"]==1) {
-                    $imageid=$name_title['id'];
-                    $dpcounter=$name_title['dpcounter'];
-                    if($dpcounter>0)
-                        $dp_url = "http://cambuzz.co.in/public/Inside/images/".$imageid."_".$dpcounter.".jpg";
-                    else
-                        $dp_url = "http://cambuzz.co.in/public/Inside/images/".$imageid.".jpg";
-                }
-                if($content !=''){
-                    $query = "INSERT INTO notify (title, content, start_date_time, end_date_time, branch, club, buzz_username, buzz_time, app_name, dp_url)"; 
-                    $query .=" VALUES ('{$title}', '{$content}', '{$start_date_time}', '{$end_date_time}', '{$branch}', '{$club}', '{$buzz_username}', '{$buzz_time}', '{$app_name}', '{$dp_url}')";
-                    $sql = mysqli_query($conn, $query);
-                } else {
-                    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-                }
-                        
-        } elseif ((isset($_POST['submit']))&&(empty($_POST['branch']))&&(empty($_POST['club']))) {
-                $title =  mysqli_real_escape_string($conn, htmlspecialchars($_POST['title']));
-                $content =  mysqli_real_escape_string($conn, htmlspecialchars($_POST['content']));
-                $start_date_time = $_POST['start_date_time'];
-                $end_date_time = $_POST['end_date_time'];
-                $buzz_username = $_SESSION['username'];
-                $app_name = $name_title['sname'];
-                date_default_timezone_set('Asia/Calcutta');
-                $buzz_time = date("Y-m-d H-i-s");
-                if ($name_title["proset"]==0) { 
-                    $dp_url = "http://cambuzz.co.in/public/Inside/assets/images/nopic.png";
-                } elseif ($name_title["proset"]==1) {
-                    $imageid=$name_title['id'];
-                    $dpcounter=$name_title['dpcounter'];
-                    if($dpcounter>0)
-                        $dp_url = "http://cambuzz.co.in/public/Inside/images/".$imageid."_".$dpcounter.".jpg";
-                    else
-                        $dp_url = "http://cambuzz.co.in/public/Inside/images/".$imageid.".jpg";
-                }
-                if($content !=''){
-                    $query = "INSERT INTO notify (title, content, start_date_time, end_date_time, buzz_username, buzz_time, app_name, dp_url)"; 
-                    $query .=" VALUES ('{$title}', '{$content}', '{$start_date_time}', '{$end_date_time}', '{$buzz_username}', '{$buzz_time}', '{$app_name}', '{$dp_url}')";
-                    $sql = mysqli_query($conn, $query);
-                } else {
-                    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-                }
-                        
-        }
-    }         
-}   
+                $query = "INSERT INTO notify (title, content, start_date_time, end_date_time,branch,club, buzz_username, buzz_time,poset, app_name)";
+                $query .= " VALUES ('{$title}', '{$content}', '{$start_date_time}', '{$end_date_time}','{$branch}','{$club}', '{$buzz_username}', '{$buzz_time}','{$poset}', '{$app_name}')";
+                $sql = mysqli_query($conn, $query);
+            
+}
 ?>
 <?php
-    $query = "SELECT * FROM notify ORDER BY id DESC";
+    $query = "SELECT * FROM notify ORDER BY id DESC LIMIT 0,3";
     $result = mysqli_query($conn, $query);
     confirm_query($result);
+    $queryall = "SELECT count(*) FROM notify";
+    $resultall = mysqli_query($conn, $queryall);
+    confirm_query($resultall);
+    $rowall = mysqli_fetch_array($resultall);
+    $total_buzz = $rowall[0];
+    //echo $total_buzz;
     $filter_query = "SELECT * FROM users WHERE username = '{$current_user}' LIMIT 1";
     $filter_result = mysqli_query($conn, $filter_query);
     confirm_query($filter_result);
@@ -646,67 +443,7 @@ $comment=0;
                                                                                 $hide = "style= 'display: none;'";
 
 
-
-
-
-
-
-
-
-
-
-
-
-                                                                           /* $comment=0;
-                                                                           $question_set =  mysqli_query($conn, "SELECT * FROM quora WHERE quest_user = '{$current_user}'");
-                                                                            for ($i=0; $i < $total_quest; $i++) { 
-                                                                                while ($quest_list = mysqli_fetch_assoc($question_set)) {
-                                                                                    $count_answer_query = "SELECT COUNT(*) FROM answers WHERE qid = {$quest_list["id"]}";
-                                                                                    $count_answer_result = mysqli_query($conn, $count_answer_query);
-                                                                                    confirm_query($count_answer_result);
-                                                                                    $row_answer = mysqli_fetch_array($count_answer_result);
-                                                                                    $total_answers = $row_answer[0];
-                                                                                    if ($total_answers==0) {
-                                                                                       $hide = "style= 'display: none;'"; 
-                                                                                    } else {
-                                                                                        $hide = " ";
-                                                                                        if($quest_list["comment_counter"]>0 && $quest_list["quest_user"]!="cambuzz")
-                                                                                        {
-                                                                                            $comment++;
-                                                                                       
-                                                                                        //$comment = $i+1;
-                                                                                        $query_post_answer = "SELECT * FROM answers WHERE qid = {$quest_list['id']} ORDER BY answer_time DESC";
-                                                                                        $result_post_answer = mysqli_query($conn, $query_post_answer);
-                                                                                        while ($view_answer = mysqli_fetch_assoc($result_post_answer) ) {
-                                                                                           
-                                                                                            $commentor_query = "SELECT * FROM users WHERE username = '{$view_answer['answer_poster']}'";
-                                                                                            $commentor_result = mysqli_query($conn, $commentor_query);
-                                                                                            confirm_query($commentor_result);
-                                                                                            while ($commentor = mysqli_fetch_assoc($commentor_result)) {
-                                                                                                $person = $commentor['sname']; 
-                                                                                                $answer_counter_query = "SELECT COUNT(answer_poster) FROM answers WHERE qid = {$quest_list["id"]}";
-                                                                                                $answer_counter_result = mysqli_query($conn, $answer_counter_query);
-                                                                                                confirm_query($answer_counter_result);
-                                                                                                $row_answer_counter = mysqli_fetch_array($answer_counter_result);
-                                                                                                $total_answer_count = $row_answer_counter[0];
-                                                                                                if ($quest_list["comment_counter"]>1) {
-                                                                                                    //$multi = $total_answer_count-1; 
-                                                                                                    $multi=$quest_list["comment_counter"]-1;
-                                                                                                    ?>
-                                                                                                    <strong><a href="question.php?id=<?php echo urlencode($quest_list["id"]); ?>"><?php echo $person. " and ". $multi . " others commented on your question<br />"; ?></a></strong> <?php
-                                                                                                } elseif ($quest_list["comment_counter"]==1) { ?>
-                                                                                                    <strong><a style="font-family:'Montserrat'; font-weight: 100; display: flex; justify-content: center; padding: 10px;" href="question.php?id=<?php echo urlencode($quest_list["id"]); ?>"><?php echo $person." commented on your question<br />"; ?></a></strong> <?php
-                                                                                                }
-                                                                                                break;                                                                                                                                       
-                                                                                            }
-                                                                                            break;
-                                                                                        }
-                                                                                    }
-                                                                                    }           
-                                                                                } 
-                                                                            }
-                                                                                 if($comment==0)
-                                                                                    $hide = "style= 'display: none;'"; */
+                                                                    
                                                 ?>
                                                 </span>
                                                 
@@ -1032,7 +769,8 @@ $comment=0;
                     <section class="profile-feed">
                         <div class="profile-stories">
                          <?php
-                            while($notification = mysqli_fetch_assoc($result)) {       
+                            while($notification = mysqli_fetch_assoc($result)) 
+                            {       
                                 $arbranch = $notification['branch'];
                                 $arclub = $notification['club'];
                                 $ar1 = array("$arbranch $arclub");
@@ -1600,6 +1338,22 @@ $comment=0;
             }
         });
     })();
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var load=0;
+            // alert('hello');
+            $(window).scroll(function(){
+            if($(window).scrollTop()==$(document).height()-$(window).height())
+            {
+                //alert('hello');
+                load++;
+                $.post("scroll.php",{load:load},function(data){
+                    $(".profile-stories").append(data);
+                });
+            }
+            });
+        });
     </script>
     
 </body>
