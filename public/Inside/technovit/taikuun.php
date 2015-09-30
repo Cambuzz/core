@@ -82,6 +82,7 @@ if (isset($_POST['submit'])) {
     $main_query = "INSERT INTO app_technovit (content, picset, post_user, post_time, school, po_url, dp_url) VALUES ('{$content}', {$picset}, '{$post_user}', '{$post_time}', '{$school}', '{$po_url}', '{$dp_url}')";      
     $main_sql = mysqli_query($conn, $main_query);
     unset($_POST);
+     redirect_to("taikuun.php");
 }
 
 if((isset($_POST['searchsubmit']))&&(isset($_POST['search'])))
