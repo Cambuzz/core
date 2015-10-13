@@ -181,7 +181,7 @@
                 <div class="col-md-6 col-sm-8 clearfix">
                     <ul class="user-info pull-left pull-right-xs pull-none-xsm">
                          <li>
-                                <a href="mun/mun.php" style="color: white; background-color: #00a651; font-family: 'Montserrat', sans-serif;" class="btn btn-success btn-lg">VITC Intra MUN</a>
+                                <a href="technovit/qubit.php" style="color: white; background-color: #00a651; font-family: 'Montserrat', sans-serif;" class="btn btn-success btn-lg">technoVIT'15</a>
                         </li>       
                     </ul>
                 </div>
