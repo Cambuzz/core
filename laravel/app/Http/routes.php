@@ -25,8 +25,7 @@ Route::get('/', function()
 //index buzz route
 Route::get('buzz', function()
 {
-	if(!Session::has('username'))
-         return redirect('/');
+	
 
     $posts=App\buzz::orderby('id','desc')->get();
 	return View::make('BUZZ')->with('posts',$posts);
@@ -42,8 +41,7 @@ Route::post('buzzcreate','BuzzController@buzzcreate');
 //Index route for QA
 Route::get('QA', function()
 {
-	if(!Session::has('username'))
-         return redirect('/');
+	
 	$questions=App\QA::orderby('id','desc')->get();
 	return View::make('QA')->with('questions',$questions);
 });
