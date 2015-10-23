@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- ... -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <h1>Normal</h1>
+            <div class='col-sm-4'>
+                <div class="form-group">
+                    <div class='input-group date' id='datetimepicker1'>
+                        <input type='text' class="form-control" />
+                        <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <h1>Only Date & Time</h1>
+            <div class='col-sm-4'>
+                <div class="form-group">
+                    <div class='input-group date' id='datetimepicker2'>
+                        <input type='text' class="form-control" />
+                        <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class='input-group date' id='datetimepicker3'>
+                        <input type='text' class="form-control" />
+                        <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-time"></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <h1>Linked</h1>
+            <h2>Start Date</h2>
+            <div class='col-sm-4'>
+                <div class="form-group">
+                    <div class='input-group date' id='datetimepicker4'>
+                        <input type='text' class="form-control" />
+                        <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <h2 style="margin-top: 20px;">End Date</h2>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <div class='input-group date' id='datetimepicker5'>
+                        <input type='text' class="form-control" />
+                        <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-time"></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="bower_components/moment/min/moment.min.js"></script>
+    <script type="text/javascript" src="bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        var nowDate = new Date();
+        var today = new Date(nowDate.getFullYear(), nowDate.getMonth(), nowDate.getDate(), 0, 0, 0, 0);
+        $('#datetimepicker1').datetimepicker();
+        $('#datetimepicker1').data("DateTimePicker").minDate(today);
+
+        $('#datetimepicker2').datetimepicker({
+            format: 'LL'
+        });
+        $('#datetimepicker2').data("DateTimePicker").minDate(today);
+
+        $('#datetimepicker3').datetimepicker({
+            format: 'LT'
+        });
+        $('#datetimepicker3').data("DateTimePicker").minDate(today);
+
+        $('#datetimepicker4').datetimepicker();
+        $('#datetimepicker4').data("DateTimePicker").minDate(today);
+        $('#datetimepicker5').datetimepicker({
+            useCurrent: false
+        });
+        $('#datetimepicker5').data("DateTimePicker").minDate(today);
+        $("#datetimepicker4").on("dp.change", function(e) {
+            $('#datetimepicker5').data("DateTimePicker").minDate(e.date);
+        });
+        $("#datetimepicker5").on("dp.change", function(e) {
+            $('#datetimepicker4').data("DateTimePicker").maxDate(e.date);
+        });
+
+    });
+    </script>
+</body>
+
+</html>
