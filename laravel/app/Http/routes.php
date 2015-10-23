@@ -28,7 +28,7 @@ Route::get('buzz', function()
 	
 
     $posts=App\buzz::orderby('id','desc')->get();
-	return View::make('BUZZ')->with('posts',$posts);
+	return View::make('BUZZmaster')->with('posts',$posts);
 });
 //route for creating a buzz
 Route::post('buzzcreate','BuzzController@buzzcreate');
@@ -43,7 +43,7 @@ Route::get('QA', function()
 {
 	
 	$questions=App\QA::orderby('id','desc')->get();
-	return View::make('QA')->with('questions',$questions);
+	return View::make('QAmaster')->with('questions',$questions);
 });
 //Route to save the question asked by the current user.
 Route::post('Qpost', function()
