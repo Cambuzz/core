@@ -1,0 +1,488 @@
+html,
+body {
+    font-family: 'Roboto', 'Helvetica', sans-serif;
+}
+
+.avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 24px;
+}
+
+.layout .header .mdl-textfield {
+    padding-top: 27px;
+}
+
+.layout .mdl-layout__header .mdl-layout__drawer-button {
+    color: rgba(0, 0, 0, 0.54);
+}
+
+.layout .mdl-layout__header .mdl-layout__drawer-button i {
+    margin-top: 12px;
+}
+
+.mdl-layout__drawer .avatar {
+    margin-bottom: 16px;
+}
+
+.drawer {
+    border: none;
+}
+
+
+/* iOS Safari specific workaround */
+
+.drawer .mdl-menu__container {
+    z-index: -1;
+}
+
+.drawer .navigation {
+    z-index: -2;
+}
+
+
+/* END iOS Safari specific workaround */
+
+.drawer .mdl-menu .mdl-menu__item {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.drawer-header {
+    box-sizing: border-box;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    padding: 16px;
+    height: 151px;
+}
+
+.avatar-dropdown {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    position: relative;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 100%;
+}
+
+.navigation {
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+}
+
+.layout .navigation .mdl-navigation__link {
+    display: -webkit-box !important;
+    display: -webkit-flex !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.56);
+    font-weight: 500;
+}
+
+.layout .navigation .mdl-navigation__link:hover {
+    background-color: #E85657;
+    color: white;
+    text-decoration: none;
+}
+
+.navigation .mdl-navigation__link .material-icons {
+    font-size: 24px;
+    color: white;
+    margin-right: 32px;
+}
+
+.content {
+    max-width: 1080px;
+}
+
+.charts {
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.chart:nth-child(1) {
+    color: #ACEC00;
+}
+
+.chart:nth-child(2) {
+    color: #00BBD6;
+}
+
+.chart:nth-child(3) {
+    color: #BA65C9;
+}
+
+.chart:nth-child(4) {
+    color: #EF3C79;
+}
+
+.graphs {
+    padding: 16px 32px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: stretch;
+    -webkit-align-items: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+}
+
+
+/* TODO: Find a proper solution to have the graphs
+ * not float around outside their container in IE10/11.
+ * Using a browserhacks.com solution for now.
+ */
+
+_:-ms-input-placeholder,
+:root .graphs {
+    min-height: 664px;
+}
+
+_:-ms-input-placeholder,
+:root .graph {
+    max-height: 300px;
+}
+
+
+/* TODO end */
+
+.graph:nth-child(1) {
+    color: #00b9d8;
+}
+
+.graph:nth-child(2) {
+    color: #d9006e;
+}
+
+.cards {
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -webkit-align-content: flex-start;
+    -ms-flex-line-pack: start;
+    align-content: flex-start;
+}
+
+.cards .separator {
+    height: 32px;
+}
+
+.cards .mdl-card__title.mdl-card__title {
+    color: white;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.cards ul {
+    padding: 0;
+}
+
+.cards h3 {
+    font-size: 1em;
+}
+
+.updates .mdl-card__title {
+    min-height: 200px;
+    background-image: url('images/dog.png');
+    background-position: 90% 100%;
+    background-repeat: no-repeat;
+}
+
+.cards .mdl-card__actions a {
+    color: #00BCD4;
+    text-decoration: none;
+}
+
+.options h3 {
+    margin: 0;
+}
+
+.options .mdl-checkbox__box-outline {
+    border-color: rgba(255, 255, 255, 0.89);
+}
+
+.options ul {
+    margin: 0;
+    list-style-type: none;
+}
+
+.options li {
+    margin: 4px 0;
+}
+
+.options .material-icons {
+    color: rgba(255, 255, 255, 0.89);
+}
+
+.options .mdl-card__actions {
+    height: 64px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    box-sizing: border-box;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+
+/*My styles*/
+
+#buzz-btn {
+    font-size: 15px;
+}
+
+.flex-dis-col {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.mycenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    "
+
+}
+
+#dates-group {
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.padding-20 {
+    padding: 20px;
+}
+
+#poster_buzz{
+    border: 3px solid #878787; 
+    margin-right: 50px;
+}
+
+#imgPrev{
+    display: none;
+}
+
+#remove_picture {
+    background: #009587;
+    text-decoration: none;
+    color: white;
+    margin-top: 10px;
+}
+
+#buzz-submit {
+    background: #009587;
+    text-decoration: none;
+    color: white;
+}
+
+.author__header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.edit_delete{
+    position: absolute;
+    margin-left: 50px;
+}
+.comment__avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 24px;
+    margin-right: 16px;
+}
+
+.author__bio {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.buzz_date {
+    margin-top: 10px;
+    height: 36px;
+    min-width: 64px;
+    padding: 0 8px;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    overflow: hidden;
+}
+
+.buzz_start_date {
+    float: left;
+}
+
+.buzz_end_date {
+    float: right;
+}
+
+.buzz_image {
+    background: none !important;
+}
+
+#search_desktop {
+    height: 400px;
+}
+
+.search_main h2 {
+    text-align: center;
+    margin-top: 100px;
+}
+
+.search_main form {
+    margin-top: 200px;
+}
+
+.buzz_title {
+    width: 1000px;
+    max-width: 90%;
+    margin-bottom: 20px;
+}
+
+.buzz_title_label {
+    top: 24px;
+}
+
+.buzz_des {
+    width: 1000px;
+    max-width: 90%;
+    margin-bottom: 20px;
+}
+
+.buzz_des_label {
+    top: 24px;
+}
+
+.ask_question {
+    width: 1000px;
+    max-width: 125%;
+}
+
+.ask_question .mdl-textfield__label {
+    top: 24px;
+}
+
+.submit_question {
+    background: #F3F3F3;
+    display: inline-block;
+    text-align: right;
+}
+
+.submit_question a {
+    background: #009587;
+    text-decoration: none;
+    color: white;
+    width: 200px;
+}
+
+.question_comments {
+    text-decoration: none;
+}
+
+.comment__avatar_com {
+    width: 38px;
+    height: 38px;
+    border-radius: 24px;
+    margin-right: 16px;
+    margin-left: 25px;
+}
+
+.author__bio_com {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.author__bio_com strong {
+    font-size: 14px;
+}
+
+.author__bio_com .comment_date {
+    font-size: 14px;
+}
+
+.comment_text {
+    margin-left: 75px;
+    font-size: 14px;
+}
+
+@media(max-width:767px) {
+    .buzz-upper {
+        width: 100% !important;
+    }
+    .mycenter {
+        display: block;
+        width: 95% !important;
+    }
+    #dates-group {
+        padding: 0;
+        border-right: none;
+        width: 85%;
+    }
+    .buzz_end {
+        width: 85% !important;
+    }
+    .padding-20 {
+        padding: 0;
+    }
+}
+
+@media(min-width:768px) {}
+
+@media(min-width:992px) {}
+
+@media(min-width:1200px) {}
