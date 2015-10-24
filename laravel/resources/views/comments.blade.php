@@ -74,18 +74,18 @@
                     <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone flex-dis-col">
                         <header class="author__header">
                             <span style="display:none;">
-                                    {{ $dpstamp=DB::table('users')->whereUsername($post->buzz_username)->pluck('dpstamp')}}
-                                    {{ $proset=DB::table('users')->whereUsername($post->buzz_username)->pluck('proset')}}
-                                     {{ $id=DB::table('users')->whereUsername($post->buzz_username)->pluck('id')}}
-                                     {{ $url =$id.'_'.$dpstamp.'.jpg'}}
-                                </span>
-                                
-                                @if( $proset==0 )
-                                    <img src="assets/images/user.jpg" class="avatar">
-                                @else
+                            {{ $proset=DB::table('users')->whereUsername($qa['question']['quest_user'])->pluck('proset')}}
+                                {{ $dpstamp=DB::table('users')->whereUsername($qa['question']['quest_user'])->pluck('dpstamp')}}
+                                 {{ $id=DB::table('users')->whereUsername($qa['question']['quest_user'])->pluck('id')}}
+                                 {{ $url =$id.'_'.$dpstamp.'.jpg'}}
+                            </span>
+                            
+                            @if( $proset==0 )
+                                <img src="../assets/images/user.jpg" class="avatar">
+                            @else
 
-                                    <img src="../../newimages/profile/{{$url}} " class="avatar">
-                                @endif
+                                <img src="../../../newimages/profile/{{$url}} " class="avatar">
+                            @endif
                             <div class="author__bio">
                                 <strong><span>{{ DB::table('users')->whereUsername($qa['question']['quest_user'])->pluck('sname') }}</span> <span style="font-weight:300;">posted a question</span></strong>
                                 <span>{{ date("d M, y | h:i a",strtotime($qa['question']['quest_time'])) }}</span>
@@ -113,18 +113,18 @@
                     <div class="mdl-card__actions mdl-card--border">
                         <header class="author__header">
                             <span style="display:none;">
-                                    {{ $dpstamp=DB::table('users')->whereUsername($post->buzz_username)->pluck('dpstamp')}}
-                                    {{ $proset=DB::table('users')->whereUsername($post->buzz_username)->pluck('proset')}}
-                                     {{ $id=DB::table('users')->whereUsername($post->buzz_username)->pluck('id')}}
-                                     {{ $url =$id.'_'.$dpstamp.'.jpg'}}
-                                </span>
-                                
-                                @if( $proset==0 )
-                                    <img src="assets/images/user.jpg" class="avatar">
-                                @else
+                                {{ $proset=DB::table('users')->whereUsername($comment['answer_poster'])->pluck('proset')}}
+                                {{ $dpstamp=DB::table('users')->whereUsername($comment['answer_poster'])->pluck('dpstamp')}}
+                                 {{ $id=DB::table('users')->whereUsername($comment['answer_poster'])->pluck('id')}}
+                                 {{ $url =$id.'_'.$dpstamp.'.jpg'}}
+                            </span>
+                            
+                            @if( $proset==0 )
+                                <img src="../assets/images/user.jpg" class="avatar">
+                            @else
 
-                                    <img src="../../newimages/profile/{{$url}} " class="avatar">
-                                @endif
+                                <img src="../../../newimages/profile/{{$url}} " class="avatar">
+                            @endif
                             <div class="author__bio_com">
                             
                                 <strong><span>{{ DB::table('users')->whereUsername($comment['answer_poster'])->pluck('sname') }}</span></strong>
