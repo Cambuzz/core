@@ -46,7 +46,7 @@
                  @if(Session::get('user')->dpstamp==0)
                     <img src="../assets/images/user.jpg" class="avatar">
                 @else
-                    <img src="../../../images/profile/{{Session::get('user')->id.'_'.Session::get('user')->dpstamp.'.jpg'}} " class="avatar">
+                    <img src="../../../newimages/profile/{{Session::get('user')->id.'_'.Session::get('user')->dpstamp.'.jpg'}} " class="avatar">
                 @endif
                 <div class="avatar-dropdown">
                     <span>Welcome {{ Session::get('user')->sname}}</span>
@@ -83,7 +83,7 @@
                                 <img src="../assets/images/user.jpg" class="avatar">
                             @else
 
-                                <img src="../../../images/profile/{{$url}} " class="avatar">
+                                <img src="../../../newimages/profile/{{$url}} " class="avatar">
                             @endif
                             <div class="author__bio">
                                 <strong><span>{{ DB::table('users')->whereUsername($qa['question']['quest_user'])->pluck('sname') }}</span> <span style="font-weight:300;">posted a question</span></strong>
@@ -121,7 +121,7 @@
                                 <img src="../assets/images/user.jpg" class="avatar">
                             @else
 
-                                <img src="../../../images/profile/{{$url}} " class="avatar">
+                                <img src="../../../newimages/profile/{{$url}} " class="avatar">
                             @endif
                             <div class="author__bio_com">
                             

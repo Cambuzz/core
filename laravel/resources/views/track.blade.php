@@ -38,7 +38,7 @@
                  @if(Session::get('user')->dpstamp==0)
                     <img src="assets/images/user.jpg" class="avatar">
                 @else
-                    <img src="../../images/profile/{{Session::get('user')->id.'_'.Session::get('user')->dpstamp.'.jpg'}} " class="avatar">
+                    <img src="../../newimages/profile/{{Session::get('user')->id.'_'.Session::get('user')->dpstamp.'.jpg'}} " class="avatar">
                 @endif
                 <div class="avatar-dropdown">
                     <span>Welcome {{ Session::get('user')->sname}}</span>

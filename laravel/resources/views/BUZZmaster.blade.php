@@ -59,7 +59,7 @@
                  @if(Session::get('user')->dpstamp==0)
                     <img src="assets/images/user.jpg" class="avatar">
                 @else
-                    <img src="../../images/profile/{{Session::get('user')->id.'_'.Session::get('user')->dpstamp.'.jpg'}} " class="avatar">
+                    <img src="../../newimages/profile/{{Session::get('user')->id.'_'.Session::get('user')->dpstamp.'.jpg'}} " class="avatar">
                 @endif
                 <div class="avatar-dropdown">
                     <span>Welcome {{ Session::get('user')->sname}}</span>
@@ -200,7 +200,7 @@
                                     <img src="assets/images/user.jpg" class="avatar">
                                 @else
 
-                                    <img src="../../images/profile/{{$url}} " class="avatar">
+                                    <img src="../../newimages/profile/{{$url}} " class="avatar">
                                 @endif
                                 <div class="author__bio">
                                     <strong>{{ DB::table('users')->whereUsername($post->buzz_username)->pluck('sname') }}</strong>
@@ -222,7 +222,7 @@
                         </div>
                         @if($post->poset==1)
                         <div class="mdl-card__media mdl-card__title mdl-cell--12-col buzz_image">
-                            <img src="../../images/{{ $post->id.'.jpg' }}" width="100%" height="100%" border="0" alt="">
+                            <img src="../../newimages/posters/{{ $post->id.'.jpg' }}" width="100%" height="100%" border="0" alt="">
                         </div>
                         @endif
                         <div class="mdl-card__actions mdl-card--border">
