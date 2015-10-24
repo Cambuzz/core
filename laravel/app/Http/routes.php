@@ -136,7 +136,7 @@ Route::post('confirmation', function()
 	    	if($uniquestring==$secret)
 	    	{
 	    		$user->confirmed=1;
-	    		$user->uniquestring="";
+	    		$user->confirm_string="";
 	    		$user->save();
 	    		return redirect('/');
 	    	}
