@@ -132,7 +132,7 @@ Route::post('confirmation', function()
     {
 	    if($confirmed==0)
 	    {
-	    	$uniquestring=$user->uniquestring;
+	    	$uniquestring=$user->confirm_string;
 	    	if($uniquestring==$secret)
 	    	{
 	    		$user->confirmed=1;
