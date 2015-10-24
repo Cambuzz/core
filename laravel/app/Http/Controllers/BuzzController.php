@@ -35,7 +35,7 @@ class BuzzController extends Controller
 		$id =$newbuzz->id;
 		$postername=$id.'.jpg';
 		if($poset==1)
-		$request['file']->move("../../images",$postername);
+		$request['file']->move("../../newimages/posters",$postername);
 		return redirect('buzz');
 	}
 }

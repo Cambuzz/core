@@ -83,9 +83,9 @@ class SettingsController extends Controller
     	$user->save();
     	$newuser= user::whereUsername(Session::get('username'))->first();
         Session::put('user',$newuser);
-        File::delete("../../images/profile/".$id."_".$dps.".jpg");
+        File::delete("../../newimages/profile/".$id."_".$dps.".jpg");
     	$imgurl=Session::get('user')->id.'_'.$timestamp.'.jpg';
-    	$request['file']->move("../../images/profile",$imgurl);
+    	$request['file']->move("../../newimages/profile",$imgurl);
     }
     $error=array('register'=>$register,'opass'=>$opass,'passmatch'=>$passmatch,'passlen'=>$passlen);
     if($opass==""&&$register==""&&$passlen==""&&$passmatch=="")

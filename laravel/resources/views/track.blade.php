@@ -28,7 +28,7 @@
                 <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
                     <li class="mdl-menu__item">About</li>
                     <li class="mdl-menu__item">Contact</li>
-                    <li class="mdl-menu__item">Legal information</li>
+                    <a href="settings" style="text-decoration:none;"><li class="mdl-menu__item">Settings</li></a>
                     <a href="logout" style="text-decoration:none;"><li class="mdl-menu__item">Logout</li></a>
                 </ul>
             </div>
