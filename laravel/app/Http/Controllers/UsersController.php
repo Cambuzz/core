@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Validator;
+use Mail;
+use Carbon;
 use DB;
 use Hash;
 use Auth;
