@@ -115,7 +115,14 @@ class UsersController extends Controller
         $hashed_password = crypt($password, $format_and_salt);
         
         $hashed_password =Hash::make($password);
-        DB::table('users')->insert(['sname' => $name,'username' => $register,'email' => $email,'hashed_password' => $hashed_password]);
+        $uniquestring = str_random(50);
+        $url="https://cambuzz.co.in/laravel/public/confirmaccount?username=".$register."&secret=".$uniquestring;
+        $timestamp=strtotime(Carbon\Carbon::now());
+        DB::table('users')->insert(['sname' => $name,'username' => $register,'email' => $email,'hashed_password' => $hashed_password,'confirm_string' => $uniquestring,'ectstamp' => $timestamp]);
+        Mail::send('emails.sendemail', ['url' => $url], function ($m) use ($email) {
+            $m->to($email, $name)->subject('Confirm Your Account.');
+        });
+        //DB::table('users')->insert(['sname' => $name,'username' => $register,'email' => $email,'hashed_password' => $hashed_password]);
  
         return 'done';
  
