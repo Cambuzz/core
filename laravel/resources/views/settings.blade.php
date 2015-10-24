@@ -43,7 +43,7 @@
         </header>
         <div class="drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
             <header class="drawer-header">
-                 @if(Session::get('user')->dpstamp==0)
+                 @if(Session::get('user')->proset==0)
                     <img src="assets/images/user.jpg" class="avatar">
                 @else
                     <img src="../../newimages/profile/{{Session::get('user')->id.'_'.Session::get('user')->dpstamp.'.jpg'}} " class="avatar">

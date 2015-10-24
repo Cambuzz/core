@@ -56,7 +56,7 @@
         </header>
         <div class="drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50" id="side-bar-nav">
             <header class="drawer-header">
-                 @if(Session::get('user')->dpstamp==0)
+                 @if(Session::get('user')->proset==0)
                     <img src="assets/images/user.jpg" class="avatar">
                 @else
                     <img src="../../newimages/profile/{{Session::get('user')->id.'_'.Session::get('user')->dpstamp.'.jpg'}} " class="avatar">
@@ -192,11 +192,12 @@
                             <header class="author__header">
                                 <span style="display:none;">
                                     {{ $dpstamp=DB::table('users')->whereUsername($post->buzz_username)->pluck('dpstamp')}}
+                                    {{ $proset=DB::table('users')->whereUsername($post->buzz_username)->pluck('proset')}}
                                      {{ $id=DB::table('users')->whereUsername($post->buzz_username)->pluck('id')}}
                                      {{ $url =$id.'_'.$dpstamp.'.jpg'}}
                                 </span>
                                 
-                                @if( $dpstamp==0 )
+                                @if( $proset==0 )
                                     <img src="assets/images/user.jpg" class="avatar">
                                 @else
 
