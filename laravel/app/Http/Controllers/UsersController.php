@@ -121,7 +121,7 @@ class UsersController extends Controller
         $url="https://cambuzz.co.in/laravel/public/confirmaccount?username=".$register."&secret=".$uniquestring;
         $timestamp=strtotime(Carbon\Carbon::now());
         DB::table('users')->insert(['sname' => $name,'username' => $register,'email' => $email,'hashed_password' => $hashed_password,'confirm_string' => $uniquestring,'ectstamp' => $timestamp]);
-        Mail::send('emails.sendemail', ['url' => $url], function ($m) use ($email) {
+        Mail::send('emails.sendemail', ['url' => $url], function ($m) use ($email,$name) {
             $m->to($email, $name)->subject('Confirm Your Account.');
         });
         //DB::table('users')->insert(['sname' => $name,'username' => $register,'email' => $email,'hashed_password' => $hashed_password]);
