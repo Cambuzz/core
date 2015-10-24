@@ -121,9 +121,7 @@ Route::get('confirmaccount', function()
 
 Route::post('confirmation', function()
 {
-	if(!Session::has('username'))
-         return redirect('/');
-
+	
     $username=Input::get('username');
     $secret=Input::get('secret');
     $user=App\User::whereUsername($username)->first();
