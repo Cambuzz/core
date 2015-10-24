@@ -25,7 +25,8 @@ Route::get('/', function()
 //index buzz route
 Route::get('buzz', function()
 {
-	
+	if(!Session::has('username'))
+         return redirect('/');
 
     $posts=App\buzz::orderby('id','desc')->get();
 	return View::make('BUZZmaster')->with('posts',$posts);
@@ -41,7 +42,9 @@ Route::post('buzzcreate','BuzzController@buzzcreate');
 //Index route for QA
 Route::get('QA', function()
 {
-	
+	if(!Session::has('username'))
+         return redirect('/');
+
 	$questions=App\QA::orderby('id','desc')->get();
 	return View::make('QAmaster')->with('questions',$questions);
 });
@@ -111,7 +114,43 @@ Route::get('settings', function()
 Route::post('settings','SettingsController@settings');
 
 
+Route::get('confirmaccount', function()
+{
+	return View::make('accountverification')->with('data',array('username' => Input::get('username') , 'secret' => Input::get('secret') ));
+});
 
+Route::post('confirmation', function()
+{
+	if(!Session::has('username'))
+         return redirect('/');
+
+    $username=Input::get('username');
+    $secret=Input::get('secret');
+    $user=App\User::whereUsername($username)->first();
+    $ectstamp=$user->ectstamp;
+    $confirmed=$user->confirmed;
+    $verifytime = Carbon\Carbon::now();
+    if($verifytime<=($ectstamp+1800))
+    {
+	    if($confirmed==0)
+	    {
+	    	$uniquestring=$user->uniquestring;
+	    	if($uniquestring==$secret)
+	    	{
+	    		$user->confirmed=1;
+	    		$user->uniquestring="";
+	    		$user->save();
+	    		return redirect('/');
+	    	}
+	    }
+	}
+	else
+	{
+		$user->delete();
+		return "Link Expired. Please signup again. We apologise for the inconvenience.";
+	}
+	return "Invalid Link.";
+});
 
 
 //Route for signup form.
