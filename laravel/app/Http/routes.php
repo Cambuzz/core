@@ -177,15 +177,23 @@ Route::get('profile', function()
 			$dpcounter=$user->dpcounter;
 			if($dpcounter>0)
 			{
+
 				$old="../../public/Inside/images/".$id."_".$dpcounter.".jpg";
 				$new="../../newimages/profile/".$id."_"."0.jpg";
-				File::copy($old,$new);
+				if (File::exists($old))
+				{
+					File::copy($old,$new);
+				}
+				
 			}
 			else
 			{
 				$old="../../public/Inside/images/".$id.".jpg";
 				$new="../../newimages/profile/".$id."_"."0.jpg";
-				File::copy($old,$new);
+				if (File::exists($old))
+				{
+					File::copy($old,$new);
+				}
 			}
 		}
 	}
@@ -202,8 +210,11 @@ Route::get('posters', function()
 				$poster_time = strtotime($buzz->buzz_time);                                                    
                 $posterid=$buzz->buzz_username.date("Y-m-d H-i-s", $poster_time);
 				$old="../../public/Inside/images/posters/".$posterid.".jpg";
-				$new="../../newimages/profile/".$id.".jpg";
-				File::copy($old,$new);
+				$new="../../newimages/posters/".$id.".jpg";
+				if (File::exists($old))
+				{
+					File::copy($old,$new);
+				}
 			
 		}
 	}
