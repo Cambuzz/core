@@ -127,8 +127,8 @@ Route::post('confirmation', function()
     $user=App\User::whereUsername($username)->first();
     $ectstamp=$user->ectstamp;
     $confirmed=$user->confirmed;
-    $verifytime = Carbon\Carbon::now();
-    if(($verifytime-$ectstamp)<=(1800))
+    $verifytime = strtotime(Carbon\Carbon::now());
+    if(((int)$verifytime-(int)$ectstamp)<=(1800))
     {
 	    if($confirmed==0)
 	    {
