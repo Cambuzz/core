@@ -83,7 +83,10 @@ class SettingsController extends Controller
     	$user->save();
     	$newuser= user::whereUsername(Session::get('username'))->first();
         Session::put('user',$newuser);
-        File::delete("../../newimages/profile/".$id."_".$dps.".jpg");
+        if (File::exists("../../newimages/profile/".$id."_".$dps.".jpg"))
+        {
+        	File::delete("../../newimages/profile/".$id."_".$dps.".jpg");
+        }
     	$imgurl=Session::get('user')->id.'_'.$timestamp.'.jpg';
     	$request['file']->move("../../newimages/profile",$imgurl);
     }

@@ -166,59 +166,59 @@ Route::get('logout', function()
 
 
 
-Route::get('profile', function()
-{
-	$users=App\User::all();
-	foreach($users as $user)
-	{
-		if($user->proset==1)
-		{
-			$id=$user->id;
-			$dpcounter=$user->dpcounter;
-			if($dpcounter>0)
-			{
+// Route::get('profile', function()
+// {
+// 	$users=App\User::all();
+// 	foreach($users as $user)
+// 	{
+// 		if($user->proset==1)
+// 		{
+// 			$id=$user->id;
+// 			$dpcounter=$user->dpcounter;
+// 			if($dpcounter>0)
+// 			{
 
-				$old="../../public/Inside/images/".$id."_".$dpcounter.".jpg";
-				$new="../../newimages/profile/".$id."_"."0.jpg";
-				if (File::exists($old))
-				{
-					File::copy($old,$new);
-				}
+// 				$old="../../public/Inside/images/".$id."_".$dpcounter.".jpg";
+// 				$new="../../newimages/profile/".$id."_"."0.jpg";
+// 				if (File::exists($old))
+// 				{
+// 					File::copy($old,$new);
+// 				}
 				
-			}
-			else
-			{
-				$old="../../public/Inside/images/".$id.".jpg";
-				$new="../../newimages/profile/".$id."_"."0.jpg";
-				if (File::exists($old))
-				{
-					File::copy($old,$new);
-				}
-			}
-		}
-	}
-});
+// 			}
+// 			else
+// 			{
+// 				$old="../../public/Inside/images/".$id.".jpg";
+// 				$new="../../newimages/profile/".$id."_"."0.jpg";
+// 				if (File::exists($old))
+// 				{
+// 					File::copy($old,$new);
+// 				}
+// 			}
+// 		}
+// 	}
+// });
 
-Route::get('posters', function()
-{
-	$buzzs=App\buzz::all();
-	foreach($buzzs as $buzz)
-	{
-		if($buzz->poset==1)
-		{
-			$id=$buzz->id;
-				$poster_time = strtotime($buzz->buzz_time);                                                    
-                $posterid=$buzz->buzz_username.date("Y-m-d H-i-s", $poster_time);
-				$old="../../public/Inside/images/posters/".$posterid.".jpg";
-				$new="../../newimages/posters/".$id.".jpg";
-				if (File::exists($old))
-				{
-					File::copy($old,$new);
-				}
+// Route::get('posters', function()
+// {
+// 	$buzzs=App\buzz::all();
+// 	foreach($buzzs as $buzz)
+// 	{
+// 		if($buzz->poset==1)
+// 		{
+// 			$id=$buzz->id;
+// 				$poster_time = strtotime($buzz->buzz_time);                                                    
+//                 $posterid=$buzz->buzz_username.date("Y-m-d H-i-s", $poster_time);
+// 				$old="../../public/Inside/images/posters/".$posterid.".jpg";
+// 				$new="../../newimages/posters/".$id.".jpg";
+// 				if (File::exists($old))
+// 				{
+// 					File::copy($old,$new);
+// 				}
 			
-		}
-	}
-});
+// 		}
+// 	}
+// });
 
 
 
