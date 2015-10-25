@@ -5,7 +5,7 @@ use DB;
 use View;
 use Carbon;
 use Session;
-use App\user as user;
+use App\User;
 use File;
 use Hash;
 use Illuminate\Http\Request;
