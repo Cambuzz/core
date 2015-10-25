@@ -80,6 +80,7 @@ class SettingsController extends Controller
     	$id=$user->id;
     	$dps=$user->dpstamp;
     	$user->dpstamp=$timestamp;
+    	$user->proset=1;
     	$user->save();
     	$newuser= user::whereUsername(Session::get('username'))->first();
         Session::put('user',$newuser);
