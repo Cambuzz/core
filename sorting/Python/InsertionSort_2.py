@@ -11,12 +11,39 @@ def insertionSort(alist):
          position = position-1
 
      alist[position]=currentvalue
-for i in range (0,10):
-
-   alist = []
-   for j in range (0,10000):
-      alist.append(int(random.random()*1000000))
-   t1=time.time()
-   insertionSort(alist)
-   t2=time.time()
-   print(t2-t1)
+for i in range(0,10):
+    alist = []
+    for j in range(0,1000):
+        alist.append(int(random.random()*1000000))
+    t1=time.time()
+    insertionSort(alist)
+    t2=time.time()
+    print(t2-t1)
+print("")    
+for i in range(0,10):
+    alist = []
+    for j in range(0,5000):
+        alist.append(int(random.random()*1000000))
+    t1=time.time()
+    insertionSort(alist)
+    t2=time.time()
+    print(t2-t1)
+print("")    
+for i in range(0,10):
+    alist = []
+    for j in range(0,10000):
+        alist.append(int(random.random()*1000000))
+    t1=time.time()
+    insertionSort(alist)
+    t2=time.time()
+    print(t2-t1)
+print("")    
+for i in range(0,2):
+    alist = []
+    for j in range(0,50000):
+        alist.append(int(random.random()*1000000))
+    t1=time.time()
+    insertionSort(alist)
+    t2=time.time()
+    print(t2-t1)
+print("")
