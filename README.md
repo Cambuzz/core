@@ -2,6 +2,9 @@
 
 Cambuzz Dev Team welcomes you. Start contributing!
 
+## Contribution policy
+All contributions should be done in bug-fixes branch.
+
 ## License
 
 The MIT License (MIT)
