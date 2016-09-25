@@ -17,8 +17,9 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 # Step 1: Install Apache
-1) sudo apt-get update
-2) sudo apt-get install apache2
+   1) sudo apt-get update
+   
+   2) sudo apt-get install apache2
 
 # Step 2: Install MySQL
 
@@ -27,6 +28,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 Note : During the installation, your server will ask you to select and confirm a password for the MySQL "root" user. This is an administrative account in MySQL that has increased privileges. Think of it as being similar to the root account for the server itself (the one you are configuring now is a MySQL-specific account however).
 
 2) sudo mysql_install_db
+
 3) sudo mysql_secure_installation
 
 
@@ -35,6 +37,7 @@ Note : You will be asked to enter the password you set for the MySQL root accoun
 # Step 3: Install PHP
 
 1) sudo apt-get install php5 libapache2-mod-php5 php5-mcrypt
+
 2) sudo nano /etc/apache2/mods-enabled/dir.conf
          The above mentioned command will open the dir.conf file in a text editor . The file looks as shown below : 
                       
@@ -57,6 +60,7 @@ Move the PHP index file highlighted above to the first position after the Direct
 
 # Step 4: Test PHP Processing on your Web Server
 1) sudo nano /var/www/html/info.php
+
 2) This will open a blank file named “info.php”. Put the following text, which is valid PHP code, inside the file:
 
 <?php
