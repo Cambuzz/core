@@ -82,7 +82,7 @@ Clone the repository into /var/www/html folder.
 ## Step 7: Setting up database
 
 Now you need to set the password in core/includes/db_connection.php to your phpmyadmin password.
-Create a database named cambuzz and import [cambuzz.sql]("https://www.dropbox.com/s/e4ruytooms7am65/cambuzz.sql?dl=0") into the database.
+Create a database named cambuzz and import [cambuzz.sql](https://www.dropbox.com/s/e4ruytooms7am65/cambuzz.sql?dl=0) into the database.
 
 ## License
 
