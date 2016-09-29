@@ -75,6 +75,14 @@ When the first prompt appears, apache2 is highlighted, but not selected. If you 
 
 If this is successful, then PHP is working as expected. You can now log into the interface using the root username and the administrative password you set up during the MySQL installation.
 
+## Step 6: Clone the repo
+
+Clone the repository into /var/www/html folder.
+
+## Step 7: Setting up database
+
+Now you need to set the password in core/includes/db_connection.php to your phpmyadmin password.
+Create a database named cambuzz and import [cambuzz.sql]("https://www.dropbox.com/s/e4ruytooms7am65/cambuzz.sql?dl=0") into the database.
 
 ## License
 
