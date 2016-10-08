@@ -80,16 +80,7 @@ Clone the repo in /var/www/html/ . Use sudo in case of permission error.
 Now you need to set the password in core/includes/db_connection.php to your phpmyadmin password.
 Create a database named cambuzz and import [cambuzz.sql](https://www.dropbox.com/s/e4ruytooms7am65/cambuzz.sql?dl=0) into the database.
 
-Now go to localhost/core and you can start by signing up.
+Now you are all set. Check out localhost/core and you can start by signing up.
 
-## License
 
-The MIT License (MIT)
-Copyright (c) 2016 Cambuzz (Prashant Kumar Bhardwaj, Prastut Kumar, Fenil Patel, Prasang Sharma, Shantanu Tripathi, Divyang Duhan)
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
