@@ -1,6 +1,7 @@
 <a href="http://www.cambuzz.me/">![Logo](images/cambuzz_logo.png)</a>
 
 ## About
+![https://img.shields.io/gitter/room/nwjs/nw.js.svg](https://gitter.im/cambuzz-youth-networking-platform/Lobby)
 
 Headquartered in VIT Chennai, Cambuzz began as a side project and is now a tiny, bootstrapped idea helping the VIT Chennai family to share their events and is trying to become a go-to resource for discovering and connecting with everyone in the campus. Cambuzz can be divided into three sections:
 
