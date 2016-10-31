@@ -457,10 +457,6 @@ $comment=0;
                             </ul>
             
                         </li>
-                        <li>
-                         <a href="technovit/qubit.php" style="color: white; background-color: #00a651; font-family: 'Montserrat', sans-serif;" class="btn btn-success btn-lg">technoVIT'15</a>
-
-                        </li>       
                     </ul>
                 </div>
 
