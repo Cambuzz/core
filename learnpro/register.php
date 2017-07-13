@@ -5,9 +5,8 @@
     $age = $_POST["age"];
     $username = $_POST["username"];
     $password = $_POST["password"];
-    $statement = mysqli_prepare($con, "INSERT INTO user (name, username, age, password) VALUES (?, ?, ?, ?)");
-    mysqli_stmt_bind_param($statement, "siss", $name, $username, $age, $password);
-    mysqli_stmt_execute($statement);
+    $query = "INSERT INTO user (name, username, age, password) VALUES('{$name}', '{$username}', '{$age}', '{$password}')";
+    mysqli_query($con, $query);
     
     $response = array();
     $response["success"] = true;  
